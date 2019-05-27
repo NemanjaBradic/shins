@@ -90,7 +90,8 @@
     };
 
     var makeToc = function() {
-      recacheHeights();
+      // selectors: 'h1, h2, h3, h4'
+	  recacheHeights();
       refreshToc();
 
       $("#nav-button").click(function() {
