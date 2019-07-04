@@ -13,31 +13,16 @@ headingLevel: 5
 
 ---
 
-<h1 id="agentivity-api">Agentivity API v1.0</h1>
+<h1 id="agentivity-api">Agentivity API</h1>
 
 > Scroll down for code samples, example requests and responses. Select a language for code samples from the tabs above or the mobile navigation menu.
 
-This is a documentation for Agentivity API. There are different test suites packed in collections for this API.
+This is a documentation for Agentivity API.  Agentivity API gives you access to all the reports available in Agentivity application just in API form.
 
-
-# API Keys
-You will be provided with the following details:
-APIKEY
-X-AGENTIVTY-API-USERNAME
-
-Both APIKEY and X-AGENTIVTY-API-USERNAME are required for the authentication of the API Request that you are sending as part of the Header. Later in this document, we describe how to store these values within Postman so you do not have to re-type them for every API Request that you make.
-
-When testing the API, it will help to know some of the following variables:
-* Your own PCC’s e.g. 02LN
-* Corporate account codes e.g. COMPANYNAME
-* GDS Sign-on codes e.g. 02LNEM
-
-These details can be found in Agentivity in the sections:
-Settings > Company Settings > Back-Office
-Settings > Company Settings > GDS Account Values
-Settings > Company Settings > GDS Sign-ons
 
 # API Authentication
+
+## Authentication
 You will be provided with a Username (X-AGENTIVTY-API-USERNAME) and a Secret Key (APIKEY). The secret key is only known to you and by the API.
 
 Four headers are used to send a message to the API. 
@@ -57,11 +42,36 @@ More information about HMAC can be found at: https://en.wikipedia.org/wiki/Hash-
 
 Example code for various programming languages can be found at: https://www.jokecamp.com/blog/examples-of-creating-base64-hashes-using-hmac-sha256-in-different-languages/
 
+## API Keys
+You will be provided with the following details:
+APIKEY
+X-AGENTIVTY-API-USERNAME
+
+Both APIKEY and X-AGENTIVTY-API-USERNAME are required for the authentication of the API Request that you are sending as part of the Header. Later in this document, we describe how to store these values within Postman so you do not have to re-type them for every API Request that you make.
+
+When testing the API, it will help to know some of the following variables:
+* Your own PCC’s e.g. 02LN
+* Corporate account codes e.g. COMPANYNAME
+* GDS Sign-on codes e.g. 02LNEM
+
+These details can be found in Agentivity in the sections:
+Settings > Company Settings > Back-Office
+Settings > Company Settings > GDS Account Values
+Settings > Company Settings > GDS Sign-ons
+
+After you have authenticated to the API, you can send requests to the API using any programming language or program that can send HTTP requests. 
+The base URL for all endpoints is http://api.agentivity.com
+
+# Release Notes
+
+Current version of Agentivity API documentation is 1.0 and it's still in beta.
+
+
 # Endpoints
 
 # Account
 
-##AccountBookingsAllVersionsRequest
+## AccountBookingsAllVersionsRequest
 
 <a id="opIdAccountBookingsAllVersionsRequestbookingsallversionsaccount_Get"></a>
 
@@ -7750,7 +7760,7 @@ System.out.println(response.toString());
 
 ## QLog
 
-## QLogEm
+### QLogEm
 
 <a id="opIdQLogEm"></a>
 
@@ -7817,7 +7827,7 @@ System.out.println(response.toString());
 
 `GET /QLogEm`
 
-<h3 id="qlogem-parameters">Parameters</h3>
+<h4 id="qlogem-parameters">Parameters</h4>
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
@@ -7874,14 +7884,17 @@ System.out.println(response.toString());
 }
 ```
 
-<h3 id="qlogem-responses">Responses</h3>
+<h4 id="qlogem-responses">Responses</h4>
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
 |default|Default|Default response|[QLogEmItemResponse](#schemaqlogemitemresponse)|
 
 
-## QLogForward
+---------------------------------------------------------------------------------------
+
+
+### QLogForward
 
 <a id="opIdQLogForward"></a>
 
@@ -7948,7 +7961,7 @@ System.out.println(response.toString());
 
 `GET /QLogForward`
 
-<h3 id="qlogforward-parameters">Parameters</h3>
+<h4 id="qlogforward-parameters">Parameters</h4>
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
@@ -8005,14 +8018,14 @@ System.out.println(response.toString());
 }
 ```
 
-<h3 id="qlogforward-responses">Responses</h3>
+<h4 id="qlogforward-responses">Responses</h4>
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
 |default|Default|Default response|[QLogForwardItemResponse](#schemaqlogforwarditemresponse)|
 
 
-## QLogIgnored
+### QLogIgnored
 
 <a id="opIdQLogIgnored"></a>
 
@@ -8079,7 +8092,7 @@ System.out.println(response.toString());
 
 `GET /QLogIgnored`
 
-<h3 id="qlogignored-parameters">Parameters</h3>
+<h4 id="qlogignored-parameters">Parameters</h4>
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
@@ -8136,7 +8149,7 @@ System.out.println(response.toString());
 }
 ```
 
-<h3 id="qlogignored-responses">Responses</h3>
+<h4 id="qlogignored-responses">Responses</h4>
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
@@ -8547,93 +8560,8036 @@ System.out.println(response.toString());
 |default|Default|Default response|[PassengerArrivalsItemResponse](#schemapassengerarrivalsitemresponse)|
 
 
+## PassengerAirSegmentsByCompanyAccount
+
+<a id="opIdPassengerAirSegmentsByCompanyAccount"></a>
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X GET http://api.agentivity.com/passengerairsegments/companyaccount \
+  -H 'Accept: application/json' \
+  -H 'Accept: application/json'
+
+```
+
+```javascript
+var headers = {
+  'Accept':'application/json',
+  'Accept':'application/json'
+
+};
+
+$.ajax({
+  url: 'http://api.agentivity.com/passengerairsegments/companyaccount',
+  method: 'get',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json',
+  'Accept': 'application/json'
+}
+
+r = requests.get('http://api.agentivity.com/passengerairsegments/companyaccount', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```java
+URL obj = new URL("http://api.agentivity.com/passengerairsegments/companyaccount");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("GET");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+
+```
+
+`GET /passengerairsegments/companyaccount`
+
+<h3 id="passengerairsegmentsbycompanyaccount-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|Account|query|string|true|GDS account|
+|CompanyID|query|number|true|ID of a Company (travel agency)|
+|DepartureDateEnd|query|string|true|Date in format YYYYMMDD|
+|DepartureDateStart|query|string|true|Date in format YYYYMMDD|
+|DepartureTimeEnd|query|string|false|Date in format YYYYMMDD|
+|DepartureTimeStart|query|string|false|Date in format YYYYMMDD|
+|Accept|header|string|true|Accept Header|
+
+#### Enumerated Values
+
+|Parameter|Value|
+|---|---|
+|Accept|application/json|
+
+
+
+> Default Response
+
+```json
+{
+  "ResponseMetadata": {
+    "Success": true,
+    "HasCache": true,
+    "HasPaging": true,
+    "CacheMetadata": {
+      "IsFromCache": true,
+      "CachedAt": "2019-03-18T11:42:49Z",
+      "CacheExpiresAt": "2019-03-18T11:42:49Z"
+    },
+    "PagingMetadata": {
+      "Limit": "string",
+      "Offset": "string",
+      "ResponseRecords": "string",
+      "TotalRecords": "string"
+    }
+  },
+  "ResponseReport": {
+    "FirstName": "string",
+    "LastName": "string",
+    "PNR": "string",
+    "AirSegmentNbr": 0,
+    "SegmentStatus": "string",
+    "DepartureDate": "string",
+    "DepartureTime": "string",
+    "CarrierCode": "string",
+    "BoardPoint": "string",
+    "OffPoint": "string",
+    "FlightNbr": "string",
+    "BookingCode": "string",
+    "ArrivalTime": "string",
+    "Account": "string"
+  },
+  "ResponseError": {
+    "ErrorCode": "string",
+    "Message": "string",
+    "StatusCode": "string",
+    "VerboseMessage": "string"
+  }
+}
+```
+
+<h3 id="passengerairsegmentsbycompanyaccount-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|default|Default|Default response|[Object](#schemaobject)|
+
+
+## PassengerAirSegmentsWithDocNumberByUser
+
+<a id="opIdPassengerAirSegmentsWithDocNumberByUser"></a>
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X GET http://api.agentivity.com/passengersegmentswithdocnumber/user \
+  -H 'Accept: application/json' \
+  -H 'Accept: application/json'
+
+```
+
+```javascript
+var headers = {
+  'Accept':'application/json',
+  'Accept':'application/json'
+
+};
+
+$.ajax({
+  url: 'http://api.agentivity.com/passengersegmentswithdocnumber/user',
+  method: 'get',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json',
+  'Accept': 'application/json'
+}
+
+r = requests.get('http://api.agentivity.com/passengersegmentswithdocnumber/user', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```java
+URL obj = new URL("http://api.agentivity.com/passengersegmentswithdocnumber/user");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("GET");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+
+```
+
+`GET /passengersegmentswithdocnumber/user`
+
+<h3 id="passengerairsegmentswithdocnumberbyuser-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|UserID|query|number|false|ID of the user|
+|Accept|header|string|true|Accept Header|
+
+#### Enumerated Values
+
+|Parameter|Value|
+|---|---|
+|Accept|application/json|
+
+
+
+> Default Response
+
+```json
+{}
+```
+
+<h3 id="passengerairsegmentswithdocnumberbyuser-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|default|Default|Default response|[Object](#schemaobject)|
+
+
+## PassengerAirSegmentsWithMaxTravellerFlagByUser
+
+<a id="opIdPassengerAirSegmentsWithMaxTravellerFlagByUser"></a>
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X GET http://api.agentivity.com/passengerairsegmentswithmaxtravellerflag/user \
+  -H 'Accept: application/json' \
+  -H 'Accept: application/json'
+
+```
+
+```javascript
+var headers = {
+  'Accept':'application/json',
+  'Accept':'application/json'
+
+};
+
+$.ajax({
+  url: 'http://api.agentivity.com/passengerairsegmentswithmaxtravellerflag/user',
+  method: 'get',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json',
+  'Accept': 'application/json'
+}
+
+r = requests.get('http://api.agentivity.com/passengerairsegmentswithmaxtravellerflag/user', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```java
+URL obj = new URL("http://api.agentivity.com/passengerairsegmentswithmaxtravellerflag/user");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("GET");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+
+```
+
+`GET /passengerairsegmentswithmaxtravellerflag/user`
+
+<h3 id="passengerairsegmentswithmaxtravellerflagbyuser-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|UserName|query|string|true|UserName in form of an email address|
+|Account|query|string|false|GDS account|
+|DepartureDateStart|query|string|true|Date in format YYYYMMDD|
+|DepartureDateEnd|query|string|true|Date in format YYYYMMDD|
+|MaxTravellerIsExceededFlag|query|string|false|Maximum number of travellers above the limit|
+|Accept|header|string|true|Accept Header|
+
+#### Enumerated Values
+
+|Parameter|Value|
+|---|---|
+|Accept|application/json|
+
+
+
+> Default Response
+
+```json
+{
+  "ResponseMetadata": {
+    "Success": true,
+    "HasCache": true,
+    "HasPaging": true,
+    "CacheMetadata": {
+      "IsFromCache": true,
+      "CachedAt": "2019-03-18T11:42:49Z",
+      "CacheExpiresAt": "2019-03-18T11:42:49Z"
+    },
+    "PagingMetadata": {
+      "Limit": "string",
+      "Offset": "string",
+      "ResponseRecords": "string",
+      "TotalRecords": "string"
+    }
+  },
+  "ResponseReport": [
+    {
+      "Account": "string",
+      "ArrivalCity": "string",
+      "ArrivalDate": "string",
+      "ArrivalTime": "string",
+      "CostCentre": "string",
+      "DepartureCity": "string",
+      "DepartureDate": "string",
+      "DepartureTime": "string",
+      "FlightNbr": "string",
+      "MaxTravellerCount": 0,
+      "MaxTravellerCountExceededFlag": true,
+      "OperatingCarrierCode": "string",
+      "Passenger": "string",
+      "PNRTicketed": "string",
+      "RecordLocator": "string",
+      "TravellerCount": 0
+    }
+  ],
+  "ResponseError": {
+    "ErrorCode": "string",
+    "Message": "string",
+    "StatusCode": "string",
+    "VerboseMessage": "string"
+  }
+}
+```
+
+<h3 id="passengerairsegmentswithmaxtravellerflagbyuser-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|default|Default|Default response|[PassengerAirSegmentsWithMaxTravellerFlagByUserResponse](#schemapassengerairsegmentswithmaxtravellerflagbyuserresponse)|
+
+
+## PassengerBookingCountsByAccountAndGenRemark
+
+<a id="opIdPassengerBookingCountsByAccountAndGenRemark"></a>
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X GET http://api.agentivity.com/passengerbookingcounts/companyaccount/genremark \
+  -H 'Accept: application/json' \
+  -H 'Accept: application/json'
+
+```
+
+```javascript
+var headers = {
+  'Accept':'application/json',
+  'Accept':'application/json'
+
+};
+
+$.ajax({
+  url: 'http://api.agentivity.com/passengerbookingcounts/companyaccount/genremark',
+  method: 'get',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json',
+  'Accept': 'application/json'
+}
+
+r = requests.get('http://api.agentivity.com/passengerbookingcounts/companyaccount/genremark', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```java
+URL obj = new URL("http://api.agentivity.com/passengerbookingcounts/companyaccount/genremark");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("GET");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+
+```
+
+`GET /passengerbookingcounts/companyaccount/genremark`
+
+<h3 id="passengerbookingcountsbyaccountandgenremark-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|Account|query|string|false|GDS account|
+|CompanyID|query|string|false|ID of a Company (travel agency)|
+|PNRCreationDateStart|query|string|true|Date in format YYYYMMDD|
+|PNRCreationDateEnd|query|string|true|Date in format YYYYMMDD|
+|Qualifier|query|string|true|Qualifier|
+|Remark|query|string|true|Remark|
+|Accept|header|string|true|Accept Header|
+
+#### Enumerated Values
+
+|Parameter|Value|
+|---|---|
+|Accept|application/json|
+
+
+
+> Default Response
+
+```json
+{
+  "ResponseMetadata": {
+    "Success": true,
+    "HasCache": true,
+    "HasPaging": true,
+    "CacheMetadata": {
+      "IsFromCache": true,
+      "CachedAt": "2019-03-18T11:42:49Z",
+      "CacheExpiresAt": "2019-03-18T11:42:49Z"
+    },
+    "PagingMetadata": {
+      "Limit": "string",
+      "Offset": "string",
+      "ResponseRecords": "string",
+      "TotalRecords": "string"
+    }
+  },
+  "ResponseReport": {
+    "Item": {
+      "LastName": "string",
+      "FirstName": "string",
+      "Account": "string",
+      "TotalBookings": 0
+    }
+  },
+  "ResponseError": {
+    "ErrorCode": "string",
+    "Message": "string",
+    "StatusCode": "string",
+    "VerboseMessage": "string"
+  }
+}
+```
+
+<h3 id="passengerbookingcountsbyaccountandgenremark-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|default|Default|Default response|[PassengerBookingCountsByAccountAndGenRemarkItemResponse](#schemapassengerbookingcountsbyaccountandgenremarkitemresponse)|
+
+
+## PassengerDepartures
+
+<a id="opIdPassengerDepartures"></a>
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X GET http://api.agentivity.com/PassengerDepartures/user \
+  -H 'Accept: application/json' \
+  -H 'Accept: application/json'
+
+```
+
+```javascript
+var headers = {
+  'Accept':'application/json',
+  'Accept':'application/json'
+
+};
+
+$.ajax({
+  url: 'http://api.agentivity.com/PassengerDepartures/user',
+  method: 'get',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json',
+  'Accept': 'application/json'
+}
+
+r = requests.get('http://api.agentivity.com/PassengerDepartures/user', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```java
+URL obj = new URL("http://api.agentivity.com/PassengerDepartures/user");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("GET");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+
+```
+
+`GET /PassengerDepartures/user`
+
+<h3 id="passengerdepartures-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|UserName|query|string|true|UserName in form of an email address|
+|Account|query|string|false|GDS account|
+|ClassName|query|string|false|Name of the class|
+|Carrier|query|string|false|Carrier|
+|TravelDateStart|query|string|true|Date in format YYYYMMDD|
+|TravelDateEnd|query|string|false|Date in format YYYYMMDD|
+|WithSMS|query|string|false|Include items with SMS sent in response|
+|AddVouchers|query|string|false|Add vouchers|
+|AddTransfers|query|string|false|Add transfers|
+|IncludeItinerary|query|string|false|Include Itinerary in the response|
+|IsVip|query|string|false|Return only PNRs that are or are not flagged as VIP bookings|
+|ItineraryFormatting|query|number|false|Indicate the required formatting: 0=None(Default), 1= Html, 2 = Chart|
+|Accept|header|string|true|Accept Header|
+
+#### Enumerated Values
+
+|Parameter|Value|
+|---|---|
+|Accept|application/json|
+
+
+
+> Default Response
+
+```json
+{
+  "ResponseMetadata": {
+    "Success": true,
+    "HasCache": true,
+    "HasPaging": true,
+    "CacheMetadata": {
+      "IsFromCache": true,
+      "CachedAt": "2019-03-18T11:42:49Z",
+      "CacheExpiresAt": "2019-03-18T11:42:49Z"
+    },
+    "PagingMetadata": {
+      "Limit": "string",
+      "Offset": "string",
+      "ResponseRecords": "string",
+      "TotalRecords": "string"
+    }
+  },
+  "ResponseReport": {
+    "Item": {
+      "AgentivityRef": 0,
+      "RecordLocator": "string",
+      "OwningConsultant": "string",
+      "Passenger": "string",
+      "Account": "string",
+      "TravelDate": "2019-03-18T11:42:49Z",
+      "TicketedStatusCode": "string",
+      "TicketedStatus": "string",
+      "SupplierReference": "string",
+      "SMS": "string",
+      "Vouchers": "string",
+      "Transfers": "string",
+      "IsVip": true,
+      "Itinerary": {
+        "SegmentTypesFilter": [
+          "string"
+        ],
+        "FilteredSegments": null,
+        "Capacity": 0,
+        "Count": 0,
+        "Item": {
+          "ArrivalTimeFormatted": "string",
+          "BoardPoint": "string",
+          "ChangeOfDayFormatted": "string",
+          "DepartureTimeFormatted": "string",
+          "EndDate": "string",
+          "OffPoint": "string",
+          "OperatorCode": "string",
+          "OperatorService": "string",
+          "SegmentNbr": 0,
+          "SegmentStatus": "string",
+          "SegmentType": "string",
+          "ServiceCode": "string",
+          "StartDate": "string",
+          "TicketNumber": "string"
+        }
+      },
+      "ItineraryFormatted": "string"
+    }
+  },
+  "ResponseError": {
+    "ErrorCode": "string",
+    "Message": "string",
+    "StatusCode": "string",
+    "VerboseMessage": "string"
+  }
+}
+```
+
+<h3 id="passengerdepartures-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|default|Default|Default response|[PassengerDeparturesItemResponse](#schemapassengerdeparturesitemresponse)|
+
 
 ## Passenger Locations
 
+### PassengerLocationsByAirline
+
+<a id="opIdPassengerLocationsByAirline"></a>
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X GET http://api.agentivity.com/passengerLocationByAirlineCity \
+  -H 'Accept: application/json' \
+  -H 'Accept: application/json'
+
+```
+
+```javascript
+var headers = {
+  'Accept':'application/json',
+  'Accept':'application/json'
+
+};
+
+$.ajax({
+  url: 'http://api.agentivity.com/passengerLocationByAirlineCity',
+  method: 'get',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json',
+  'Accept': 'application/json'
+}
+
+r = requests.get('http://api.agentivity.com/passengerLocationByAirlineCity', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```java
+URL obj = new URL("http://api.agentivity.com/passengerLocationByAirlineCity");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("GET");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+
+```
+
+`GET /passengerLocationByAirlineCity`
+
+<h4 id="passengerlocationsbyairline-parameters">Parameters</h4>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|AccountList|query|string|false|Comma Delimited List of GDS Accounts|
+|UserName|query|string|true|UserName in form of an email address|
+|DateStart|query|string|true|Date in format YYYYMMDD|
+|DateEnd|query|string|true|Date in format YYYYMMDD|
+|CarrierCode|query|string|true|Two letter code for carrier|
+|CityCode|query|string|false|3 letter city code|
+|Accept|header|string|true|Accept Header|
+
+#### Enumerated Values
+
+|Parameter|Value|
+|---|---|
+|Accept|application/json|
+
+
+
+> Default Response
+
+```json
+{
+  "ResponseMetadata": {
+    "Success": true,
+    "HasCache": true,
+    "HasPaging": true,
+    "CacheMetadata": {
+      "IsFromCache": true,
+      "CachedAt": "2019-03-18T11:42:49Z",
+      "CacheExpiresAt": "2019-03-18T11:42:49Z"
+    },
+    "PagingMetadata": {
+      "Limit": "string",
+      "Offset": "string",
+      "ResponseRecords": "string",
+      "TotalRecords": "string"
+    }
+  },
+  "ResponseReport": {
+    "Item": {
+      "AgentivityRef": 0,
+      "RecordLocator": "string",
+      "OwningConsultantID": "string",
+      "TravelDate": "2019-03-18T11:42:49Z",
+      "PnrTicketed": "string",
+      "PaxList": "string",
+      "Account": "string",
+      "DestinationCities": "string",
+      "Connections": "string",
+      "CarrierCodes": "string"
+    }
+  },
+  "ResponseError": {
+    "ErrorCode": "string",
+    "Message": "string",
+    "StatusCode": "string",
+    "VerboseMessage": "string"
+  }
+}
+```
+
+<h4 id="passengerlocationsbyairline-responses">Responses</h4>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|default|Default|Default response|[PassengerLocationsByAirlineItemResponse](#schemapassengerlocationsbyairlineitemresponse)|
+
+
+## PassengerLocationsByFlightNumber
+
+<a id="opIdPassengerLocationsByFlightNumber"></a>
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X GET http://api.agentivity.com/passengerLocationByFlightNumber \
+  -H 'Accept: application/json' \
+  -H 'Accept: application/json'
+
+```
+
+```javascript
+var headers = {
+  'Accept':'application/json',
+  'Accept':'application/json'
+
+};
+
+$.ajax({
+  url: 'http://api.agentivity.com/passengerLocationByFlightNumber',
+  method: 'get',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json',
+  'Accept': 'application/json'
+}
+
+r = requests.get('http://api.agentivity.com/passengerLocationByFlightNumber', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```java
+URL obj = new URL("http://api.agentivity.com/passengerLocationByFlightNumber");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("GET");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+
+```
+
+`GET /passengerLocationByFlightNumber`
+
+<h3 id="passengerlocationsbyflightnumber-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|UserName|query|string|true|UserName in form of an email address|
+|DepartureDateStart|query|string|true|Date in format YYYYMMDD|
+|CarrierCode|query|string|true|Two letter code for carrier|
+|FlightNumber|query|string|true|Flight number without spaces|
+|AccountList|query|string|false|Comma delimited list of GDS Accounts|
+|Accept|header|string|true|Accept Header|
+
+#### Enumerated Values
+
+|Parameter|Value|
+|---|---|
+|Accept|application/json|
+
+
+
+> Default Response
+
+```json
+{
+  "ResponseMetadata": {
+    "Success": true,
+    "HasCache": true,
+    "HasPaging": true,
+    "CacheMetadata": {
+      "IsFromCache": true,
+      "CachedAt": "2019-03-18T11:42:49Z",
+      "CacheExpiresAt": "2019-03-18T11:42:49Z"
+    },
+    "PagingMetadata": {
+      "Limit": "string",
+      "Offset": "string",
+      "ResponseRecords": "string",
+      "TotalRecords": "string"
+    }
+  },
+  "ResponseReport": {
+    "Item": {
+      "AgentivityRef": 0,
+      "RecordLocator": "string",
+      "PaxList": "string",
+      "OwningConsultantID": "string",
+      "Account": "string",
+      "DepartureDate": "2019-03-18T11:42:49Z"
+    }
+  },
+  "ResponseError": {
+    "ErrorCode": "string",
+    "Message": "string",
+    "StatusCode": "string",
+    "VerboseMessage": "string"
+  }
+}
+```
+
+<h3 id="passengerlocationsbyflightnumber-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|default|Default|Default response|[PassengerLocationsByFlightNumberItemResponse](#schemapassengerlocationsbyflightnumberitemresponse)|
+
+
+## PassengerLocationsByUserAirport
+
+<a id="opIdPassengerLocationsByUserAirport"></a>
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X GET http://api.agentivity.com/passengerlocationsbyairport/user/airport \
+  -H 'Accept: application/json' \
+  -H 'Accept: application/json'
+
+```
+
+```javascript
+var headers = {
+  'Accept':'application/json',
+  'Accept':'application/json'
+
+};
+
+$.ajax({
+  url: 'http://api.agentivity.com/passengerlocationsbyairport/user/airport',
+  method: 'get',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json',
+  'Accept': 'application/json'
+}
+
+r = requests.get('http://api.agentivity.com/passengerlocationsbyairport/user/airport', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```java
+URL obj = new URL("http://api.agentivity.com/passengerlocationsbyairport/user/airport");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("GET");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+
+```
+
+`GET /passengerlocationsbyairport/user/airport`
+
+<h3 id="passengerlocationsbyuserairport-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|AirportCode|query|string|true|Airport code|
+|DateStart|query|string|true|Date in format YYYYMMDD|
+|DateEnd|query|string|true|Date in format YYYYMMDD|
+|UserName|query|string|true|UserName in form of an email address|
+|InTransitOnly|query|string|false|Include passangers that are in transit only in response|
+|AccountList|query|string|false|Comma delimited list of GDS Accounts|
+|Accept|header|string|true|Accept Header|
+
+#### Enumerated Values
+
+|Parameter|Value|
+|---|---|
+|Accept|application/json|
+
+
+
+> Default Response
+
+```json
+{
+  "ResponseMetadata": {
+    "Success": true,
+    "HasCache": true,
+    "HasPaging": true,
+    "CacheMetadata": {
+      "IsFromCache": true,
+      "CachedAt": "2019-03-18T11:42:49Z",
+      "CacheExpiresAt": "2019-03-18T11:42:49Z"
+    },
+    "PagingMetadata": {
+      "Limit": "string",
+      "Offset": "string",
+      "ResponseRecords": "string",
+      "TotalRecords": "string"
+    }
+  },
+  "ResponseReport": {
+    "Item": {
+      "PNR": "string",
+      "TravelDate": "string",
+      "DepartureDate": "string",
+      "BoardPoint": "string",
+      "OffPoint": "string",
+      "PnrTicketed": "string",
+      "Account": "string",
+      "Consultant": "string",
+      "PaxList": "string",
+      "PhoneNbr": "string",
+      "EmailAddress": "string",
+      "DestinationCities": "string",
+      "Connections": "string",
+      "CarrierCodes": "string",
+      "AgentivityRef": "string",
+      "HotelsNames": "string"
+    }
+  },
+  "ResponseError": {
+    "ErrorCode": "string",
+    "Message": "string",
+    "StatusCode": "string",
+    "VerboseMessage": "string"
+  }
+}
+```
+
+<h3 id="passengerlocationsbyuserairport-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|default|Default|Default response|[PassengerLocationsByUserAirportItemResponse](#schemapassengerlocationsbyuserairportitemresponse)|
+
+
+## PassengerLocationsByUserAirVendor
+
+<a id="opIdPassengerLocationsByUserAirVendor"></a>
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X GET http://api.agentivity.com/passengerlocationsbyairport/user/airvendor \
+  -H 'Accept: application/json' \
+  -H 'Accept: application/json'
+
+```
+
+```javascript
+var headers = {
+  'Accept':'application/json',
+  'Accept':'application/json'
+
+};
+
+$.ajax({
+  url: 'http://api.agentivity.com/passengerlocationsbyairport/user/airvendor',
+  method: 'get',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json',
+  'Accept': 'application/json'
+}
+
+r = requests.get('http://api.agentivity.com/passengerlocationsbyairport/user/airvendor', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```java
+URL obj = new URL("http://api.agentivity.com/passengerlocationsbyairport/user/airvendor");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("GET");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+
+```
+
+`GET /passengerlocationsbyairport/user/airvendor`
+
+<h3 id="passengerlocationsbyuserairvendor-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|AirportCode|query|string|true|Airport code|
+|DateStart|query|string|true|Date in format YYYYMMDD|
+|DateEnd|query|string|true|Date in format YYYYMMDD|
+|UserName|query|string|true|UserName in form of an email address|
+|InTransitOnly|query|string|false|Include passangers that are in transit only in response|
+|AccountList|query|string|false|Comma delimited list of GDS Accounts|
+|Accept|header|string|true|Accept Header|
+
+#### Enumerated Values
+
+|Parameter|Value|
+|---|---|
+|Accept|application/json|
+
+
+
+> Default Response
+
+```json
+{
+  "ResponseMetadata": {
+    "Success": true,
+    "HasCache": true,
+    "HasPaging": true,
+    "CacheMetadata": {
+      "IsFromCache": true,
+      "CachedAt": "2019-03-18T11:42:49Z",
+      "CacheExpiresAt": "2019-03-18T11:42:49Z"
+    },
+    "PagingMetadata": {
+      "Limit": "string",
+      "Offset": "string",
+      "ResponseRecords": "string",
+      "TotalRecords": "string"
+    }
+  },
+  "ResponseReport": {
+        "PNR": "string",
+        "TravelDate": "string",
+        "DepartureDate": "string",
+        "BoardPoint": "string",
+        "OffPoint": "string",
+        "PnrTicketed": "string",
+        "Account": "string",
+        "Consultant": "string",
+        "PaxList": "string",
+        "PhoneNbr": "string",
+        "EmailAddress": "string",
+        "DestinationCities": "string",
+        "Connections": "string",
+        "CarrierCodes": "string",
+        "AgentivityRef": "string"
+  },
+  "ResponseError": {
+    "ErrorCode": "string",
+    "Message": "string",
+    "StatusCode": "string",
+    "VerboseMessage": "string"
+  }
+}
+```
+
+<h3 id="passengerlocationsbyuserairvendor-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|default|Default|Default response|[Object](#schemaobject)|
+
+
+## PassengerLocationsByUserCity
+
+<a id="opIdPassengerLocationsByUserCity"></a>
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X GET http://api.agentivity.com/passengerlocationsbycity/user/city \
+  -H 'Accept: application/json' \
+  -H 'Accept: application/json'
+
+```
+
+```javascript
+var headers = {
+  'Accept':'application/json',
+  'Accept':'application/json'
+
+};
+
+$.ajax({
+  url: 'http://api.agentivity.com/passengerlocationsbycity/user/city',
+  method: 'get',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json',
+  'Accept': 'application/json'
+}
+
+r = requests.get('http://api.agentivity.com/passengerlocationsbycity/user/city', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```java
+URL obj = new URL("http://api.agentivity.com/passengerlocationsbycity/user/city");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("GET");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+
+```
+
+`GET //passengerlocationsbycity/user/city`
+
+<h3 id="passengerlocationsbyusercity-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|CityCode|query|string|true|3 letter city code|
+|DateStart|query|string|true|Date in format YYYYMMDD|
+|DateEnd|query|string|true|Date in format YYYYMMDD|
+|UserName|query|string|true|UserName in form of an email address|
+|InTransitOnly|query|string|false|Include passangers that are in transit only in response|
+|AccountList|query|string|false|Comma delimited list of GDS Accounts|
+|WithHotel|query|string|false|Include items with hotel in response|
+|HotelName|query|string|false|Name of the hotel|
+|Accept|header|string|true|Accept Header|
+
+#### Enumerated Values
+
+|Parameter|Value|
+|---|---|
+|Accept|application/json|
+
+
+
+> Default Response
+
+```json
+{
+  "ResponseMetadata": {
+    "Success": true,
+    "HasCache": true,
+    "HasPaging": true,
+    "CacheMetadata": {
+      "IsFromCache": true,
+      "CachedAt": "2019-03-18T11:42:49Z",
+      "CacheExpiresAt": "2019-03-18T11:42:49Z"
+    },
+    "PagingMetadata": {
+      "Limit": "string",
+      "Offset": "string",
+      "ResponseRecords": "string",
+      "TotalRecords": "string"
+    }
+  },
+  "ResponseReport": {
+    "Item": {
+      "PNR": "string",
+      "TravelDate": "string",
+      "DepartureDate": "string",
+      "BoardPoint": "string",
+      "OffPoint": "string",
+      "PnrTicketed": "string",
+      "Account": "string",
+      "Consultant": "string",
+      "PaxList": "string",
+      "PhoneNbr": "string",
+      "EmailAddress": "string",
+      "DestinationCities": "string",
+      "Connections": "string",
+      "CarrierCodes": "string",
+      "AgentivityRef": "string",
+      "HotelsNames": "string"
+    }
+  },
+  "ResponseError": {
+    "ErrorCode": "string",
+    "Message": "string",
+    "StatusCode": "string",
+    "VerboseMessage": "string"
+  }
+}
+```
+
+<h3 id="passengerlocationsbyusercity-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|default|Default|Default response|[PassengerLocationsByUserCityItemResponse](#schemapassengerlocationsbyusercityitemresponse)|
+
+
+## PassengerLocationsByUserCountry
+
+<a id="opIdPassengerLocationsByUserCountry"></a>
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X GET http://api.agentivity.com/passengerlocationsbycity/user/country \
+  -H 'Accept: application/json' \
+  -H 'Accept: application/json'
+
+```
+
+```javascript
+var headers = {
+  'Accept':'application/json',
+  'Accept':'application/json'
+
+};
+
+$.ajax({
+  url: 'http://api.agentivity.com/passengerlocationsbycity/user/country',
+  method: 'get',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json',
+  'Accept': 'application/json'
+}
+
+r = requests.get('http://api.agentivity.com/passengerlocationsbycity/user/country', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```java
+URL obj = new URL("http://api.agentivity.com/passengerlocationsbycity/user/country");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("GET");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+
+```
+
+`GET /passengerlocationsbycity/user/country`
+
+<h3 id="passengerlocationsbyusercountry-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|CountryCode|query|string|true|2 letter country code|
+|DateStart|query|string|true|Date in format YYYYMMDD|
+|DateEnd|query|string|true|Date in format YYYYMMDD|
+|UserName|query|string|true|UserName in form of an email address|
+|InTransitOnly|query|string|false|Include passangers that are in transit only in response|
+|AccountList|query|string|false|Comma delimited list of GDS Accounts|
+|Accept|header|string|true|Accept Header|
+
+#### Enumerated Values
+
+|Parameter|Value|
+|---|---|
+|Accept|application/json|
+
+
+
+> Default Response
+
+```json
+{}
+```
+
+<h3 id="passengerlocationsbyusercountry-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|default|Default|Default response|[Object](#schemaobject)|
+
+
+## PassengerLocationHotelsByUserCity
+
+<a id="opIdPassengerLocationHotelsByUserCity"></a>
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X GET http://api.agentivity.com/PassengerLocationHotelsByUserCity \
+  -H 'Accept: application/json' \
+  -H 'Accept: application/json'
+
+```
+
+```javascript
+var headers = {
+  'Accept':'application/json',
+  'Accept':'application/json'
+
+};
+
+$.ajax({
+  url: 'http://api.agentivity.com/PassengerLocationHotelsByUserCity',
+  method: 'get',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json',
+  'Accept': 'application/json'
+}
+
+r = requests.get('http://api.agentivity.com/PassengerLocationHotelsByUserCity', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```java
+URL obj = new URL("http://api.agentivity.com/PassengerLocationHotelsByUserCity");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("GET");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+
+```
+
+`GET /PassengerLocationHotelsByUserCity`
+
+<h3 id="passengerlocationhotelsbyusercity-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|CityCode|query|string|true|3 letter city code|
+|DateStart|query|string|true|Date in format YYYYMMDD|
+|DateEnd|query|string|true|Date in format YYYYMMDD|
+|UserName|query|string|true|UserName in form of an email address|
+|InTransitOnly|query|string|false|Include passangers that are in transit only in response|
+|AccountList|query|string|false|Comma delimited list of GDS Accounts|
+|Accept|header|string|true|Accept Header|
+
+#### Enumerated Values
+
+|Parameter|Value|
+|---|---|
+|Accept|application/json|
+
+
+
+> Default Response
+
+```json
+{}
+```
+
+<h3 id="passengerlocationhotelsbyusercity-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|default|Default|Default response|[Object](#schemaobject)|
 
 
 ## Passenger Counts
 
 
+## CityPassengerCountsByCompanycompany
+
+<a id="opIdCityPassengerCountsByCompanycompany"></a>
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X GET http://api.agentivity.com/citypassengercounts/company \
+  -H 'Accept: application/json' \
+  -H 'Accept: application/json'
+
+```
+
+```javascript
+var headers = {
+  'Accept':'application/json',
+  'Accept':'application/json'
+
+};
+
+$.ajax({
+  url: 'http://api.agentivity.com/citypassengercounts/company',
+  method: 'get',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json',
+  'Accept': 'application/json'
+}
+
+r = requests.get('http://api.agentivity.com/citypassengercounts/company', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```java
+URL obj = new URL("http://api.agentivity.com/citypassengercounts/company");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("GET");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+
+```
+
+`GET /citypassengercounts/company`
+
+<h3 id="citypassengercountsbycompanycompany-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|CountryCode|query|string|true|2 letter country code|
+|CompanyID|query|string|true|ID of a Company (travel agency)|
+|ArrivalDate|query|string|true|Date in format YYYYMMDD|
+|DepartureDate|query|string|true|Date in format YYYYMMDD|
+|Account|query|string|false|GDS account|
+|InTransitOnly|query|string|false|Include passangers that are in transit only in response|
+|Accept|header|string|true|Accept Header|
+
+#### Enumerated Values
+
+|Parameter|Value|
+|---|---|
+|Accept|application/json|
+
+
+
+> Default Response
+
+```json
+{
+  "ResponseMetadata": {
+    "Success": true,
+    "HasCache": true,
+    "HasPaging": true,
+    "CacheMetadata": {
+      "IsFromCache": true,
+      "CachedAt": "2019-03-18T11:42:49Z",
+      "CacheExpiresAt": "2019-03-18T11:42:49Z"
+    },
+    "PagingMetadata": {
+      "Limit": "string",
+      "Offset": "string",
+      "ResponseRecords": "string",
+      "TotalRecords": "string"
+    }
+  },
+  "ResponseReport": [
+    {
+      "CityCode": "string",
+      "PassengerCount": "string"
+    }
+  ],
+  "ResponseError": {
+    "ErrorCode": "string",
+    "Message": "string",
+    "StatusCode": "string",
+    "VerboseMessage": "string"
+  }
+}
+```
+
+<h3 id="citypassengercountsbycompanycompany-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|default|Default|Default response|[CityPassengerCountsByCompanyResponse](#schemacitypassengercountsbycompanyresponse)|
+
+
+## CountryPassengerCountsByCompanycompany
+
+<a id="opIdCountryPassengerCountsByCompanycompany"></a>
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X GET http://api.agentivity.com/countrypassengercounts/company \
+  -H 'Accept: application/json' \
+  -H 'Accept: application/json'
+
+```
+
+```javascript
+var headers = {
+  'Accept':'application/json',
+  'Accept':'application/json'
+
+};
+
+$.ajax({
+  url: 'http://api.agentivity.com/countrypassengercounts/company',
+  method: 'get',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json',
+  'Accept': 'application/json'
+}
+
+r = requests.get('http://api.agentivity.com/countrypassengercounts/company', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```java
+URL obj = new URL("http://api.agentivity.com/countrypassengercounts/company");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("GET");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+
+```
+
+`GET /countrypassengercounts/company`
+
+<h3 id="countrypassengercountsbycompanycompany-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|CompanyID|query|number|true|ID of a Company (travel agency)|
+|ArrivalDate|query|true|false|Date in format YYYYMMDD|
+|DepartureDate|query|string|true|Date in format YYYYMMDD|
+|Account|query|string|false|GDS account|
+|InTransitOnly|query|string|false|Include passangers that are in transit only in response|
+|Accept|header|string|true|Accept Header|
+
+#### Enumerated Values
+
+|Parameter|Value|
+|---|---|
+|Accept|application/json|
+
+
+
+> Default Response
+
+```json
+{
+  "ResponseMetadata": {
+    "Success": true,
+    "HasCache": true,
+    "HasPaging": true,
+    "CacheMetadata": {
+      "IsFromCache": true,
+      "CachedAt": "2019-03-18T11:42:49Z",
+      "CacheExpiresAt": "2019-03-18T11:42:49Z"
+    },
+    "PagingMetadata": {
+      "Limit": "string",
+      "Offset": "string",
+      "ResponseRecords": "string",
+      "TotalRecords": "string"
+    }
+  },
+  "ResponseReport": [
+    {
+      "CountryCode": "string",
+      "PassengerCount": "string"
+    }
+  ],
+  "ResponseError": {
+    "ErrorCode": "string",
+    "Message": "string",
+    "StatusCode": "string",
+    "VerboseMessage": "string"
+  }
+}
+```
+
+<h3 id="countrypassengercountsbycompanycompany-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|default|Default|Default response|[CountryPassengerCountsByCompanyResponse](#schemacountrypassengercountsbycompanyresponse)|
 
 
 # PAR Usage
 
+## GetPARUsagePerCompanyuser
 
+<a id="opIdGetPARUsagePerCompanyuser"></a>
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X GET http://api.agentivity.com/PARUsagePerCompanyLastMonth/user \
+  -H 'Accept: application/json' \
+  -H 'Accept: application/json'
+
+```
+
+```javascript
+var headers = {
+  'Accept':'application/json',
+  'Accept':'application/json'
+
+};
+
+$.ajax({
+  url: 'http://api.agentivity.com/PARUsagePerCompanyLastMonth/user',
+  method: 'get',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json',
+  'Accept': 'application/json'
+}
+
+r = requests.get('http://api.agentivity.com/PARUsagePerCompanyLastMonth/user', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```java
+URL obj = new URL("http://api.agentivity.com/PARUsagePerCompanyLastMonth/user");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("GET");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+
+```
+
+`GET /PARUsagePerCompanyLastMonth/user`
+
+<h3 id="getparusagepercompanyuser-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|UserName|query|string|true|UserName in form of an email address|
+|Accept|header|string|true|Accept Header|
+
+#### Enumerated Values
+
+|Parameter|Value|
+|---|---|
+|Accept|application/json|
+
+
+
+> Default Response
+
+```json
+{
+  "ResponseMetadata": {
+    "Success": true,
+    "HasCache": true,
+    "HasPaging": true,
+    "CacheMetadata": {
+      "IsFromCache": true,
+      "CachedAt": "2019-03-18T11:42:49Z",
+      "CacheExpiresAt": "2019-03-18T11:42:49Z"
+    },
+    "PagingMetadata": {
+      "Limit": "string",
+      "Offset": "string",
+      "ResponseRecords": "string",
+      "TotalRecords": "string"
+    }
+  },
+  "ResponseReport": [
+    {
+      "OwningAgencyPseudo": "string",
+      "TotalBookings": "string",
+      "NumberOfPAR": "string",
+      "PercentOfPAR": "string",
+      "NumberOfBAR": "string"
+    }
+  ],
+  "ResponseError": {
+    "ErrorCode": "string",
+    "Message": "string",
+    "StatusCode": "string",
+    "VerboseMessage": "string"
+  }
+}
+```
+
+<h3 id="getparusagepercompanyuser-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|default|Default|Default response|[PARUsagePerCompanyResponse](#schemaparusagepercompanyresponse)|
+
+
+## GetPARUsagePerUser
+
+<a id="opIdGetPARUsagePerUser"></a>
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X GET http://api.agentivity.com/PARUsagePerUser/user \
+  -H 'Accept: application/json' \
+  -H 'Accept: application/json'
+
+```
+
+```javascript
+var headers = {
+  'Accept':'application/json',
+  'Accept':'application/json'
+
+};
+
+$.ajax({
+  url: 'http://api.agentivity.com/PARUsagePerUser/user',
+  method: 'get',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json',
+  'Accept': 'application/json'
+}
+
+r = requests.get('http://api.agentivity.com/PARUsagePerUser/user', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```java
+URL obj = new URL("http://api.agentivity.com/PARUsagePerUser/user");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("GET");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+
+```
+
+`GET /PARUsagePerUser/user`
+
+<h3 id="getparusageperuser-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|UserName|query|string|true|UserName in form of an email address|
+|DateStart|query|string|true|Date in format YYYYMMDD|
+|DateEnd|query|string|true|Date in format YYYYMMDD|
+|Accept|header|string|true|Accept Header|
+
+#### Enumerated Values
+
+|Parameter|Value|
+|---|---|
+|Accept|application/json|
+
+
+
+> Default Response
+
+```json
+{
+  "ResponseMetadata": {
+    "Success": true,
+    "HasCache": true,
+    "HasPaging": true,
+    "CacheMetadata": {
+      "IsFromCache": true,
+      "CachedAt": "2019-03-18T11:42:49Z",
+      "CacheExpiresAt": "2019-03-18T11:42:49Z"
+    },
+    "PagingMetadata": {
+      "Limit": "string",
+      "Offset": "string",
+      "ResponseRecords": "string",
+      "TotalRecords": "string"
+    }
+  },
+  "ResponseReport": [
+    {
+      "Consultant": "string",
+      "TotalBookings": "string",
+      "NumberOfPAR": "string",
+      "PercentOfPAR": "string",
+      "NumberOfBAR": "string"
+    }
+  ],
+  "ResponseError": {
+    "ErrorCode": "string",
+    "Message": "string",
+    "StatusCode": "string",
+    "VerboseMessage": "string"
+  }
+}
+```
+
+<h3 id="getparusageperuser-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|default|Default|Default response|[PARUsagePerUserResponse](#schemaparusageperuserresponse)|
 
 
 # PCC
 
+## SupplierPreferencesByOwningAgencyLocationID
+
+<a id="opIdSupplierPreferencesByOwningAgencyLocationID"></a>
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X GET http://api.agentivity.com/supplierpreferences/owningagencylocation \
+  -H 'Accept: application/json' \
+  -H 'Accept: application/json'
+
+```
+
+```javascript
+var headers = {
+  'Accept':'application/json',
+  'Accept':'application/json'
+
+};
+
+$.ajax({
+  url: 'http://api.agentivity.com/supplierpreferences/owningagencylocation',
+  method: 'get',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json',
+  'Accept': 'application/json'
+}
+
+r = requests.get('http://api.agentivity.com/supplierpreferences/owningagencylocation', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```java
+URL obj = new URL("http://api.agentivity.com/supplierpreferences/owningagencylocation");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("GET");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+
+```
+
+`GET /supplierpreferences/owningagencylocation`
+
+<h3 id="supplierpreferencesbyowningagencylocationid-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|OwningAgencyLocationID|query|string|true|Owning agency location ID|
+|Account|query|string|false|GDS account|
+|Accept|header|string|true|Accept Header|
+
+#### Enumerated Values
+
+|Parameter|Value|
+|---|---|
+|Accept|application/json|
+
+
+
+> Default Response
+
+```json
+{
+  "ResponseMetadata": {
+    "Success": true,
+    "HasCache": true,
+    "HasPaging": true,
+    "CacheMetadata": {
+      "IsFromCache": true,
+      "CachedAt": "2019-03-18T11:42:49Z",
+      "CacheExpiresAt": "2019-03-18T11:42:49Z"
+    },
+    "PagingMetadata": {
+      "Limit": "string",
+      "Offset": "string",
+      "ResponseRecords": "string",
+      "TotalRecords": "string"
+    }
+  },
+  "ResponseReport": {
+    "PNRSummary": {
+      "RecordLocator": "string",
+      "AirlineReferences": {
+        "Capacity": 0,
+        "Count": 0,
+        "Item": {
+          "Vendor": "string",
+          "VendorLocator": "string"
+        }
+      },
+      "Tickets": {
+        "Capacity": 0,
+        "Count": 0,
+        "Item": {
+          "TktNumber": "string",
+          "Passenger": {
+            "LastName": "string",
+            "FirstName": "string"
+          },
+          "Coupons": {
+            "Capacity": 0,
+            "Count": 0,
+            "Item": {
+              "CouponSequenceNbr": "string",
+              "CouponBoardPoint": "string",
+              "CouponOffPoint": "string",
+              "Carrier": "string",
+              "FlightNbr": "string",
+              "FlightDate": "string",
+              "FlightTime": "string"
+            }
+          }
+        }
+      }
+    },
+    "Segments": {
+      "AirSegments": [
+        {
+          "AirSegmentNbr": 0,
+          "ArrivalTime": "string",
+          "BoardPoint": "string",
+          "BookingCode": "string",
+          "CarrierCode": "string",
+          "ChangeOfDay": "string",
+          "ConnectionIndicator": "string",
+          "DepartureDate": "string",
+          "DepartureTime": "string",
+          "FlightNbr": "string",
+          "JourneyTime": "string",
+          "NbrSeats": 0,
+          "OffPoint": "string",
+          "OperatingCarrierCode": "string",
+          "OperatingCarrierName": "string",
+          "SeatingData": {
+            "Capacity": 0,
+            "Count": 0,
+            "Item": {
+              "SeatLocation": "string",
+              "SeatStatusCode": "string"
+            }
+          },
+          "SegmentStatus": "string"
+        }
+      ],
+      "CarSegments": [
+        {
+          "AirportCode": "string",
+          "CarAddress": "string",
+          "CarLocationCategory": "string",
+          "CarRateCode": "string",
+          "CarRateType": "string",
+          "CarSegmentNbr": 0,
+          "CarType": "string",
+          "CarVendorCode": "string",
+          "CarYieldManagementNbr": "string",
+          "ConfirmationNbr": "string",
+          "CurrencyCode": "string",
+          "DistanceAllowance": "string",
+          "DistanceRateAmount": "string",
+          "DropOffDate": "string",
+          "DropOffTime": "string",
+          "MilesKilometerIndicator": "string",
+          "NbrOfCars": 0,
+          "PickUpDate": "string",
+          "PickUpTime": "string",
+          "RateAmount": "string",
+          "RateGuaranteeIndicator": "string",
+          "SegmentStatus": "string"
+        }
+      ],
+      "HotelSegments": [
+        {
+          "HotelSegmentNbr": "string",
+          "StatusCode": "string",
+          "ArrivalDate": "string",
+          "DepartureDate": "string",
+          "PropertyName": "string",
+          "ChainCode": "string",
+          "ChainName": "string",
+          "CityCode": "string",
+          "CityName": "string",
+          "CountryCode": "string",
+          "CountryName": "string",
+          "Passenger": "string",
+          "Account": "string",
+          "ConfirmationNbr": "string",
+          "Currency": "string",
+          "Rate": "string",
+          "RoomBookingCode": "string",
+          "NbrNights": 0,
+          "MultiLevelRateCode": "string",
+          "NbrRooms": 0,
+          "BookedInName": "string",
+          "ServiceInformation": "string",
+          "PropertyCityCode": "string",
+          "SegmentStatus": "string",
+          "HotelVendorCode": "string"
+        }
+      ],
+      "PassiveSegments": [
+        {
+          "Address": "string",
+          "BookingReasonCode": "string",
+          "BookingSource": "string",
+          "CityCode": "string",
+          "CommissionInformation": "string",
+          "ConfirmationNumber": "string",
+          "DepartureDate": "string",
+          "NbrNights": "string",
+          "Passenger": "string",
+          "PropertyName": "string",
+          "PropertyNumber": "string",
+          "RateAccessCode": "string",
+          "RateCode": "string",
+          "RateQuoted": "string",
+          "SegmentStatus": "string",
+          "SegmentType": "string",
+          "ServiceInformation": "string",
+          "StartDate": "string",
+          "Text": "string",
+          "VendorCode": "string"
+        }
+      ]
+    }
+  },
+  "ResponseError": {
+    "ErrorCode": "string",
+    "Message": "string",
+    "StatusCode": "string",
+    "VerboseMessage": "string"
+  }
+}
+```
+
+<h3 id="supplierpreferencesbyowningagencylocationid-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|default|Default|Default response|[SupplierPreferencesByOwningAgencyLocationIDResponse](#schemasupplierpreferencesbyowningagencylocationidresponse)|
+
+
+## UsersPCCsMapping
+
+<a id="opIdUsersPCCsMapping"></a>
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X GET http://api.agentivity.com/UsersPCCsMapping \
+  -H 'Accept: application/json' \
+  -H 'Accept: application/json'
+
+```
+
+```javascript
+var headers = {
+  'Accept':'application/json',
+  'Accept':'application/json'
+
+};
+
+$.ajax({
+  url: 'http://api.agentivity.com/UsersPCCsMapping',
+  method: 'get',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json',
+  'Accept': 'application/json'
+}
+
+r = requests.get('http://api.agentivity.com/UsersPCCsMapping', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```java
+URL obj = new URL("http://api.agentivity.com/UsersPCCsMapping");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("GET");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+
+```
+
+`GET /UsersPCCsMapping`
+
+<h3 id="userspccsmapping-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|UserName|query|string|true|UserName in form of an email address|
+|OwningAgencyLocationID|query|string|false|Owning agency location ID|
+|Deleted|query|boolean|false|Deleted|
+|Accept|header|string|true|Accept Header|
+
+#### Enumerated Values
+
+|Parameter|Value|
+|---|---|
+|Accept|application/json|
+
+
+
+> Default Response
+
+```json
+{
+  "ResponseMetadata": {
+    "Success": true,
+    "HasCache": true,
+    "HasPaging": true,
+    "CacheMetadata": {
+      "IsFromCache": true,
+      "CachedAt": "2019-03-18T11:42:49Z",
+      "CacheExpiresAt": "2019-03-18T11:42:49Z"
+    },
+    "PagingMetadata": {
+      "Limit": "string",
+      "Offset": "string",
+      "ResponseRecords": "string",
+      "TotalRecords": "string"
+    }
+  },
+  "ResponseReport": {
+    "Item": {
+      "UserID": 0,
+      "UserName": "string",
+      "LastName": "string",
+      "FirstName": "string",
+      "LocationCountryCode": "string",
+      "LocationCountryName": "string",
+      "LastLogin": "2019-03-18T11:42:49Z",
+      "PCCList": "string",
+      "IsUserActive": true,
+      "IsDeleted": true
+    }
+  },
+  "ResponseError": {
+    "ErrorCode": "string",
+    "Message": "string",
+    "StatusCode": "string",
+    "VerboseMessage": "string"
+  }
+}
+```
+
+<h3 id="userspccsmapping-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|default|Default|Default response|[UsersPCCsMappingItemResponse](#schemauserspccsmappingitemresponse)|
 
 
 ## PCC Account
 
+### PCCAccountSupplierPreferencesRequest
 
+<a id="opIdPCCAccountSupplierPreferencesRequest"></a>
 
-## PCC Traveller
+> Code samples
 
+```shell
+# You can also use wget
+curl -X GET http://api.agentivity.com/1/pccaccount/supplierpreferences \
+  -H 'Accept: application/json' \
+  -H 'Accept: application/json'
+
+```
+
+```javascript
+var headers = {
+  'Accept':'application/json',
+  'Accept':'application/json'
+
+};
+
+$.ajax({
+  url: 'http://api.agentivity.com/1/pccaccount/supplierpreferences',
+  method: 'get',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json',
+  'Accept': 'application/json'
+}
+
+r = requests.get('http://api.agentivity.com/1/pccaccount/supplierpreferences', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```java
+URL obj = new URL("http://api.agentivity.com/1/pccaccount/supplierpreferences");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("GET");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+
+```
+
+`GET /1/pccaccount/supplierpreferences`
+
+<h4 id="pccaccountsupplierpreferencesrequest-parameters">Parameters</h4>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|PCC|query|string|false|Pseudo city code|
+|Account|query|string|false|GDS account|
+|Accept|header|string|true|Accept Header|
+
+#### Enumerated Values
+
+|Parameter|Value|
+|---|---|
+|Accept|application/json|
+
+> Default Response
+
+```json
+{
+  "ResponseMetadata": {
+    "Success": true,
+    "HasCache": true,
+    "HasPaging": true,
+    "CacheMetadata": {
+      "IsFromCache": true,
+      "CachedAt": "2019-03-18T11:42:49Z",
+      "CacheExpiresAt": "2019-03-18T11:42:49Z"
+    },
+    "PagingMetadata": {
+      "Limit": "string",
+      "Offset": "string",
+      "ResponseRecords": "string",
+      "TotalRecords": "string"
+    }
+  },
+  "ResponseReport": {
+        "CompanyName": "Travel with Flair",
+        "Preferences": {
+            "PCC": "0CU5",
+            "Account": "",
+            "Preferred": {
+                "Air": [
+                    "BA",
+                    "EK",
+                    "LH",
+                    "LX",
+                    "SA"
+                ],
+                "Car": [
+                    "EP",
+                    "ZD",
+                    "ZI"
+                ],
+                "Hotel": [
+                    "CG",
+                    "HL",
+                    "PR",
+                    "SX"
+                ]
+            },
+            "NonPreferred": {
+                "Air": [
+                    "ET"
+                ],
+                "Car": [],
+                "Hotel": [
+                    "HH"
+                ]
+            },
+            "StopSell": {
+                "Air": [],
+                "Car": [
+                    "TU",
+                    "WF"
+                ],
+                "Hotel": []
+            }
+        }
+  },
+  "ResponseError": {
+    "ErrorCode": "string",
+    "Message": "string",
+    "StatusCode": "string",
+    "VerboseMessage": "string"
+  }
+}
+```
+
+<h4 id="pccaccountsupplierpreferencesrequest-responses">Responses</h4>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|default|Default|Default response|[Object](#schemaobject)|
 
 
 ## PCC Transaction Agent
 
+### PCCTransactionAgentAirlineDemandsForTicketingBookingsRequest
 
+<a id="opIdPCCTransactionAgentAirlineDemandsForTicketingBookingsRequest"></a>
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X GET http://api.agentivity.com/pcctransactionagent/airlinedemandsforticketingbookings/{PCC}/{TransactionAgent}/{DayCount} \
+  -H 'Accept: application/json' \
+  -H 'Accept: application/json'
+
+```
+
+```javascript
+var headers = {
+  'Accept':'application/json',
+  'Accept':'application/json'
+
+};
+
+$.ajax({
+  url: 'http://api.agentivity.com/pcctransactionagent/airlinedemandsforticketingbookings/{PCC}/{TransactionAgent}/{DayCount}',
+  method: 'get',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json',
+  'Accept': 'application/json'
+}
+
+r = requests.get('http://api.agentivity.com/pcctransactionagent/airlinedemandsforticketingbookings/{PCC}/{TransactionAgent}/{DayCount}', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```java
+URL obj = new URL("http://api.agentivity.com/pcctransactionagent/airlinedemandsforticketingbookings/{PCC}/{TransactionAgent}/{DayCount}");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("GET");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+
+```
+
+`GET /pcctransactionagent/airlinedemandsforticketingbookings/{PCC}/{TransactionAgent}/{DayCount}`
+
+<h4 id="pcctransactionagentairlinedemandsforticketingbookingsrequest-parameters">Parameters</h4>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|PCC|query|string|true|Pseudo city code|
+|TransactionAgent|query|string|true|Transaction agent name|
+|DayCount|query|number|false|Day count|
+|Accept|header|string|true|Accept Header|
+
+#### Enumerated Values
+
+|Parameter|Value|
+|---|---|
+|Accept|application/json|
+
+
+
+> Default Response
+
+```json
+{}
+```
+
+<h4 id="pcctransactionagentairlinedemandsforticketingbookingsrequest-responses">Responses</h4>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|default|Default|Default response|[Object](#schemaobject)|
+
+
+### PCCTransactionAgentDepartureBookingsRequest
+
+<a id="opIdPCCTransactionAgentDepartureBookingsRequest"></a>
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X GET http://api.agentivity.com/pcctransactionagent/departurebookings/{PCC}/{TransactionAgent}/{DayCount} \
+  -H 'Accept: application/json' \
+  -H 'Accept: application/json'
+
+```
+
+```javascript
+var headers = {
+  'Accept':'application/json',
+  'Accept':'application/json'
+
+};
+
+$.ajax({
+  url: 'http://api.agentivity.com/pcctransactionagent/departurebookings/{PCC}/{TransactionAgent}/{DayCount}',
+  method: 'get',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json',
+  'Accept': 'application/json'
+}
+
+r = requests.get('http://api.agentivity.com/pcctransactionagent/departurebookings/{PCC}/{TransactionAgent}/{DayCount}', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```java
+URL obj = new URL("http://api.agentivity.com/pcctransactionagent/departurebookings/{PCC}/{TransactionAgent}/{DayCount}");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("GET");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+
+```
+
+`GET /pcctransactionagent/departurebookings/{PCC}/{TransactionAgent}/{DayCount}`
+
+<h4 id="pcctransactionagentdeparturebookingsrequest-parameters">Parameters</h4>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|PCC|query|string|true|Pseudo city code|
+|TransactionAgent|query|string|true|Transaction agent name|
+|DayCount|query|number|false|Day count|
+|Accept|header|string|true|Accept Header|
+
+#### Enumerated Values
+
+|Parameter|Value|
+|---|---|
+|Accept|application/json|
+
+
+
+> Default Response
+
+```json
+{}
+```
+
+<h4 id="pcctransactionagentdeparturebookingsrequest-responses">Responses</h4>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|default|Default|Default response|[Object](#schemaobject)|
+
+
+### PCCTransactionAgentProblematicBookingSegmentsRequestproblematicbookingsegmentsPCCTransactionAgentDayCount_Get
+
+<a id="opIdPCCTransactionAgentProblematicBookingSegmentsRequestproblematicbookingsegmentsPCCTransactionAgentDayCount_Get"></a>
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X GET http://api.agentivity.com/pcctransactionagent/problematicbookingsegments/{PCC}/{TransactionAgent}/{DayCount} \
+  -H 'Accept: application/json' \
+  -H 'Accept: application/json'
+
+```
+
+```javascript
+var headers = {
+  'Accept':'application/json',
+  'Accept':'application/json'
+
+};
+
+$.ajax({
+  url: 'http://api.agentivity.com/pcctransactionagent/problematicbookingsegments/{PCC}/{TransactionAgent}/{DayCount}',
+  method: 'get',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json',
+  'Accept': 'application/json'
+}
+
+r = requests.get('http://api.agentivity.com/pcctransactionagent/problematicbookingsegments/{PCC}/{TransactionAgent}/{DayCount}', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```java
+URL obj = new URL("http://api.agentivity.com/pcctransactionagent/problematicbookingsegments/{PCC}/{TransactionAgent}/{DayCount}");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("GET");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+
+```
+
+`GET /pcctransactionagent/problematicbookingsegments/{PCC}/{TransactionAgent}/{DayCount}`
+
+<h4 id="pcctransactionagentproblematicbookingsegmentsrequestproblematicbookingsegmentspcctransactionagentdaycount_get-parameters">Parameters</h4>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|PCC|query|string|true|Pseudo city code|
+|TransactionAgent|query|string|true|Transaction agent name|
+|DayCount|query|number|false|Day count|
+|Accept|header|string|true|Accept Header|
+
+#### Enumerated Values
+
+|Parameter|Value|
+|---|---|
+|Accept|application/json|
+
+
+
+> Default Response
+
+```json
+{}
+```
+
+<h4 id="pcctransactionagentproblematicbookingsegmentsrequestproblematicbookingsegmentspcctransactionagentdaycount_get-responses">Responses</h4>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|default|Default|Default response|[Object](#schemaobject)|
+
+
+### PCCTransactionAgentTAUDueBookingsRequesttauduebookingsPCCTransactionAgentDayCount_Get
+
+<a id="opIdPCCTransactionAgentTAUDueBookingsRequesttauduebookingsPCCTransactionAgentDayCount_Get"></a>
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X GET http://api.agentivity.com/pcctransactionagent/tauduebookings/{PCC}/{TransactionAgent}/{DayCount} \
+  -H 'Accept: application/json' \
+  -H 'Accept: application/json'
+
+```
+
+```javascript
+var headers = {
+  'Accept':'application/json',
+  'Accept':'application/json'
+
+};
+
+$.ajax({
+  url: 'http://api.agentivity.com/pcctransactionagent/tauduebookings/{PCC}/{TransactionAgent}/{DayCount}',
+  method: 'get',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json',
+  'Accept': 'application/json'
+}
+
+r = requests.get('http://api.agentivity.com/pcctransactionagent/tauduebookings/{PCC}/{TransactionAgent}/{DayCount}', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```java
+URL obj = new URL("http://api.agentivity.com/pcctransactionagent/tauduebookings/{PCC}/{TransactionAgent}/{DayCount}");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("GET");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+
+```
+
+`GET /pcctransactionagent/tauduebookings/{PCC}/{TransactionAgent}/{DayCount}`
+
+<h4 id="pcctransactionagenttauduebookingsrequesttauduebookingspcctransactionagentdaycount_get-parameters">Parameters</h4>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|PCC|query|string|true|Pseudo city code|
+|TransactionAgent|query|string|true|Transaction agent name|
+|DayCount|query|number|false|Day count|
+|Accept|header|string|true|Accept Header|
+
+#### Enumerated Values
+
+|Parameter|Value|
+|---|---|
+|Accept|application/json|
+
+
+
+> Default Response
+
+```json
+{}
+```
+
+<h4 id="pcctransactionagenttauduebookingsrequesttauduebookingspcctransactionagentdaycount_get-responses">Responses</h4>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|default|Default|Default response|[Object](#schemaobject)|
+
+
+## PCC Traveller
+
+### PCCTravellerBookingHistoryRequest
+
+<a id="opIdPCCTravellerBookingHistoryRequest"></a>
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X GET http://api.agentivity.com/pcctraveller/bookinghistory \
+  -H 'Accept: application/json' \
+  -H 'Accept: application/json'
+
+```
+
+```javascript
+var headers = {
+  'Accept':'application/json',
+  'Accept':'application/json'
+
+};
+
+$.ajax({
+  url: 'http://api.agentivity.com/pcctraveller/bookinghistory',
+  method: 'get',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json',
+  'Accept': 'application/json'
+}
+
+r = requests.get('http://api.agentivity.com/pcctraveller/bookinghistory', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```java
+URL obj = new URL("http://api.agentivity.com/pcctraveller/bookinghistory");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("GET");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+
+```
+
+`GET /pcctraveller/bookinghistory`
+
+`GET /1/pcctraveller/bookinghistory`
+
+`GET /pcctraveller/bookinghistory/{PCC}/{MAR}/{BAR}/{PAR}/{OptionalParameters*}`
+
+`GET /1/pcctraveller/bookinghistory/{PCC}/{MAR}/{BAR}/{PAR}/{OptionalParameters*}`
+
+<h4 id="pcctravellerbookinghistoryrequest-parameters">Parameters</h4>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|PCC|path|string|true|Pseudo city code|
+|BAR|path|string|true|Busness account record|
+|MAR|path|string|true|Master account record|
+|PAR|path|string|true|Passegner account record|
+|OptionalParameters|path|string|true|Optional parameters|
+|StartDate|query|string|false|Date in format YYYYMMDD|
+|EndDate|query|string|false|Date in format YYYYMMDD|
+|Count|query|string|number|Count|
+|CityCode|query|string|false|3 letter city code|
+|Accept|header|string|true|Accept Header|
+
+#### Enumerated Values
+
+|Parameter|Value|
+|---|---|
+|Accept|application/json|
+
+
+
+> Default Response
+
+```json
+{}
+```
+
+<h4 id="pcctravellerbookinghistoryrequest-responses">Responses</h4>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|default|Default|Default response|[Object](#schemaobject)|
+
+
+### PCCTravellerHistorySummaryRequest
+
+<a id="opIdPCCTravellerHistorySummaryRequest"></a>
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X GET http://api.agentivity.com/1/pcctraveller/historysummary \
+  -H 'Accept: application/json' \
+  -H 'Accept: application/json'
+
+```
+
+```javascript
+var headers = {
+  'Accept':'application/json',
+  'Accept':'application/json'
+
+};
+
+$.ajax({
+  url: 'http://api.agentivity.com/1/pcctraveller/historysummary',
+  method: 'get',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json',
+  'Accept': 'application/json'
+}
+
+r = requests.get('http://api.agentivity.com/1/pcctraveller/historysummary', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```java
+URL obj = new URL("http://api.agentivity.com/1/pcctraveller/historysummary");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("GET");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+
+```
+
+`GET /1/pcctraveller/historysummary`
+
+`GET /1/pcctraveller/historysummary/{PCC}/{MAR}/{BAR}/{PAR}`
+
+`GET /pcctraveller/historysummary`
+
+`GET /pcctraveller/historysummary/{PCC}/{MAR}/{BAR}/{PAR}`
+
+<h4 id="pcctravellerhistorysummaryrequest-parameters">Parameters</h4>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|PCC|query|string|true|Pseudo city code|
+|BAR|query|string|false|Busness account record|
+|MAR|query|string|false|Master account record|
+|PAR|query|string|false|Passegner account record|
+|Accept|header|string|true|Accept Header|
+
+#### Enumerated Values
+
+|Parameter|Value|
+|---|---|
+|Accept|application/json|
+
+
+
+> Default Response
+
+```json
+{}
+```
+
+<h4 id="pcctravellerhistorysummaryrequest-responses">Responses</h4>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|default|Default|Default response|[Object](#schemaobject)|
+
+
+### PCCTravellerTicketSegmentsPerStatusRequest
+
+<a id="opIdPCCTravellerTicketSegmentsPerStatusRequest"></a>
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X GET http://api.agentivity.com/1/pcctraveller/ticketsegmentsperstatus \
+  -H 'Accept: application/json' \
+  -H 'Accept: application/json'
+
+```
+
+```javascript
+var headers = {
+  'Accept':'application/json',
+  'Accept':'application/json'
+
+};
+
+$.ajax({
+  url: 'http://api.agentivity.com/1/pcctraveller/ticketsegmentsperstatus',
+  method: 'get',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json',
+  'Accept': 'application/json'
+}
+
+r = requests.get('http://api.agentivity.com/1/pcctraveller/ticketsegmentsperstatus', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```java
+URL obj = new URL("http://api.agentivity.com/1/pcctraveller/ticketsegmentsperstatus");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("GET");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+
+```
+
+`GET /pcctraveller/ticketsegmentsperstatus`
+
+`GET /1/pcctraveller/ticketsegmentsperstatus`
+
+`GET /1/pcctraveller/ticketsegmentsperstatus/{PCC}/{BAR}/{FlightCouponStatus}`
+
+`GET /pcctraveller/ticketsegmentsperstatus/{PCC}/{BAR}/{FlightCouponStatus}`
+
+<h4 id="pcctravellerticketsegmentsperstatusrequest-parameters">Parameters</h4>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|PCC|query|string|true|Pseudo city code|
+|BAR|query|string|false|Busness account record|
+|PAR|query|string|false|Passegner account record|
+|FlightCouponStatus|path|string|false|One letter code for flight coupon status|
+|Accept|header|string|true|Accept Header|
+
+#### Enumerated Values
+
+|Parameter|Value|
+|---|---|
+|Accept|application/json|
+
+
+
+> Default Response
+
+```json
+{}
+```
+
+<h4 id="pcctravellerticketsegmentsperstatusrequest-responses">Responses</h4>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|default|Default|Default response|[Object](#schemaobject)|
 
 
 # Routing Instances
 
+## RoutingInstancesByCity
 
+<a id="opIdRoutingInstancesByCity"></a>
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X GET http://api.agentivity.com/routinginstancesbycity/user \
+  -H 'Accept: application/json' \
+  -H 'Accept: application/json'
+
+```
+
+```javascript
+var headers = {
+  'Accept':'application/json',
+  'Accept':'application/json'
+
+};
+
+$.ajax({
+  url: 'http://api.agentivity.com/routinginstancesbycity/user',
+  method: 'get',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json',
+  'Accept': 'application/json'
+}
+
+r = requests.get('http://api.agentivity.com/routinginstancesbycity/user', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```java
+URL obj = new URL("http://api.agentivity.com/routinginstancesbycity/user");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("GET");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+
+```
+
+`GET /routinginstancesbycity/user`
+
+<h3 id="routinginstancesbycity-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|UserName|query|string|true|UserName in form of an email address|
+|DateStart|query|string|true|Date in format YYYYMMDD|
+|DateEnd|query|string|true|Date in format YYYYMMDD|
+|DestinationCity|query|string|true|Destination city 3 letters code|
+|Accept|header|string|true|Accept Header|
+
+#### Enumerated Values
+
+|Parameter|Value|
+|---|---|
+|Accept|application/json|
+
+
+
+> Default Response
+
+```json
+{
+  "ResponseMetadata": {
+    "Success": true,
+    "HasCache": true,
+    "HasPaging": true,
+    "CacheMetadata": {
+      "IsFromCache": true,
+      "CachedAt": "2019-03-18T11:42:49Z",
+      "CacheExpiresAt": "2019-03-18T11:42:49Z"
+    },
+    "PagingMetadata": {
+      "Limit": "string",
+      "Offset": "string",
+      "ResponseRecords": "string",
+      "TotalRecords": "string"
+    }
+  },
+  "ResponseReport": {
+    "Item": {
+      "Routing": "string",
+      "TotalInstances": "string"
+    }
+  },
+  "ResponseError": {
+    "ErrorCode": "string",
+    "Message": "string",
+    "StatusCode": "string",
+    "VerboseMessage": "string"
+  }
+}
+```
+
+<h3 id="routinginstancesbycity-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|default|Default|Default response|[RoutingInstancesByCityItemResponse](#schemaroutinginstancesbycityitemresponse)|
+
+
+## RoutingInstancesPerCity
+
+<a id="opIdRoutingInstancesPerCity"></a>
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X GET http://api.agentivity.com/routinginstancespercity/user \
+  -H 'Accept: application/json' \
+  -H 'Accept: application/json'
+
+```
+
+```javascript
+var headers = {
+  'Accept':'application/json',
+  'Accept':'application/json'
+
+};
+
+$.ajax({
+  url: 'http://api.agentivity.com/routinginstancespercity/user',
+  method: 'get',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json',
+  'Accept': 'application/json'
+}
+
+r = requests.get('http://api.agentivity.com/routinginstancespercity/user', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```java
+URL obj = new URL("http://api.agentivity.com/routinginstancespercity/user");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("GET");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+
+```
+
+`GET /routinginstancespercity/user`
+
+<h3 id="routinginstancespercity-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|UserName|query|string|true|UserName in form of an email address|
+|DateStart|query|string|true|Date in format YYYYMMDD|
+|DateEnd|query|string|true|Date in format YYYYMMDD|
+|Accept|header|string|true|Accept Header|
+
+#### Enumerated Values
+
+|Parameter|Value|
+|---|---|
+|Accept|application/json|
+
+
+
+> Default Response
+
+```json
+{
+  "ResponseMetadata": {
+    "Success": true,
+    "HasCache": true,
+    "HasPaging": true,
+    "CacheMetadata": {
+      "IsFromCache": true,
+      "CachedAt": "2019-03-18T11:42:49Z",
+      "CacheExpiresAt": "2019-03-18T11:42:49Z"
+    },
+    "PagingMetadata": {
+      "Limit": "string",
+      "Offset": "string",
+      "ResponseRecords": "string",
+      "TotalRecords": "string"
+    }
+  },
+  "ResponseReport": {
+    "Item": {
+      "CityCode": "string",
+      "CityName": "string",
+      "TotalInstances": 0
+    }
+  },
+  "ResponseError": {
+    "ErrorCode": "string",
+    "Message": "string",
+    "StatusCode": "string",
+    "VerboseMessage": "string"
+  }
+}
+```
+
+<h3 id="routinginstancespercity-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|default|Default|Default response|[RoutingInstancesPerCityItemResponse](#schemaroutinginstancespercityitemresponse)|
 
 
 # Sales
 
+## GetProductSalesPerMonth
 
+<a id="opIdGetProductSalesPerMonth"></a>
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X GET http://api.agentivity.com/ProductSalesPerMonth \
+  -H 'Accept: application/json' \
+  -H 'Accept: application/json'
+
+```
+
+```javascript
+var headers = {
+  'Accept':'application/json',
+  'Accept':'application/json'
+
+};
+
+$.ajax({
+  url: 'http://api.agentivity.com/ProductSalesPerMonth',
+  method: 'get',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json',
+  'Accept': 'application/json'
+}
+
+r = requests.get('http://api.agentivity.com/ProductSalesPerMonth', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```java
+URL obj = new URL("http://api.agentivity.com/ProductSalesPerMonth");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("GET");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+
+```
+
+`GET /ProductSalesPerMonth`
+
+<h3 id="getproductsalespermonth-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|Year|query|string|true|Year from the date|
+|Month|query|string|true|Month from the date|
+|Accept|header|string|true|Accept Header|
+
+#### Enumerated Values
+
+|Parameter|Value|
+|---|---|
+|Accept|application/json|
+
+
+
+> Default Response
+
+```json
+{
+  "ResponseMetadata": {
+    "Success": true,
+    "HasCache": true,
+    "HasPaging": true,
+    "CacheMetadata": {
+      "IsFromCache": true,
+      "CachedAt": "2019-03-18T11:42:49Z",
+      "CacheExpiresAt": "2019-03-18T11:42:49Z"
+    },
+    "PagingMetadata": {
+      "Limit": "string",
+      "Offset": "string",
+      "ResponseRecords": "string",
+      "TotalRecords": "string"
+    }
+  },
+  "ResponseReport": [
+    {
+      "ProductName": "string",
+      "Revenue": 0
+    }
+  ],
+  "ResponseError": {
+    "ErrorCode": "string",
+    "Message": "string",
+    "StatusCode": "string",
+    "VerboseMessage": "string"
+  }
+}
+```
+
+<h3 id="getproductsalespermonth-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|default|Default|Default response|[ProductSalesPerMonthResponse](#schemaproductsalespermonthresponse)|
+
+
+## GetProducts
+
+<a id="opIdGetProducts"></a>
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X GET http://api.agentivity.com/Products \
+  -H 'Accept: application/json' \
+  -H 'Accept: application/json'
+
+```
+
+```javascript
+var headers = {
+  'Accept':'application/json',
+  'Accept':'application/json'
+
+};
+
+$.ajax({
+  url: 'http://api.agentivity.com/Products',
+  method: 'get',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json',
+  'Accept': 'application/json'
+}
+
+r = requests.get('http://api.agentivity.com/Products', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```java
+URL obj = new URL("http://api.agentivity.com/Products");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("GET");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+
+```
+
+`GET /Products`
+
+<h3 id="getproducts-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|Offset|query|string|false|Starting Record|
+|Limit|query|string|false|Number of records to return (PageSize)|
+|TotalRecords|query|string(int32)|false|Total Number of Records in a Full Reponse (if no paging)|
+|ResponseRecords|query|string(int32)|false|Total NUmber of Records in this Reponse (on this page)|
+|Accept|header|string|true|Accept Header|
+
+#### Enumerated Values
+
+|Parameter|Value|
+|---|---|
+|Accept|application/json|
+
+
+
+> Default Response
+
+```json
+{
+  "ResponseMetadata": {
+    "Success": true,
+    "HasCache": true,
+    "HasPaging": true,
+    "CacheMetadata": {
+      "IsFromCache": true,
+      "CachedAt": "2019-03-18T11:42:49Z",
+      "CacheExpiresAt": "2019-03-18T11:42:49Z"
+    },
+    "PagingMetadata": {
+      "Limit": "string",
+      "Offset": "string",
+      "ResponseRecords": "string",
+      "TotalRecords": "string"
+    }
+  },
+  "ResponseReport": [
+    {
+      "ProductName": "string",
+      "ProductId": "string"
+    }
+  ],
+  "ResponseError": {
+    "ErrorCode": "string",
+    "Message": "string",
+    "StatusCode": "string",
+    "VerboseMessage": "string"
+  }
+}
+```
+
+<h3 id="getproducts-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|default|Default|Default response|[ProductResponse](#schemaproductresponse)|
+
+
+## GetSalesPerCountryCurrentMonth
+
+<a id="opIdGetSalesPerCountryCurrentMonth"></a>
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X GET http://api.agentivity.com/SalesPerCountryCurrentMonth \
+  -H 'Accept: application/json' \
+  -H 'Accept: application/json'
+
+```
+
+```javascript
+var headers = {
+  'Accept':'application/json',
+  'Accept':'application/json'
+
+};
+
+$.ajax({
+  url: 'http://api.agentivity.com/SalesPerCountryCurrentMonth',
+  method: 'get',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json',
+  'Accept': 'application/json'
+}
+
+r = requests.get('http://api.agentivity.com/SalesPerCountryCurrentMonth', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```java
+URL obj = new URL("http://api.agentivity.com/SalesPerCountryCurrentMonth");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("GET");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+
+```
+
+`GET /SalesPerCountryCurrentMonth`
+
+<h3 id="getsalespercountrycurrentmonth-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|Product|query|string|true|Product name|
+|ProductId|query|string|true|ID of the product|
+|Distributor|query|string|true|Distributor name|
+|DistributorId|query|string|true|ID of distributor|
+|Accept|header|string|true|Accept Header|
+
+#### Enumerated Values
+
+|Parameter|Value|
+|---|---|
+|Accept|application/json|
+
+
+
+> Default Response
+
+```json
+{
+  "ResponseMetadata": {
+    "Success": true,
+    "HasCache": true,
+    "HasPaging": true,
+    "CacheMetadata": {
+      "IsFromCache": true,
+      "CachedAt": "2019-03-18T11:42:49Z",
+      "CacheExpiresAt": "2019-03-18T11:42:49Z"
+    },
+    "PagingMetadata": {
+      "Limit": "string",
+      "Offset": "string",
+      "ResponseRecords": "string",
+      "TotalRecords": "string"
+    }
+  },
+  "ResponseReport": [
+    {
+      "Country": "string",
+      "Revenue": 0
+    }
+  ],
+  "ResponseError": {
+    "ErrorCode": "string",
+    "Message": "string",
+    "StatusCode": "string",
+    "VerboseMessage": "string"
+  }
+}
+```
+
+<h3 id="getsalespercountrycurrentmonth-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|default|Default|Default response|[SalesPerCountryCurrentMonthResponse](#schemasalespercountrycurrentmonthresponse)|
+
+
+## GetTotalSalesCurrentMonth
+
+<a id="opIdGetTotalSalesCurrentMonth"></a>
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X GET http://api.agentivity.com/TotalSalesCurrentMonth \
+  -H 'Accept: application/json' \
+  -H 'Accept: application/json'
+
+```
+
+```javascript
+var headers = {
+  'Accept':'application/json',
+  'Accept':'application/json'
+
+};
+
+$.ajax({
+  url: 'http://api.agentivity.com/TotalSalesCurrentMonth',
+  method: 'get',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json',
+  'Accept': 'application/json'
+}
+
+r = requests.get('http://api.agentivity.com/TotalSalesCurrentMonth', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```java
+URL obj = new URL("http://api.agentivity.com/TotalSalesCurrentMonth");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("GET");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+
+```
+
+`GET /TotalSalesCurrentMonth`
+
+<h3 id="gettotalsalescurrentmonth-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|Offset|query|string|false|Starting Record|
+|Limit|query|string|false|Number of records to return (PageSize)|
+|TotalRecords|query|string(int32)|false|Total Number of Records in a Full Reponse (if no paging)|
+|ResponseRecords|query|string(int32)|false|Total Number of Records in this Reponse (on this page)|
+|Accept|header|string|true|Accept Header|
+
+#### Enumerated Values
+
+|Parameter|Value|
+|---|---|
+|Accept|application/json|
+
+
+
+> Default Response
+
+```json
+{
+  "ResponseMetadata": {
+    "Success": true,
+    "HasCache": true,
+    "HasPaging": true,
+    "CacheMetadata": {
+      "IsFromCache": true,
+      "CachedAt": "2019-03-18T11:42:49Z",
+      "CacheExpiresAt": "2019-03-18T11:42:49Z"
+    },
+    "PagingMetadata": {
+      "Limit": "string",
+      "Offset": "string",
+      "ResponseRecords": "string",
+      "TotalRecords": "string"
+    }
+  },
+  "ResponseReport": {
+    "Item": {
+      "Total": 0
+    }
+  },
+  "ResponseError": {
+    "ErrorCode": "string",
+    "Message": "string",
+    "StatusCode": "string",
+    "VerboseMessage": "string"
+  }
+}
+```
+
+<h3 id="gettotalsalescurrentmonth-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|default|Default|Default response|[TotalSalesCurrentMonthItemResponse](#schematotalsalescurrentmonthitemresponse)|
 
 
 # Segments
 
+## AirSegmentsByDate
+
+<a id="opIdAirSegmentsByDate"></a>
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X GET http://api.agentivity.com/AirSegmentsByDate/user \
+  -H 'Accept: application/json' \
+  -H 'Accept: application/json'
+
+```
+
+```javascript
+var headers = {
+  'Accept':'application/json',
+  'Accept':'application/json'
+
+};
+
+$.ajax({
+  url: 'http://api.agentivity.com/AirSegmentsByDate/user',
+  method: 'get',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json',
+  'Accept': 'application/json'
+}
+
+r = requests.get('http://api.agentivity.com/AirSegmentsByDate/user', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```java
+URL obj = new URL("http://api.agentivity.com/AirSegmentsByDate/user");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("GET");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+
+```
+
+`GET /AirSegmentsByDate/user`
+
+<h3 id="airsegmentsbydate-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|UserName|query|string|true|UserName in form of an email address|
+|DateStart|query|string|true|Date in format YYYYMMDD|
+|DateEnd|query|string|true|Date in format YYYYMMDD|
+|Accept|header|string|true|Accept Header|
+
+#### Enumerated Values
+
+|Parameter|Value|
+|---|---|
+|Accept|application/json|
 
 
-## Air Segments
+
+> Default Response
+
+```json
+{
+  "ResponseMetadata": {
+    "Success": true,
+    "HasCache": true,
+    "HasPaging": true,
+    "CacheMetadata": {
+      "IsFromCache": true,
+      "CachedAt": "2019-03-18T11:42:49Z",
+      "CacheExpiresAt": "2019-03-18T11:42:49Z"
+    },
+    "PagingMetadata": {
+      "Limit": "string",
+      "Offset": "string",
+      "ResponseRecords": "string",
+      "TotalRecords": "string"
+    }
+  },
+  "ResponseReport": {
+    "Item": {
+      "AgentivityRef": "string",
+      "RecordLocator": "string",
+      "OwningAgencyLocationID": "string",
+      "OwningConsultant": "string",
+      "Account": "string",
+      "Passengers": "string",
+      "DepartureDate": "2019-03-18T11:42:49Z",
+      "DepartureTime": "string",
+      "ArrivalDate": "2019-03-18T11:42:49Z",
+      "ArrivalTime": "string",
+      "CarrierCode": "string",
+      "BoardPoint": "string",
+      "OffPoint": "string",
+      "FlightNbr": "string",
+      "BookingCode": "string",
+      "CreatingAgencyIata": "string",
+      "SegmentStatus": "string"
+    }
+  },
+  "ResponseError": {
+    "ErrorCode": "string",
+    "Message": "string",
+    "StatusCode": "string",
+    "VerboseMessage": "string"
+  }
+}
+```
+
+<h3 id="airsegmentsbydate-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|default|Default|Default response|[AirSegmentsByDateItemResponse](#schemaairsegmentsbydateitemresponse)|
+
+
+## AirSegmentsByUserGenRemark
+
+<a id="opIdAirSegmentsByUserGenRemark"></a>
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X GET http://api.agentivity.com/airsegments/user/genremark \
+  -H 'Accept: application/json' \
+  -H 'Accept: application/json'
+
+```
+
+```javascript
+var headers = {
+  'Accept':'application/json',
+  'Accept':'application/json'
+
+};
+
+$.ajax({
+  url: 'http://api.agentivity.com/airsegments/user/genremark',
+  method: 'get',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json',
+  'Accept': 'application/json'
+}
+
+r = requests.get('http://api.agentivity.com/airsegments/user/genremark', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```java
+URL obj = new URL("http://api.agentivity.com/airsegments/user/genremark");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("GET");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+
+```
+
+`GET /airsegments/user/genremark`
+
+<h3 id="airsegmentsbyusergenremark-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|UserName|query|string|true|UserName in form of an email address|
+|DepartureDateStart|query|string|true|Date in format YYYYMMDD|
+|DepartureDateEnd|query|string|true|Date in format YYYYMMDD|
+|Qualifier|query|string|true|Qualifier|
+|Remark|query|string|true|Remark|
+|Account|query|string|false|GDS account|
+|Accept|header|string|true|Accept Header|
+
+#### Enumerated Values
+
+|Parameter|Value|
+|---|---|
+|Accept|application/json|
 
 
 
-## Car Segments
+> Default Response
+
+```json
+{}
+```
+
+<h3 id="airsegmentsbyusergenremark-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|default|Default|Default response|[Object](#schemaobject)|
+
+
+## AirSegmentsByUserTktRemark
+
+<a id="opIdAirSegmentsByUserTktRemark"></a>
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X GET http://api.agentivity.com/airsegments/user/tktremark \
+  -H 'Accept: application/json' \
+  -H 'Accept: application/json'
+
+```
+
+```javascript
+var headers = {
+  'Accept':'application/json',
+  'Accept':'application/json'
+
+};
+
+$.ajax({
+  url: 'http://api.agentivity.com/airsegments/user/tktremark',
+  method: 'get',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json',
+  'Accept': 'application/json'
+}
+
+r = requests.get('http://api.agentivity.com/airsegments/user/tktremark', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```java
+URL obj = new URL("http://api.agentivity.com/airsegments/user/tktremark");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("GET");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+
+```
+
+`GET /airsegments/user/tktremark`
+
+<h3 id="airsegmentsbyusertktremark-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|Account|query|string|true|GDS account|
+|UserName|query|string|true|UserName in form of an email address|
+|DepartureDateStart|query|string|true|Date in format YYYYMMDD|
+|DepartureDateEnd|query|string|true|Date in format YYYYMMDD|
+|Qualifier|query|string|true|Qualifier|
+|Remark|query|string|true|Remark|
+|Accept|header|string|true|Accept Header|
+
+#### Enumerated Values
+
+|Parameter|Value|
+|---|---|
+|Accept|application/json|
 
 
 
-## Hotel Segments
+> Default Response
+
+```json
+{}
+```
+
+<h3 id="airsegmentsbyusertktremark-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|default|Default|Default response|[Object](#schemaobject)|
+
+
+## AirSegmentsPerAccountByVendor
+
+<a id="opIdAirSegmentsPerAccountByVendor"></a>
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X GET http://api.agentivity.com/AirSegmentsPerAccountByVendor/user \
+  -H 'Accept: application/json' \
+  -H 'Accept: application/json'
+
+```
+
+```javascript
+var headers = {
+  'Accept':'application/json',
+  'Accept':'application/json'
+
+};
+
+$.ajax({
+  url: 'http://api.agentivity.com/AirSegmentsPerAccountByVendor/user',
+  method: 'get',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json',
+  'Accept': 'application/json'
+}
+
+r = requests.get('http://api.agentivity.com/AirSegmentsPerAccountByVendor/user', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```java
+URL obj = new URL("http://api.agentivity.com/AirSegmentsPerAccountByVendor/user");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("GET");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+
+```
+
+`GET /AirSegmentsPerAccountByVendor/user`
+
+<h3 id="airsegmentsperaccountbyvendor-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|DateStart|query|string|true|Date in format YYYYMMDD|
+|DateEnd|query|string|true|Date in format YYYYMMDD|
+|UserName|query|string|true|UserName in form of an email address|
+|VendorCode|query|string|true|Vendor code|
+|Accept|header|string|true|Accept Header|
+
+#### Enumerated Values
+
+|Parameter|Value|
+|---|---|
+|Accept|application/json|
 
 
 
+> Default Response
 
-# Ticket
+```json
+{
+  "ResponseMetadata": {
+    "Success": true,
+    "HasCache": true,
+    "HasPaging": true,
+    "CacheMetadata": {
+      "IsFromCache": true,
+      "CachedAt": "2019-03-18T11:42:49Z",
+      "CacheExpiresAt": "2019-03-18T11:42:49Z"
+    },
+    "PagingMetadata": {
+      "Limit": "string",
+      "Offset": "string",
+      "ResponseRecords": "string",
+      "TotalRecords": "string"
+    }
+  },
+  "ResponseReport": {
+    "Item": {
+      "Account": "string",
+      "TotalAirSegments": 0
+    }
+  },
+  "ResponseError": {
+    "ErrorCode": "string",
+    "Message": "string",
+    "StatusCode": "string",
+    "VerboseMessage": "string"
+  }
+}
+```
+
+<h3 id="airsegmentsperaccountbyvendor-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|default|Default|Default response|[AirSegmentsPerAccountByVendorItemResponse](#schemaairsegmentsperaccountbyvendoritemresponse)|
+
+
+## AirSegmentsPerBranchByVendor
+
+<a id="opIdAirSegmentsPerBranchByVendor"></a>
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X GET http://api.agentivity.com/AirSegmentsPerBranchByVendor/user \
+  -H 'Accept: application/json' \
+  -H 'Accept: application/json'
+
+```
+
+```javascript
+var headers = {
+  'Accept':'application/json',
+  'Accept':'application/json'
+
+};
+
+$.ajax({
+  url: 'http://api.agentivity.com/AirSegmentsPerBranchByVendor/user',
+  method: 'get',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json',
+  'Accept': 'application/json'
+}
+
+r = requests.get('http://api.agentivity.com/AirSegmentsPerBranchByVendor/user', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```java
+URL obj = new URL("http://api.agentivity.com/AirSegmentsPerBranchByVendor/user");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("GET");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+
+```
+
+`GET /AirSegmentsPerBranchByVendor/user`
+
+<h3 id="airsegmentsperbranchbyvendor-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|DateStart|query|string|true|Date in format YYYYMMDD|
+|DateEnd|query|string|true|Date in format YYYYMMDD|
+|UserName|query|string|true|UserName in form of an email address|
+|VendorCode|query|string|true|Vendor code|
+|Accept|header|string|true|Accept Header|
+
+#### Enumerated Values
+
+|Parameter|Value|
+|---|---|
+|Accept|application/json|
 
 
 
-## Ticket Coupon
+> Default Response
+
+```json
+{
+  "ResponseMetadata": {
+    "Success": true,
+    "HasCache": true,
+    "HasPaging": true,
+    "CacheMetadata": {
+      "IsFromCache": true,
+      "CachedAt": "2019-03-18T11:42:49Z",
+      "CacheExpiresAt": "2019-03-18T11:42:49Z"
+    },
+    "PagingMetadata": {
+      "Limit": "string",
+      "Offset": "string",
+      "ResponseRecords": "string",
+      "TotalRecords": "string"
+    }
+  },
+  "ResponseReport": {
+    "Item": {
+      "OwningAgencyLocation": "string",
+      "OwningAgencyLocationID": "string",
+      "TotalAirSegments": 0
+    }
+  },
+  "ResponseError": {
+    "ErrorCode": "string",
+    "Message": "string",
+    "StatusCode": "string",
+    "VerboseMessage": "string"
+  }
+}
+```
+
+<h3 id="airsegmentsperbranchbyvendor-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|default|Default|Default response|[AirSegmentsPerBranchByVendorItemResponse](#schemaairsegmentsperbranchbyvendoritemresponse)|
+
+
+## AirSegmentsPerCarrier
+
+<a id="opIdAirSegmentsPerCarrier"></a>
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X GET http://api.agentivity.com/airsegmentspercarrier/user \
+  -H 'Accept: application/json' \
+  -H 'Accept: application/json'
+
+```
+
+```javascript
+var headers = {
+  'Accept':'application/json',
+  'Accept':'application/json'
+
+};
+
+$.ajax({
+  url: 'http://api.agentivity.com/airsegmentspercarrier/user',
+  method: 'get',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json',
+  'Accept': 'application/json'
+}
+
+r = requests.get('http://api.agentivity.com/airsegmentspercarrier/user', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```java
+URL obj = new URL("http://api.agentivity.com/airsegmentspercarrier/user");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("GET");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+
+```
+
+`GET /airsegmentspercarrier/user`
+
+<h3 id="airsegmentspercarrier-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|DateStart|query|string|true|Date in format YYYYMMDD|
+|DateEnd|query|string|true|Date in format YYYYMMDD|
+|UserName|query|string|true|UserName in form of an email address|
+|Accept|header|string|true|Accept Header|
+
+#### Enumerated Values
+
+|Parameter|Value|
+|---|---|
+|Accept|application/json|
 
 
 
+> Default Response
 
-# Traveller
+```json
+{
+  "ResponseMetadata": {
+    "Success": true,
+    "HasCache": true,
+    "HasPaging": true,
+    "CacheMetadata": {
+      "IsFromCache": true,
+      "CachedAt": "2019-03-18T11:42:49Z",
+      "CacheExpiresAt": "2019-03-18T11:42:49Z"
+    },
+    "PagingMetadata": {
+      "Limit": "string",
+      "Offset": "string",
+      "ResponseRecords": "string",
+      "TotalRecords": "string"
+    }
+  },
+  "ResponseReport": {
+    "Item": {
+      "CarrierCode": "string",
+      "CarrierName": "string",
+      "TotalAirSegments": 0
+    }
+  },
+  "ResponseError": {
+    "ErrorCode": "string",
+    "Message": "string",
+    "StatusCode": "string",
+    "VerboseMessage": "string"
+  }
+}
+```
+
+<h3 id="airsegmentspercarrier-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|default|Default|Default response|[AirSegmentsPerCarrierItemResponse](#schemaairsegmentspercarrieritemresponse)|
+
+
+## AirSegmentsPerConsultantByVendor
+
+<a id="opIdAirSegmentsPerConsultantByVendor"></a>
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X GET http://api.agentivity.com/AirSegmentsPerConsultantByVendor/user \
+  -H 'Accept: application/json' \
+  -H 'Accept: application/json'
+
+```
+
+```javascript
+var headers = {
+  'Accept':'application/json',
+  'Accept':'application/json'
+
+};
+
+$.ajax({
+  url: 'http://api.agentivity.com/AirSegmentsPerConsultantByVendor/user',
+  method: 'get',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json',
+  'Accept': 'application/json'
+}
+
+r = requests.get('http://api.agentivity.com/AirSegmentsPerConsultantByVendor/user', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```java
+URL obj = new URL("http://api.agentivity.com/AirSegmentsPerConsultantByVendor/user");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("GET");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+
+```
+
+`GET /AirSegmentsPerConsultantByVendor/user`
+
+<h3 id="airsegmentsperconsultantbyvendor-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|DateStart|query|string|true|Date in format YYYYMMDD|
+|DateEnd|query|string|true|Date in format YYYYMMDD|
+|UserName|query|string|true|UserName in form of an email address|
+|VendorCode|query|string|true|Vendor code|
+|Accept|header|string|true|Accept Header|
+
+#### Enumerated Values
+
+|Parameter|Value|
+|---|---|
+|Accept|application/json|
 
 
 
+> Default Response
 
-# User
+```json
+{
+  "ResponseMetadata": {
+    "Success": true,
+    "HasCache": true,
+    "HasPaging": true,
+    "CacheMetadata": {
+      "IsFromCache": true,
+      "CachedAt": "2019-03-18T11:42:49Z",
+      "CacheExpiresAt": "2019-03-18T11:42:49Z"
+    },
+    "PagingMetadata": {
+      "Limit": "string",
+      "Offset": "string",
+      "ResponseRecords": "string",
+      "TotalRecords": "string"
+    }
+  },
+  "ResponseReport": {
+    "Item": {
+      "OwningConsultant": "string",
+      "OwningConsultantID": "string",
+      "OwningAgencyLocation": "string",
+      "TotalAirSegments": 0
+    }
+  },
+  "ResponseError": {
+    "ErrorCode": "string",
+    "Message": "string",
+    "StatusCode": "string",
+    "VerboseMessage": "string"
+  }
+}
+```
+
+<h3 id="airsegmentsperconsultantbyvendor-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|default|Default|Default response|[AirSegmentsPerConsultantByVendorItemResponse](#schemaairsegmentsperconsultantbyvendoritemresponse)|
+
+
+## AirSegmentsPerDestinationByVendor
+
+<a id="opIdAirSegmentsPerDestinationByVendor"></a>
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X GET http://api.agentivity.com/AirSegmentsPerDestinationByVendor/user \
+  -H 'Accept: application/json' \
+  -H 'Accept: application/json'
+
+```
+
+```javascript
+var headers = {
+  'Accept':'application/json',
+  'Accept':'application/json'
+
+};
+
+$.ajax({
+  url: 'http://api.agentivity.com/AirSegmentsPerDestinationByVendor/user',
+  method: 'get',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json',
+  'Accept': 'application/json'
+}
+
+r = requests.get('http://api.agentivity.com/AirSegmentsPerDestinationByVendor/user', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```java
+URL obj = new URL("http://api.agentivity.com/AirSegmentsPerDestinationByVendor/user");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("GET");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+
+```
+
+`GET /AirSegmentsPerDestinationByVendor/user`
+
+<h3 id="airsegmentsperdestinationbyvendor-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|DateStart|query|string|true|Date in format YYYYMMDD|
+|DateEnd|query|string|true|Date in format YYYYMMDD|
+|UserName|query|string|true|UserName in form of an email address|
+|VendorCode|query|string|true|Vendor code|
+|Accept|header|string|true|Accept Header|
+
+#### Enumerated Values
+
+|Parameter|Value|
+|---|---|
+|Accept|application/json|
 
 
 
+> Default Response
+
+```json
+{
+  "ResponseMetadata": {
+    "Success": true,
+    "HasCache": true,
+    "HasPaging": true,
+    "CacheMetadata": {
+      "IsFromCache": true,
+      "CachedAt": "2019-03-18T11:42:49Z",
+      "CacheExpiresAt": "2019-03-18T11:42:49Z"
+    },
+    "PagingMetadata": {
+      "Limit": "string",
+      "Offset": "string",
+      "ResponseRecords": "string",
+      "TotalRecords": "string"
+    }
+  },
+  "ResponseReport": {
+    "Item": {
+      "CityName": "string",
+      "CityCode": "string",
+      "CountryName": "string",
+      "TotalInstances": 0
+    }
+  },
+  "ResponseError": {
+    "ErrorCode": "string",
+    "Message": "string",
+    "StatusCode": "string",
+    "VerboseMessage": "string"
+  }
+}
+```
+
+<h3 id="airsegmentsperdestinationbyvendor-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|default|Default|Default response|[AirSegmentsPerDestinationByVendorItemResponse](#schemaairsegmentsperdestinationbyvendoritemresponse)|
+
+
+## AirSegmentsWithVendorLocatorsByUser
+
+<a id="opIdAirSegmentsWithVendorLocatorsByUser"></a>
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X GET http://api.agentivity.com/airsegmentswithvendorlocators/user \
+  -H 'Accept: application/json' \
+  -H 'Accept: application/json'
+
+```
+
+```javascript
+var headers = {
+  'Accept':'application/json',
+  'Accept':'application/json'
+
+};
+
+$.ajax({
+  url: 'http://api.agentivity.com/airsegmentswithvendorlocators/user',
+  method: 'get',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json',
+  'Accept': 'application/json'
+}
+
+r = requests.get('http://api.agentivity.com/airsegmentswithvendorlocators/user', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```java
+URL obj = new URL("http://api.agentivity.com/airsegmentswithvendorlocators/user");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("GET");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+
+```
+
+`GET /airsegmentswithvendorlocators/user`
+
+<h3 id="airsegmentswithvendorlocatorsbyuser-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|UserName|query|string|true|UserName in form of an email address|
+|Account|query|string|true|GDS account|
+|DepartureDateStart|query|string|true|Date in format YYYYMMDD|
+|DepartureDateEnd|query|string|true|Date in format YYYYMMDD|
+|Accept|header|string|true|Accept Header|
+
+#### Enumerated Values
+
+|Parameter|Value|
+|---|---|
+|Accept|application/json|
 
 
 
+> Default Response
+
+```json
+{
+  "ResponseMetadata": {
+    "Success": true,
+    "HasCache": true,
+    "HasPaging": true,
+    "CacheMetadata": {
+      "IsFromCache": true,
+      "CachedAt": "2019-03-18T11:42:49Z",
+      "CacheExpiresAt": "2019-03-18T11:42:49Z"
+    },
+    "PagingMetadata": {
+      "Limit": "string",
+      "Offset": "string",
+      "ResponseRecords": "string",
+      "TotalRecords": "string"
+    }
+  },
+  "ResponseReport": [
+    {
+      "RecordLocator": "string",
+      "PNRCreationDate": "string",
+      "AgentivityRef": "string",
+      "Account": "string",
+      "OwningConsultantID": "string",
+      "OwningConsultant": "string",
+      "OwningAgencyLocationID": "string",
+      "PaxList": "string",
+      "AirSegmentNbr": "string",
+      "SegmentStatus": "string",
+      "BoardPoint": "string",
+      "OffPoint": "string",
+      "DepartureDate": "string",
+      "DepartureTime": "string",
+      "ArrivalTime": "string",
+      "ChangeOfDay": "string",
+      "CarrierCode": "string",
+      "FlightNbr": "string",
+      "BookingCode": "string",
+      "PNRTicketed": "string",
+      "VendorLocator": "string",
+      "CheckInURL": "string"
+    }
+  ],
+  "ResponseError": {
+    "ErrorCode": "string",
+    "Message": "string",
+    "StatusCode": "string",
+    "VerboseMessage": "string"
+  }
+}
+```
+
+<h3 id="airsegmentswithvendorlocatorsbyuser-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|default|Default|Default response|[AirSegmentsWithVendorLocatorsByUserResponse](#schemaairsegmentswithvendorlocatorsbyuserresponse)|
+
+
+## CarSegmentCountsPerAccountByVendor
+
+<a id="opIdCarSegmentCountsPerAccountByVendor"></a>
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X GET http://api.agentivity.com/CarSegmentCountsPerAccountByVendor/user \
+  -H 'Accept: application/json' \
+  -H 'Accept: application/json'
+
+```
+
+```javascript
+var headers = {
+  'Accept':'application/json',
+  'Accept':'application/json'
+
+};
+
+$.ajax({
+  url: 'http://api.agentivity.com/CarSegmentCountsPerAccountByVendor/user',
+  method: 'get',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json',
+  'Accept': 'application/json'
+}
+
+r = requests.get('http://api.agentivity.com/CarSegmentCountsPerAccountByVendor/user', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```java
+URL obj = new URL("http://api.agentivity.com/CarSegmentCountsPerAccountByVendor/user");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("GET");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+
+```
+
+`GET /CarSegmentCountsPerAccountByVendor/user`
+
+<h3 id="carsegmentcountsperaccountbyvendor-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|UserName|query|string|true|UserName in form of an email address|
+|DateStart|query|string|true|Date in format YYYYMMDD|
+|DateEnd|query|string|true|Date in format YYYYMMDD|
+|VendorCode|query|string|true|Vendor code|
+|Accept|header|string|true|Accept Header|
+
+#### Enumerated Values
+
+|Parameter|Value|
+|---|---|
+|Accept|application/json|
 
 
 
+> Default Response
+
+```json
+{
+  "ResponseMetadata": {
+    "Success": true,
+    "HasCache": true,
+    "HasPaging": true,
+    "CacheMetadata": {
+      "IsFromCache": true,
+      "CachedAt": "2019-03-18T11:42:49Z",
+      "CacheExpiresAt": "2019-03-18T11:42:49Z"
+    },
+    "PagingMetadata": {
+      "Limit": "string",
+      "Offset": "string",
+      "ResponseRecords": "string",
+      "TotalRecords": "string"
+    }
+  },
+  "ResponseReport": {
+    "Item": {
+      "Account": "string",
+      "TotalSegments": 0
+    }
+  },
+  "ResponseError": {
+    "ErrorCode": "string",
+    "Message": "string",
+    "StatusCode": "string",
+    "VerboseMessage": "string"
+  }
+}
+```
+
+<h3 id="carsegmentcountsperaccountbyvendor-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|default|Default|Default response|[CarSegmentCountsPerAccountByVendorItemResponse](#schemacarsegmentcountsperaccountbyvendoritemresponse)|
+
+
+## CarSegmentCountsPerBranchByVendor
+
+<a id="opIdCarSegmentCountsPerBranchByVendor"></a>
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X GET http://api.agentivity.com/CarSegmentCountsPerBranchByVendor/user \
+  -H 'Accept: application/json' \
+  -H 'Accept: application/json'
+
+```
+
+```javascript
+var headers = {
+  'Accept':'application/json',
+  'Accept':'application/json'
+
+};
+
+$.ajax({
+  url: 'http://api.agentivity.com/CarSegmentCountsPerBranchByVendor/user',
+  method: 'get',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json',
+  'Accept': 'application/json'
+}
+
+r = requests.get('http://api.agentivity.com/CarSegmentCountsPerBranchByVendor/user', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```java
+URL obj = new URL("http://api.agentivity.com/CarSegmentCountsPerBranchByVendor/user");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("GET");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+
+```
+
+`GET /CarSegmentCountsPerBranchByVendor/user`
+
+<h3 id="carsegmentcountsperbranchbyvendor-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|UserName|query|string|true|UserName in form of an email address|
+|DateStart|query|string|true|Date in format YYYYMMDD|
+|DateEnd|query|string|true|Date in format YYYYMMDD|
+|VendorCode|query|string|true|Vendor code|
+|Accept|header|string|true|Accept Header|
+
+#### Enumerated Values
+
+|Parameter|Value|
+|---|---|
+|Accept|application/json|
 
 
 
+> Default Response
 
+```json
+{
+  "ResponseMetadata": {
+    "Success": true,
+    "HasCache": true,
+    "HasPaging": true,
+    "CacheMetadata": {
+      "IsFromCache": true,
+      "CachedAt": "2019-03-18T11:42:49Z",
+      "CacheExpiresAt": "2019-03-18T11:42:49Z"
+    },
+    "PagingMetadata": {
+      "Limit": "string",
+      "Offset": "string",
+      "ResponseRecords": "string",
+      "TotalRecords": "string"
+    }
+  },
+  "ResponseReport": {
+    "Item": {
+      "OwningAgencyLocation": "string",
+      "OwningAgencyLocationID": "string",
+      "TotalSegments": 0
+    }
+  },
+  "ResponseError": {
+    "ErrorCode": "string",
+    "Message": "string",
+    "StatusCode": "string",
+    "VerboseMessage": "string"
+  }
+}
+```
+
+<h3 id="carsegmentcountsperbranchbyvendor-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|default|Default|Default response|[CarSegmentCountsPerBranchByVendorItemResponse](#schemacarsegmentcountsperbranchbyvendoritemresponse)|
+
+
+## CarSegmentCountsPerConsultantByVendor
+
+<a id="opIdCarSegmentCountsPerConsultantByVendor"></a>
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X GET http://api.agentivity.com/CarSegmentCountsPerConsultantByVendor/user \
+  -H 'Accept: application/json' \
+  -H 'Accept: application/json'
+
+```
+
+```javascript
+var headers = {
+  'Accept':'application/json',
+  'Accept':'application/json'
+
+};
+
+$.ajax({
+  url: 'http://api.agentivity.com/CarSegmentCountsPerConsultantByVendor/user',
+  method: 'get',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json',
+  'Accept': 'application/json'
+}
+
+r = requests.get('http://api.agentivity.com/CarSegmentCountsPerConsultantByVendor/user', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```java
+URL obj = new URL("http://api.agentivity.com/CarSegmentCountsPerConsultantByVendor/user");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("GET");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+
+```
+
+`GET /CarSegmentCountsPerConsultantByVendor/user`
+
+<h3 id="carsegmentcountsperconsultantbyvendor-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|UserName|query|string|true|UserName in form of an email address|
+|DateStart|query|string|true|Date in format YYYYMMDD|
+|DateEnd|query|string|true|Date in format YYYYMMDD|
+|VendorCode|query|string|true|Vendor code|
+|Accept|header|string|true|Accept Header|
+
+#### Enumerated Values
+
+|Parameter|Value|
+|---|---|
+|Accept|application/json|
+
+
+
+> Default Response
+
+```json
+{
+  "ResponseMetadata": {
+    "Success": true,
+    "HasCache": true,
+    "HasPaging": true,
+    "CacheMetadata": {
+      "IsFromCache": true,
+      "CachedAt": "2019-03-18T11:42:49Z",
+      "CacheExpiresAt": "2019-03-18T11:42:49Z"
+    },
+    "PagingMetadata": {
+      "Limit": "string",
+      "Offset": "string",
+      "ResponseRecords": "string",
+      "TotalRecords": "string"
+    }
+  },
+  "ResponseReport": {
+    "Item": {
+      "OwningConsultant": "string",
+      "OwningConsultantID": "string",
+      "OwningAgencyLocation": "string",
+      "TotalSegments": 0
+    }
+  },
+  "ResponseError": {
+    "ErrorCode": "string",
+    "Message": "string",
+    "StatusCode": "string",
+    "VerboseMessage": "string"
+  }
+}
+```
+
+<h3 id="carsegmentcountsperconsultantbyvendor-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|default|Default|Default response|[CarSegmentCountsPerConsultantByVendorItemResponse](#schemacarsegmentcountsperconsultantbyvendoritemresponse)|
+
+
+## CarSegmentCountsPerLocationByVendor
+
+<a id="opIdCarSegmentCountsPerLocationByVendor"></a>
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X GET http://api.agentivity.com/CarSegmentCountsPerLocationByVendor/user \
+  -H 'Accept: application/json' \
+  -H 'Accept: application/json'
+
+```
+
+```javascript
+var headers = {
+  'Accept':'application/json',
+  'Accept':'application/json'
+
+};
+
+$.ajax({
+  url: 'http://api.agentivity.com/CarSegmentCountsPerLocationByVendor/user',
+  method: 'get',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json',
+  'Accept': 'application/json'
+}
+
+r = requests.get('http://api.agentivity.com/CarSegmentCountsPerLocationByVendor/user', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```java
+URL obj = new URL("http://api.agentivity.com/CarSegmentCountsPerLocationByVendor/user");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("GET");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+
+```
+
+`GET /CarSegmentCountsPerLocationByVendor/user`
+
+<h3 id="carsegmentcountsperlocationbyvendor-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|UserName|query|string|true|UserName in form of an email address|
+|DateStart|query|string|true|Date in format YYYYMMDD|
+|DateEnd|query|string|true|Date in format YYYYMMDD|
+|VendorCode|query|string|true|Vendor code|
+|Accept|header|string|true|Accept Header|
+
+#### Enumerated Values
+
+|Parameter|Value|
+|---|---|
+|Accept|application/json|
+
+
+
+> Default Response
+
+```json
+{
+  "ResponseMetadata": {
+    "Success": true,
+    "HasCache": true,
+    "HasPaging": true,
+    "CacheMetadata": {
+      "IsFromCache": true,
+      "CachedAt": "2019-03-18T11:42:49Z",
+      "CacheExpiresAt": "2019-03-18T11:42:49Z"
+    },
+    "PagingMetadata": {
+      "Limit": "string",
+      "Offset": "string",
+      "ResponseRecords": "string",
+      "TotalRecords": "string"
+    }
+  },
+  "ResponseReport": {
+    "Item": {
+      "CityName": "string",
+      "CityCode": "string",
+      "CountryName": "string",
+      "TotalSegments": 0
+    }
+  },
+  "ResponseError": {
+    "ErrorCode": "string",
+    "Message": "string",
+    "StatusCode": "string",
+    "VerboseMessage": "string"
+  }
+}
+```
+
+<h3 id="carsegmentcountsperlocationbyvendor-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|default|Default|Default response|[CarSegmentCountsPerLocationByVendorItemResponse](#schemacarsegmentcountsperlocationbyvendoritemresponse)|
+
+
+## CarSegmentCountsPerVendor
+
+<a id="opIdCarSegmentCountsPerVendor"></a>
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X GET http://api.agentivity.com/CarSegmentCountsPerVendor/user \
+  -H 'Accept: application/json' \
+  -H 'Accept: application/json'
+
+```
+
+```javascript
+var headers = {
+  'Accept':'application/json',
+  'Accept':'application/json'
+
+};
+
+$.ajax({
+  url: 'http://api.agentivity.com/CarSegmentCountsPerVendor/user',
+  method: 'get',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json',
+  'Accept': 'application/json'
+}
+
+r = requests.get('http://api.agentivity.com/CarSegmentCountsPerVendor/user', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```java
+URL obj = new URL("http://api.agentivity.com/CarSegmentCountsPerVendor/user");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("GET");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+
+```
+
+`GET /CarSegmentCountsPerVendor/user`
+
+<h3 id="carsegmentcountspervendor-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|UserName|query|string|true|UserName in form of an email address|
+|DateStart|query|string|true|Date in format YYYYMMDD|
+|DateEnd|query|string|true|Date in format YYYYMMDD|
+|Accept|header|string|true|Accept Header|
+
+#### Enumerated Values
+
+|Parameter|Value|
+|---|---|
+|Accept|application/json|
+
+
+
+> Default Response
+
+```json
+{
+  "ResponseMetadata": {
+    "Success": true,
+    "HasCache": true,
+    "HasPaging": true,
+    "CacheMetadata": {
+      "IsFromCache": true,
+      "CachedAt": "2019-03-18T11:42:49Z",
+      "CacheExpiresAt": "2019-03-18T11:42:49Z"
+    },
+    "PagingMetadata": {
+      "Limit": "string",
+      "Offset": "string",
+      "ResponseRecords": "string",
+      "TotalRecords": "string"
+    }
+  },
+  "ResponseReport": {
+    "Item": {
+      "VendorCode": "string",
+      "VendorName": "string",
+      "TotalSegments": 0
+    }
+  },
+  "ResponseError": {
+    "ErrorCode": "string",
+    "Message": "string",
+    "StatusCode": "string",
+    "VerboseMessage": "string"
+  }
+}
+```
+
+<h3 id="carsegmentcountspervendor-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|default|Default|Default response|[CarSegmentCountsPerVendorItemResponse](#schemacarsegmentcountspervendoritemresponse)|
+
+
+## CarSegmentsByDate
+
+<a id="opIdCarSegmentsByDate"></a>
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X GET http://api.agentivity.com/CarSegmentsByDate/user \
+  -H 'Accept: application/json' \
+  -H 'Accept: application/json'
+
+```
+
+```javascript
+var headers = {
+  'Accept':'application/json',
+  'Accept':'application/json'
+
+};
+
+$.ajax({
+  url: 'http://api.agentivity.com/CarSegmentsByDate/user',
+  method: 'get',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json',
+  'Accept': 'application/json'
+}
+
+r = requests.get('http://api.agentivity.com/CarSegmentsByDate/user', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```java
+URL obj = new URL("http://api.agentivity.com/CarSegmentsByDate/user");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("GET");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+
+```
+
+`GET /CarSegmentsByDate/user`
+
+<h3 id="carsegmentsbydate-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|UserName|query|string|true|UserName in form of an email address|
+|DateStart|query|string|true|Date in format YYYYMMDD|
+|DateEnd|query|string|true|Date in format YYYYMMDD|
+|Accept|header|string|true|Accept Header|
+
+#### Enumerated Values
+
+|Parameter|Value|
+|---|---|
+|Accept|application/json|
+
+
+
+> Default Response
+
+```json
+{
+  "ResponseMetadata": {
+    "Success": true,
+    "HasCache": true,
+    "HasPaging": true,
+    "CacheMetadata": {
+      "IsFromCache": true,
+      "CachedAt": "2019-03-18T11:42:49Z",
+      "CacheExpiresAt": "2019-03-18T11:42:49Z"
+    },
+    "PagingMetadata": {
+      "Limit": "string",
+      "Offset": "string",
+      "ResponseRecords": "string",
+      "TotalRecords": "string"
+    }
+  },
+  "ResponseReport": {
+    "Item": {
+      "AgentivityRef": "string",
+      "RecordLocator": "string",
+      "OwningAgencyLocationID": "string",
+      "OwningConsultant": "string",
+      "Account": "string",
+      "Passengers": "string",
+      "PickUpDate": "2019-03-18T11:42:49Z",
+      "DropOffDate": "2019-03-18T11:42:49Z",
+      "CarVendorCode": "string",
+      "VendorName": "string",
+      "SegmentStatus": "string",
+      "AirportCode": "string",
+      "ConfirmationNbr": "string",
+      "CurrencyCode": "string",
+      "RateAmount": "string",
+      "NbrOfCars": "string",
+      "CarType": "string",
+      "ServiceInformation": "string",
+      "BRInformation": "string",
+      "CarSegmentType": "string",
+      "CreatingAgencyIata": "string",
+      "CityCode": "string",
+      "Text": "string",
+      "Vouchers": "string"
+    }
+  },
+  "ResponseError": {
+    "ErrorCode": "string",
+    "Message": "string",
+    "StatusCode": "string",
+    "VerboseMessage": "string"
+  }
+}
+```
+
+<h3 id="carsegmentsbydate-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|default|Default|Default response|[CarSegmentsByDateItemResponse](#schemacarsegmentsbydateitemresponse)|
+
+
+## CarSegmentsByUser
+
+<a id="opIdCarSegmentsByUser"></a>
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X GET http://api.agentivity.com/carsegments/user \
+  -H 'Accept: application/json' \
+  -H 'Accept: application/json'
+
+```
+
+```javascript
+var headers = {
+  'Accept':'application/json',
+  'Accept':'application/json'
+
+};
+
+$.ajax({
+  url: 'http://api.agentivity.com/carsegments/user',
+  method: 'get',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json',
+  'Accept': 'application/json'
+}
+
+r = requests.get('http://api.agentivity.com/carsegments/user', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```java
+URL obj = new URL("http://api.agentivity.com/carsegments/user");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("GET");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+
+```
+
+`GET /carsegments/user`
+
+<h3 id="carsegmentsbyuseruser_get-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|PickUpDateEnd|query|string|true|Date in format YYYYMMDD|
+|PickUpDateStart|query|string|true|Date in format YYYYMMDD|
+|UserName|query|string|true|UserName in form of an email address|
+|Accept|header|string|true|Accept Header|
+
+#### Enumerated Values
+
+|Parameter|Value|
+|---|---|
+|Accept|application/json|
+
+
+
+> Default Response
+
+```json
+{
+  "ResponseMetadata": {
+    "Success": true,
+    "HasCache": true,
+    "HasPaging": true,
+    "CacheMetadata": {
+      "IsFromCache": true,
+      "CachedAt": "2019-03-18T11:42:49Z",
+      "CacheExpiresAt": "2019-03-18T11:42:49Z"
+    },
+    "PagingMetadata": {
+      "Limit": "string",
+      "Offset": "string",
+      "ResponseRecords": "string",
+      "TotalRecords": "string"
+    }
+  },
+  "ResponseReport": {
+        "OwningAgencyLocation": "string",
+        "PNR": "string",
+        "Consultant": "string",
+        "SegmentStatus": "string",
+        "PickUpDate": "string",
+        "DropOffDate": "string",
+        "CarVendorCode": "string",
+        "VendorName": "string",
+        "AirportCode": "string",
+        "Passenger": "string",
+        "Account": "string",
+        "ConfirmationNbr": "string",
+        "CurrencyCode": "string",
+        "RateAmount": "string",
+        "CarType": "string",
+        "NbrOfCars": "string",
+        "BookedInName": "string",
+        "ServiceInformation": "string",
+        "BRInformation": "string"
+    },
+  "ResponseError": {
+    "ErrorCode": "string",
+    "Message": "string",
+    "StatusCode": "string",
+    "VerboseMessage": "string"
+  }
+}
+```
+
+<h3 id="carsegmentsbyuseruser_get-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|default|Default|Default response|[Object](#schemaobject)|
+
+
+## CancelledHotelSegmentsByUser
+
+<a id="opIdCancelledHotelSegmentsByUser"></a>
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X GET http://api.agentivity.com/cancelledhotelsegments/user \
+  -H 'Accept: application/json' \
+  -H 'Accept: application/json'
+
+```
+
+```javascript
+var headers = {
+  'Accept':'application/json',
+  'Accept':'application/json'
+
+};
+
+$.ajax({
+  url: 'http://api.agentivity.com/cancelledhotelsegments/user',
+  method: 'get',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json',
+  'Accept': 'application/json'
+}
+
+r = requests.get('http://api.agentivity.com/cancelledhotelsegments/user', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```java
+URL obj = new URL("http://api.agentivity.com/cancelledhotelsegments/user");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("GET");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+
+```
+
+`GET /cancelledhotelsegments/user`
+
+<h3 id="cancelledhotelsegmentsbyuser-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|UserID|query|number|true|ID of the user|
+|CancelledDateStart|query|string|true|Date in format YYYYMMDD|
+|CancelledDateEnd|query|string|true|Date in format YYYYMMDD|
+|Accept|header|string|true|Accept Header|
+
+#### Enumerated Values
+
+|Parameter|Value|
+|---|---|
+|Accept|application/json|
+
+
+
+> Default Response
+
+```json
+{}
+```
+
+<h3 id="cancelledhotelsegmentsbyuser-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|default|Default|Default response|[Object](#schemaobject)|
+
+
+## HotelLocSegmentCountsPerChainByCity
+
+<a id="opIdHotelLocSegmentCountsPerChainByCity"></a>
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X GET http://api.agentivity.com/HotelLocSegmentCountsPerChainByCity/user \
+  -H 'Accept: application/json' \
+  -H 'Accept: application/json'
+
+```
+
+```javascript
+var headers = {
+  'Accept':'application/json',
+  'Accept':'application/json'
+
+};
+
+$.ajax({
+  url: 'http://api.agentivity.com/HotelLocSegmentCountsPerChainByCity/user',
+  method: 'get',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json',
+  'Accept': 'application/json'
+}
+
+r = requests.get('http://api.agentivity.com/HotelLocSegmentCountsPerChainByCity/user', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```java
+URL obj = new URL("http://api.agentivity.com/HotelLocSegmentCountsPerChainByCity/user");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("GET");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+
+```
+
+`GET /HotelLocSegmentCountsPerChainByCity/user`
+
+<h3 id="hotellocsegmentcountsperchainbycity-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|UserName|query|string|true|UserName in form of an email address|
+|DateStart|query|string|true|Date in format YYYYMMDD|
+|DateEnd|query|string|true|Date in format YYYYMMDD|
+|CityCode|query|string|true|3 letter city code|
+|VendorCode|query|string|false|Vendor code|
+|Accept|header|string|true|Accept Header|
+
+#### Enumerated Values
+
+|Parameter|Value|
+|---|---|
+|Accept|application/json|
+
+
+
+> Default Response
+
+```json
+{
+  "ResponseMetadata": {
+    "Success": true,
+    "HasCache": true,
+    "HasPaging": true,
+    "CacheMetadata": {
+      "IsFromCache": true,
+      "CachedAt": "2019-03-18T11:42:49Z",
+      "CacheExpiresAt": "2019-03-18T11:42:49Z"
+    },
+    "PagingMetadata": {
+      "Limit": "string",
+      "Offset": "string",
+      "ResponseRecords": "string",
+      "TotalRecords": "string"
+    }
+  },
+  "ResponseReport": {
+    "Item": {
+      "ChainName": "string",
+      "VendorCode": "string",
+      "TotalSegments": 0,
+      "TotalNights": 0
+    }
+  },
+  "ResponseError": {
+    "ErrorCode": "string",
+    "Message": "string",
+    "StatusCode": "string",
+    "VerboseMessage": "string"
+  }
+}
+```
+
+<h3 id="hotellocsegmentcountsperchainbycity-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|default|Default|Default response|[HotelLocSegmentCountsPerChainByCityItemResponse](#schemahotellocsegmentcountsperchainbycityitemresponse)|
+
+
+## HotelLocSegmentCountsPerPropertyByCity
+
+<a id="opIdHotelLocSegmentCountsPerPropertyByCity"></a>
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X GET http://api.agentivity.com/HotelLocSegmentCountsPerPropertyByCity/user \
+  -H 'Accept: application/json' \
+  -H 'Accept: application/json'
+
+```
+
+```javascript
+var headers = {
+  'Accept':'application/json',
+  'Accept':'application/json'
+
+};
+
+$.ajax({
+  url: 'http://api.agentivity.com/HotelLocSegmentCountsPerPropertyByCity/user',
+  method: 'get',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json',
+  'Accept': 'application/json'
+}
+
+r = requests.get('http://api.agentivity.com/HotelLocSegmentCountsPerPropertyByCity/user', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```java
+URL obj = new URL("http://api.agentivity.com/HotelLocSegmentCountsPerPropertyByCity/user");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("GET");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+
+```
+
+`GET /HotelLocSegmentCountsPerPropertyByCity/user`
+
+<h3 id="hotellocsegmentcountsperpropertybycity-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|UserName|query|string|true|UserName in form of an email address|
+|DateStart|query|string|true|Date in format YYYYMMDD|
+|DateEnd|query|string|true|Date in format YYYYMMDD|
+|CityCode|query|string|true|3 letter city code|
+|VendorCode|query|string|true|Vendor code|
+|Accept|header|string|true|Accept Header|
+
+#### Enumerated Values
+
+|Parameter|Value|
+|---|---|
+|Accept|application/json|
+
+
+
+> Default Response
+
+```json
+{
+  "ResponseMetadata": {
+    "Success": true,
+    "HasCache": true,
+    "HasPaging": true,
+    "CacheMetadata": {
+      "IsFromCache": true,
+      "CachedAt": "2019-03-18T11:42:49Z",
+      "CacheExpiresAt": "2019-03-18T11:42:49Z"
+    },
+    "PagingMetadata": {
+      "Limit": "string",
+      "Offset": "string",
+      "ResponseRecords": "string",
+      "TotalRecords": "string"
+    }
+  },
+  "ResponseReport": {
+    "Item": {
+      "PropertyName": "string",
+      "TotalSegments": 0,
+      "TotalNights": 0
+    }
+  },
+  "ResponseError": {
+    "ErrorCode": "string",
+    "Message": "string",
+    "StatusCode": "string",
+    "VerboseMessage": "string"
+  }
+}
+```
+
+<h3 id="hotellocsegmentcountsperpropertybycity-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|default|Default|Default response|[HotelLocSegmentCountsPerPropertyByCityItemResponse](#schemahotellocsegmentcountsperpropertybycityitemresponse)|
+
+
+## HotelSegmentsByUser
+
+<a id="opIdHotelSegmentsByUser"></a>
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X GET http://api.agentivity.com/hotelsegments/user \
+  -H 'Accept: application/json' \
+  -H 'Accept: application/json'
+
+```
+
+```javascript
+var headers = {
+  'Accept':'application/json',
+  'Accept':'application/json'
+
+};
+
+$.ajax({
+  url: 'http://api.agentivity.com/hotelsegments/user',
+  method: 'get',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json',
+  'Accept': 'application/json'
+}
+
+r = requests.get('http://api.agentivity.com/hotelsegments/user', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```java
+URL obj = new URL("http://api.agentivity.com/hotelsegments/user");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("GET");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+
+```
+
+`GET /hotelsegments/user`
+
+<h3 id="hotelsegmentsbyuser-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|UserName|query|string|true|UserName in form of an email address|
+|ArrivalDateStart|query|string|true|Date in format YYYYMMDD|
+|ArrivalDateEnd|query|string|true|Date in format YYYYMMDD|
+|Account|query|string|false|GDS account|
+|Accept|header|string|true|Accept Header|
+
+#### Enumerated Values
+
+|Parameter|Value|
+|---|---|
+|Accept|application/json|
+
+
+
+> Default Response
+
+```json
+{
+  "ResponseMetadata": {
+    "Success": true,
+    "HasCache": true,
+    "HasPaging": true,
+    "CacheMetadata": {
+      "IsFromCache": true,
+      "CachedAt": "2019-03-18T11:42:49Z",
+      "CacheExpiresAt": "2019-03-18T11:42:49Z"
+    },
+    "PagingMetadata": {
+      "Limit": "string",
+      "Offset": "string",
+      "ResponseRecords": "string",
+      "TotalRecords": "string"
+    }
+  },
+  "ResponseReport": {
+    "Item": {
+      "HotelSegmentNbr": "string",
+      "PCC": "string",
+      "PNR": "string",
+      "Consultant": "string",
+      "StatusCode": "string",
+      "ArrivalDate": "string",
+      "DepartureDate": "string",
+      "PropertyName": "string",
+      "ChainCode": "string",
+      "ChainName": "string",
+      "City": "string",
+      "CityCode": "string",
+      "CityName": "string",
+      "CountryCode": "string",
+      "CountryName": "string",
+      "Passenger": "string",
+      "Account": "string",
+      "ConfirmationNbr": "string",
+      "Currency": "string",
+      "Rate": "string",
+      "RoomBookingCode": "string",
+      "NbrNights": 0,
+      "MultiLevelRateCode": "string",
+      "NbrRooms": 0,
+      "BookedInName": "string",
+      "ServiceInformation": "string",
+      "TotalAirSegs": "string",
+      "CreatingAgencyIata": "string",
+      "AgentivityRef": 0
+    }
+  },
+  "ResponseError": {
+    "ErrorCode": "string",
+    "Message": "string",
+    "StatusCode": "string",
+    "VerboseMessage": "string"
+  }
+}
+```
+
+<h3 id="hotelsegmentsbyuser-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|default|Default|Default response|[HotelSegmentsByUserItemResponse](#schemahotelsegmentsbyuseritemresponse)|
+
+
+## HotelSegmentCountsPerAccountByVendor
+
+<a id="opIdHotelSegmentCountsPerAccountByVendor"></a>
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X GET http://api.agentivity.com/HotelSegmentCountsPerAccountByVendor/user \
+  -H 'Accept: application/json' \
+  -H 'Accept: application/json'
+
+```
+
+```javascript
+var headers = {
+  'Accept':'application/json',
+  'Accept':'application/json'
+
+};
+
+$.ajax({
+  url: 'http://api.agentivity.com/HotelSegmentCountsPerAccountByVendor/user',
+  method: 'get',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json',
+  'Accept': 'application/json'
+}
+
+r = requests.get('http://api.agentivity.com/HotelSegmentCountsPerAccountByVendor/user', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```java
+URL obj = new URL("http://api.agentivity.com/HotelSegmentCountsPerAccountByVendor/user");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("GET");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+
+```
+
+`GET /HotelSegmentCountsPerAccountByVendor/user`
+
+<h3 id="hotelsegmentcountsperaccountbyvendor-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|UserName|query|string|true|UserName in form of an email address|
+|DateStart|query|string|true|Date in format YYYYMMDD|
+|DateEnd|query|string|true|Date in format YYYYMMDD|
+|VendorCode|query|string|true|Vendor code|
+|Accept|header|string|true|Accept Header|
+
+#### Enumerated Values
+
+|Parameter|Value|
+|---|---|
+|Accept|application/json|
+
+
+
+> Default Response
+
+```json
+{
+  "ResponseMetadata": {
+    "Success": true,
+    "HasCache": true,
+    "HasPaging": true,
+    "CacheMetadata": {
+      "IsFromCache": true,
+      "CachedAt": "2019-03-18T11:42:49Z",
+      "CacheExpiresAt": "2019-03-18T11:42:49Z"
+    },
+    "PagingMetadata": {
+      "Limit": "string",
+      "Offset": "string",
+      "ResponseRecords": "string",
+      "TotalRecords": "string"
+    }
+  },
+  "ResponseReport": {
+    "Item": {
+      "Account": "string",
+      "TotalSegments": 0,
+      "TotalNights": 0
+    }
+  },
+  "ResponseError": {
+    "ErrorCode": "string",
+    "Message": "string",
+    "StatusCode": "string",
+    "VerboseMessage": "string"
+  }
+}
+```
+
+<h3 id="hotelsegmentcountsperaccountbyvendor-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|default|Default|Default response|[HotelSegmentCountsPerAccountByVendorItemResponse](#schemahotelsegmentcountsperaccountbyvendoritemresponse)|
+
+
+## HotelSegmentCountsPerBranchByVendor
+
+<a id="opIdHotelSegmentCountsPerBranchByVendor"></a>
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X GET http://api.agentivity.com/HotelSegmentCountsPerBranchByVendor/user \
+  -H 'Accept: application/json' \
+  -H 'Accept: application/json'
+
+```
+
+```javascript
+var headers = {
+  'Accept':'application/json',
+  'Accept':'application/json'
+
+};
+
+$.ajax({
+  url: 'http://api.agentivity.com/HotelSegmentCountsPerBranchByVendor/user',
+  method: 'get',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json',
+  'Accept': 'application/json'
+}
+
+r = requests.get('http://api.agentivity.com/HotelSegmentCountsPerBranchByVendor/user', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```java
+URL obj = new URL("http://api.agentivity.com/HotelSegmentCountsPerBranchByVendor/user");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("GET");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+
+```
+
+`GET /HotelSegmentCountsPerBranchByVendor/user`
+
+<h3 id="hotelsegmentcountsperbranchbyvendor-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|UserName|query|string|true|UserName in form of an email address|
+|DateStart|query|string|true|Date in format YYYYMMDD|
+|DateEnd|query|string|true|Date in format YYYYMMDD|
+|VendorCode|query|string|true|Vendor code|
+|Accept|header|string|true|Accept Header|
+
+#### Enumerated Values
+
+|Parameter|Value|
+|---|---|
+|Accept|application/json|
+
+
+
+> Default Response
+
+```json
+{
+  "ResponseMetadata": {
+    "Success": true,
+    "HasCache": true,
+    "HasPaging": true,
+    "CacheMetadata": {
+      "IsFromCache": true,
+      "CachedAt": "2019-03-18T11:42:49Z",
+      "CacheExpiresAt": "2019-03-18T11:42:49Z"
+    },
+    "PagingMetadata": {
+      "Limit": "string",
+      "Offset": "string",
+      "ResponseRecords": "string",
+      "TotalRecords": "string"
+    }
+  },
+  "ResponseReport": {
+    "Item": {
+      "OwningAgencyLocation": "string",
+      "OwningAgencyLocationID": "string",
+      "TotalSegments": 0,
+      "TotalNights": 0
+    }
+  },
+  "ResponseError": {
+    "ErrorCode": "string",
+    "Message": "string",
+    "StatusCode": "string",
+    "VerboseMessage": "string"
+  }
+}
+```
+
+<h3 id="hotelsegmentcountsperbranchbyvendor-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|default|Default|Default response|[HotelSegmentCountsPerBranchByVendorItemResponse](#schemahotelsegmentcountsperbranchbyvendoritemresponse)|
+
+
+## HotelSegmentCountsPerConsultantByVendor
+
+<a id="opIdHotelSegmentCountsPerConsultantByVendor"></a>
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X GET http://api.agentivity.com/HotelSegmentCountsPerConsultantByVendor/user \
+  -H 'Accept: application/json' \
+  -H 'Accept: application/json'
+
+```
+
+```javascript
+var headers = {
+  'Accept':'application/json',
+  'Accept':'application/json'
+
+};
+
+$.ajax({
+  url: 'http://api.agentivity.com/HotelSegmentCountsPerConsultantByVendor/user',
+  method: 'get',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json',
+  'Accept': 'application/json'
+}
+
+r = requests.get('http://api.agentivity.com/HotelSegmentCountsPerConsultantByVendor/user', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```java
+URL obj = new URL("http://api.agentivity.com/HotelSegmentCountsPerConsultantByVendor/user");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("GET");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+
+```
+
+`GET /HotelSegmentCountsPerConsultantByVendor/user`
+
+<h3 id="hotelsegmentcountsperconsultantbyvendor-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|UserName|query|string|true|UserName in form of an email address|
+|DateStart|query|string|true|Date in format YYYYMMDD|
+|DateEnd|query|string|true|Date in format YYYYMMDD|
+|VendorCode|query|string|true|Vendor code|
+|Accept|header|string|true|Accept Header|
+
+#### Enumerated Values
+
+|Parameter|Value|
+|---|---|
+|Accept|application/json|
+
+
+
+> Default Response
+
+```json
+{
+  "ResponseMetadata": {
+    "Success": true,
+    "HasCache": true,
+    "HasPaging": true,
+    "CacheMetadata": {
+      "IsFromCache": true,
+      "CachedAt": "2019-03-18T11:42:49Z",
+      "CacheExpiresAt": "2019-03-18T11:42:49Z"
+    },
+    "PagingMetadata": {
+      "Limit": "string",
+      "Offset": "string",
+      "ResponseRecords": "string",
+      "TotalRecords": "string"
+    }
+  },
+  "ResponseReport": {
+    "Item": {
+      "OwningConsultant": "string",
+      "OwningConsultantID": "string",
+      "OwningAgencyLocation": "string",
+      "TotalSegments": 0,
+      "TotalNights": 0
+    }
+  },
+  "ResponseError": {
+    "ErrorCode": "string",
+    "Message": "string",
+    "StatusCode": "string",
+    "VerboseMessage": "string"
+  }
+}
+```
+
+<h3 id="hotelsegmentcountsperconsultantbyvendor-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|default|Default|Default response|[HotelSegmentCountsPerConsultantByVendorItemResponse](#schemahotelsegmentcountsperconsultantbyvendoritemresponse)|
+
+
+## HotelSegmentCountsPerLocationByVendor
+
+<a id="opIdHotelSegmentCountsPerLocationByVendor"></a>
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X GET http://api.agentivity.com/HotelSegmentCountsPerLocationByVendor/user \
+  -H 'Accept: application/json' \
+  -H 'Accept: application/json'
+
+```
+
+```javascript
+var headers = {
+  'Accept':'application/json',
+  'Accept':'application/json'
+
+};
+
+$.ajax({
+  url: 'http://api.agentivity.com/HotelSegmentCountsPerLocationByVendor/user',
+  method: 'get',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json',
+  'Accept': 'application/json'
+}
+
+r = requests.get('http://api.agentivity.com/HotelSegmentCountsPerLocationByVendor/user', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```java
+URL obj = new URL("http://api.agentivity.com/HotelSegmentCountsPerLocationByVendor/user");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("GET");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+
+```
+
+`GET /HotelSegmentCountsPerLocationByVendor/user`
+
+<h3 id="hotelsegmentcountsperlocationbyvendor-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|UserName|query|string|true|UserName in form of an email address|
+|DateStart|query|string|true|Date in format YYYYMMDD|
+|DateEnd|query|string|true|Date in format YYYYMMDD|
+|VendorCode|query|string|false|Vendor code|
+|Accept|header|string|true|Accept Header|
+
+#### Enumerated Values
+
+|Parameter|Value|
+|---|---|
+|Accept|application/json|
+
+
+
+> Default Response
+
+```json
+{
+  "ResponseMetadata": {
+    "Success": true,
+    "HasCache": true,
+    "HasPaging": true,
+    "CacheMetadata": {
+      "IsFromCache": true,
+      "CachedAt": "2019-03-18T11:42:49Z",
+      "CacheExpiresAt": "2019-03-18T11:42:49Z"
+    },
+    "PagingMetadata": {
+      "Limit": "string",
+      "Offset": "string",
+      "ResponseRecords": "string",
+      "TotalRecords": "string"
+    }
+  },
+  "ResponseReport": {
+    "Item": {
+      "CityName": "string",
+      "CityCode": "string",
+      "CountryName": "string",
+      "TotalSegments": 0,
+      "TotalNights": 0
+    }
+  },
+  "ResponseError": {
+    "ErrorCode": "string",
+    "Message": "string",
+    "StatusCode": "string",
+    "VerboseMessage": "string"
+  }
+}
+```
+
+<h3 id="hotelsegmentcountsperlocationbyvendoruser_get-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|default|Default|Default response|[HotelSegmentCountsPerLocationByVendorItemResponse](#schemahotelsegmentcountsperlocationbyvendoritemresponse)|
+
+
+## HotelSegmentCountsPerVendor
+
+<a id="opIdHotelSegmentCountsPerVendor"></a>
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X GET http://api.agentivity.com/HotelSegmentCountsPerVendor/user \
+  -H 'Accept: application/json' \
+  -H 'Accept: application/json'
+
+```
+
+```javascript
+var headers = {
+  'Accept':'application/json',
+  'Accept':'application/json'
+
+};
+
+$.ajax({
+  url: 'http://api.agentivity.com/HotelSegmentCountsPerVendor/user',
+  method: 'get',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json',
+  'Accept': 'application/json'
+}
+
+r = requests.get('http://api.agentivity.com/HotelSegmentCountsPerVendor/user', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```java
+URL obj = new URL("http://api.agentivity.com/HotelSegmentCountsPerVendor/user");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("GET");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+
+```
+
+`GET /HotelSegmentCountsPerVendor/user`
+
+<h3 id="hotelsegmentcountspervendor-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|UserName|query|string|true|UserName in form of an email address|
+|DateStart|query|string|true|Date in format YYYYMMDD|
+|DateEnd|query|string|true|Date in format YYYYMMDD|
+|Accept|header|string|true|Accept Header|
+
+#### Enumerated Values
+
+|Parameter|Value|
+|---|---|
+|Accept|application/json|
+
+
+
+> Default Response
+
+```json
+{
+  "ResponseMetadata": {
+    "Success": true,
+    "HasCache": true,
+    "HasPaging": true,
+    "CacheMetadata": {
+      "IsFromCache": true,
+      "CachedAt": "2019-03-18T11:42:49Z",
+      "CacheExpiresAt": "2019-03-18T11:42:49Z"
+    },
+    "PagingMetadata": {
+      "Limit": "string",
+      "Offset": "string",
+      "ResponseRecords": "string",
+      "TotalRecords": "string"
+    }
+  },
+  "ResponseReport": {
+    "Item": {
+      "ChainName": "string",
+      "VendorCode": "string",
+      "TotalSegments": 0,
+      "TotalNights": 0
+    }
+  },
+  "ResponseError": {
+    "ErrorCode": "string",
+    "Message": "string",
+    "StatusCode": "string",
+    "VerboseMessage": "string"
+  }
+}
+```
+
+<h3 id="hotelsegmentcountspervendor-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|default|Default|Default response|[HotelSegmentCountsPerVendorItemResponse](#schemahotelsegmentcountspervendoritemresponse)|
+
+
+## HotelSegmentsWithNotepadByUser
+
+<a id="opIdHotelSegmentsWithNotepadByUser"></a>
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X GET http://api.agentivity.com/hotelsegmentswithnotepad/user \
+  -H 'Accept: application/json' \
+  -H 'Accept: application/json'
+
+```
+
+```javascript
+var headers = {
+  'Accept':'application/json',
+  'Accept':'application/json'
+
+};
+
+$.ajax({
+  url: 'http://api.agentivity.com/hotelsegmentswithnotepad/user',
+  method: 'get',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json',
+  'Accept': 'application/json'
+}
+
+r = requests.get('http://api.agentivity.com/hotelsegmentswithnotepad/user', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```java
+URL obj = new URL("http://api.agentivity.com/hotelsegmentswithnotepad/user");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("GET");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+
+```
+
+`GET /hotelsegmentswithnotepad/user`
+
+<h3 id="hotelsegmentswithnotepadbyuser-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|UserName|query|string|true|UserName in form of an email address|
+|ArrivalDateStart|query|string|true|Date in format YYYYMMDD|
+|ArrivalDateEnd|query|string|true|Date in format YYYYMMDD|
+|Account|query|string|false|GDS account|
+|Accept|header|string|true|Accept Header|
+
+#### Enumerated Values
+
+|Parameter|Value|
+|---|---|
+|Accept|application/json|
+
+
+
+> Default Response
+
+```json
+{}
+```
+
+<h3 id="hotelsegmentswithnotepadbyuser-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|default|Default|Default response|[Object](#schemaobject)|
+
+
+## PassiveSegmentsByUser
+
+<a id="opIdPassiveSegmentsByUser"></a>
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X GET http://api.agentivity.com/passivesegments/user \
+  -H 'Accept: application/json' \
+  -H 'Accept: application/json'
+
+```
+
+```javascript
+var headers = {
+  'Accept':'application/json',
+  'Accept':'application/json'
+
+};
+
+$.ajax({
+  url: 'http://api.agentivity.com/passivesegments/user',
+  method: 'get',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json',
+  'Accept': 'application/json'
+}
+
+r = requests.get('http://api.agentivity.com/passivesegments/user', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```java
+URL obj = new URL("http://api.agentivity.com/passivesegments/user");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("GET");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+
+```
+
+`GET /passivesegments/user`
+
+<h3 id="passivesegmentsbyuser-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|UserName|query|string|true|UserName in form of an email address|
+|ArrivalDateStart|query|string|true|Date in format YYYYMMDD|
+|ArrivalDateEnd|query|string|true|Date in format YYYYMMDD|
+|Account|query|string|false|GDS account|
+|SegmentType|query|string|false|Type of segment|
+|Accept|header|string|true|Accept Header|
+
+#### Enumerated Values
+
+|Parameter|Value|
+|---|---|
+|Accept|application/json|
+
+
+
+> Default Response
+
+```json
+{
+  "ResponseMetadata": {
+    "Success": true,
+    "HasCache": true,
+    "HasPaging": true,
+    "CacheMetadata": {
+      "IsFromCache": true,
+      "CachedAt": "2019-03-18T11:42:49Z",
+      "CacheExpiresAt": "2019-03-18T11:42:49Z"
+    },
+    "PagingMetadata": {
+      "Limit": "string",
+      "Offset": "string",
+      "ResponseRecords": "string",
+      "TotalRecords": "string"
+    }
+  },
+  "ResponseReport": {
+    "Item": {
+      "Address": "string",
+      "AgentivityRef": 0,
+      "BookingReasonCode": "string",
+      "BookingSource": "string",
+      "CityCode": "string",
+      "CommissionInformation": "string",
+      "ConfirmationNumber": "string",
+      "NbrNights": "string",
+      "OwningConsultantID": "string",
+      "PropertyName": "string",
+      "PropertyNumber": "string",
+      "RateAccessCode": "string",
+      "RateCode": "string",
+      "RateQuoted": "string",
+      "SegmentType": "string",
+      "ServiceInformation": "string",
+      "StartDate": "string",
+      "Text": "string",
+      "TotalAirSegs": "string",
+      "VendorCode": "string",
+      "RecordLocator": "string",
+      "OwningAgencyLocationID": "string",
+      "OwningConsultant": "string",
+      "Account": "string",
+      "Passenger": "string",
+      "DepartureDate": "string",
+      "SegmentStatus": "string"
+    }
+  },
+  "ResponseError": {
+    "ErrorCode": "string",
+    "Message": "string",
+    "StatusCode": "string",
+    "VerboseMessage": "string"
+  }
+}
+```
+
+<h3 id="passivesegmentsbyuser-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|default|Default|Default response|[PassiveSegmentsResponse](#schemapassivesegmentsresponse)|
+
+
+## PNRSegmentCountsByCompanyAgentLocation
+
+<a id="opIdPNRSegmentCountsByCompanyAgentLocation"></a>
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X GET http://api.agentivity.com/pnrsegmentcounts/company/alcc \
+  -H 'Accept: application/json' \
+  -H 'Accept: application/json'
+
+```
+
+```javascript
+var headers = {
+  'Accept':'application/json',
+  'Accept':'application/json'
+
+};
+
+$.ajax({
+  url: 'http://api.agentivity.com/pnrsegmentcounts/company/alcc',
+  method: 'get',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json',
+  'Accept': 'application/json'
+}
+
+r = requests.get('http://api.agentivity.com/pnrsegmentcounts/company/alcc', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```java
+URL obj = new URL("http://api.agentivity.com/pnrsegmentcounts/company/alcc");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("GET");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+
+```
+
+`GET /pnrsegmentcounts/company/alcc`
+
+<h3 id="pnrsegmentcountsbycompanyagentlocation-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|AgentLocationCountryCode|query|string|true|Country code for agent's location|
+|CompanyID|query|string|true|ID of a Company (travel agency)|
+|PNRCreationDateStart|query|string|true|Date in format YYYYMMDD|
+|PNRCreationDateEnd|query|string|false|Date in format YYYYMMDD|
+|TicketedDateStart|query|string|false|Date in format YYYYMMDD|
+|TicketedDateEnd|query|string|false|Date in format YYYYMMDD|
+|OwningAgencyLocationID|query|string|false|Owning agency location ID|
+|UserID|query|string|false|ID of the user|
+|Accept|header|string|true|Accept Header|
+
+#### Enumerated Values
+
+|Parameter|Value|
+|---|---|
+|Accept|application/json|
+
+
+
+> Default Response
+
+```json
+{}
+```
+
+<h3 id="pnrsegmentcountsbycompanyagentlocation-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|default|Default|Default response|[Object](#schemaobject)|
+
+
+## PNRSegmentCountsByCompanyAgentLocation2
+
+<a id="opIdPNRSegmentCountsByCompanyAgentLocation2"></a>
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X GET http://api.agentivity.com/pnrsegmentcounts2/company/alcc \
+  -H 'Accept: application/json' \
+  -H 'Accept: application/json'
+
+```
+
+```javascript
+var headers = {
+  'Accept':'application/json',
+  'Accept':'application/json'
+
+};
+
+$.ajax({
+  url: 'http://api.agentivity.com/pnrsegmentcounts2/company/alcc',
+  method: 'get',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json',
+  'Accept': 'application/json'
+}
+
+r = requests.get('http://api.agentivity.com/pnrsegmentcounts2/company/alcc', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```java
+URL obj = new URL("http://api.agentivity.com/pnrsegmentcounts2/company/alcc");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("GET");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+
+```
+
+`GET /pnrsegmentcounts2/company/alcc`
+
+<h3 id="pnrsegmentcountsbycompanyagentlocation2-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|UserName|query|string|true|UserName in form of an email address|
+|AgentLocationCountryCode|query|string|true|Country code for agent's location|
+|PNRCreationDateStart|query|string|true|Date in format YYYYMMDD|
+|PNRCreationDateEnd|query|string|true|Date in format YYYYMMDD|
+|OwningAgencyLocationID|query|string|false|Owning agency location ID|
+|Accept|header|string|true|Accept Header|
+
+#### Enumerated Values
+
+|Parameter|Value|
+|---|---|
+|Accept|application/json|
+
+
+
+> Default Response
+
+```json
+{}
+```
+
+<h3 id="pnrsegmentcountsbycompanyagentlocation2-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|default|Default|Default response|[Object](#schemaobject)|
+
+
+## PNRSegmentsRequestpnrsegments_Get
+
+<a id="opIdPNRSegmentsRequestpnrsegments_Get"></a>
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X GET http://api.agentivity.com/1/pnr/segments \
+  -H 'Accept: application/json' \
+  -H 'Accept: application/json'
+
+```
+
+```javascript
+var headers = {
+  'Accept':'application/json',
+  'Accept':'application/json'
+
+};
+
+$.ajax({
+  url: 'http://api.agentivity.com/1/pnr/segments',
+  method: 'get',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json',
+  'Accept': 'application/json'
+}
+
+r = requests.get('http://api.agentivity.com/1/pnr/segments', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```java
+URL obj = new URL("http://api.agentivity.com/1/pnr/segments");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("GET");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+
+```
+
+`GET /1/pnr/segments`
+
+`GET /1/pnr/segments/{RecordLocator}/{PNRCreationDate}`
+
+`GET /pnr/segments`
+
+`GET /pnr/segments/{RecordLocator}/{PNRCreationDate}`
+
+<h3 id="pnrsegmentsrequestpnrsegments_get-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|RecordLocator|query|string|true|6 letter record locator|
+|PNRCreationDate|query|string|true|Date in format YYYYMMDD|
+|Accept|header|string|true|Accept Header|
+
+#### Enumerated Values
+
+|Parameter|Value|
+|---|---|
+|Accept|application/json|
+
+
+
+> Default Response
+
+```json
+{}
+```
+
+<h3 id="pnrsegmentsrequestpnrsegments_get-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|default|Default|Default response|[Object](#schemaobject)|
+
+
+## ProblematicSegmentsByUser
+
+<a id="opIdProblematicSegmentsByUser"></a>
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X GET http://api.agentivity.com/problematicsegments/user \
+  -H 'Accept: application/json' \
+  -H 'Accept: application/json'
+
+```
+
+```javascript
+var headers = {
+  'Accept':'application/json',
+  'Accept':'application/json'
+
+};
+
+$.ajax({
+  url: 'http://api.agentivity.com/problematicsegments/user',
+  method: 'get',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json',
+  'Accept': 'application/json'
+}
+
+r = requests.get('http://api.agentivity.com/problematicsegments/user', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```java
+URL obj = new URL("http://api.agentivity.com/problematicsegments/user");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("GET");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+
+```
+
+`GET /problematicsegments/user`
+
+<h3 id="problematicsegmentsbyuser-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|UserName|query|string|true|UserName in form of an email address|
+|DepartureDateStart|query|string|true|Date in format YYYYMMDD|
+|DepartureDateEnd|query|string|false|Date in format YYYYMMDD|
+|CompanyID|query|string|false|ID of a Company (travel agency)|
+|Accept|header|string|true|Accept Header|
+
+#### Enumerated Values
+
+|Parameter|Value|
+|---|---|
+|Accept|application/json|
+
+
+
+> Default Response
+
+```json
+{
+  "ResponseMetadata": {
+    "Success": true,
+    "HasCache": true,
+    "HasPaging": true,
+    "CacheMetadata": {
+      "IsFromCache": true,
+      "CachedAt": "2019-03-18T11:42:49Z",
+      "CacheExpiresAt": "2019-03-18T11:42:49Z"
+    },
+    "PagingMetadata": {
+      "Limit": "string",
+      "Offset": "string",
+      "ResponseRecords": "string",
+      "TotalRecords": "string"
+    }
+  },
+  "ResponseReport": {
+    "Item": {
+      "RecordLocator": "string",
+      "OwningConsultantID": "string",
+      "PrimaryPax": "string",
+      "TransactionAgent": "string",
+      "Account": "string",
+      "SegmentStatus": "string",
+      "Segment": "string",
+      "AgentivityRef": "string"
+    }
+  },
+  "ResponseError": {
+    "ErrorCode": "string",
+    "Message": "string",
+    "StatusCode": "string",
+    "VerboseMessage": "string"
+  }
+}
+```
+
+<h3 id="problematicsegmentsbyuser-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|default|Default|Default response|[ProblematicSegmentsByUserItemResponse](#schemaproblematicsegmentsbyuseritemresponse)|
 
 
 ## SegmentsByPNRsegmentspnr_Get
@@ -8702,6 +16658,8 @@ System.out.println(response.toString());
 ```
 
 `GET /1/segments/pnr`
+
+`GET /segments/pnr`
 
 <h3 id="segmentsbypnrsegmentspnr_get-parameters">Parameters</h3>
 
@@ -8901,6 +16859,2111 @@ System.out.println(response.toString());
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
 |default|Default|Default response|[SegmentsByPNRResponse](#schemasegmentsbypnrresponse)|
+
+
+## SegmentsQC
+
+<a id="opIdSegmentsQC"></a>
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X GET http://api.agentivity.com/SegmentsQC/user \
+  -H 'Accept: application/json' \
+  -H 'Accept: application/json'
+
+```
+
+```javascript
+var headers = {
+  'Accept':'application/json',
+  'Accept':'application/json'
+
+};
+
+$.ajax({
+  url: 'http://api.agentivity.com/SegmentsQC/user',
+  method: 'get',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json',
+  'Accept': 'application/json'
+}
+
+r = requests.get('http://api.agentivity.com/SegmentsQC/user', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```java
+URL obj = new URL("http://api.agentivity.com/SegmentsQC/user");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("GET");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+
+```
+
+`GET /SegmentsQC/user`
+
+<h3 id="segmentsqc-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|UserName|query|string|true|UserName in form of an email address|
+|DepartureDateStart|query|string|true|Date in format YYYYMMDD|
+|DepartureDateEnd|query|string|false|Date in format YYYYMMDD|
+|Account|query|string|false|GDS account|
+|VipOnly|query|string|false|Return only segments that are flagged as VIP only|
+|Accept|header|string|true|Accept Header|
+
+#### Enumerated Values
+
+|Parameter|Value|
+|---|---|
+|Accept|application/json|
+
+
+
+> Default Response
+
+```json
+{
+  "ResponseMetadata": {
+    "Success": true,
+    "HasCache": true,
+    "HasPaging": true,
+    "CacheMetadata": {
+      "IsFromCache": true,
+      "CachedAt": "2019-03-18T11:42:49Z",
+      "CacheExpiresAt": "2019-03-18T11:42:49Z"
+    },
+    "PagingMetadata": {
+      "Limit": "string",
+      "Offset": "string",
+      "ResponseRecords": "string",
+      "TotalRecords": "string"
+    }
+  },
+  "ResponseReport": {
+    "Item": {
+      "AgentivityRef": 0,
+      "RecordLocator": "string",
+      "OwningConsultant": "string",
+      "Passenger": "string",
+      "Account": "string",
+      "BoardPoint": "string",
+      "OffPoint": "string",
+      "DepartureTime": "string",
+      "BookingClass": "string",
+      "SegmentStatus": "string",
+      "CarrierCode": "string",
+      "FlightNbr": "string",
+      "FlightNumberFromatted": "string",
+      "SeatCheck": "string",
+      "SeatFormatted": "string",
+      "MealCheck": "string",
+      "MealFormatted": "string",
+      "ChauffeurDesc": "string",
+      "TransferDesc": "string",
+      "CarsFormatted": "string",
+      "HoteCheck": "string",
+      "Hotels": "string",
+      "ShuttleDesc": "string",
+      "TourDesc": "string",
+      "FrequentFlyerNumbers": "string",
+      "PnrTicketed": "string",
+      "TicketNumber": "string",
+      "Comments": "string",
+      "OpsComments": "string",
+      "IsVip": true
+    }
+  },
+  "ResponseError": {
+    "ErrorCode": "string",
+    "Message": "string",
+    "StatusCode": "string",
+    "VerboseMessage": "string"
+  }
+}
+```
+
+<h3 id="segmentsqc-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|default|Default|Default response|[SegmentsQCItemResponse](#schemasegmentsqcitemresponse)|
+
+
+# Ticket
+
+## GetTicketCouponCodes
+
+<a id="opIdGetTicketCouponCodes"></a>
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X GET http://api.agentivity.com/TicketCouponCodes/user \
+  -H 'Accept: application/json' \
+  -H 'Accept: application/json'
+
+```
+
+```javascript
+var headers = {
+  'Accept':'application/json',
+  'Accept':'application/json'
+
+};
+
+$.ajax({
+  url: 'http://api.agentivity.com/TicketCouponCodes/user',
+  method: 'get',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json',
+  'Accept': 'application/json'
+}
+
+r = requests.get('http://api.agentivity.com/TicketCouponCodes/user', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```java
+URL obj = new URL("http://api.agentivity.com/TicketCouponCodes/user");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("GET");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+
+```
+
+`GET /TicketCouponCodes/user`
+
+<h3 id="getticketcouponcodes-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|UserName|query|string|true|UserName in form of an email address|
+|Accept|header|string|true|Accept Header|
+
+#### Enumerated Values
+
+|Parameter|Value|
+|---|---|
+|Accept|application/json|
+
+
+
+> Default Response
+
+```json
+{
+  "ResponseMetadata": {
+    "Success": true,
+    "HasCache": true,
+    "HasPaging": true,
+    "CacheMetadata": {
+      "IsFromCache": true,
+      "CachedAt": "2019-03-18T11:42:49Z",
+      "CacheExpiresAt": "2019-03-18T11:42:49Z"
+    },
+    "PagingMetadata": {
+      "Limit": "string",
+      "Offset": "string",
+      "ResponseRecords": "string",
+      "TotalRecords": "string"
+    }
+  },
+  "ResponseReport": [
+    {
+      "CouponCode": "string",
+      "Name": "string",
+      "IsGroup": true
+    }
+  ],
+  "ResponseError": {
+    "ErrorCode": "string",
+    "Message": "string",
+    "StatusCode": "string",
+    "VerboseMessage": "string"
+  }
+}
+```
+
+<h3 id="getticketcouponcodes-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|default|Default|Default response|[TicketCouponCodesResponse](#schematicketcouponcodesresponse)|
+
+
+## GetTicketCouponsByStatusCode
+
+<a id="opIdGetTicketCouponsByStatusCode"></a>
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X GET http://api.agentivity.com/TicketCouponsByStatusCode/user \
+  -H 'Accept: application/json' \
+  -H 'Accept: application/json'
+
+```
+
+```javascript
+var headers = {
+  'Accept':'application/json',
+  'Accept':'application/json'
+
+};
+
+$.ajax({
+  url: 'http://api.agentivity.com/TicketCouponsByStatusCode/user',
+  method: 'get',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json',
+  'Accept': 'application/json'
+}
+
+r = requests.get('http://api.agentivity.com/TicketCouponsByStatusCode/user', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```java
+URL obj = new URL("http://api.agentivity.com/TicketCouponsByStatusCode/user");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("GET");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+
+```
+
+`GET /TicketCouponsByStatusCode/user`
+
+<h3 id="getticketcouponsbystatuscode-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|UserName|query|string|false|UserName in form of an email address|
+|DateStart|query|string|false|Date in format YYYYMMDD|
+|DateEnd|query|string|false|Date in format YYYYMMDD|
+|CouponCodeGroup|query|string|false|Coupon code group|
+|DateTracker|query|string|false|Date in format YYYYMMDD|
+|TravAgntID|query|string|false|Travel agent ID|
+|Account|query|string|false|GDS account|
+|Repeat|query|string|false|Repeat|
+|NoActiveSegments|query|string|false|Lists only segments that are not active|
+|Accept|header|string|true|Accept Header|
+
+#### Enumerated Values
+
+|Parameter|Value|
+|---|---|
+|Accept|application/json|
+
+
+
+> Default Response
+
+```json
+{
+  "ResponseMetadata": {
+    "Success": true,
+    "HasCache": true,
+    "HasPaging": true,
+    "CacheMetadata": {
+      "IsFromCache": true,
+      "CachedAt": "2019-03-18T11:42:49Z",
+      "CacheExpiresAt": "2019-03-18T11:42:49Z"
+    },
+    "PagingMetadata": {
+      "Limit": "string",
+      "Offset": "string",
+      "ResponseRecords": "string",
+      "TotalRecords": "string"
+    }
+  },
+  "ResponseReport": [
+    {
+      "RN": "string",
+      "AirTktSegId": "string",
+      "VndIssueDt": "2019-03-18T11:42:49Z",
+      "RecordLocator": "string",
+      "Passenger": "string",
+      "TktNumber": "string",
+      "TravAgntID": "string",
+      "OwningConsultantID": "string",
+      "FOPFare": "string",
+      "BaseFare": "string",
+      "FOP": "string",
+      "TotalTax": "string",
+      "Tax1Code": "string",
+      "Tax1Amt": "string",
+      "Tax2Code": "string",
+      "Tax2Amt": "string",
+      "Tax3Code": "string",
+      "Tax3Amt": "string",
+      "Tax4Amt": "string",
+      "Tax4Code": "string",
+      "Tax5Code": "string",
+      "Tax5Amt": "string",
+      "Account": "string",
+      "ExchangedForTicket": "string",
+      "CouponSequenceNbr": "string",
+      "Carrier": "string",
+      "BoardPoint": "string",
+      "OffPoint": "string",
+      "FlightDate": "2019-03-18T11:42:49Z",
+      "FlightServiceClass": "string",
+      "FareBasis": "string",
+      "FlightCouponStatus": "string",
+      "DateLastChecked": "2019-03-18T11:42:49Z",
+      "PCC": "string",
+      "AirlineCode": "string"
+    }
+  ],
+  "ResponseError": {
+    "ErrorCode": "string",
+    "Message": "string",
+    "StatusCode": "string",
+    "VerboseMessage": "string"
+  }
+}
+```
+
+<h3 id="getticketcouponsbystatuscode-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|default|Default|Default response|[TicketCouponsByStatusCodeResponse](#schematicketcouponsbystatuscoderesponse)|
+
+
+## TicketCouponsIssuedByUser
+
+<a id="opIdTicketCouponsIssuedByUser"></a>
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X GET http://api.agentivity.com/user/ticketcouponsissued \
+  -H 'Accept: application/json' \
+  -H 'Accept: application/json'
+
+```
+
+```javascript
+var headers = {
+  'Accept':'application/json',
+  'Accept':'application/json'
+
+};
+
+$.ajax({
+  url: 'http://api.agentivity.com/user/ticketcouponsissued',
+  method: 'get',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json',
+  'Accept': 'application/json'
+}
+
+r = requests.get('http://api.agentivity.com/user/ticketcouponsissued', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```java
+URL obj = new URL("http://api.agentivity.com/user/ticketcouponsissued");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("GET");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+
+```
+
+`GET /user/ticketcouponsissued`
+
+<h3 id="ticketcouponsissuedbyuser-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|UserName|query|string|true|UserName in form of an email address|
+|IssueDateStart|query|string|true|Date in format YYYYMMDD|
+|IssueDateEnd|query|string|false|Date in format YYYYMMDD|
+|Account|query|string|false|GDS account|
+|TravelAgentID|query|string|false|ID of a travel agent|
+|FlightCouponStatus|query|string|false|One letter code for flight coupon status|
+|FormatStyle|query|string|false|Format style|
+|Accept|header|string|true|Accept Header|
+
+#### Enumerated Values
+
+|Parameter|Value|
+|---|---|
+|Accept|application/json|
+
+
+
+> Default Response
+
+```json
+{
+  "ResponseMetadata": {
+    "Success": true,
+    "HasCache": true,
+    "HasPaging": true,
+    "CacheMetadata": {
+      "IsFromCache": true,
+      "CachedAt": "2019-03-18T11:42:49Z",
+      "CacheExpiresAt": "2019-03-18T11:42:49Z"
+    },
+    "PagingMetadata": {
+      "Limit": "string",
+      "Offset": "string",
+      "ResponseRecords": "string",
+      "TotalRecords": "string"
+    }
+  },
+  "ResponseReport": {
+    "Item": {
+      "RecordLocator": "string",
+      "PNRCreationDate": "2019-03-18T11:42:49Z",
+      "TktNumber": "string",
+      "Passenger": "string",
+      "VendorIssueDate": "2019-03-18T11:42:49Z",
+      "FOP": "string",
+      "FOPCurrncy": "string",
+      "FOPFare": "string",
+      "CouponSequenceNbr": "string",
+      "FlightDate": "2019-03-18T11:42:49Z",
+      "Routing": "string",
+      "FlightServiceClass": "string",
+      "FareBasis": "string",
+      "Carrier": "string",
+      "Account": "string",
+      "OwningAgencyLocationID": "string",
+      "FlightCouponStatus": "string",
+      "DateLastChecked": "2019-03-18T11:42:49Z"
+    }
+  },
+  "ResponseError": {
+    "ErrorCode": "string",
+    "Message": "string",
+    "StatusCode": "string",
+    "VerboseMessage": "string"
+  }
+}
+```
+
+<h3 id="ticketcouponsissuedbyuser-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|default|Default|Default response|[TicketCouponsIssuedByUserItemResponse](#schematicketcouponsissuedbyuseritemresponse)|
+
+
+## GetTicketsIssued
+
+<a id="opIdGetTicketsIssued"></a>
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X GET http://api.agentivity.com/TicketsIssued/user \
+  -H 'Accept: application/json' \
+  -H 'Accept: application/json'
+
+```
+
+```javascript
+var headers = {
+  'Accept':'application/json',
+  'Accept':'application/json'
+
+};
+
+$.ajax({
+  url: 'http://api.agentivity.com/TicketsIssued/user',
+  method: 'get',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json',
+  'Accept': 'application/json'
+}
+
+r = requests.get('http://api.agentivity.com/TicketsIssued/user', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```java
+URL obj = new URL("http://api.agentivity.com/TicketsIssued/user");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("GET");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+
+```
+
+`GET /TicketsIssued/user`
+
+<h3 id="getticketsissued-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|UserName|query|string|true|UserName in form of an email address|
+|DateStart|query|string|true|Date in format YYYYMMDD|
+|DateEnd|query|string|true|Date in format YYYYMMDD|
+|IATA|query|string|false|IATA code|
+|Accept|header|string|true|Accept Header|
+
+#### Enumerated Values
+
+|Parameter|Value|
+|---|---|
+|Accept|application/json|
+
+
+
+> Default Response
+
+```json
+{
+  "ResponseMetadata": {
+    "Success": true,
+    "HasCache": true,
+    "HasPaging": true,
+    "CacheMetadata": {
+      "IsFromCache": true,
+      "CachedAt": "2019-03-18T11:42:49Z",
+      "CacheExpiresAt": "2019-03-18T11:42:49Z"
+    },
+    "PagingMetadata": {
+      "Limit": "string",
+      "Offset": "string",
+      "ResponseRecords": "string",
+      "TotalRecords": "string"
+    }
+  },
+  "ResponseReport": [
+    {
+      "RecordLocator": "string",
+      "TktNumber": "string",
+      "FOP": "string",
+      "Passenger": "string",
+      "Consultant": "string",
+      "RemarkText": "string",
+      "AirlineCode": "string",
+      "TravAgntID": "string",
+      "PCC": "string",
+      "PrintedCurrency": "string",
+      "FOPFare": "string",
+      "Date": "2019-03-18T11:42:49Z",
+      "DueDate": "2019-03-18T11:42:49Z"
+    }
+  ],
+  "ResponseError": {
+    "ErrorCode": "string",
+    "Message": "string",
+    "StatusCode": "string",
+    "VerboseMessage": "string"
+  }
+}
+```
+
+<h3 id="getticketsissued-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|default|Default|Default response|[TicketsIssuedResponse](#schematicketsissuedresponse)|
+
+
+## GetTicketsIssuedByNumber
+
+<a id="opIdGetTicketsIssuedByNumber"></a>
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X GET http://api.agentivity.com/TicketsIssuedByNumber/user \
+  -H 'Accept: application/json' \
+  -H 'Accept: application/json'
+
+```
+
+```javascript
+var headers = {
+  'Accept':'application/json',
+  'Accept':'application/json'
+
+};
+
+$.ajax({
+  url: 'http://api.agentivity.com/TicketsIssuedByNumber/user',
+  method: 'get',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json',
+  'Accept': 'application/json'
+}
+
+r = requests.get('http://api.agentivity.com/TicketsIssuedByNumber/user', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```java
+URL obj = new URL("http://api.agentivity.com/TicketsIssuedByNumber/user");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("GET");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+
+```
+
+`GET /TicketsIssuedByNumber/user`
+
+<h3 id="getticketsissuedbynumber-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|UserName|query|string|true|UserName in form of an email address|
+|tktNumber|query|string|true|Ticket number|
+|Accept|header|string|true|Accept Header|
+
+#### Enumerated Values
+
+|Parameter|Value|
+|---|---|
+|Accept|application/json|
+
+
+
+> Default Response
+
+```json
+{
+  "ResponseMetadata": {
+    "Success": true,
+    "HasCache": true,
+    "HasPaging": true,
+    "CacheMetadata": {
+      "IsFromCache": true,
+      "CachedAt": "2019-03-18T11:42:49Z",
+      "CacheExpiresAt": "2019-03-18T11:42:49Z"
+    },
+    "PagingMetadata": {
+      "Limit": "string",
+      "Offset": "string",
+      "ResponseRecords": "string",
+      "TotalRecords": "string"
+    }
+  },
+  "ResponseReport": [
+    {
+      "RecordLocator": "string",
+      "TktNumber": "string",
+      "PlatingCarrier": "string",
+      "Passenger": "string",
+      "IATA": "string",
+      "OwningAgencyLocationID": "string",
+      "IssueDate": "2019-03-18T11:42:49Z",
+      "ExpirationDate": "2019-03-18T11:42:49Z",
+      "FOPFare": "string",
+      "PrintedCurrency": "string"
+    }
+  ],
+  "ResponseError": {
+    "ErrorCode": "string",
+    "Message": "string",
+    "StatusCode": "string",
+    "VerboseMessage": "string"
+  }
+}
+```
+
+<h3 id="getticketsissuedbynumber-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|default|Default|Default response|[CollectionResponse_TicketsIssuedByNumber_](#schemacollectionresponse_ticketsissuedbynumber_)|
+
+
+## TicketsByAccount
+
+<a id="opIdTicketsByAccount"></a>
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X GET http://api.agentivity.com/ticketsbyaccount \
+  -H 'Accept: application/json' \
+  -H 'Accept: application/json'
+
+```
+
+```javascript
+var headers = {
+  'Accept':'application/json',
+  'Accept':'application/json'
+
+};
+
+$.ajax({
+  url: 'http://api.agentivity.com/ticketsbyaccount',
+  method: 'get',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json',
+  'Accept': 'application/json'
+}
+
+r = requests.get('http://api.agentivity.com/ticketsbyaccount', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```java
+URL obj = new URL("http://api.agentivity.com/ticketsbyaccount");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("GET");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+
+```
+
+`GET /ticketsbyaccount`
+
+<h3 id="ticketsbyaccount-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|UserName|query|string|true|UserName in form of an email address|
+|TicketIssueStartDate|query|string|true|Date in format YYYYMMDD|
+|TicketIssueEndDate|query|string|true|Date in format YYYYMMDD|
+|Account|query|string|false|GDS account|
+|Accept|header|string|true|Accept Header|
+
+#### Enumerated Values
+
+|Parameter|Value|
+|---|---|
+|Accept|application/json|
+
+
+
+> Default Response
+
+```json
+{
+  "ResponseMetadata": {
+    "Success": true,
+    "HasCache": true,
+    "HasPaging": true,
+    "CacheMetadata": {
+      "IsFromCache": true,
+      "CachedAt": "2019-03-18T11:42:49Z",
+      "CacheExpiresAt": "2019-03-18T11:42:49Z"
+    },
+    "PagingMetadata": {
+      "Limit": "string",
+      "Offset": "string",
+      "ResponseRecords": "string",
+      "TotalRecords": "string"
+    }
+  },
+  "ResponseReport": {
+    "Item": {
+      "AgentivityRef": 0,
+      "RecordLocator": "string",
+      "PNRCreationDate": "2019-03-18T11:42:49Z",
+      "Account": "string",
+      "IssueDate": "2019-03-18T11:42:49Z",
+      "TicketNumber": "string",
+      "PrimaryPassenger": "string",
+      "PlatingCarrier": "string",
+      "IATA": "string"
+    }
+  },
+  "ResponseError": {
+    "ErrorCode": "string",
+    "Message": "string",
+    "StatusCode": "string",
+    "VerboseMessage": "string"
+  }
+}
+```
+
+<h3 id="ticketsbyaccount-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|default|Default|Default response|[TicketsByAccountItemResponse](#schematicketsbyaccountitemresponse)|
+
+
+## TicketDetails
+
+<a id="opIdTicketDetails"></a>
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X GET http://api.agentivity.com/TicketDetails/user \
+  -H 'Accept: application/json' \
+  -H 'Accept: application/json'
+
+```
+
+```javascript
+var headers = {
+  'Accept':'application/json',
+  'Accept':'application/json'
+
+};
+
+$.ajax({
+  url: 'http://api.agentivity.com/TicketDetails/user',
+  method: 'get',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json',
+  'Accept': 'application/json'
+}
+
+r = requests.get('http://api.agentivity.com/TicketDetails/user', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```java
+URL obj = new URL("http://api.agentivity.com/TicketDetails/user");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("GET");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+
+```
+
+`GET /TicketDetails/user`
+
+<h3 id="ticketdetails-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|UserName|query|string|true|UserName in form of an email address|
+|TktNumber|query|string|true|Ticket number|
+|CacheGuid|query|string|false|Cache guid|
+|Accept|header|string|true|Accept Header|
+
+#### Enumerated Values
+
+|Parameter|Value|
+|---|---|
+|Accept|application/json|
+
+
+
+> Default Response
+
+```json
+{
+  "ResponseMetadata": {
+    "Success": true,
+    "HasCache": true,
+    "HasPaging": true,
+    "CacheMetadata": {
+      "IsFromCache": true,
+      "CachedAt": "2019-03-18T11:42:49Z",
+      "CacheExpiresAt": "2019-03-18T11:42:49Z"
+    },
+    "PagingMetadata": {
+      "Limit": "string",
+      "Offset": "string",
+      "ResponseRecords": "string",
+      "TotalRecords": "string"
+    }
+  },
+  "ResponseReport": {
+    "Item": {
+      "TktNumber": "string",
+      "RecordLocator": "string",
+      "PNRCreationDate": "2019-03-18T11:42:49Z",
+      "TktIssueDate": "2019-03-18T11:42:49Z",
+      "PlatingCarrier": "string",
+      "Status": "string",
+      "BAR": "string",
+      "PAR": "string",
+      "LastName": "string",
+      "FirstName": "string",
+      "TicketExpiryDate": "2019-03-18T11:42:49Z",
+      "FOP": "string",
+      "FopFare": "string",
+      "FOPCurrency": "string",
+      "PrintedCurrency": "string",
+      "PrintedFare": "string",
+      "CreditCardFOPAcct": "string",
+      "OwningAgencyLocationID": "string",
+      "IATA": "string",
+      "Coupons": [
+        {
+          "TktNumber": "string",
+          "Carrier": "string",
+          "CouponSequenceNbr": 0,
+          "FlightNbr": "string",
+          "BoardPoint": "string",
+          "OffPoint": "string",
+          "FlightServiceClass": "string",
+          "FlightDate": "2019-03-18T11:42:49Z",
+          "FlightCouponStatus": "string",
+          "DateLastChecked": "2019-03-18T11:42:49Z",
+          "AirTktSegId": 0,
+          "EligibleForRefund": true
+        }
+      ],
+      "EligibleForRefund": true
+    }
+  },
+  "ResponseError": {
+    "ErrorCode": "string",
+    "Message": "string",
+    "StatusCode": "string",
+    "VerboseMessage": "string"
+  }
+}
+```
+
+<h3 id="ticketdetailsuser_get-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|default|Default|Default response|[TicketDetailsItemResponse](#schematicketdetailsitemresponse)|
+
+
+
+
+<h1 id="agentivity-api-ticketingstats">ticketingstats</h1>
+
+## TicketingStatsRequest_Get
+
+<a id="opIdTicketingStatsRequest_Get"></a>
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X GET http://api.agentivity.com/ticketingstats \
+  -H 'Accept: application/json' \
+  -H 'Accept: application/json'
+
+```
+
+```javascript
+var headers = {
+  'Accept':'application/json',
+  'Accept':'application/json'
+
+};
+
+$.ajax({
+  url: 'http://api.agentivity.com/ticketingstats',
+  method: 'get',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json',
+  'Accept': 'application/json'
+}
+
+r = requests.get('http://api.agentivity.com/ticketingstats', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```java
+URL obj = new URL("http://api.agentivity.com/ticketingstats");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("GET");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+
+```
+
+`GET /ticketingstats`
+
+<h3 id="ticketingstatsrequest_get-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|Offset|query|string|false|Starting Record|
+|Limit|query|string|false|Number of records to return (PageSize)|
+|TotalRecords|query|string(int32)|false|Total Number of Records in a Full Reponse (if no paging)|
+|ResponseRecords|query|string(int32)|false|Total NUmber of Records in this Reponse (on this page)|
+|Accept|header|string|true|Accept Header|
+
+#### Enumerated Values
+
+|Parameter|Value|
+|---|---|
+|Accept|application/json|
+
+
+
+> Default Response
+
+```json
+{
+  "ResponseMetadata": {
+    "Success": true,
+    "HasCache": true,
+    "HasPaging": true,
+    "CacheMetadata": {
+      "IsFromCache": true,
+      "CachedAt": "2019-03-18T11:42:49Z",
+      "CacheExpiresAt": "2019-03-18T11:42:49Z"
+    },
+    "PagingMetadata": {
+      "Limit": "string",
+      "Offset": "string",
+      "ResponseRecords": "string",
+      "TotalRecords": "string"
+    }
+  },
+  "ResponseReport": {
+    "Item": {
+      "TraditionalCount": 0,
+      "OnlineCount": 0,
+      "TotalCount": 0,
+      "ChangesCount": 0
+    }
+  },
+  "ResponseError": {
+    "ErrorCode": "string",
+    "Message": "string",
+    "StatusCode": "string",
+    "VerboseMessage": "string"
+  }
+}
+```
+
+<h3 id="ticketingstatsrequest_get-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|default|Default|Default response|[TicketingStatsRequestItemResponse](#schematicketingstatsrequestitemresponse)|
+
+
+
+
+<h1 id="agentivity-api-ticketrevalidations">ticketrevalidations</h1>
+
+## TicketRevalidations_Get
+
+<a id="opIdTicketRevalidations_Get"></a>
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X GET http://api.agentivity.com/ticketrevalidations \
+  -H 'Accept: application/json' \
+  -H 'Accept: application/json'
+
+```
+
+```javascript
+var headers = {
+  'Accept':'application/json',
+  'Accept':'application/json'
+
+};
+
+$.ajax({
+  url: 'http://api.agentivity.com/ticketrevalidations',
+  method: 'get',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json',
+  'Accept': 'application/json'
+}
+
+r = requests.get('http://api.agentivity.com/ticketrevalidations', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```java
+URL obj = new URL("http://api.agentivity.com/ticketrevalidations");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("GET");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+
+```
+
+`GET /ticketrevalidations`
+
+<h3 id="ticketrevalidations_get-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|Offset|query|string|false|Starting Record|
+|Limit|query|string|false|Number of records to return (PageSize)|
+|TotalRecords|query|string(int32)|false|Total Number of Records in a Full Reponse (if no paging)|
+|ResponseRecords|query|string(int32)|false|Total NUmber of Records in this Reponse (on this page)|
+|Accept|header|string|true|Accept Header|
+
+#### Enumerated Values
+
+|Parameter|Value|
+|---|---|
+|Accept|application/json|
+
+
+
+> Default Response
+
+```json
+{
+  "ResponseMetadata": {
+    "Success": true,
+    "HasCache": true,
+    "HasPaging": true,
+    "CacheMetadata": {
+      "IsFromCache": true,
+      "CachedAt": "2019-03-18T11:42:49Z",
+      "CacheExpiresAt": "2019-03-18T11:42:49Z"
+    },
+    "PagingMetadata": {
+      "Limit": "string",
+      "Offset": "string",
+      "ResponseRecords": "string",
+      "TotalRecords": "string"
+    }
+  },
+  "ResponseReport": {
+    "Item": {
+      "RecordLocator": "string",
+      "TicketNumber": "string",
+      "IssuedDate": "2019-03-18T11:42:49Z",
+      "Account": "string",
+      "OwningConsultantID": "string",
+      "CouponSequenceNbr": "string",
+      "DepartureDate": "2019-03-18T11:42:49Z",
+      "BoardPoint": "string",
+      "OffPoint": "string",
+      "CarrierCode": "string",
+      "LastChangedDate": "2019-03-18T11:42:49Z"
+    }
+  },
+  "ResponseError": {
+    "ErrorCode": "string",
+    "Message": "string",
+    "StatusCode": "string",
+    "VerboseMessage": "string"
+  }
+}
+```
+
+<h3 id="ticketrevalidations_get-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|default|Default|Default response|[TicketRevalidationsItemResponse](#schematicketrevalidationsitemresponse)|
+
+
+
+<h1 id="agentivity-api-ticketrevenue">ticketrevenue</h1>
+
+## TicketRevenueByCompanycompany_Get
+
+<a id="opIdTicketRevenueByCompanycompany_Get"></a>
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X GET http://api.agentivity.com/ticketrevenue/company \
+  -H 'Accept: application/json' \
+  -H 'Accept: application/json'
+
+```
+
+```javascript
+var headers = {
+  'Accept':'application/json',
+  'Accept':'application/json'
+
+};
+
+$.ajax({
+  url: 'http://api.agentivity.com/ticketrevenue/company',
+  method: 'get',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json',
+  'Accept': 'application/json'
+}
+
+r = requests.get('http://api.agentivity.com/ticketrevenue/company', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```java
+URL obj = new URL("http://api.agentivity.com/ticketrevenue/company");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("GET");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+
+```
+
+`GET /ticketrevenue/company`
+
+<h3 id="ticketrevenuebycompanycompany_get-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|CompanyID|query|integer(int32)|false|none|
+|TravelAgentID|query|string|false|none|
+|PlatingCarrier|query|string|false|none|
+|DepartureDateStart|query|string|false|none|
+|DepartureDateEnd|query|string|false|none|
+|FlightCouponStatus|query|string|false|none|
+|AirlineCode|query|string|false|none|
+|Accept|header|string|true|Accept Header|
+
+#### Enumerated Values
+
+|Parameter|Value|
+|---|---|
+|Accept|application/json|
+
+
+
+> Default Response
+
+```json
+{}
+```
+
+<h3 id="ticketrevenuebycompanycompany_get-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|default|Default|Default response|[Object](#schemaobject)|
+
+
+
+
+
+
+
+<h1 id="agentivity-api-ticketsegments">ticketsegments</h1>
+
+## TicketSegmentsByBARbar_Get
+
+<a id="opIdTicketSegmentsByBARbar_Get"></a>
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X GET http://api.agentivity.com/ticketsegments/bar \
+  -H 'Accept: application/json' \
+  -H 'Accept: application/json'
+
+```
+
+```javascript
+var headers = {
+  'Accept':'application/json',
+  'Accept':'application/json'
+
+};
+
+$.ajax({
+  url: 'http://api.agentivity.com/ticketsegments/bar',
+  method: 'get',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json',
+  'Accept': 'application/json'
+}
+
+r = requests.get('http://api.agentivity.com/ticketsegments/bar', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```java
+URL obj = new URL("http://api.agentivity.com/ticketsegments/bar");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("GET");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+
+```
+
+`GET /ticketsegments/bar`
+
+<h3 id="ticketsegmentsbybarbar_get-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|Offset|query|string|false|Starting Record|
+|Limit|query|string|false|Number of records to return (PageSize)|
+|TotalRecords|query|string(int32)|false|Total Number of Records in a Full Reponse (if no paging)|
+|ResponseRecords|query|string(int32)|false|Total NUmber of Records in this Reponse (on this page)|
+|Accept|header|string|true|Accept Header|
+
+#### Enumerated Values
+
+|Parameter|Value|
+|---|---|
+|Accept|application/json|
+
+
+
+> Default Response
+
+```json
+{
+  "ResponseMetadata": {
+    "Success": true,
+    "HasCache": true,
+    "HasPaging": true,
+    "CacheMetadata": {
+      "IsFromCache": true,
+      "CachedAt": "2019-03-18T11:42:49Z",
+      "CacheExpiresAt": "2019-03-18T11:42:49Z"
+    },
+    "PagingMetadata": {
+      "Limit": "string",
+      "Offset": "string",
+      "ResponseRecords": "string",
+      "TotalRecords": "string"
+    }
+  },
+  "ResponseReport": [
+    {
+      "TktNumber": "string",
+      "RecordLocator": "string",
+      "VndIssueDt": "string",
+      "BAR": "string",
+      "PAR": "string",
+      "FOPCurrency": "string",
+      "FOPFare": "string",
+      "Segments": [
+        {
+          "Carrier": "string",
+          "CouponBoardPoint": "string",
+          "CouponOffPoint": "string",
+          "CouponSequenceNbr": 0,
+          "DateLastChecked": "string",
+          "FareBasis": "string",
+          "FlightCouponStatus": "string",
+          "FlightServiceClass": "string",
+          "FlightStatus": "string"
+        }
+      ]
+    }
+  ],
+  "ResponseError": {
+    "ErrorCode": "string",
+    "Message": "string",
+    "StatusCode": "string",
+    "VerboseMessage": "string"
+  }
+}
+```
+
+<h3 id="ticketsegmentsbybarbar_get-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|default|Default|Default response|[TicketSegmentsByBARResponse](#schematicketsegmentsbybarresponse)|
+
+
+
+<h1 id="agentivity-api-ticketsegmentswithtax">ticketsegmentswithtax</h1>
+
+## TicketSegmentsWithTaxByIssueDateuser_Get
+
+<a id="opIdTicketSegmentsWithTaxByIssueDateuser_Get"></a>
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X GET http://api.agentivity.com/ticketsegmentswithtax/user \
+  -H 'Accept: application/json' \
+  -H 'Accept: application/json'
+
+```
+
+```javascript
+var headers = {
+  'Accept':'application/json',
+  'Accept':'application/json'
+
+};
+
+$.ajax({
+  url: 'http://api.agentivity.com/ticketsegmentswithtax/user',
+  method: 'get',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json',
+  'Accept': 'application/json'
+}
+
+r = requests.get('http://api.agentivity.com/ticketsegmentswithtax/user', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```java
+URL obj = new URL("http://api.agentivity.com/ticketsegmentswithtax/user");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("GET");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+
+```
+
+`GET /ticketsegmentswithtax/user`
+
+<h3 id="ticketsegmentswithtaxbyissuedateuser_get-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|Offset|query|string|false|Starting Record|
+|Limit|query|string|false|Number of records to return (PageSize)|
+|TotalRecords|query|string(int32)|false|Total Number of Records in a Full Reponse (if no paging)|
+|ResponseRecords|query|string(int32)|false|Total NUmber of Records in this Reponse (on this page)|
+|Accept|header|string|true|Accept Header|
+
+#### Enumerated Values
+
+|Parameter|Value|
+|---|---|
+|Accept|application/json|
+
+
+
+> Default Response
+
+```json
+{
+  "ResponseMetadata": {
+    "Success": true,
+    "HasCache": true,
+    "HasPaging": true,
+    "CacheMetadata": {
+      "IsFromCache": true,
+      "CachedAt": "2019-03-18T11:42:49Z",
+      "CacheExpiresAt": "2019-03-18T11:42:49Z"
+    },
+    "PagingMetadata": {
+      "Limit": "string",
+      "Offset": "string",
+      "ResponseRecords": "string",
+      "TotalRecords": "string"
+    }
+  },
+  "ResponseReport": [
+    {
+      "Recordlocator": "string",
+      "PNRCreationDate": "string",
+      "TicketNumber": "string",
+      "Account": "string",
+      "PrimaryPassenger": "string",
+      "VndIssueDate": "string",
+      "TravelAgentID": "string",
+      "FOPFare": "string",
+      "FOP": "string",
+      "TotalTax": "string",
+      "Tax1Code": "string",
+      "Tax1Amt": "string",
+      "Tax2Code": "string",
+      "Tax2Amt": "string",
+      "Tax3Code": "string",
+      "Tax3Amt": "string",
+      "Tax4Code": "string",
+      "Tax4Amt": "string",
+      "Tax5Code": "string",
+      "Tax5Amt": "string",
+      "ExchangedForTicket": "string",
+      "CouponSequenceNbr": "string",
+      "Carrier": "string",
+      "BoardPoint": "string",
+      "OffPoint": "string",
+      "FlightDate": "string",
+      "FlightServiceClass": "string",
+      "FareBasis": "string",
+      "FlightCouponStatus": "string",
+      "DateLastChecked": "string",
+      "OwningAgencyLocationID": "string"
+    }
+  ],
+  "ResponseError": {
+    "ErrorCode": "string",
+    "Message": "string",
+    "StatusCode": "string",
+    "VerboseMessage": "string"
+  }
+}
+```
+
+<h3 id="ticketsegmentswithtaxbyissuedateuser_get-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|default|Default|Default response|[TicketSegmentsWithTaxByIssueDateResponse](#schematicketsegmentswithtaxbyissuedateresponse)|
+
+
+
+
+
+
+
+<h1 id="agentivity-api-tickettrackingfailures">tickettrackingfailures</h1>
+
+## TicketTrackingFailuresByUseruser_Get
+
+<a id="opIdTicketTrackingFailuresByUseruser_Get"></a>
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X GET http://api.agentivity.com/tickettrackingfailures/user \
+  -H 'Accept: application/json' \
+  -H 'Accept: application/json'
+
+```
+
+```javascript
+var headers = {
+  'Accept':'application/json',
+  'Accept':'application/json'
+
+};
+
+$.ajax({
+  url: 'http://api.agentivity.com/tickettrackingfailures/user',
+  method: 'get',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json',
+  'Accept': 'application/json'
+}
+
+r = requests.get('http://api.agentivity.com/tickettrackingfailures/user', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```java
+URL obj = new URL("http://api.agentivity.com/tickettrackingfailures/user");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("GET");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+
+```
+
+`GET /tickettrackingfailures/user`
+
+<h3 id="tickettrackingfailuresbyuseruser_get-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|Offset|query|string|false|Starting Record|
+|Limit|query|string|false|Number of records to return (PageSize)|
+|TotalRecords|query|string(int32)|false|Total Number of Records in a Full Reponse (if no paging)|
+|ResponseRecords|query|string(int32)|false|Total NUmber of Records in this Reponse (on this page)|
+|Accept|header|string|true|Accept Header|
+
+#### Enumerated Values
+
+|Parameter|Value|
+|---|---|
+|Accept|application/json|
+
+
+
+> Default Response
+
+```json
+{
+  "ResponseMetadata": {
+    "Success": true,
+    "HasCache": true,
+    "HasPaging": true,
+    "CacheMetadata": {
+      "IsFromCache": true,
+      "CachedAt": "2019-03-18T11:42:49Z",
+      "CacheExpiresAt": "2019-03-18T11:42:49Z"
+    },
+    "PagingMetadata": {
+      "Limit": "string",
+      "Offset": "string",
+      "ResponseRecords": "string",
+      "TotalRecords": "string"
+    }
+  },
+  "ResponseReport": {
+    "Item": {
+      "AgentivityRef": "string",
+      "RecordLocator": "string",
+      "PrimaryPax": "string",
+      "LastActionAgencyLocationID": "string",
+      "OwningAgencyLocationID": "string",
+      "Message": "string"
+    }
+  },
+  "ResponseError": {
+    "ErrorCode": "string",
+    "Message": "string",
+    "StatusCode": "string",
+    "VerboseMessage": "string"
+  }
+}
+```
+
+<h3 id="tickettrackingfailuresbyuseruser_get-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|default|Default|Default response|[TicketTrackingFailuresByUserItemResponse](#schematickettrackingfailuresbyuseritemresponse)|
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# Traveller
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# User
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -9174,296 +19237,12 @@ System.out.println(response.toString());
 |default|Default|Default response|[TravelHistorySummaryByTravellerResponse](#schematravelhistorysummarybytravellerresponse)|
 
 
-## PCCAccountSupplierPreferencesRequestpccaccountsupplierpreferences_Get
 
-<a id="opIdPCCAccountSupplierPreferencesRequestpccaccountsupplierpreferences_Get"></a>
 
-> Code samples
 
-```shell
-# You can also use wget
-curl -X GET http://api.agentivity.com/1/pccaccount/supplierpreferences \
-  -H 'Accept: application/json' \
-  -H 'Accept: application/json'
 
-```
 
-```javascript
-var headers = {
-  'Accept':'application/json',
-  'Accept':'application/json'
 
-};
-
-$.ajax({
-  url: 'http://api.agentivity.com/1/pccaccount/supplierpreferences',
-  method: 'get',
-
-  headers: headers,
-  success: function(data) {
-    console.log(JSON.stringify(data));
-  }
-})
-
-```
-
-```python
-import requests
-headers = {
-  'Accept': 'application/json',
-  'Accept': 'application/json'
-}
-
-r = requests.get('http://api.agentivity.com/1/pccaccount/supplierpreferences', params={
-
-}, headers = headers)
-
-print r.json()
-
-```
-
-```java
-URL obj = new URL("http://api.agentivity.com/1/pccaccount/supplierpreferences");
-HttpURLConnection con = (HttpURLConnection) obj.openConnection();
-con.setRequestMethod("GET");
-int responseCode = con.getResponseCode();
-BufferedReader in = new BufferedReader(
-    new InputStreamReader(con.getInputStream()));
-String inputLine;
-StringBuffer response = new StringBuffer();
-while ((inputLine = in.readLine()) != null) {
-    response.append(inputLine);
-}
-in.close();
-System.out.println(response.toString());
-
-```
-
-`GET /1/pccaccount/supplierpreferences`
-
-<h3 id="pccaccountsupplierpreferencesrequestpccaccountsupplierpreferences_get-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|PCC|query|string|false|none|
-|Account|query|string|false|none|
-|Accept|header|string|true|Accept Header|
-
-#### Enumerated Values
-
-|Parameter|Value|
-|---|---|
-|Accept|application/json|
-
-> Default Response
-
-```json
-{}
-```
-
-<h3 id="pccaccountsupplierpreferencesrequestpccaccountsupplierpreferences_get-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|default|Default|Default response|[Object](#schemaobject)|
-
-
-
-## PCCTravellerTicketSegmentsPerStatusRequestpcctravellerticketsegmentsperstatus_Get
-
-<a id="opIdPCCTravellerTicketSegmentsPerStatusRequestpcctravellerticketsegmentsperstatus_Get"></a>
-
-> Code samples
-
-```shell
-# You can also use wget
-curl -X GET http://api.agentivity.com/1/pcctraveller/ticketsegmentsperstatus \
-  -H 'Accept: application/json' \
-  -H 'Accept: application/json'
-
-```
-
-```javascript
-var headers = {
-  'Accept':'application/json',
-  'Accept':'application/json'
-
-};
-
-$.ajax({
-  url: 'http://api.agentivity.com/1/pcctraveller/ticketsegmentsperstatus',
-  method: 'get',
-
-  headers: headers,
-  success: function(data) {
-    console.log(JSON.stringify(data));
-  }
-})
-
-```
-
-```python
-import requests
-headers = {
-  'Accept': 'application/json',
-  'Accept': 'application/json'
-}
-
-r = requests.get('http://api.agentivity.com/1/pcctraveller/ticketsegmentsperstatus', params={
-
-}, headers = headers)
-
-print r.json()
-
-```
-
-```java
-URL obj = new URL("http://api.agentivity.com/1/pcctraveller/ticketsegmentsperstatus");
-HttpURLConnection con = (HttpURLConnection) obj.openConnection();
-con.setRequestMethod("GET");
-int responseCode = con.getResponseCode();
-BufferedReader in = new BufferedReader(
-    new InputStreamReader(con.getInputStream()));
-String inputLine;
-StringBuffer response = new StringBuffer();
-while ((inputLine = in.readLine()) != null) {
-    response.append(inputLine);
-}
-in.close();
-System.out.println(response.toString());
-
-```
-
-`GET /1/pcctraveller/ticketsegmentsperstatus`
-
-<h3 id="pcctravellerticketsegmentsperstatusrequestpcctravellerticketsegmentsperstatus_get-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|Offset|query|string|false|Starting Record|
-|Limit|query|string|false|Number of records to return (PageSize)|
-|TotalRecords|query|string(int32)|false|Total Number of Records in a Full Reponse (if no paging)|
-|ResponseRecords|query|string(int32)|false|Total NUmber of Records in this Reponse (on this page)|
-|Accept|header|string|true|Accept Header|
-
-#### Enumerated Values
-
-|Parameter|Value|
-|---|---|
-|Accept|application/json|
-
-
-
-> Default Response
-
-```json
-{}
-```
-
-<h3 id="pcctravellerticketsegmentsperstatusrequestpcctravellerticketsegmentsperstatus_get-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|default|Default|Default response|[Object](#schemaobject)|
-
-
-
-## PCCTravellerHistorySummaryRequestpcctravellerhistorysummary_Get
-
-<a id="opIdPCCTravellerHistorySummaryRequestpcctravellerhistorysummary_Get"></a>
-
-> Code samples
-
-```shell
-# You can also use wget
-curl -X GET http://api.agentivity.com/1/pcctraveller/historysummary \
-  -H 'Accept: application/json' \
-  -H 'Accept: application/json'
-
-```
-
-```javascript
-var headers = {
-  'Accept':'application/json',
-  'Accept':'application/json'
-
-};
-
-$.ajax({
-  url: 'http://api.agentivity.com/1/pcctraveller/historysummary',
-  method: 'get',
-
-  headers: headers,
-  success: function(data) {
-    console.log(JSON.stringify(data));
-  }
-})
-
-```
-
-```python
-import requests
-headers = {
-  'Accept': 'application/json',
-  'Accept': 'application/json'
-}
-
-r = requests.get('http://api.agentivity.com/1/pcctraveller/historysummary', params={
-
-}, headers = headers)
-
-print r.json()
-
-```
-
-```java
-URL obj = new URL("http://api.agentivity.com/1/pcctraveller/historysummary");
-HttpURLConnection con = (HttpURLConnection) obj.openConnection();
-con.setRequestMethod("GET");
-int responseCode = con.getResponseCode();
-BufferedReader in = new BufferedReader(
-    new InputStreamReader(con.getInputStream()));
-String inputLine;
-StringBuffer response = new StringBuffer();
-while ((inputLine = in.readLine()) != null) {
-    response.append(inputLine);
-}
-in.close();
-System.out.println(response.toString());
-
-```
-
-`GET /1/pcctraveller/historysummary`
-
-<h3 id="pcctravellerhistorysummaryrequestpcctravellerhistorysummary_get-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|PCC|query|string|false|none|
-|BAR|query|string|false|none|
-|MAR|query|string|false|none|
-|PAR|query|string|false|none|
-|Accept|header|string|true|Accept Header|
-
-#### Enumerated Values
-
-|Parameter|Value|
-|---|---|
-|Accept|application/json|
-
-
-
-> Default Response
-
-```json
-{}
-```
-
-<h3 id="pcctravellerhistorysummaryrequestpcctravellerhistorysummary_get-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|default|Default|Default response|[Object](#schemaobject)|
 
 
 
@@ -9566,100 +19345,6 @@ System.out.println(response.toString());
 
 
 
-## PNRSegmentsRequestpnrsegments_Get
-
-<a id="opIdPNRSegmentsRequestpnrsegments_Get"></a>
-
-> Code samples
-
-```shell
-# You can also use wget
-curl -X GET http://api.agentivity.com/1/pnr/segments \
-  -H 'Accept: application/json' \
-  -H 'Accept: application/json'
-
-```
-
-```javascript
-var headers = {
-  'Accept':'application/json',
-  'Accept':'application/json'
-
-};
-
-$.ajax({
-  url: 'http://api.agentivity.com/1/pnr/segments',
-  method: 'get',
-
-  headers: headers,
-  success: function(data) {
-    console.log(JSON.stringify(data));
-  }
-})
-
-```
-
-```python
-import requests
-headers = {
-  'Accept': 'application/json',
-  'Accept': 'application/json'
-}
-
-r = requests.get('http://api.agentivity.com/1/pnr/segments', params={
-
-}, headers = headers)
-
-print r.json()
-
-```
-
-```java
-URL obj = new URL("http://api.agentivity.com/1/pnr/segments");
-HttpURLConnection con = (HttpURLConnection) obj.openConnection();
-con.setRequestMethod("GET");
-int responseCode = con.getResponseCode();
-BufferedReader in = new BufferedReader(
-    new InputStreamReader(con.getInputStream()));
-String inputLine;
-StringBuffer response = new StringBuffer();
-while ((inputLine = in.readLine()) != null) {
-    response.append(inputLine);
-}
-in.close();
-System.out.println(response.toString());
-
-```
-
-`GET /1/pnr/segments`
-
-<h3 id="pnrsegmentsrequestpnrsegments_get-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|RecordLocator|query|string|false|none|
-|PNRCreationDate|query|string|false|none|
-|Accept|header|string|true|Accept Header|
-
-#### Enumerated Values
-
-|Parameter|Value|
-|---|---|
-|Accept|application/json|
-
-
-
-> Default Response
-
-```json
-{}
-```
-
-<h3 id="pnrsegmentsrequestpnrsegments_get-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|default|Default|Default response|[Object](#schemaobject)|
 
 
 
@@ -9760,191 +19445,6 @@ System.out.println(response.toString());
 
 
 
-## PNRSegmentsRequestpnrsegmentsRecordLocatorPNRCreationDate_Get
-
-<a id="opIdPNRSegmentsRequestpnrsegmentsRecordLocatorPNRCreationDate_Get"></a>
-
-> Code samples
-
-```shell
-# You can also use wget
-curl -X GET http://api.agentivity.com/1/pnr/segments/{RecordLocator}/{PNRCreationDate} \
-  -H 'Accept: application/json' \
-  -H 'Accept: application/json'
-
-```
-
-```javascript
-var headers = {
-  'Accept':'application/json',
-  'Accept':'application/json'
-
-};
-
-$.ajax({
-  url: 'http://api.agentivity.com/1/pnr/segments/{RecordLocator}/{PNRCreationDate}',
-  method: 'get',
-
-  headers: headers,
-  success: function(data) {
-    console.log(JSON.stringify(data));
-  }
-})
-
-```
-
-```python
-import requests
-headers = {
-  'Accept': 'application/json',
-  'Accept': 'application/json'
-}
-
-r = requests.get('http://api.agentivity.com/1/pnr/segments/{RecordLocator}/{PNRCreationDate}', params={
-
-}, headers = headers)
-
-print r.json()
-
-```
-
-```java
-URL obj = new URL("http://api.agentivity.com/1/pnr/segments/{RecordLocator}/{PNRCreationDate}");
-HttpURLConnection con = (HttpURLConnection) obj.openConnection();
-con.setRequestMethod("GET");
-int responseCode = con.getResponseCode();
-BufferedReader in = new BufferedReader(
-    new InputStreamReader(con.getInputStream()));
-String inputLine;
-StringBuffer response = new StringBuffer();
-while ((inputLine = in.readLine()) != null) {
-    response.append(inputLine);
-}
-in.close();
-System.out.println(response.toString());
-
-```
-
-`GET /1/pnr/segments/{RecordLocator}/{PNRCreationDate}`
-
-<h3 id="pnrsegmentsrequestpnrsegmentsrecordlocatorpnrcreationdate_get-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|RecordLocator|path|string|true|none|
-|PNRCreationDate|path|string|true|none|
-|Accept|header|string|true|Accept Header|
-
-#### Enumerated Values
-
-|Parameter|Value|
-|---|---|
-|Accept|application/json|
-
-
-
-> Default Response
-
-```json
-{}
-```
-
-<h3 id="pnrsegmentsrequestpnrsegmentsrecordlocatorpnrcreationdate_get-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|default|Default|Default response|[Object](#schemaobject)|
-
-
-
-## PCCAccountSupplierPreferencesRequestpccaccountsupplierpreferencesPCC_Get
-
-<a id="opIdPCCAccountSupplierPreferencesRequestpccaccountsupplierpreferencesPCC_Get"></a>
-
-> Code samples
-
-```shell
-# You can also use wget
-curl -X GET http://api.agentivity.com/1/pccaccount/supplierpreferences/{PCC} \
-  -H 'Accept: application/json' \
-  -H 'Accept: application/json'
-
-```
-
-```javascript
-var headers = {
-  'Accept':'application/json',
-  'Accept':'application/json'
-
-};
-
-$.ajax({
-  url: 'http://api.agentivity.com/1/pccaccount/supplierpreferences/{PCC}',
-  method: 'get',
-
-  headers: headers,
-  success: function(data) {
-    console.log(JSON.stringify(data));
-  }
-})
-
-```
-
-```python
-import requests
-headers = {
-  'Accept': 'application/json',
-  'Accept': 'application/json'
-}
-
-r = requests.get('http://api.agentivity.com/1/pccaccount/supplierpreferences/{PCC}', params={
-
-}, headers = headers)
-
-print r.json()
-
-```
-
-```java
-URL obj = new URL("http://api.agentivity.com/1/pccaccount/supplierpreferences/{PCC}");
-HttpURLConnection con = (HttpURLConnection) obj.openConnection();
-con.setRequestMethod("GET");
-int responseCode = con.getResponseCode();
-BufferedReader in = new BufferedReader(
-    new InputStreamReader(con.getInputStream()));
-String inputLine;
-StringBuffer response = new StringBuffer();
-while ((inputLine = in.readLine()) != null) {
-    response.append(inputLine);
-}
-in.close();
-System.out.println(response.toString());
-
-```
-
-`GET /1/pccaccount/supplierpreferences/{PCC}`
-
-<h3 id="pccaccountsupplierpreferencesrequestpccaccountsupplierpreferencespcc_get-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|PCC|path|string|true|none|
-|Account|query|string|false|none|
-|Accept|header|string|true|Accept Header|
-
-#### Enumerated Values
-
-|Parameter|Value|
-|---|---|
-|Accept|application/json|
-
-
-
-> Default Response
-
-```json
-{}
-```
 
 <h3 id="pccaccountsupplierpreferencesrequestpccaccountsupplierpreferencespcc_get-responses">Responses</h3>
 
@@ -10019,7 +19519,7 @@ System.out.println(response.toString());
 
 ```
 
-`GET /1/pcctraveller/ticketsegmentsperstatus/{PCC}/{BAR}/{FlightCouponStatus}`
+
 
 <h3 id="pcctravellerticketsegmentsperstatusrequestpcctravellerticketsegmentsperstatuspccbarflightcouponstatus_get-parameters">Parameters</h3>
 
@@ -10053,102 +19553,6 @@ System.out.println(response.toString());
 
 
 
-## PCCTravellerHistorySummaryRequestpcctravellerhistorysummaryPCCMARBARPAR_Get
-
-<a id="opIdPCCTravellerHistorySummaryRequestpcctravellerhistorysummaryPCCMARBARPAR_Get"></a>
-
-> Code samples
-
-```shell
-# You can also use wget
-curl -X GET http://api.agentivity.com/1/pcctraveller/historysummary/{PCC}/{MAR}/{BAR}/{PAR} \
-  -H 'Accept: application/json' \
-  -H 'Accept: application/json'
-
-```
-
-```javascript
-var headers = {
-  'Accept':'application/json',
-  'Accept':'application/json'
-
-};
-
-$.ajax({
-  url: 'http://api.agentivity.com/1/pcctraveller/historysummary/{PCC}/{MAR}/{BAR}/{PAR}',
-  method: 'get',
-
-  headers: headers,
-  success: function(data) {
-    console.log(JSON.stringify(data));
-  }
-})
-
-```
-
-```python
-import requests
-headers = {
-  'Accept': 'application/json',
-  'Accept': 'application/json'
-}
-
-r = requests.get('http://api.agentivity.com/1/pcctraveller/historysummary/{PCC}/{MAR}/{BAR}/{PAR}', params={
-
-}, headers = headers)
-
-print r.json()
-
-```
-
-```java
-URL obj = new URL("http://api.agentivity.com/1/pcctraveller/historysummary/{PCC}/{MAR}/{BAR}/{PAR}");
-HttpURLConnection con = (HttpURLConnection) obj.openConnection();
-con.setRequestMethod("GET");
-int responseCode = con.getResponseCode();
-BufferedReader in = new BufferedReader(
-    new InputStreamReader(con.getInputStream()));
-String inputLine;
-StringBuffer response = new StringBuffer();
-while ((inputLine = in.readLine()) != null) {
-    response.append(inputLine);
-}
-in.close();
-System.out.println(response.toString());
-
-```
-
-`GET /1/pcctraveller/historysummary/{PCC}/{MAR}/{BAR}/{PAR}`
-
-<h3 id="pcctravellerhistorysummaryrequestpcctravellerhistorysummarypccmarbarpar_get-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|PCC|path|string|true|none|
-|BAR|path|string|true|none|
-|MAR|path|string|true|none|
-|PAR|path|string|true|none|
-|Accept|header|string|true|Accept Header|
-
-#### Enumerated Values
-
-|Parameter|Value|
-|---|---|
-|Accept|application/json|
-
-
-
-> Default Response
-
-```json
-{}
-```
-
-<h3 id="pcctravellerhistorysummaryrequestpcctravellerhistorysummarypccmarbarpar_get-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|default|Default|Default response|[Object](#schemaobject)|
 
 
 
@@ -10251,24 +19655,7 @@ System.out.println(response.toString());
 
 
 
-<h2 id="agentivity-api-account">account</h2>
 
-### AccountBookingsAllVersionsRequestbookingsallversionsaccount_Get
-
-
-
-
-<h1 id="agentivity-api-accountairlinesupport">accountairlinesupport</h1>
-
-
-
-
-<h1 id="agentivity-api-accounteventandsegmentcounts">accounteventandsegmentcounts</h1>
-
-
-
-
-<h1 id="agentivity-api-accountpercompanys">AccountPerCompanys</h1>
 
 ## GetAccountPerCompany_Get
 
@@ -10398,17 +19785,6 @@ System.out.println(response.toString());
 
 
 
-<h1 id="agentivity-api-accountshotelattachmentsuccess">AccountsHotelAttachmentSuccess</h1>
-
-
-
-
-<h1 id="agentivity-api-accountsproductivity">AccountsProductivity</h1>
-
-
-
-
-<h1 id="agentivity-api-activeunsoldairbookings">ActiveUnsoldAirBookings</h1>
 
 ## GetActiveUnsoldAirBookingsuser_Get
 
@@ -10682,8 +20058,6 @@ System.out.println(response.toString());
 
 
 
-<h1 id="agentivity-api-agencyactivitybyconsultants">agencyactivitybyconsultants</h1>
-
 
 
 
@@ -10821,42 +20195,6 @@ System.out.println(response.toString());
 |default|Default|Default response|[AgencyLocationsHotelAttachmentSuccessItemResponse](#schemaagencylocationshotelattachmentsuccessitemresponse)|
 
 
-
-<h1 id="agentivity-api-agencyreviews">agencyreviews</h1>
-
-
-
-
-<h1 id="agentivity-api-agencyticketingactivity">agencyticketingactivity</h1>
-
-
-
-
-<h1 id="agentivity-api-agencytrackerbookings">agencytrackerbookings</h1>
-
-
-
-
-<h1 id="agentivity-api-airlinedemandsticketing">airlinedemandsticketing</h1>
-
-
-
-
-<h1 id="agentivity-api-airlinerevenue">airlinerevenue</h1>
-
-
-
-
-<h1 id="agentivity-api-airlinesclassestotals">airlinesclassestotals</h1>
-
-
-
-
-<h1 id="agentivity-api-airlineticketrevenues">airlineticketrevenues</h1>
-
-
-
-
 <h1 id="agentivity-api-airportcountry">AirportCountry</h1>
 
 ## GetAirportCountry_Get
@@ -10992,1155 +20330,6 @@ System.out.println(response.toString());
 |default|Default|Default response|[AirportCountryResponse](#schemaairportcountryresponse)|
 
 
-
-<h1 id="agentivity-api-airsegments">airsegments</h1>
-
-## AirSegmentsByUserGenRemarkusergenremark_Get
-
-<a id="opIdAirSegmentsByUserGenRemarkusergenremark_Get"></a>
-
-> Code samples
-
-```shell
-# You can also use wget
-curl -X GET http://api.agentivity.com/airsegments/user/genremark \
-  -H 'Accept: application/json' \
-  -H 'Accept: application/json'
-
-```
-
-```javascript
-var headers = {
-  'Accept':'application/json',
-  'Accept':'application/json'
-
-};
-
-$.ajax({
-  url: 'http://api.agentivity.com/airsegments/user/genremark',
-  method: 'get',
-
-  headers: headers,
-  success: function(data) {
-    console.log(JSON.stringify(data));
-  }
-})
-
-```
-
-```python
-import requests
-headers = {
-  'Accept': 'application/json',
-  'Accept': 'application/json'
-}
-
-r = requests.get('http://api.agentivity.com/airsegments/user/genremark', params={
-
-}, headers = headers)
-
-print r.json()
-
-```
-
-```java
-URL obj = new URL("http://api.agentivity.com/airsegments/user/genremark");
-HttpURLConnection con = (HttpURLConnection) obj.openConnection();
-con.setRequestMethod("GET");
-int responseCode = con.getResponseCode();
-BufferedReader in = new BufferedReader(
-    new InputStreamReader(con.getInputStream()));
-String inputLine;
-StringBuffer response = new StringBuffer();
-while ((inputLine = in.readLine()) != null) {
-    response.append(inputLine);
-}
-in.close();
-System.out.println(response.toString());
-
-```
-
-`GET /airsegments/user/genremark`
-
-<h3 id="airsegmentsbyusergenremarkusergenremark_get-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|Offset|query|string|false|Starting Record|
-|Limit|query|string|false|Number of records to return (PageSize)|
-|TotalRecords|query|string(int32)|false|Total Number of Records in a Full Reponse (if no paging)|
-|ResponseRecords|query|string(int32)|false|Total NUmber of Records in this Reponse (on this page)|
-|Accept|header|string|true|Accept Header|
-
-#### Enumerated Values
-
-|Parameter|Value|
-|---|---|
-|Accept|application/json|
-
-
-
-> Default Response
-
-```json
-{}
-```
-
-<h3 id="airsegmentsbyusergenremarkusergenremark_get-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|default|Default|Default response|[Object](#schemaobject)|
-
-
-
-## AirSegmentsByUserTktRemarkusertktremark_Get
-
-<a id="opIdAirSegmentsByUserTktRemarkusertktremark_Get"></a>
-
-> Code samples
-
-```shell
-# You can also use wget
-curl -X GET http://api.agentivity.com/airsegments/user/tktremark \
-  -H 'Accept: application/json' \
-  -H 'Accept: application/json'
-
-```
-
-```javascript
-var headers = {
-  'Accept':'application/json',
-  'Accept':'application/json'
-
-};
-
-$.ajax({
-  url: 'http://api.agentivity.com/airsegments/user/tktremark',
-  method: 'get',
-
-  headers: headers,
-  success: function(data) {
-    console.log(JSON.stringify(data));
-  }
-})
-
-```
-
-```python
-import requests
-headers = {
-  'Accept': 'application/json',
-  'Accept': 'application/json'
-}
-
-r = requests.get('http://api.agentivity.com/airsegments/user/tktremark', params={
-
-}, headers = headers)
-
-print r.json()
-
-```
-
-```java
-URL obj = new URL("http://api.agentivity.com/airsegments/user/tktremark");
-HttpURLConnection con = (HttpURLConnection) obj.openConnection();
-con.setRequestMethod("GET");
-int responseCode = con.getResponseCode();
-BufferedReader in = new BufferedReader(
-    new InputStreamReader(con.getInputStream()));
-String inputLine;
-StringBuffer response = new StringBuffer();
-while ((inputLine = in.readLine()) != null) {
-    response.append(inputLine);
-}
-in.close();
-System.out.println(response.toString());
-
-```
-
-`GET /airsegments/user/tktremark`
-
-<h3 id="airsegmentsbyusertktremarkusertktremark_get-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|Offset|query|string|false|Starting Record|
-|Limit|query|string|false|Number of records to return (PageSize)|
-|TotalRecords|query|string(int32)|false|Total Number of Records in a Full Reponse (if no paging)|
-|ResponseRecords|query|string(int32)|false|Total NUmber of Records in this Reponse (on this page)|
-|Accept|header|string|true|Accept Header|
-
-#### Enumerated Values
-
-|Parameter|Value|
-|---|---|
-|Accept|application/json|
-
-
-
-> Default Response
-
-```json
-{}
-```
-
-<h3 id="airsegmentsbyusertktremarkusertktremark_get-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|default|Default|Default response|[Object](#schemaobject)|
-
-
-
-<h1 id="agentivity-api-airsegmentsbydate">AirSegmentsByDate</h1>
-
-## AirSegmentsByDateuser_Get
-
-<a id="opIdAirSegmentsByDateuser_Get"></a>
-
-> Code samples
-
-```shell
-# You can also use wget
-curl -X GET http://api.agentivity.com/AirSegmentsByDate/user \
-  -H 'Accept: application/json' \
-  -H 'Accept: application/json'
-
-```
-
-```javascript
-var headers = {
-  'Accept':'application/json',
-  'Accept':'application/json'
-
-};
-
-$.ajax({
-  url: 'http://api.agentivity.com/AirSegmentsByDate/user',
-  method: 'get',
-
-  headers: headers,
-  success: function(data) {
-    console.log(JSON.stringify(data));
-  }
-})
-
-```
-
-```python
-import requests
-headers = {
-  'Accept': 'application/json',
-  'Accept': 'application/json'
-}
-
-r = requests.get('http://api.agentivity.com/AirSegmentsByDate/user', params={
-
-}, headers = headers)
-
-print r.json()
-
-```
-
-```java
-URL obj = new URL("http://api.agentivity.com/AirSegmentsByDate/user");
-HttpURLConnection con = (HttpURLConnection) obj.openConnection();
-con.setRequestMethod("GET");
-int responseCode = con.getResponseCode();
-BufferedReader in = new BufferedReader(
-    new InputStreamReader(con.getInputStream()));
-String inputLine;
-StringBuffer response = new StringBuffer();
-while ((inputLine = in.readLine()) != null) {
-    response.append(inputLine);
-}
-in.close();
-System.out.println(response.toString());
-
-```
-
-`GET /AirSegmentsByDate/user`
-
-<h3 id="airsegmentsbydateuser_get-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|Offset|query|string|false|Starting Record|
-|Limit|query|string|false|Number of records to return (PageSize)|
-|TotalRecords|query|string(int32)|false|Total Number of Records in a Full Reponse (if no paging)|
-|ResponseRecords|query|string(int32)|false|Total NUmber of Records in this Reponse (on this page)|
-|Accept|header|string|true|Accept Header|
-
-#### Enumerated Values
-
-|Parameter|Value|
-|---|---|
-|Accept|application/json|
-
-
-
-> Default Response
-
-```json
-{
-  "ResponseMetadata": {
-    "Success": true,
-    "HasCache": true,
-    "HasPaging": true,
-    "CacheMetadata": {
-      "IsFromCache": true,
-      "CachedAt": "2019-03-18T11:42:49Z",
-      "CacheExpiresAt": "2019-03-18T11:42:49Z"
-    },
-    "PagingMetadata": {
-      "Limit": "string",
-      "Offset": "string",
-      "ResponseRecords": "string",
-      "TotalRecords": "string"
-    }
-  },
-  "ResponseReport": {
-    "Item": {
-      "AgentivityRef": "string",
-      "RecordLocator": "string",
-      "OwningAgencyLocationID": "string",
-      "OwningConsultant": "string",
-      "Account": "string",
-      "Passengers": "string",
-      "DepartureDate": "2019-03-18T11:42:49Z",
-      "DepartureTime": "string",
-      "ArrivalDate": "2019-03-18T11:42:49Z",
-      "ArrivalTime": "string",
-      "CarrierCode": "string",
-      "BoardPoint": "string",
-      "OffPoint": "string",
-      "FlightNbr": "string",
-      "BookingCode": "string",
-      "CreatingAgencyIata": "string",
-      "SegmentStatus": "string"
-    }
-  },
-  "ResponseError": {
-    "ErrorCode": "string",
-    "Message": "string",
-    "StatusCode": "string",
-    "VerboseMessage": "string"
-  }
-}
-```
-
-<h3 id="airsegmentsbydateuser_get-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|default|Default|Default response|[AirSegmentsByDateItemResponse](#schemaairsegmentsbydateitemresponse)|
-
-
-
-<h1 id="agentivity-api-airsegmentsperaccountbyvendor">AirSegmentsPerAccountByVendor</h1>
-
-## AirSegmentsPerAccountByVendoruser_Get
-
-<a id="opIdAirSegmentsPerAccountByVendoruser_Get"></a>
-
-> Code samples
-
-```shell
-# You can also use wget
-curl -X GET http://api.agentivity.com/AirSegmentsPerAccountByVendor/user \
-  -H 'Accept: application/json' \
-  -H 'Accept: application/json'
-
-```
-
-```javascript
-var headers = {
-  'Accept':'application/json',
-  'Accept':'application/json'
-
-};
-
-$.ajax({
-  url: 'http://api.agentivity.com/AirSegmentsPerAccountByVendor/user',
-  method: 'get',
-
-  headers: headers,
-  success: function(data) {
-    console.log(JSON.stringify(data));
-  }
-})
-
-```
-
-```python
-import requests
-headers = {
-  'Accept': 'application/json',
-  'Accept': 'application/json'
-}
-
-r = requests.get('http://api.agentivity.com/AirSegmentsPerAccountByVendor/user', params={
-
-}, headers = headers)
-
-print r.json()
-
-```
-
-```java
-URL obj = new URL("http://api.agentivity.com/AirSegmentsPerAccountByVendor/user");
-HttpURLConnection con = (HttpURLConnection) obj.openConnection();
-con.setRequestMethod("GET");
-int responseCode = con.getResponseCode();
-BufferedReader in = new BufferedReader(
-    new InputStreamReader(con.getInputStream()));
-String inputLine;
-StringBuffer response = new StringBuffer();
-while ((inputLine = in.readLine()) != null) {
-    response.append(inputLine);
-}
-in.close();
-System.out.println(response.toString());
-
-```
-
-`GET /AirSegmentsPerAccountByVendor/user`
-
-<h3 id="airsegmentsperaccountbyvendoruser_get-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|Offset|query|string|false|Starting Record|
-|Limit|query|string|false|Number of records to return (PageSize)|
-|TotalRecords|query|string(int32)|false|Total Number of Records in a Full Reponse (if no paging)|
-|ResponseRecords|query|string(int32)|false|Total NUmber of Records in this Reponse (on this page)|
-|Accept|header|string|true|Accept Header|
-
-#### Enumerated Values
-
-|Parameter|Value|
-|---|---|
-|Accept|application/json|
-
-
-
-> Default Response
-
-```json
-{
-  "ResponseMetadata": {
-    "Success": true,
-    "HasCache": true,
-    "HasPaging": true,
-    "CacheMetadata": {
-      "IsFromCache": true,
-      "CachedAt": "2019-03-18T11:42:49Z",
-      "CacheExpiresAt": "2019-03-18T11:42:49Z"
-    },
-    "PagingMetadata": {
-      "Limit": "string",
-      "Offset": "string",
-      "ResponseRecords": "string",
-      "TotalRecords": "string"
-    }
-  },
-  "ResponseReport": {
-    "Item": {
-      "Account": "string",
-      "TotalAirSegments": 0
-    }
-  },
-  "ResponseError": {
-    "ErrorCode": "string",
-    "Message": "string",
-    "StatusCode": "string",
-    "VerboseMessage": "string"
-  }
-}
-```
-
-<h3 id="airsegmentsperaccountbyvendoruser_get-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|default|Default|Default response|[AirSegmentsPerAccountByVendorItemResponse](#schemaairsegmentsperaccountbyvendoritemresponse)|
-
-
-
-<h1 id="agentivity-api-airsegmentsperbranchbyvendor">AirSegmentsPerBranchByVendor</h1>
-
-## AirSegmentsPerBranchByVendoruser_Get
-
-<a id="opIdAirSegmentsPerBranchByVendoruser_Get"></a>
-
-> Code samples
-
-```shell
-# You can also use wget
-curl -X GET http://api.agentivity.com/AirSegmentsPerBranchByVendor/user \
-  -H 'Accept: application/json' \
-  -H 'Accept: application/json'
-
-```
-
-```javascript
-var headers = {
-  'Accept':'application/json',
-  'Accept':'application/json'
-
-};
-
-$.ajax({
-  url: 'http://api.agentivity.com/AirSegmentsPerBranchByVendor/user',
-  method: 'get',
-
-  headers: headers,
-  success: function(data) {
-    console.log(JSON.stringify(data));
-  }
-})
-
-```
-
-```python
-import requests
-headers = {
-  'Accept': 'application/json',
-  'Accept': 'application/json'
-}
-
-r = requests.get('http://api.agentivity.com/AirSegmentsPerBranchByVendor/user', params={
-
-}, headers = headers)
-
-print r.json()
-
-```
-
-```java
-URL obj = new URL("http://api.agentivity.com/AirSegmentsPerBranchByVendor/user");
-HttpURLConnection con = (HttpURLConnection) obj.openConnection();
-con.setRequestMethod("GET");
-int responseCode = con.getResponseCode();
-BufferedReader in = new BufferedReader(
-    new InputStreamReader(con.getInputStream()));
-String inputLine;
-StringBuffer response = new StringBuffer();
-while ((inputLine = in.readLine()) != null) {
-    response.append(inputLine);
-}
-in.close();
-System.out.println(response.toString());
-
-```
-
-`GET /AirSegmentsPerBranchByVendor/user`
-
-<h3 id="airsegmentsperbranchbyvendoruser_get-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|Offset|query|string|false|Starting Record|
-|Limit|query|string|false|Number of records to return (PageSize)|
-|TotalRecords|query|string(int32)|false|Total Number of Records in a Full Reponse (if no paging)|
-|ResponseRecords|query|string(int32)|false|Total NUmber of Records in this Reponse (on this page)|
-|Accept|header|string|true|Accept Header|
-
-#### Enumerated Values
-
-|Parameter|Value|
-|---|---|
-|Accept|application/json|
-
-
-
-> Default Response
-
-```json
-{
-  "ResponseMetadata": {
-    "Success": true,
-    "HasCache": true,
-    "HasPaging": true,
-    "CacheMetadata": {
-      "IsFromCache": true,
-      "CachedAt": "2019-03-18T11:42:49Z",
-      "CacheExpiresAt": "2019-03-18T11:42:49Z"
-    },
-    "PagingMetadata": {
-      "Limit": "string",
-      "Offset": "string",
-      "ResponseRecords": "string",
-      "TotalRecords": "string"
-    }
-  },
-  "ResponseReport": {
-    "Item": {
-      "OwningAgencyLocation": "string",
-      "OwningAgencyLocationID": "string",
-      "TotalAirSegments": 0
-    }
-  },
-  "ResponseError": {
-    "ErrorCode": "string",
-    "Message": "string",
-    "StatusCode": "string",
-    "VerboseMessage": "string"
-  }
-}
-```
-
-<h3 id="airsegmentsperbranchbyvendoruser_get-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|default|Default|Default response|[AirSegmentsPerBranchByVendorItemResponse](#schemaairsegmentsperbranchbyvendoritemresponse)|
-
-
-
-<h1 id="agentivity-api-airsegmentspercarrier">airsegmentspercarrier</h1>
-
-## AirSegmentsPerCarrieruser_Get
-
-<a id="opIdAirSegmentsPerCarrieruser_Get"></a>
-
-> Code samples
-
-```shell
-# You can also use wget
-curl -X GET http://api.agentivity.com/airsegmentspercarrier/user \
-  -H 'Accept: application/json' \
-  -H 'Accept: application/json'
-
-```
-
-```javascript
-var headers = {
-  'Accept':'application/json',
-  'Accept':'application/json'
-
-};
-
-$.ajax({
-  url: 'http://api.agentivity.com/airsegmentspercarrier/user',
-  method: 'get',
-
-  headers: headers,
-  success: function(data) {
-    console.log(JSON.stringify(data));
-  }
-})
-
-```
-
-```python
-import requests
-headers = {
-  'Accept': 'application/json',
-  'Accept': 'application/json'
-}
-
-r = requests.get('http://api.agentivity.com/airsegmentspercarrier/user', params={
-
-}, headers = headers)
-
-print r.json()
-
-```
-
-```java
-URL obj = new URL("http://api.agentivity.com/airsegmentspercarrier/user");
-HttpURLConnection con = (HttpURLConnection) obj.openConnection();
-con.setRequestMethod("GET");
-int responseCode = con.getResponseCode();
-BufferedReader in = new BufferedReader(
-    new InputStreamReader(con.getInputStream()));
-String inputLine;
-StringBuffer response = new StringBuffer();
-while ((inputLine = in.readLine()) != null) {
-    response.append(inputLine);
-}
-in.close();
-System.out.println(response.toString());
-
-```
-
-`GET /airsegmentspercarrier/user`
-
-<h3 id="airsegmentspercarrieruser_get-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|Offset|query|string|false|Starting Record|
-|Limit|query|string|false|Number of records to return (PageSize)|
-|TotalRecords|query|string(int32)|false|Total Number of Records in a Full Reponse (if no paging)|
-|ResponseRecords|query|string(int32)|false|Total NUmber of Records in this Reponse (on this page)|
-|Accept|header|string|true|Accept Header|
-
-#### Enumerated Values
-
-|Parameter|Value|
-|---|---|
-|Accept|application/json|
-
-
-
-> Default Response
-
-```json
-{
-  "ResponseMetadata": {
-    "Success": true,
-    "HasCache": true,
-    "HasPaging": true,
-    "CacheMetadata": {
-      "IsFromCache": true,
-      "CachedAt": "2019-03-18T11:42:49Z",
-      "CacheExpiresAt": "2019-03-18T11:42:49Z"
-    },
-    "PagingMetadata": {
-      "Limit": "string",
-      "Offset": "string",
-      "ResponseRecords": "string",
-      "TotalRecords": "string"
-    }
-  },
-  "ResponseReport": {
-    "Item": {
-      "CarrierCode": "string",
-      "CarrierName": "string",
-      "TotalAirSegments": 0
-    }
-  },
-  "ResponseError": {
-    "ErrorCode": "string",
-    "Message": "string",
-    "StatusCode": "string",
-    "VerboseMessage": "string"
-  }
-}
-```
-
-<h3 id="airsegmentspercarrieruser_get-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|default|Default|Default response|[AirSegmentsPerCarrierItemResponse](#schemaairsegmentspercarrieritemresponse)|
-
-
-
-<h1 id="agentivity-api-airsegmentsperconsultantbyvendor">AirSegmentsPerConsultantByVendor</h1>
-
-## AirSegmentsPerConsultantByVendoruser_Get
-
-<a id="opIdAirSegmentsPerConsultantByVendoruser_Get"></a>
-
-> Code samples
-
-```shell
-# You can also use wget
-curl -X GET http://api.agentivity.com/AirSegmentsPerConsultantByVendor/user \
-  -H 'Accept: application/json' \
-  -H 'Accept: application/json'
-
-```
-
-```javascript
-var headers = {
-  'Accept':'application/json',
-  'Accept':'application/json'
-
-};
-
-$.ajax({
-  url: 'http://api.agentivity.com/AirSegmentsPerConsultantByVendor/user',
-  method: 'get',
-
-  headers: headers,
-  success: function(data) {
-    console.log(JSON.stringify(data));
-  }
-})
-
-```
-
-```python
-import requests
-headers = {
-  'Accept': 'application/json',
-  'Accept': 'application/json'
-}
-
-r = requests.get('http://api.agentivity.com/AirSegmentsPerConsultantByVendor/user', params={
-
-}, headers = headers)
-
-print r.json()
-
-```
-
-```java
-URL obj = new URL("http://api.agentivity.com/AirSegmentsPerConsultantByVendor/user");
-HttpURLConnection con = (HttpURLConnection) obj.openConnection();
-con.setRequestMethod("GET");
-int responseCode = con.getResponseCode();
-BufferedReader in = new BufferedReader(
-    new InputStreamReader(con.getInputStream()));
-String inputLine;
-StringBuffer response = new StringBuffer();
-while ((inputLine = in.readLine()) != null) {
-    response.append(inputLine);
-}
-in.close();
-System.out.println(response.toString());
-
-```
-
-`GET /AirSegmentsPerConsultantByVendor/user`
-
-<h3 id="airsegmentsperconsultantbyvendoruser_get-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|Offset|query|string|false|Starting Record|
-|Limit|query|string|false|Number of records to return (PageSize)|
-|TotalRecords|query|string(int32)|false|Total Number of Records in a Full Reponse (if no paging)|
-|ResponseRecords|query|string(int32)|false|Total NUmber of Records in this Reponse (on this page)|
-|Accept|header|string|true|Accept Header|
-
-#### Enumerated Values
-
-|Parameter|Value|
-|---|---|
-|Accept|application/json|
-
-
-
-> Default Response
-
-```json
-{
-  "ResponseMetadata": {
-    "Success": true,
-    "HasCache": true,
-    "HasPaging": true,
-    "CacheMetadata": {
-      "IsFromCache": true,
-      "CachedAt": "2019-03-18T11:42:49Z",
-      "CacheExpiresAt": "2019-03-18T11:42:49Z"
-    },
-    "PagingMetadata": {
-      "Limit": "string",
-      "Offset": "string",
-      "ResponseRecords": "string",
-      "TotalRecords": "string"
-    }
-  },
-  "ResponseReport": {
-    "Item": {
-      "OwningConsultant": "string",
-      "OwningConsultantID": "string",
-      "OwningAgencyLocation": "string",
-      "TotalAirSegments": 0
-    }
-  },
-  "ResponseError": {
-    "ErrorCode": "string",
-    "Message": "string",
-    "StatusCode": "string",
-    "VerboseMessage": "string"
-  }
-}
-```
-
-<h3 id="airsegmentsperconsultantbyvendoruser_get-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|default|Default|Default response|[AirSegmentsPerConsultantByVendorItemResponse](#schemaairsegmentsperconsultantbyvendoritemresponse)|
-
-
-
-<h1 id="agentivity-api-airsegmentsperdestinationbyvendor">AirSegmentsPerDestinationByVendor</h1>
-
-## AirSegmentsPerDestinationByVendoruser_Get
-
-<a id="opIdAirSegmentsPerDestinationByVendoruser_Get"></a>
-
-> Code samples
-
-```shell
-# You can also use wget
-curl -X GET http://api.agentivity.com/AirSegmentsPerDestinationByVendor/user \
-  -H 'Accept: application/json' \
-  -H 'Accept: application/json'
-
-```
-
-```javascript
-var headers = {
-  'Accept':'application/json',
-  'Accept':'application/json'
-
-};
-
-$.ajax({
-  url: 'http://api.agentivity.com/AirSegmentsPerDestinationByVendor/user',
-  method: 'get',
-
-  headers: headers,
-  success: function(data) {
-    console.log(JSON.stringify(data));
-  }
-})
-
-```
-
-```python
-import requests
-headers = {
-  'Accept': 'application/json',
-  'Accept': 'application/json'
-}
-
-r = requests.get('http://api.agentivity.com/AirSegmentsPerDestinationByVendor/user', params={
-
-}, headers = headers)
-
-print r.json()
-
-```
-
-```java
-URL obj = new URL("http://api.agentivity.com/AirSegmentsPerDestinationByVendor/user");
-HttpURLConnection con = (HttpURLConnection) obj.openConnection();
-con.setRequestMethod("GET");
-int responseCode = con.getResponseCode();
-BufferedReader in = new BufferedReader(
-    new InputStreamReader(con.getInputStream()));
-String inputLine;
-StringBuffer response = new StringBuffer();
-while ((inputLine = in.readLine()) != null) {
-    response.append(inputLine);
-}
-in.close();
-System.out.println(response.toString());
-
-```
-
-`GET /AirSegmentsPerDestinationByVendor/user`
-
-<h3 id="airsegmentsperdestinationbyvendoruser_get-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|Offset|query|string|false|Starting Record|
-|Limit|query|string|false|Number of records to return (PageSize)|
-|TotalRecords|query|string(int32)|false|Total Number of Records in a Full Reponse (if no paging)|
-|ResponseRecords|query|string(int32)|false|Total NUmber of Records in this Reponse (on this page)|
-|Accept|header|string|true|Accept Header|
-
-#### Enumerated Values
-
-|Parameter|Value|
-|---|---|
-|Accept|application/json|
-
-
-
-> Default Response
-
-```json
-{
-  "ResponseMetadata": {
-    "Success": true,
-    "HasCache": true,
-    "HasPaging": true,
-    "CacheMetadata": {
-      "IsFromCache": true,
-      "CachedAt": "2019-03-18T11:42:49Z",
-      "CacheExpiresAt": "2019-03-18T11:42:49Z"
-    },
-    "PagingMetadata": {
-      "Limit": "string",
-      "Offset": "string",
-      "ResponseRecords": "string",
-      "TotalRecords": "string"
-    }
-  },
-  "ResponseReport": {
-    "Item": {
-      "CityName": "string",
-      "CityCode": "string",
-      "CountryName": "string",
-      "TotalInstances": 0
-    }
-  },
-  "ResponseError": {
-    "ErrorCode": "string",
-    "Message": "string",
-    "StatusCode": "string",
-    "VerboseMessage": "string"
-  }
-}
-```
-
-<h3 id="airsegmentsperdestinationbyvendoruser_get-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|default|Default|Default response|[AirSegmentsPerDestinationByVendorItemResponse](#schemaairsegmentsperdestinationbyvendoritemresponse)|
-
-
-
-<h1 id="agentivity-api-airsegmentswithvendorlocators">airsegmentswithvendorlocators</h1>
-
-## AirSegmentsWithVendorLocatorsByUseruser_Get
-
-<a id="opIdAirSegmentsWithVendorLocatorsByUseruser_Get"></a>
-
-> Code samples
-
-```shell
-# You can also use wget
-curl -X GET http://api.agentivity.com/airsegmentswithvendorlocators/user \
-  -H 'Accept: application/json' \
-  -H 'Accept: application/json'
-
-```
-
-```javascript
-var headers = {
-  'Accept':'application/json',
-  'Accept':'application/json'
-
-};
-
-$.ajax({
-  url: 'http://api.agentivity.com/airsegmentswithvendorlocators/user',
-  method: 'get',
-
-  headers: headers,
-  success: function(data) {
-    console.log(JSON.stringify(data));
-  }
-})
-
-```
-
-```python
-import requests
-headers = {
-  'Accept': 'application/json',
-  'Accept': 'application/json'
-}
-
-r = requests.get('http://api.agentivity.com/airsegmentswithvendorlocators/user', params={
-
-}, headers = headers)
-
-print r.json()
-
-```
-
-```java
-URL obj = new URL("http://api.agentivity.com/airsegmentswithvendorlocators/user");
-HttpURLConnection con = (HttpURLConnection) obj.openConnection();
-con.setRequestMethod("GET");
-int responseCode = con.getResponseCode();
-BufferedReader in = new BufferedReader(
-    new InputStreamReader(con.getInputStream()));
-String inputLine;
-StringBuffer response = new StringBuffer();
-while ((inputLine = in.readLine()) != null) {
-    response.append(inputLine);
-}
-in.close();
-System.out.println(response.toString());
-
-```
-
-`GET /airsegmentswithvendorlocators/user`
-
-<h3 id="airsegmentswithvendorlocatorsbyuseruser_get-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|Offset|query|string|false|Starting Record|
-|Limit|query|string|false|Number of records to return (PageSize)|
-|TotalRecords|query|string(int32)|false|Total Number of Records in a Full Reponse (if no paging)|
-|ResponseRecords|query|string(int32)|false|Total NUmber of Records in this Reponse (on this page)|
-|Accept|header|string|true|Accept Header|
-
-#### Enumerated Values
-
-|Parameter|Value|
-|---|---|
-|Accept|application/json|
-
-
-
-> Default Response
-
-```json
-{
-  "ResponseMetadata": {
-    "Success": true,
-    "HasCache": true,
-    "HasPaging": true,
-    "CacheMetadata": {
-      "IsFromCache": true,
-      "CachedAt": "2019-03-18T11:42:49Z",
-      "CacheExpiresAt": "2019-03-18T11:42:49Z"
-    },
-    "PagingMetadata": {
-      "Limit": "string",
-      "Offset": "string",
-      "ResponseRecords": "string",
-      "TotalRecords": "string"
-    }
-  },
-  "ResponseReport": [
-    {
-      "RecordLocator": "string",
-      "PNRCreationDate": "string",
-      "AgentivityRef": "string",
-      "Account": "string",
-      "OwningConsultantID": "string",
-      "OwningConsultant": "string",
-      "OwningAgencyLocationID": "string",
-      "PaxList": "string",
-      "AirSegmentNbr": "string",
-      "SegmentStatus": "string",
-      "BoardPoint": "string",
-      "OffPoint": "string",
-      "DepartureDate": "string",
-      "DepartureTime": "string",
-      "ArrivalTime": "string",
-      "ChangeOfDay": "string",
-      "CarrierCode": "string",
-      "FlightNbr": "string",
-      "BookingCode": "string",
-      "PNRTicketed": "string",
-      "VendorLocator": "string",
-      "CheckInURL": "string"
-    }
-  ],
-  "ResponseError": {
-    "ErrorCode": "string",
-    "Message": "string",
-    "StatusCode": "string",
-    "VerboseMessage": "string"
-  }
-}
-```
-
-<h3 id="airsegmentswithvendorlocatorsbyuseruser_get-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|default|Default|Default response|[AirSegmentsWithVendorLocatorsByUserResponse](#schemaairsegmentswithvendorlocatorsbyuserresponse)|
 
 
 
@@ -12284,7 +20473,6 @@ System.out.println(response.toString());
 
 
 
-<h1 id="agentivity-api-bookingbyairsegmentscounts">bookingbyairsegmentscounts</h1>
 
 
 
@@ -12417,50 +20605,6 @@ System.out.println(response.toString());
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
 |default|Default|Default response|[BookingCountPerPccResponse](#schemabookingcountperpccresponse)|
-
-
-
-<h1 id="agentivity-api-bookingdetails">bookingdetails</h1>
-
-
-
-
-<h1 id="agentivity-api-bookinghistory">bookinghistory</h1>
-
-
-
-
-<h1 id="agentivity-api-bookings">bookings</h1>
-
-
-
-
-<h1 id="agentivity-api-bookingsbasic">bookingsbasic</h1>
-
-
-
-
-<h1 id="agentivity-api-bookingsbasic">bookingsbasic</h1>
-
-
-
-
-<h1 id="agentivity-api-bookingsbasicwithoutmobile">bookingsbasicwithoutmobile</h1>
-
-
-
-
-<h1 id="agentivity-api-bookingsbasicwithpax">bookingsbasicwithpax</h1>
-
-
-
-
-
-
-
-<h1 id="agentivity-api-bookingsbyaccount">BookingsByAccount</h1>
-
-
 
 
 <h1 id="agentivity-api-bookingsbyairlinewithclasssupport">BookingsByAirlineWithClassSupport</h1>
@@ -12600,12 +20744,6 @@ System.out.println(response.toString());
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
 |default|Default|Default response|[BookingsByAirlineWithClassSupportItemResponse](#schemabookingsbyairlinewithclasssupportitemresponse)|
-
-
-
-<h1 id="agentivity-api-bookingsbyconsultant">BookingsByConsultant</h1>
-
-
 
 
 <h1 id="agentivity-api-bookingsbyconsultantactivity">BookingsByConsultantActivity</h1>
@@ -12912,46 +21050,6 @@ System.out.println(response.toString());
 
 
 
-<h1 id="agentivity-api-bookingsbytraveller">BookingsByTraveller</h1>
-
-
-
-
-<h1 id="agentivity-api-bookingscancelled">bookingscancelled</h1>
-
-
-
-
-<h1 id="agentivity-api-bookingscountsperconsultant">BookingsCountsPerConsultant</h1>
-
-
-
-
-<h1 id="agentivity-api-bookingscreated">bookingscreated</h1>
-
-
-
-
-<h1 id="agentivity-api-bookingslapsedtoevent">bookingslapsedtoevent</h1>
-
-
-
-
-<h1 id="agentivity-api-bookingstickettraveldates">BookingsTicketTravelDates</h1>
-
-
-
-
-<h1 id="agentivity-api-bookingstravelling">bookingstravelling</h1>
-
-
-
-
-<h1 id="agentivity-api-bookingsturnaround">bookingsturnaround</h1>
-
-
-
-
 <h1 id="agentivity-api-bookingswithdestinationcities">bookingswithdestinationcities</h1>
 
 ## BookingWithDestinationCitiesByCompanyAgentLocationcompanyagentlocationcountrycode_Get
@@ -13050,19 +21148,6 @@ System.out.println(response.toString());
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
 |default|Default|Default response|[Object](#schemaobject)|
-
-
-
-
-
-
-<h1 id="agentivity-api-bookingswithdestinations">bookingswithdestinations</h1>
-
-
-
-
-<h1 id="agentivity-api-bookingswithmergedsegmentsbycarriercode">bookingswithmergedsegmentsbycarriercode</h1>
-
 
 
 
@@ -13203,117 +21288,7 @@ System.out.println(response.toString());
 
 
 
-<h1 id="agentivity-api-bookingswithtaudate">bookingswithtaudate</h1>
 
-
-
-
-<h1 id="agentivity-api-bookingswithticketduedata">bookingswithticketduedata</h1>
-
-
-
-
-<h1 id="agentivity-api-bookingswithticketduedata2">bookingswithticketduedata2</h1>
-
-
-
-<h1 id="agentivity-api-cancelledhotelsegments">cancelledhotelsegments</h1>
-
-## CancelledHotelSegmentsByUseruser_Get
-
-<a id="opIdCancelledHotelSegmentsByUseruser_Get"></a>
-
-> Code samples
-
-```shell
-# You can also use wget
-curl -X GET http://api.agentivity.com/cancelledhotelsegments/user \
-  -H 'Accept: application/json' \
-  -H 'Accept: application/json'
-
-```
-
-```javascript
-var headers = {
-  'Accept':'application/json',
-  'Accept':'application/json'
-
-};
-
-$.ajax({
-  url: 'http://api.agentivity.com/cancelledhotelsegments/user',
-  method: 'get',
-
-  headers: headers,
-  success: function(data) {
-    console.log(JSON.stringify(data));
-  }
-})
-
-```
-
-```python
-import requests
-headers = {
-  'Accept': 'application/json',
-  'Accept': 'application/json'
-}
-
-r = requests.get('http://api.agentivity.com/cancelledhotelsegments/user', params={
-
-}, headers = headers)
-
-print r.json()
-
-```
-
-```java
-URL obj = new URL("http://api.agentivity.com/cancelledhotelsegments/user");
-HttpURLConnection con = (HttpURLConnection) obj.openConnection();
-con.setRequestMethod("GET");
-int responseCode = con.getResponseCode();
-BufferedReader in = new BufferedReader(
-    new InputStreamReader(con.getInputStream()));
-String inputLine;
-StringBuffer response = new StringBuffer();
-while ((inputLine = in.readLine()) != null) {
-    response.append(inputLine);
-}
-in.close();
-System.out.println(response.toString());
-
-```
-
-`GET /cancelledhotelsegments/user`
-
-<h3 id="cancelledhotelsegmentsbyuseruser_get-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|UserID|query|integer(int32)|false|none|
-|CancelledDateStart|query|string|false|none|
-|CancelledDateEnd|query|string|false|none|
-|Accept|header|string|true|Accept Header|
-
-#### Enumerated Values
-
-|Parameter|Value|
-|---|---|
-|Accept|application/json|
-
-
-
-> Default Response
-
-```json
-{}
-```
-
-<h3 id="cancelledhotelsegmentsbyuseruser_get-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|default|Default|Default response|[Object](#schemaobject)|
 
 
 
@@ -13448,1041 +21423,9 @@ System.out.println(response.toString());
 
 
 
-<h1 id="agentivity-api-carsegmentcountsperaccountbyvendor">CarSegmentCountsPerAccountByVendor</h1>
 
-## CarSegmentCountsPerAccountByVendoruser_Get
 
-<a id="opIdCarSegmentCountsPerAccountByVendoruser_Get"></a>
 
-> Code samples
-
-```shell
-# You can also use wget
-curl -X GET http://api.agentivity.com/CarSegmentCountsPerAccountByVendor/user \
-  -H 'Accept: application/json' \
-  -H 'Accept: application/json'
-
-```
-
-```javascript
-var headers = {
-  'Accept':'application/json',
-  'Accept':'application/json'
-
-};
-
-$.ajax({
-  url: 'http://api.agentivity.com/CarSegmentCountsPerAccountByVendor/user',
-  method: 'get',
-
-  headers: headers,
-  success: function(data) {
-    console.log(JSON.stringify(data));
-  }
-})
-
-```
-
-```python
-import requests
-headers = {
-  'Accept': 'application/json',
-  'Accept': 'application/json'
-}
-
-r = requests.get('http://api.agentivity.com/CarSegmentCountsPerAccountByVendor/user', params={
-
-}, headers = headers)
-
-print r.json()
-
-```
-
-```java
-URL obj = new URL("http://api.agentivity.com/CarSegmentCountsPerAccountByVendor/user");
-HttpURLConnection con = (HttpURLConnection) obj.openConnection();
-con.setRequestMethod("GET");
-int responseCode = con.getResponseCode();
-BufferedReader in = new BufferedReader(
-    new InputStreamReader(con.getInputStream()));
-String inputLine;
-StringBuffer response = new StringBuffer();
-while ((inputLine = in.readLine()) != null) {
-    response.append(inputLine);
-}
-in.close();
-System.out.println(response.toString());
-
-```
-
-`GET /CarSegmentCountsPerAccountByVendor/user`
-
-<h3 id="carsegmentcountsperaccountbyvendoruser_get-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|Offset|query|string|false|Starting Record|
-|Limit|query|string|false|Number of records to return (PageSize)|
-|TotalRecords|query|string(int32)|false|Total Number of Records in a Full Reponse (if no paging)|
-|ResponseRecords|query|string(int32)|false|Total NUmber of Records in this Reponse (on this page)|
-|Accept|header|string|true|Accept Header|
-
-#### Enumerated Values
-
-|Parameter|Value|
-|---|---|
-|Accept|application/json|
-
-
-
-> Default Response
-
-```json
-{
-  "ResponseMetadata": {
-    "Success": true,
-    "HasCache": true,
-    "HasPaging": true,
-    "CacheMetadata": {
-      "IsFromCache": true,
-      "CachedAt": "2019-03-18T11:42:49Z",
-      "CacheExpiresAt": "2019-03-18T11:42:49Z"
-    },
-    "PagingMetadata": {
-      "Limit": "string",
-      "Offset": "string",
-      "ResponseRecords": "string",
-      "TotalRecords": "string"
-    }
-  },
-  "ResponseReport": {
-    "Item": {
-      "Account": "string",
-      "TotalSegments": 0
-    }
-  },
-  "ResponseError": {
-    "ErrorCode": "string",
-    "Message": "string",
-    "StatusCode": "string",
-    "VerboseMessage": "string"
-  }
-}
-```
-
-<h3 id="carsegmentcountsperaccountbyvendoruser_get-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|default|Default|Default response|[CarSegmentCountsPerAccountByVendorItemResponse](#schemacarsegmentcountsperaccountbyvendoritemresponse)|
-
-
-
-<h1 id="agentivity-api-carsegmentcountsperbranchbyvendor">CarSegmentCountsPerBranchByVendor</h1>
-
-## CarSegmentCountsPerBranchByVendoruser_Get
-
-<a id="opIdCarSegmentCountsPerBranchByVendoruser_Get"></a>
-
-> Code samples
-
-```shell
-# You can also use wget
-curl -X GET http://api.agentivity.com/CarSegmentCountsPerBranchByVendor/user \
-  -H 'Accept: application/json' \
-  -H 'Accept: application/json'
-
-```
-
-```javascript
-var headers = {
-  'Accept':'application/json',
-  'Accept':'application/json'
-
-};
-
-$.ajax({
-  url: 'http://api.agentivity.com/CarSegmentCountsPerBranchByVendor/user',
-  method: 'get',
-
-  headers: headers,
-  success: function(data) {
-    console.log(JSON.stringify(data));
-  }
-})
-
-```
-
-```python
-import requests
-headers = {
-  'Accept': 'application/json',
-  'Accept': 'application/json'
-}
-
-r = requests.get('http://api.agentivity.com/CarSegmentCountsPerBranchByVendor/user', params={
-
-}, headers = headers)
-
-print r.json()
-
-```
-
-```java
-URL obj = new URL("http://api.agentivity.com/CarSegmentCountsPerBranchByVendor/user");
-HttpURLConnection con = (HttpURLConnection) obj.openConnection();
-con.setRequestMethod("GET");
-int responseCode = con.getResponseCode();
-BufferedReader in = new BufferedReader(
-    new InputStreamReader(con.getInputStream()));
-String inputLine;
-StringBuffer response = new StringBuffer();
-while ((inputLine = in.readLine()) != null) {
-    response.append(inputLine);
-}
-in.close();
-System.out.println(response.toString());
-
-```
-
-`GET /CarSegmentCountsPerBranchByVendor/user`
-
-<h3 id="carsegmentcountsperbranchbyvendoruser_get-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|Offset|query|string|false|Starting Record|
-|Limit|query|string|false|Number of records to return (PageSize)|
-|TotalRecords|query|string(int32)|false|Total Number of Records in a Full Reponse (if no paging)|
-|ResponseRecords|query|string(int32)|false|Total NUmber of Records in this Reponse (on this page)|
-|Accept|header|string|true|Accept Header|
-
-#### Enumerated Values
-
-|Parameter|Value|
-|---|---|
-|Accept|application/json|
-
-
-
-> Default Response
-
-```json
-{
-  "ResponseMetadata": {
-    "Success": true,
-    "HasCache": true,
-    "HasPaging": true,
-    "CacheMetadata": {
-      "IsFromCache": true,
-      "CachedAt": "2019-03-18T11:42:49Z",
-      "CacheExpiresAt": "2019-03-18T11:42:49Z"
-    },
-    "PagingMetadata": {
-      "Limit": "string",
-      "Offset": "string",
-      "ResponseRecords": "string",
-      "TotalRecords": "string"
-    }
-  },
-  "ResponseReport": {
-    "Item": {
-      "OwningAgencyLocation": "string",
-      "OwningAgencyLocationID": "string",
-      "TotalSegments": 0
-    }
-  },
-  "ResponseError": {
-    "ErrorCode": "string",
-    "Message": "string",
-    "StatusCode": "string",
-    "VerboseMessage": "string"
-  }
-}
-```
-
-<h3 id="carsegmentcountsperbranchbyvendoruser_get-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|default|Default|Default response|[CarSegmentCountsPerBranchByVendorItemResponse](#schemacarsegmentcountsperbranchbyvendoritemresponse)|
-
-
-
-<h1 id="agentivity-api-carsegmentcountsperconsultantbyvendor">CarSegmentCountsPerConsultantByVendor</h1>
-
-## CarSegmentCountsPerConsultantByVendoruser_Get
-
-<a id="opIdCarSegmentCountsPerConsultantByVendoruser_Get"></a>
-
-> Code samples
-
-```shell
-# You can also use wget
-curl -X GET http://api.agentivity.com/CarSegmentCountsPerConsultantByVendor/user \
-  -H 'Accept: application/json' \
-  -H 'Accept: application/json'
-
-```
-
-```javascript
-var headers = {
-  'Accept':'application/json',
-  'Accept':'application/json'
-
-};
-
-$.ajax({
-  url: 'http://api.agentivity.com/CarSegmentCountsPerConsultantByVendor/user',
-  method: 'get',
-
-  headers: headers,
-  success: function(data) {
-    console.log(JSON.stringify(data));
-  }
-})
-
-```
-
-```python
-import requests
-headers = {
-  'Accept': 'application/json',
-  'Accept': 'application/json'
-}
-
-r = requests.get('http://api.agentivity.com/CarSegmentCountsPerConsultantByVendor/user', params={
-
-}, headers = headers)
-
-print r.json()
-
-```
-
-```java
-URL obj = new URL("http://api.agentivity.com/CarSegmentCountsPerConsultantByVendor/user");
-HttpURLConnection con = (HttpURLConnection) obj.openConnection();
-con.setRequestMethod("GET");
-int responseCode = con.getResponseCode();
-BufferedReader in = new BufferedReader(
-    new InputStreamReader(con.getInputStream()));
-String inputLine;
-StringBuffer response = new StringBuffer();
-while ((inputLine = in.readLine()) != null) {
-    response.append(inputLine);
-}
-in.close();
-System.out.println(response.toString());
-
-```
-
-`GET /CarSegmentCountsPerConsultantByVendor/user`
-
-<h3 id="carsegmentcountsperconsultantbyvendoruser_get-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|Offset|query|string|false|Starting Record|
-|Limit|query|string|false|Number of records to return (PageSize)|
-|TotalRecords|query|string(int32)|false|Total Number of Records in a Full Reponse (if no paging)|
-|ResponseRecords|query|string(int32)|false|Total NUmber of Records in this Reponse (on this page)|
-|Accept|header|string|true|Accept Header|
-
-#### Enumerated Values
-
-|Parameter|Value|
-|---|---|
-|Accept|application/json|
-
-
-
-> Default Response
-
-```json
-{
-  "ResponseMetadata": {
-    "Success": true,
-    "HasCache": true,
-    "HasPaging": true,
-    "CacheMetadata": {
-      "IsFromCache": true,
-      "CachedAt": "2019-03-18T11:42:49Z",
-      "CacheExpiresAt": "2019-03-18T11:42:49Z"
-    },
-    "PagingMetadata": {
-      "Limit": "string",
-      "Offset": "string",
-      "ResponseRecords": "string",
-      "TotalRecords": "string"
-    }
-  },
-  "ResponseReport": {
-    "Item": {
-      "OwningConsultant": "string",
-      "OwningConsultantID": "string",
-      "OwningAgencyLocation": "string",
-      "TotalSegments": 0
-    }
-  },
-  "ResponseError": {
-    "ErrorCode": "string",
-    "Message": "string",
-    "StatusCode": "string",
-    "VerboseMessage": "string"
-  }
-}
-```
-
-<h3 id="carsegmentcountsperconsultantbyvendoruser_get-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|default|Default|Default response|[CarSegmentCountsPerConsultantByVendorItemResponse](#schemacarsegmentcountsperconsultantbyvendoritemresponse)|
-
-
-
-<h1 id="agentivity-api-carsegmentcountsperlocationbyvendor">CarSegmentCountsPerLocationByVendor</h1>
-
-## CarSegmentCountsPerLocationByVendoruser_Get
-
-<a id="opIdCarSegmentCountsPerLocationByVendoruser_Get"></a>
-
-> Code samples
-
-```shell
-# You can also use wget
-curl -X GET http://api.agentivity.com/CarSegmentCountsPerLocationByVendor/user \
-  -H 'Accept: application/json' \
-  -H 'Accept: application/json'
-
-```
-
-```javascript
-var headers = {
-  'Accept':'application/json',
-  'Accept':'application/json'
-
-};
-
-$.ajax({
-  url: 'http://api.agentivity.com/CarSegmentCountsPerLocationByVendor/user',
-  method: 'get',
-
-  headers: headers,
-  success: function(data) {
-    console.log(JSON.stringify(data));
-  }
-})
-
-```
-
-```python
-import requests
-headers = {
-  'Accept': 'application/json',
-  'Accept': 'application/json'
-}
-
-r = requests.get('http://api.agentivity.com/CarSegmentCountsPerLocationByVendor/user', params={
-
-}, headers = headers)
-
-print r.json()
-
-```
-
-```java
-URL obj = new URL("http://api.agentivity.com/CarSegmentCountsPerLocationByVendor/user");
-HttpURLConnection con = (HttpURLConnection) obj.openConnection();
-con.setRequestMethod("GET");
-int responseCode = con.getResponseCode();
-BufferedReader in = new BufferedReader(
-    new InputStreamReader(con.getInputStream()));
-String inputLine;
-StringBuffer response = new StringBuffer();
-while ((inputLine = in.readLine()) != null) {
-    response.append(inputLine);
-}
-in.close();
-System.out.println(response.toString());
-
-```
-
-`GET /CarSegmentCountsPerLocationByVendor/user`
-
-<h3 id="carsegmentcountsperlocationbyvendoruser_get-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|Offset|query|string|false|Starting Record|
-|Limit|query|string|false|Number of records to return (PageSize)|
-|TotalRecords|query|string(int32)|false|Total Number of Records in a Full Reponse (if no paging)|
-|ResponseRecords|query|string(int32)|false|Total NUmber of Records in this Reponse (on this page)|
-|Accept|header|string|true|Accept Header|
-
-#### Enumerated Values
-
-|Parameter|Value|
-|---|---|
-|Accept|application/json|
-
-
-
-> Default Response
-
-```json
-{
-  "ResponseMetadata": {
-    "Success": true,
-    "HasCache": true,
-    "HasPaging": true,
-    "CacheMetadata": {
-      "IsFromCache": true,
-      "CachedAt": "2019-03-18T11:42:49Z",
-      "CacheExpiresAt": "2019-03-18T11:42:49Z"
-    },
-    "PagingMetadata": {
-      "Limit": "string",
-      "Offset": "string",
-      "ResponseRecords": "string",
-      "TotalRecords": "string"
-    }
-  },
-  "ResponseReport": {
-    "Item": {
-      "CityName": "string",
-      "CityCode": "string",
-      "CountryName": "string",
-      "TotalSegments": 0
-    }
-  },
-  "ResponseError": {
-    "ErrorCode": "string",
-    "Message": "string",
-    "StatusCode": "string",
-    "VerboseMessage": "string"
-  }
-}
-```
-
-<h3 id="carsegmentcountsperlocationbyvendoruser_get-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|default|Default|Default response|[CarSegmentCountsPerLocationByVendorItemResponse](#schemacarsegmentcountsperlocationbyvendoritemresponse)|
-
-
-
-<h1 id="agentivity-api-carsegmentcountspervendor">CarSegmentCountsPerVendor</h1>
-
-## CarSegmentCountsPerVendoruser_Get
-
-<a id="opIdCarSegmentCountsPerVendoruser_Get"></a>
-
-> Code samples
-
-```shell
-# You can also use wget
-curl -X GET http://api.agentivity.com/CarSegmentCountsPerVendor/user \
-  -H 'Accept: application/json' \
-  -H 'Accept: application/json'
-
-```
-
-```javascript
-var headers = {
-  'Accept':'application/json',
-  'Accept':'application/json'
-
-};
-
-$.ajax({
-  url: 'http://api.agentivity.com/CarSegmentCountsPerVendor/user',
-  method: 'get',
-
-  headers: headers,
-  success: function(data) {
-    console.log(JSON.stringify(data));
-  }
-})
-
-```
-
-```python
-import requests
-headers = {
-  'Accept': 'application/json',
-  'Accept': 'application/json'
-}
-
-r = requests.get('http://api.agentivity.com/CarSegmentCountsPerVendor/user', params={
-
-}, headers = headers)
-
-print r.json()
-
-```
-
-```java
-URL obj = new URL("http://api.agentivity.com/CarSegmentCountsPerVendor/user");
-HttpURLConnection con = (HttpURLConnection) obj.openConnection();
-con.setRequestMethod("GET");
-int responseCode = con.getResponseCode();
-BufferedReader in = new BufferedReader(
-    new InputStreamReader(con.getInputStream()));
-String inputLine;
-StringBuffer response = new StringBuffer();
-while ((inputLine = in.readLine()) != null) {
-    response.append(inputLine);
-}
-in.close();
-System.out.println(response.toString());
-
-```
-
-`GET /CarSegmentCountsPerVendor/user`
-
-<h3 id="carsegmentcountspervendoruser_get-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|Offset|query|string|false|Starting Record|
-|Limit|query|string|false|Number of records to return (PageSize)|
-|TotalRecords|query|string(int32)|false|Total Number of Records in a Full Reponse (if no paging)|
-|ResponseRecords|query|string(int32)|false|Total NUmber of Records in this Reponse (on this page)|
-|Accept|header|string|true|Accept Header|
-
-#### Enumerated Values
-
-|Parameter|Value|
-|---|---|
-|Accept|application/json|
-
-
-
-> Default Response
-
-```json
-{
-  "ResponseMetadata": {
-    "Success": true,
-    "HasCache": true,
-    "HasPaging": true,
-    "CacheMetadata": {
-      "IsFromCache": true,
-      "CachedAt": "2019-03-18T11:42:49Z",
-      "CacheExpiresAt": "2019-03-18T11:42:49Z"
-    },
-    "PagingMetadata": {
-      "Limit": "string",
-      "Offset": "string",
-      "ResponseRecords": "string",
-      "TotalRecords": "string"
-    }
-  },
-  "ResponseReport": {
-    "Item": {
-      "VendorCode": "string",
-      "VendorName": "string",
-      "TotalSegments": 0
-    }
-  },
-  "ResponseError": {
-    "ErrorCode": "string",
-    "Message": "string",
-    "StatusCode": "string",
-    "VerboseMessage": "string"
-  }
-}
-```
-
-<h3 id="carsegmentcountspervendoruser_get-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|default|Default|Default response|[CarSegmentCountsPerVendorItemResponse](#schemacarsegmentcountspervendoritemresponse)|
-
-
-
-<h1 id="agentivity-api-carsegments">carsegments</h1>
-
-## CarSegmentsByUseruser_Get
-
-<a id="opIdCarSegmentsByUseruser_Get"></a>
-
-> Code samples
-
-```shell
-# You can also use wget
-curl -X GET http://api.agentivity.com/carsegments/user \
-  -H 'Accept: application/json' \
-  -H 'Accept: application/json'
-
-```
-
-```javascript
-var headers = {
-  'Accept':'application/json',
-  'Accept':'application/json'
-
-};
-
-$.ajax({
-  url: 'http://api.agentivity.com/carsegments/user',
-  method: 'get',
-
-  headers: headers,
-  success: function(data) {
-    console.log(JSON.stringify(data));
-  }
-})
-
-```
-
-```python
-import requests
-headers = {
-  'Accept': 'application/json',
-  'Accept': 'application/json'
-}
-
-r = requests.get('http://api.agentivity.com/carsegments/user', params={
-
-}, headers = headers)
-
-print r.json()
-
-```
-
-```java
-URL obj = new URL("http://api.agentivity.com/carsegments/user");
-HttpURLConnection con = (HttpURLConnection) obj.openConnection();
-con.setRequestMethod("GET");
-int responseCode = con.getResponseCode();
-BufferedReader in = new BufferedReader(
-    new InputStreamReader(con.getInputStream()));
-String inputLine;
-StringBuffer response = new StringBuffer();
-while ((inputLine = in.readLine()) != null) {
-    response.append(inputLine);
-}
-in.close();
-System.out.println(response.toString());
-
-```
-
-`GET /carsegments/user`
-
-<h3 id="carsegmentsbyuseruser_get-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|PickUpDateEnd|query|string|false|none|
-|PickUpDateStart|query|string|false|none|
-|UserName|query|string|false|none|
-|Accept|header|string|true|Accept Header|
-
-#### Enumerated Values
-
-|Parameter|Value|
-|---|---|
-|Accept|application/json|
-
-
-
-> Default Response
-
-```json
-{}
-```
-
-<h3 id="carsegmentsbyuseruser_get-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|default|Default|Default response|[Object](#schemaobject)|
-
-
-
-<h1 id="agentivity-api-carsegmentsbydate">CarSegmentsByDate</h1>
-
-## CarSegmentsByDateuser_Get
-
-<a id="opIdCarSegmentsByDateuser_Get"></a>
-
-> Code samples
-
-```shell
-# You can also use wget
-curl -X GET http://api.agentivity.com/CarSegmentsByDate/user \
-  -H 'Accept: application/json' \
-  -H 'Accept: application/json'
-
-```
-
-```javascript
-var headers = {
-  'Accept':'application/json',
-  'Accept':'application/json'
-
-};
-
-$.ajax({
-  url: 'http://api.agentivity.com/CarSegmentsByDate/user',
-  method: 'get',
-
-  headers: headers,
-  success: function(data) {
-    console.log(JSON.stringify(data));
-  }
-})
-
-```
-
-```python
-import requests
-headers = {
-  'Accept': 'application/json',
-  'Accept': 'application/json'
-}
-
-r = requests.get('http://api.agentivity.com/CarSegmentsByDate/user', params={
-
-}, headers = headers)
-
-print r.json()
-
-```
-
-```java
-URL obj = new URL("http://api.agentivity.com/CarSegmentsByDate/user");
-HttpURLConnection con = (HttpURLConnection) obj.openConnection();
-con.setRequestMethod("GET");
-int responseCode = con.getResponseCode();
-BufferedReader in = new BufferedReader(
-    new InputStreamReader(con.getInputStream()));
-String inputLine;
-StringBuffer response = new StringBuffer();
-while ((inputLine = in.readLine()) != null) {
-    response.append(inputLine);
-}
-in.close();
-System.out.println(response.toString());
-
-```
-
-`GET /CarSegmentsByDate/user`
-
-<h3 id="carsegmentsbydateuser_get-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|Offset|query|string|false|Starting Record|
-|Limit|query|string|false|Number of records to return (PageSize)|
-|TotalRecords|query|string(int32)|false|Total Number of Records in a Full Reponse (if no paging)|
-|ResponseRecords|query|string(int32)|false|Total NUmber of Records in this Reponse (on this page)|
-|Accept|header|string|true|Accept Header|
-
-#### Enumerated Values
-
-|Parameter|Value|
-|---|---|
-|Accept|application/json|
-
-
-
-> Default Response
-
-```json
-{
-  "ResponseMetadata": {
-    "Success": true,
-    "HasCache": true,
-    "HasPaging": true,
-    "CacheMetadata": {
-      "IsFromCache": true,
-      "CachedAt": "2019-03-18T11:42:49Z",
-      "CacheExpiresAt": "2019-03-18T11:42:49Z"
-    },
-    "PagingMetadata": {
-      "Limit": "string",
-      "Offset": "string",
-      "ResponseRecords": "string",
-      "TotalRecords": "string"
-    }
-  },
-  "ResponseReport": {
-    "Item": {
-      "AgentivityRef": "string",
-      "RecordLocator": "string",
-      "OwningAgencyLocationID": "string",
-      "OwningConsultant": "string",
-      "Account": "string",
-      "Passengers": "string",
-      "PickUpDate": "2019-03-18T11:42:49Z",
-      "DropOffDate": "2019-03-18T11:42:49Z",
-      "CarVendorCode": "string",
-      "VendorName": "string",
-      "SegmentStatus": "string",
-      "AirportCode": "string",
-      "ConfirmationNbr": "string",
-      "CurrencyCode": "string",
-      "RateAmount": "string",
-      "NbrOfCars": "string",
-      "CarType": "string",
-      "ServiceInformation": "string",
-      "BRInformation": "string",
-      "CarSegmentType": "string",
-      "CreatingAgencyIata": "string",
-      "CityCode": "string",
-      "Text": "string",
-      "Vouchers": "string"
-    }
-  },
-  "ResponseError": {
-    "ErrorCode": "string",
-    "Message": "string",
-    "StatusCode": "string",
-    "VerboseMessage": "string"
-  }
-}
-```
-
-<h3 id="carsegmentsbydateuser_get-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|default|Default|Default response|[CarSegmentsByDateItemResponse](#schemacarsegmentsbydateitemresponse)|
-
-
-
-<h1 id="agentivity-api-citypassengercounts">citypassengercounts</h1>
-
-## CityPassengerCountsByCompanycompany_Get
-
-<a id="opIdCityPassengerCountsByCompanycompany_Get"></a>
-
-> Code samples
-
-```shell
-# You can also use wget
-curl -X GET http://api.agentivity.com/citypassengercounts/company \
-  -H 'Accept: application/json' \
-  -H 'Accept: application/json'
-
-```
-
-```javascript
-var headers = {
-  'Accept':'application/json',
-  'Accept':'application/json'
-
-};
-
-$.ajax({
-  url: 'http://api.agentivity.com/citypassengercounts/company',
-  method: 'get',
-
-  headers: headers,
-  success: function(data) {
-    console.log(JSON.stringify(data));
-  }
-})
-
-```
-
-```python
-import requests
-headers = {
-  'Accept': 'application/json',
-  'Accept': 'application/json'
-}
-
-r = requests.get('http://api.agentivity.com/citypassengercounts/company', params={
-
-}, headers = headers)
-
-print r.json()
-
-```
-
-```java
-URL obj = new URL("http://api.agentivity.com/citypassengercounts/company");
-HttpURLConnection con = (HttpURLConnection) obj.openConnection();
-con.setRequestMethod("GET");
-int responseCode = con.getResponseCode();
-BufferedReader in = new BufferedReader(
-    new InputStreamReader(con.getInputStream()));
-String inputLine;
-StringBuffer response = new StringBuffer();
-while ((inputLine = in.readLine()) != null) {
-    response.append(inputLine);
-}
-in.close();
-System.out.println(response.toString());
-
-```
-
-`GET /citypassengercounts/company`
-
-<h3 id="citypassengercountsbycompanycompany_get-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|Offset|query|string|false|Starting Record|
-|Limit|query|string|false|Number of records to return (PageSize)|
-|TotalRecords|query|string(int32)|false|Total Number of Records in a Full Reponse (if no paging)|
-|ResponseRecords|query|string(int32)|false|Total NUmber of Records in this Reponse (on this page)|
-|Accept|header|string|true|Accept Header|
-
-#### Enumerated Values
-
-|Parameter|Value|
-|---|---|
-|Accept|application/json|
-
-
-
-> Default Response
-
-```json
-{
-  "ResponseMetadata": {
-    "Success": true,
-    "HasCache": true,
-    "HasPaging": true,
-    "CacheMetadata": {
-      "IsFromCache": true,
-      "CachedAt": "2019-03-18T11:42:49Z",
-      "CacheExpiresAt": "2019-03-18T11:42:49Z"
-    },
-    "PagingMetadata": {
-      "Limit": "string",
-      "Offset": "string",
-      "ResponseRecords": "string",
-      "TotalRecords": "string"
-    }
-  },
-  "ResponseReport": [
-    {
-      "CityCode": "string",
-      "PassengerCount": "string"
-    }
-  ],
-  "ResponseError": {
-    "ErrorCode": "string",
-    "Message": "string",
-    "StatusCode": "string",
-    "VerboseMessage": "string"
-  }
-}
-```
-
-<h3 id="citypassengercountsbycompanycompany_get-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|default|Default|Default response|[CityPassengerCountsByCompanyResponse](#schemacitypassengercountsbycompanyresponse)|
 
 
 
@@ -14814,7 +21757,6 @@ System.out.println(response.toString());
 
 
 
-<h1 id="agentivity-api-consultanteventcounts">consultanteventcounts</h1>
 
 
 
@@ -14966,24 +21908,6 @@ System.out.println(response.toString());
 |---|---|---|---|
 |default|Default|Default response|[ConsultantPnrActivityResponse](#schemaconsultantpnractivityresponse)|
 
-
-
-<h1 id="agentivity-api-consultants">Consultants</h1>
-
-
-
-
-<h1 id="agentivity-api-consultantsgdssegmentperformance">ConsultantsGdsSegmentPerformance</h1>
-
-
-
-
-<h1 id="agentivity-api-consultantsproductivity">ConsultantsProductivity</h1>
-
-
-
-
-<h1 id="agentivity-api-corporateaccountticketingactivityperday">corporateaccountticketingactivityperday</h1>
 
 
 
@@ -15282,133 +22206,7 @@ System.out.println(response.toString());
 
 
 
-<h1 id="agentivity-api-countrypassengercounts">countrypassengercounts</h1>
 
-## CountryPassengerCountsByCompanycompany_Get
-
-<a id="opIdCountryPassengerCountsByCompanycompany_Get"></a>
-
-> Code samples
-
-```shell
-# You can also use wget
-curl -X GET http://api.agentivity.com/countrypassengercounts/company \
-  -H 'Accept: application/json' \
-  -H 'Accept: application/json'
-
-```
-
-```javascript
-var headers = {
-  'Accept':'application/json',
-  'Accept':'application/json'
-
-};
-
-$.ajax({
-  url: 'http://api.agentivity.com/countrypassengercounts/company',
-  method: 'get',
-
-  headers: headers,
-  success: function(data) {
-    console.log(JSON.stringify(data));
-  }
-})
-
-```
-
-```python
-import requests
-headers = {
-  'Accept': 'application/json',
-  'Accept': 'application/json'
-}
-
-r = requests.get('http://api.agentivity.com/countrypassengercounts/company', params={
-
-}, headers = headers)
-
-print r.json()
-
-```
-
-```java
-URL obj = new URL("http://api.agentivity.com/countrypassengercounts/company");
-HttpURLConnection con = (HttpURLConnection) obj.openConnection();
-con.setRequestMethod("GET");
-int responseCode = con.getResponseCode();
-BufferedReader in = new BufferedReader(
-    new InputStreamReader(con.getInputStream()));
-String inputLine;
-StringBuffer response = new StringBuffer();
-while ((inputLine = in.readLine()) != null) {
-    response.append(inputLine);
-}
-in.close();
-System.out.println(response.toString());
-
-```
-
-`GET /countrypassengercounts/company`
-
-<h3 id="countrypassengercountsbycompanycompany_get-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|Offset|query|string|false|Starting Record|
-|Limit|query|string|false|Number of records to return (PageSize)|
-|TotalRecords|query|string(int32)|false|Total Number of Records in a Full Reponse (if no paging)|
-|ResponseRecords|query|string(int32)|false|Total NUmber of Records in this Reponse (on this page)|
-|Accept|header|string|true|Accept Header|
-
-#### Enumerated Values
-
-|Parameter|Value|
-|---|---|
-|Accept|application/json|
-
-
-
-> Default Response
-
-```json
-{
-  "ResponseMetadata": {
-    "Success": true,
-    "HasCache": true,
-    "HasPaging": true,
-    "CacheMetadata": {
-      "IsFromCache": true,
-      "CachedAt": "2019-03-18T11:42:49Z",
-      "CacheExpiresAt": "2019-03-18T11:42:49Z"
-    },
-    "PagingMetadata": {
-      "Limit": "string",
-      "Offset": "string",
-      "ResponseRecords": "string",
-      "TotalRecords": "string"
-    }
-  },
-  "ResponseReport": [
-    {
-      "CountryCode": "string",
-      "PassengerCount": "string"
-    }
-  ],
-  "ResponseError": {
-    "ErrorCode": "string",
-    "Message": "string",
-    "StatusCode": "string",
-    "VerboseMessage": "string"
-  }
-}
-```
-
-<h3 id="countrypassengercountsbycompanycompany_get-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|default|Default|Default response|[CountryPassengerCountsByCompanyResponse](#schemacountrypassengercountsbycompanyresponse)|
 
 
 
@@ -15761,22 +22559,7 @@ System.out.println(response.toString());
 
 
 
-<h1 id="agentivity-api-distributorcustomercontactvalues">DistributorCustomerContactValues</h1>
 
-
-
-
-<h1 id="agentivity-api-distributoremailrateslastmonth">DistributorEmailRatesLastMonth</h1>
-
-
-
-
-<h1 id="agentivity-api-distributorticketedvalues">DistributorTicketedValues</h1>
-
-
-
-
-<h1 id="agentivity-api-duplicatebookings">duplicatebookings</h1>
 
 
 
@@ -16097,7 +22880,6 @@ System.out.println(response.toString());
 
 
 
-<h1 id="agentivity-api-findbookings">findbookings</h1>
 
 
 
@@ -16627,1185 +23409,7 @@ System.out.println(response.toString());
 
 
 
-<h1 id="agentivity-api-hotellocsegmentcountsperchainbycity">HotelLocSegmentCountsPerChainByCity</h1>
 
-## HotelLocSegmentCountsPerChainByCityuser_Get
-
-<a id="opIdHotelLocSegmentCountsPerChainByCityuser_Get"></a>
-
-> Code samples
-
-```shell
-# You can also use wget
-curl -X GET http://api.agentivity.com/HotelLocSegmentCountsPerChainByCity/user \
-  -H 'Accept: application/json' \
-  -H 'Accept: application/json'
-
-```
-
-```javascript
-var headers = {
-  'Accept':'application/json',
-  'Accept':'application/json'
-
-};
-
-$.ajax({
-  url: 'http://api.agentivity.com/HotelLocSegmentCountsPerChainByCity/user',
-  method: 'get',
-
-  headers: headers,
-  success: function(data) {
-    console.log(JSON.stringify(data));
-  }
-})
-
-```
-
-```python
-import requests
-headers = {
-  'Accept': 'application/json',
-  'Accept': 'application/json'
-}
-
-r = requests.get('http://api.agentivity.com/HotelLocSegmentCountsPerChainByCity/user', params={
-
-}, headers = headers)
-
-print r.json()
-
-```
-
-```java
-URL obj = new URL("http://api.agentivity.com/HotelLocSegmentCountsPerChainByCity/user");
-HttpURLConnection con = (HttpURLConnection) obj.openConnection();
-con.setRequestMethod("GET");
-int responseCode = con.getResponseCode();
-BufferedReader in = new BufferedReader(
-    new InputStreamReader(con.getInputStream()));
-String inputLine;
-StringBuffer response = new StringBuffer();
-while ((inputLine = in.readLine()) != null) {
-    response.append(inputLine);
-}
-in.close();
-System.out.println(response.toString());
-
-```
-
-`GET /HotelLocSegmentCountsPerChainByCity/user`
-
-<h3 id="hotellocsegmentcountsperchainbycityuser_get-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|Offset|query|string|false|Starting Record|
-|Limit|query|string|false|Number of records to return (PageSize)|
-|TotalRecords|query|string(int32)|false|Total Number of Records in a Full Reponse (if no paging)|
-|ResponseRecords|query|string(int32)|false|Total NUmber of Records in this Reponse (on this page)|
-|Accept|header|string|true|Accept Header|
-
-#### Enumerated Values
-
-|Parameter|Value|
-|---|---|
-|Accept|application/json|
-
-
-
-> Default Response
-
-```json
-{
-  "ResponseMetadata": {
-    "Success": true,
-    "HasCache": true,
-    "HasPaging": true,
-    "CacheMetadata": {
-      "IsFromCache": true,
-      "CachedAt": "2019-03-18T11:42:49Z",
-      "CacheExpiresAt": "2019-03-18T11:42:49Z"
-    },
-    "PagingMetadata": {
-      "Limit": "string",
-      "Offset": "string",
-      "ResponseRecords": "string",
-      "TotalRecords": "string"
-    }
-  },
-  "ResponseReport": {
-    "Item": {
-      "ChainName": "string",
-      "VendorCode": "string",
-      "TotalSegments": 0,
-      "TotalNights": 0
-    }
-  },
-  "ResponseError": {
-    "ErrorCode": "string",
-    "Message": "string",
-    "StatusCode": "string",
-    "VerboseMessage": "string"
-  }
-}
-```
-
-<h3 id="hotellocsegmentcountsperchainbycityuser_get-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|default|Default|Default response|[HotelLocSegmentCountsPerChainByCityItemResponse](#schemahotellocsegmentcountsperchainbycityitemresponse)|
-
-
-
-<h1 id="agentivity-api-hotellocsegmentcountsperpropertybycity">HotelLocSegmentCountsPerPropertyByCity</h1>
-
-## HotelLocSegmentCountsPerPropertyByCityuser_Get
-
-<a id="opIdHotelLocSegmentCountsPerPropertyByCityuser_Get"></a>
-
-> Code samples
-
-```shell
-# You can also use wget
-curl -X GET http://api.agentivity.com/HotelLocSegmentCountsPerPropertyByCity/user \
-  -H 'Accept: application/json' \
-  -H 'Accept: application/json'
-
-```
-
-```javascript
-var headers = {
-  'Accept':'application/json',
-  'Accept':'application/json'
-
-};
-
-$.ajax({
-  url: 'http://api.agentivity.com/HotelLocSegmentCountsPerPropertyByCity/user',
-  method: 'get',
-
-  headers: headers,
-  success: function(data) {
-    console.log(JSON.stringify(data));
-  }
-})
-
-```
-
-```python
-import requests
-headers = {
-  'Accept': 'application/json',
-  'Accept': 'application/json'
-}
-
-r = requests.get('http://api.agentivity.com/HotelLocSegmentCountsPerPropertyByCity/user', params={
-
-}, headers = headers)
-
-print r.json()
-
-```
-
-```java
-URL obj = new URL("http://api.agentivity.com/HotelLocSegmentCountsPerPropertyByCity/user");
-HttpURLConnection con = (HttpURLConnection) obj.openConnection();
-con.setRequestMethod("GET");
-int responseCode = con.getResponseCode();
-BufferedReader in = new BufferedReader(
-    new InputStreamReader(con.getInputStream()));
-String inputLine;
-StringBuffer response = new StringBuffer();
-while ((inputLine = in.readLine()) != null) {
-    response.append(inputLine);
-}
-in.close();
-System.out.println(response.toString());
-
-```
-
-`GET /HotelLocSegmentCountsPerPropertyByCity/user`
-
-<h3 id="hotellocsegmentcountsperpropertybycityuser_get-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|Offset|query|string|false|Starting Record|
-|Limit|query|string|false|Number of records to return (PageSize)|
-|TotalRecords|query|string(int32)|false|Total Number of Records in a Full Reponse (if no paging)|
-|ResponseRecords|query|string(int32)|false|Total NUmber of Records in this Reponse (on this page)|
-|Accept|header|string|true|Accept Header|
-
-#### Enumerated Values
-
-|Parameter|Value|
-|---|---|
-|Accept|application/json|
-
-
-
-> Default Response
-
-```json
-{
-  "ResponseMetadata": {
-    "Success": true,
-    "HasCache": true,
-    "HasPaging": true,
-    "CacheMetadata": {
-      "IsFromCache": true,
-      "CachedAt": "2019-03-18T11:42:49Z",
-      "CacheExpiresAt": "2019-03-18T11:42:49Z"
-    },
-    "PagingMetadata": {
-      "Limit": "string",
-      "Offset": "string",
-      "ResponseRecords": "string",
-      "TotalRecords": "string"
-    }
-  },
-  "ResponseReport": {
-    "Item": {
-      "PropertyName": "string",
-      "TotalSegments": 0,
-      "TotalNights": 0
-    }
-  },
-  "ResponseError": {
-    "ErrorCode": "string",
-    "Message": "string",
-    "StatusCode": "string",
-    "VerboseMessage": "string"
-  }
-}
-```
-
-<h3 id="hotellocsegmentcountsperpropertybycityuser_get-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|default|Default|Default response|[HotelLocSegmentCountsPerPropertyByCityItemResponse](#schemahotellocsegmentcountsperpropertybycityitemresponse)|
-
-
-
-<h1 id="agentivity-api-hotelsegmentcountsperaccountbyvendor">HotelSegmentCountsPerAccountByVendor</h1>
-
-## HotelSegmentCountsPerAccountByVendoruser_Get
-
-<a id="opIdHotelSegmentCountsPerAccountByVendoruser_Get"></a>
-
-> Code samples
-
-```shell
-# You can also use wget
-curl -X GET http://api.agentivity.com/HotelSegmentCountsPerAccountByVendor/user \
-  -H 'Accept: application/json' \
-  -H 'Accept: application/json'
-
-```
-
-```javascript
-var headers = {
-  'Accept':'application/json',
-  'Accept':'application/json'
-
-};
-
-$.ajax({
-  url: 'http://api.agentivity.com/HotelSegmentCountsPerAccountByVendor/user',
-  method: 'get',
-
-  headers: headers,
-  success: function(data) {
-    console.log(JSON.stringify(data));
-  }
-})
-
-```
-
-```python
-import requests
-headers = {
-  'Accept': 'application/json',
-  'Accept': 'application/json'
-}
-
-r = requests.get('http://api.agentivity.com/HotelSegmentCountsPerAccountByVendor/user', params={
-
-}, headers = headers)
-
-print r.json()
-
-```
-
-```java
-URL obj = new URL("http://api.agentivity.com/HotelSegmentCountsPerAccountByVendor/user");
-HttpURLConnection con = (HttpURLConnection) obj.openConnection();
-con.setRequestMethod("GET");
-int responseCode = con.getResponseCode();
-BufferedReader in = new BufferedReader(
-    new InputStreamReader(con.getInputStream()));
-String inputLine;
-StringBuffer response = new StringBuffer();
-while ((inputLine = in.readLine()) != null) {
-    response.append(inputLine);
-}
-in.close();
-System.out.println(response.toString());
-
-```
-
-`GET /HotelSegmentCountsPerAccountByVendor/user`
-
-<h3 id="hotelsegmentcountsperaccountbyvendoruser_get-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|Offset|query|string|false|Starting Record|
-|Limit|query|string|false|Number of records to return (PageSize)|
-|TotalRecords|query|string(int32)|false|Total Number of Records in a Full Reponse (if no paging)|
-|ResponseRecords|query|string(int32)|false|Total NUmber of Records in this Reponse (on this page)|
-|Accept|header|string|true|Accept Header|
-
-#### Enumerated Values
-
-|Parameter|Value|
-|---|---|
-|Accept|application/json|
-
-
-
-> Default Response
-
-```json
-{
-  "ResponseMetadata": {
-    "Success": true,
-    "HasCache": true,
-    "HasPaging": true,
-    "CacheMetadata": {
-      "IsFromCache": true,
-      "CachedAt": "2019-03-18T11:42:49Z",
-      "CacheExpiresAt": "2019-03-18T11:42:49Z"
-    },
-    "PagingMetadata": {
-      "Limit": "string",
-      "Offset": "string",
-      "ResponseRecords": "string",
-      "TotalRecords": "string"
-    }
-  },
-  "ResponseReport": {
-    "Item": {
-      "Account": "string",
-      "TotalSegments": 0,
-      "TotalNights": 0
-    }
-  },
-  "ResponseError": {
-    "ErrorCode": "string",
-    "Message": "string",
-    "StatusCode": "string",
-    "VerboseMessage": "string"
-  }
-}
-```
-
-<h3 id="hotelsegmentcountsperaccountbyvendoruser_get-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|default|Default|Default response|[HotelSegmentCountsPerAccountByVendorItemResponse](#schemahotelsegmentcountsperaccountbyvendoritemresponse)|
-
-
-
-<h1 id="agentivity-api-hotelsegmentcountsperbranchbyvendor">HotelSegmentCountsPerBranchByVendor</h1>
-
-## HotelSegmentCountsPerBranchByVendoruser_Get
-
-<a id="opIdHotelSegmentCountsPerBranchByVendoruser_Get"></a>
-
-> Code samples
-
-```shell
-# You can also use wget
-curl -X GET http://api.agentivity.com/HotelSegmentCountsPerBranchByVendor/user \
-  -H 'Accept: application/json' \
-  -H 'Accept: application/json'
-
-```
-
-```javascript
-var headers = {
-  'Accept':'application/json',
-  'Accept':'application/json'
-
-};
-
-$.ajax({
-  url: 'http://api.agentivity.com/HotelSegmentCountsPerBranchByVendor/user',
-  method: 'get',
-
-  headers: headers,
-  success: function(data) {
-    console.log(JSON.stringify(data));
-  }
-})
-
-```
-
-```python
-import requests
-headers = {
-  'Accept': 'application/json',
-  'Accept': 'application/json'
-}
-
-r = requests.get('http://api.agentivity.com/HotelSegmentCountsPerBranchByVendor/user', params={
-
-}, headers = headers)
-
-print r.json()
-
-```
-
-```java
-URL obj = new URL("http://api.agentivity.com/HotelSegmentCountsPerBranchByVendor/user");
-HttpURLConnection con = (HttpURLConnection) obj.openConnection();
-con.setRequestMethod("GET");
-int responseCode = con.getResponseCode();
-BufferedReader in = new BufferedReader(
-    new InputStreamReader(con.getInputStream()));
-String inputLine;
-StringBuffer response = new StringBuffer();
-while ((inputLine = in.readLine()) != null) {
-    response.append(inputLine);
-}
-in.close();
-System.out.println(response.toString());
-
-```
-
-`GET /HotelSegmentCountsPerBranchByVendor/user`
-
-<h3 id="hotelsegmentcountsperbranchbyvendoruser_get-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|Offset|query|string|false|Starting Record|
-|Limit|query|string|false|Number of records to return (PageSize)|
-|TotalRecords|query|string(int32)|false|Total Number of Records in a Full Reponse (if no paging)|
-|ResponseRecords|query|string(int32)|false|Total NUmber of Records in this Reponse (on this page)|
-|Accept|header|string|true|Accept Header|
-
-#### Enumerated Values
-
-|Parameter|Value|
-|---|---|
-|Accept|application/json|
-
-
-
-> Default Response
-
-```json
-{
-  "ResponseMetadata": {
-    "Success": true,
-    "HasCache": true,
-    "HasPaging": true,
-    "CacheMetadata": {
-      "IsFromCache": true,
-      "CachedAt": "2019-03-18T11:42:49Z",
-      "CacheExpiresAt": "2019-03-18T11:42:49Z"
-    },
-    "PagingMetadata": {
-      "Limit": "string",
-      "Offset": "string",
-      "ResponseRecords": "string",
-      "TotalRecords": "string"
-    }
-  },
-  "ResponseReport": {
-    "Item": {
-      "OwningAgencyLocation": "string",
-      "OwningAgencyLocationID": "string",
-      "TotalSegments": 0,
-      "TotalNights": 0
-    }
-  },
-  "ResponseError": {
-    "ErrorCode": "string",
-    "Message": "string",
-    "StatusCode": "string",
-    "VerboseMessage": "string"
-  }
-}
-```
-
-<h3 id="hotelsegmentcountsperbranchbyvendoruser_get-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|default|Default|Default response|[HotelSegmentCountsPerBranchByVendorItemResponse](#schemahotelsegmentcountsperbranchbyvendoritemresponse)|
-
-
-
-<h1 id="agentivity-api-hotelsegmentcountsperconsultantbyvendor">HotelSegmentCountsPerConsultantByVendor</h1>
-
-## HotelSegmentCountsPerConsultantByVendoruser_Get
-
-<a id="opIdHotelSegmentCountsPerConsultantByVendoruser_Get"></a>
-
-> Code samples
-
-```shell
-# You can also use wget
-curl -X GET http://api.agentivity.com/HotelSegmentCountsPerConsultantByVendor/user \
-  -H 'Accept: application/json' \
-  -H 'Accept: application/json'
-
-```
-
-```javascript
-var headers = {
-  'Accept':'application/json',
-  'Accept':'application/json'
-
-};
-
-$.ajax({
-  url: 'http://api.agentivity.com/HotelSegmentCountsPerConsultantByVendor/user',
-  method: 'get',
-
-  headers: headers,
-  success: function(data) {
-    console.log(JSON.stringify(data));
-  }
-})
-
-```
-
-```python
-import requests
-headers = {
-  'Accept': 'application/json',
-  'Accept': 'application/json'
-}
-
-r = requests.get('http://api.agentivity.com/HotelSegmentCountsPerConsultantByVendor/user', params={
-
-}, headers = headers)
-
-print r.json()
-
-```
-
-```java
-URL obj = new URL("http://api.agentivity.com/HotelSegmentCountsPerConsultantByVendor/user");
-HttpURLConnection con = (HttpURLConnection) obj.openConnection();
-con.setRequestMethod("GET");
-int responseCode = con.getResponseCode();
-BufferedReader in = new BufferedReader(
-    new InputStreamReader(con.getInputStream()));
-String inputLine;
-StringBuffer response = new StringBuffer();
-while ((inputLine = in.readLine()) != null) {
-    response.append(inputLine);
-}
-in.close();
-System.out.println(response.toString());
-
-```
-
-`GET /HotelSegmentCountsPerConsultantByVendor/user`
-
-<h3 id="hotelsegmentcountsperconsultantbyvendoruser_get-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|Offset|query|string|false|Starting Record|
-|Limit|query|string|false|Number of records to return (PageSize)|
-|TotalRecords|query|string(int32)|false|Total Number of Records in a Full Reponse (if no paging)|
-|ResponseRecords|query|string(int32)|false|Total NUmber of Records in this Reponse (on this page)|
-|Accept|header|string|true|Accept Header|
-
-#### Enumerated Values
-
-|Parameter|Value|
-|---|---|
-|Accept|application/json|
-
-
-
-> Default Response
-
-```json
-{
-  "ResponseMetadata": {
-    "Success": true,
-    "HasCache": true,
-    "HasPaging": true,
-    "CacheMetadata": {
-      "IsFromCache": true,
-      "CachedAt": "2019-03-18T11:42:49Z",
-      "CacheExpiresAt": "2019-03-18T11:42:49Z"
-    },
-    "PagingMetadata": {
-      "Limit": "string",
-      "Offset": "string",
-      "ResponseRecords": "string",
-      "TotalRecords": "string"
-    }
-  },
-  "ResponseReport": {
-    "Item": {
-      "OwningConsultant": "string",
-      "OwningConsultantID": "string",
-      "OwningAgencyLocation": "string",
-      "TotalSegments": 0,
-      "TotalNights": 0
-    }
-  },
-  "ResponseError": {
-    "ErrorCode": "string",
-    "Message": "string",
-    "StatusCode": "string",
-    "VerboseMessage": "string"
-  }
-}
-```
-
-<h3 id="hotelsegmentcountsperconsultantbyvendoruser_get-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|default|Default|Default response|[HotelSegmentCountsPerConsultantByVendorItemResponse](#schemahotelsegmentcountsperconsultantbyvendoritemresponse)|
-
-
-
-<h1 id="agentivity-api-hotelsegmentcountsperlocationbyvendor">HotelSegmentCountsPerLocationByVendor</h1>
-
-## HotelSegmentCountsPerLocationByVendoruser_Get
-
-<a id="opIdHotelSegmentCountsPerLocationByVendoruser_Get"></a>
-
-> Code samples
-
-```shell
-# You can also use wget
-curl -X GET http://api.agentivity.com/HotelSegmentCountsPerLocationByVendor/user \
-  -H 'Accept: application/json' \
-  -H 'Accept: application/json'
-
-```
-
-```javascript
-var headers = {
-  'Accept':'application/json',
-  'Accept':'application/json'
-
-};
-
-$.ajax({
-  url: 'http://api.agentivity.com/HotelSegmentCountsPerLocationByVendor/user',
-  method: 'get',
-
-  headers: headers,
-  success: function(data) {
-    console.log(JSON.stringify(data));
-  }
-})
-
-```
-
-```python
-import requests
-headers = {
-  'Accept': 'application/json',
-  'Accept': 'application/json'
-}
-
-r = requests.get('http://api.agentivity.com/HotelSegmentCountsPerLocationByVendor/user', params={
-
-}, headers = headers)
-
-print r.json()
-
-```
-
-```java
-URL obj = new URL("http://api.agentivity.com/HotelSegmentCountsPerLocationByVendor/user");
-HttpURLConnection con = (HttpURLConnection) obj.openConnection();
-con.setRequestMethod("GET");
-int responseCode = con.getResponseCode();
-BufferedReader in = new BufferedReader(
-    new InputStreamReader(con.getInputStream()));
-String inputLine;
-StringBuffer response = new StringBuffer();
-while ((inputLine = in.readLine()) != null) {
-    response.append(inputLine);
-}
-in.close();
-System.out.println(response.toString());
-
-```
-
-`GET /HotelSegmentCountsPerLocationByVendor/user`
-
-<h3 id="hotelsegmentcountsperlocationbyvendoruser_get-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|Offset|query|string|false|Starting Record|
-|Limit|query|string|false|Number of records to return (PageSize)|
-|TotalRecords|query|string(int32)|false|Total Number of Records in a Full Reponse (if no paging)|
-|ResponseRecords|query|string(int32)|false|Total NUmber of Records in this Reponse (on this page)|
-|Accept|header|string|true|Accept Header|
-
-#### Enumerated Values
-
-|Parameter|Value|
-|---|---|
-|Accept|application/json|
-
-
-
-> Default Response
-
-```json
-{
-  "ResponseMetadata": {
-    "Success": true,
-    "HasCache": true,
-    "HasPaging": true,
-    "CacheMetadata": {
-      "IsFromCache": true,
-      "CachedAt": "2019-03-18T11:42:49Z",
-      "CacheExpiresAt": "2019-03-18T11:42:49Z"
-    },
-    "PagingMetadata": {
-      "Limit": "string",
-      "Offset": "string",
-      "ResponseRecords": "string",
-      "TotalRecords": "string"
-    }
-  },
-  "ResponseReport": {
-    "Item": {
-      "CityName": "string",
-      "CityCode": "string",
-      "CountryName": "string",
-      "TotalSegments": 0,
-      "TotalNights": 0
-    }
-  },
-  "ResponseError": {
-    "ErrorCode": "string",
-    "Message": "string",
-    "StatusCode": "string",
-    "VerboseMessage": "string"
-  }
-}
-```
-
-<h3 id="hotelsegmentcountsperlocationbyvendoruser_get-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|default|Default|Default response|[HotelSegmentCountsPerLocationByVendorItemResponse](#schemahotelsegmentcountsperlocationbyvendoritemresponse)|
-
-
-
-<h1 id="agentivity-api-hotelsegmentcountspervendor">HotelSegmentCountsPerVendor</h1>
-
-## HotelSegmentCountsPerVendoruser_Get
-
-<a id="opIdHotelSegmentCountsPerVendoruser_Get"></a>
-
-> Code samples
-
-```shell
-# You can also use wget
-curl -X GET http://api.agentivity.com/HotelSegmentCountsPerVendor/user \
-  -H 'Accept: application/json' \
-  -H 'Accept: application/json'
-
-```
-
-```javascript
-var headers = {
-  'Accept':'application/json',
-  'Accept':'application/json'
-
-};
-
-$.ajax({
-  url: 'http://api.agentivity.com/HotelSegmentCountsPerVendor/user',
-  method: 'get',
-
-  headers: headers,
-  success: function(data) {
-    console.log(JSON.stringify(data));
-  }
-})
-
-```
-
-```python
-import requests
-headers = {
-  'Accept': 'application/json',
-  'Accept': 'application/json'
-}
-
-r = requests.get('http://api.agentivity.com/HotelSegmentCountsPerVendor/user', params={
-
-}, headers = headers)
-
-print r.json()
-
-```
-
-```java
-URL obj = new URL("http://api.agentivity.com/HotelSegmentCountsPerVendor/user");
-HttpURLConnection con = (HttpURLConnection) obj.openConnection();
-con.setRequestMethod("GET");
-int responseCode = con.getResponseCode();
-BufferedReader in = new BufferedReader(
-    new InputStreamReader(con.getInputStream()));
-String inputLine;
-StringBuffer response = new StringBuffer();
-while ((inputLine = in.readLine()) != null) {
-    response.append(inputLine);
-}
-in.close();
-System.out.println(response.toString());
-
-```
-
-`GET /HotelSegmentCountsPerVendor/user`
-
-<h3 id="hotelsegmentcountspervendoruser_get-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|Offset|query|string|false|Starting Record|
-|Limit|query|string|false|Number of records to return (PageSize)|
-|TotalRecords|query|string(int32)|false|Total Number of Records in a Full Reponse (if no paging)|
-|ResponseRecords|query|string(int32)|false|Total NUmber of Records in this Reponse (on this page)|
-|Accept|header|string|true|Accept Header|
-
-#### Enumerated Values
-
-|Parameter|Value|
-|---|---|
-|Accept|application/json|
-
-
-
-> Default Response
-
-```json
-{
-  "ResponseMetadata": {
-    "Success": true,
-    "HasCache": true,
-    "HasPaging": true,
-    "CacheMetadata": {
-      "IsFromCache": true,
-      "CachedAt": "2019-03-18T11:42:49Z",
-      "CacheExpiresAt": "2019-03-18T11:42:49Z"
-    },
-    "PagingMetadata": {
-      "Limit": "string",
-      "Offset": "string",
-      "ResponseRecords": "string",
-      "TotalRecords": "string"
-    }
-  },
-  "ResponseReport": {
-    "Item": {
-      "ChainName": "string",
-      "VendorCode": "string",
-      "TotalSegments": 0,
-      "TotalNights": 0
-    }
-  },
-  "ResponseError": {
-    "ErrorCode": "string",
-    "Message": "string",
-    "StatusCode": "string",
-    "VerboseMessage": "string"
-  }
-}
-```
-
-<h3 id="hotelsegmentcountspervendoruser_get-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|default|Default|Default response|[HotelSegmentCountsPerVendorItemResponse](#schemahotelsegmentcountspervendoritemresponse)|
-
-
-
-<h1 id="agentivity-api-hotelsegments">hotelsegments</h1>
-
-## HotelSegmentsByUseruser_Get
-
-<a id="opIdHotelSegmentsByUseruser_Get"></a>
-
-> Code samples
-
-```shell
-# You can also use wget
-curl -X GET http://api.agentivity.com/hotelsegments/user \
-  -H 'Accept: application/json' \
-  -H 'Accept: application/json'
-
-```
-
-```javascript
-var headers = {
-  'Accept':'application/json',
-  'Accept':'application/json'
-
-};
-
-$.ajax({
-  url: 'http://api.agentivity.com/hotelsegments/user',
-  method: 'get',
-
-  headers: headers,
-  success: function(data) {
-    console.log(JSON.stringify(data));
-  }
-})
-
-```
-
-```python
-import requests
-headers = {
-  'Accept': 'application/json',
-  'Accept': 'application/json'
-}
-
-r = requests.get('http://api.agentivity.com/hotelsegments/user', params={
-
-}, headers = headers)
-
-print r.json()
-
-```
-
-```java
-URL obj = new URL("http://api.agentivity.com/hotelsegments/user");
-HttpURLConnection con = (HttpURLConnection) obj.openConnection();
-con.setRequestMethod("GET");
-int responseCode = con.getResponseCode();
-BufferedReader in = new BufferedReader(
-    new InputStreamReader(con.getInputStream()));
-String inputLine;
-StringBuffer response = new StringBuffer();
-while ((inputLine = in.readLine()) != null) {
-    response.append(inputLine);
-}
-in.close();
-System.out.println(response.toString());
-
-```
-
-`GET /hotelsegments/user`
-
-<h3 id="hotelsegmentsbyuseruser_get-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|Offset|query|string|false|Starting Record|
-|Limit|query|string|false|Number of records to return (PageSize)|
-|TotalRecords|query|string(int32)|false|Total Number of Records in a Full Reponse (if no paging)|
-|ResponseRecords|query|string(int32)|false|Total NUmber of Records in this Reponse (on this page)|
-|Accept|header|string|true|Accept Header|
-
-#### Enumerated Values
-
-|Parameter|Value|
-|---|---|
-|Accept|application/json|
-
-
-
-> Default Response
-
-```json
-{
-  "ResponseMetadata": {
-    "Success": true,
-    "HasCache": true,
-    "HasPaging": true,
-    "CacheMetadata": {
-      "IsFromCache": true,
-      "CachedAt": "2019-03-18T11:42:49Z",
-      "CacheExpiresAt": "2019-03-18T11:42:49Z"
-    },
-    "PagingMetadata": {
-      "Limit": "string",
-      "Offset": "string",
-      "ResponseRecords": "string",
-      "TotalRecords": "string"
-    }
-  },
-  "ResponseReport": {
-    "Item": {
-      "HotelSegmentNbr": "string",
-      "PCC": "string",
-      "PNR": "string",
-      "Consultant": "string",
-      "StatusCode": "string",
-      "ArrivalDate": "string",
-      "DepartureDate": "string",
-      "PropertyName": "string",
-      "ChainCode": "string",
-      "ChainName": "string",
-      "City": "string",
-      "CityCode": "string",
-      "CityName": "string",
-      "CountryCode": "string",
-      "CountryName": "string",
-      "Passenger": "string",
-      "Account": "string",
-      "ConfirmationNbr": "string",
-      "Currency": "string",
-      "Rate": "string",
-      "RoomBookingCode": "string",
-      "NbrNights": 0,
-      "MultiLevelRateCode": "string",
-      "NbrRooms": 0,
-      "BookedInName": "string",
-      "ServiceInformation": "string",
-      "TotalAirSegs": "string",
-      "CreatingAgencyIata": "string",
-      "AgentivityRef": 0
-    }
-  },
-  "ResponseError": {
-    "ErrorCode": "string",
-    "Message": "string",
-    "StatusCode": "string",
-    "VerboseMessage": "string"
-  }
-}
-```
-
-<h3 id="hotelsegmentsbyuseruser_get-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|default|Default|Default response|[HotelSegmentsByUserItemResponse](#schemahotelsegmentsbyuseritemresponse)|
-
-
-
-<h1 id="agentivity-api-hotelsegmentswithnotepad">hotelsegmentswithnotepad</h1>
-
-## HotelSegmentsWithNotepadByUseruser_Get
-
-<a id="opIdHotelSegmentsWithNotepadByUseruser_Get"></a>
-
-> Code samples
-
-```shell
-# You can also use wget
-curl -X GET http://api.agentivity.com/hotelsegmentswithnotepad/user \
-  -H 'Accept: application/json' \
-  -H 'Accept: application/json'
-
-```
-
-```javascript
-var headers = {
-  'Accept':'application/json',
-  'Accept':'application/json'
-
-};
-
-$.ajax({
-  url: 'http://api.agentivity.com/hotelsegmentswithnotepad/user',
-  method: 'get',
-
-  headers: headers,
-  success: function(data) {
-    console.log(JSON.stringify(data));
-  }
-})
-
-```
-
-```python
-import requests
-headers = {
-  'Accept': 'application/json',
-  'Accept': 'application/json'
-}
-
-r = requests.get('http://api.agentivity.com/hotelsegmentswithnotepad/user', params={
-
-}, headers = headers)
-
-print r.json()
-
-```
-
-```java
-URL obj = new URL("http://api.agentivity.com/hotelsegmentswithnotepad/user");
-HttpURLConnection con = (HttpURLConnection) obj.openConnection();
-con.setRequestMethod("GET");
-int responseCode = con.getResponseCode();
-BufferedReader in = new BufferedReader(
-    new InputStreamReader(con.getInputStream()));
-String inputLine;
-StringBuffer response = new StringBuffer();
-while ((inputLine = in.readLine()) != null) {
-    response.append(inputLine);
-}
-in.close();
-System.out.println(response.toString());
-
-```
-
-`GET /hotelsegmentswithnotepad/user`
-
-<h3 id="hotelsegmentswithnotepadbyuseruser_get-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|Offset|query|string|false|Starting Record|
-|Limit|query|string|false|Number of records to return (PageSize)|
-|TotalRecords|query|string(int32)|false|Total Number of Records in a Full Reponse (if no paging)|
-|ResponseRecords|query|string(int32)|false|Total NUmber of Records in this Reponse (on this page)|
-|Accept|header|string|true|Accept Header|
-
-#### Enumerated Values
-
-|Parameter|Value|
-|---|---|
-|Accept|application/json|
-
-
-
-> Default Response
-
-```json
-{}
-```
-
-<h3 id="hotelsegmentswithnotepadbyuseruser_get-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|default|Default|Default response|[Object](#schemaobject)|
 
 
 
@@ -18082,12 +23686,7 @@ System.out.println(response.toString());
 
 
 
-<h1 id="agentivity-api-itinerarychangeevents">ItineraryChangeEvents</h1>
 
-
-
-
-<h1 id="agentivity-api-itinerarychangeeventssummary">ItineraryChangeEventsSummary</h1>
 
 
 
@@ -18255,7 +23854,6 @@ System.out.println(response.toString());
 
 
 
-<h1 id="agentivity-api-logeventtypedetails">logeventtypedetails</h1>
 
 
 
@@ -18402,12 +24000,7 @@ System.out.println(response.toString());
 
 
 
-<h1 id="agentivity-api-missedhotelopportunities">missedhotelopportunities</h1>
 
-
-
-
-<h1 id="agentivity-api-missedhotelopportunitiespercity">missedhotelopportunitiespercity</h1>
 
 
 
@@ -18541,523 +24134,6 @@ System.out.println(response.toString());
 |---|---|---|---|
 |default|Default|Default response|[MrrTrackingResponse](#schemamrrtrackingresponse)|
 
-
-
-<h1 id="agentivity-api-partnerbookingdatacaptures">partnerbookingdatacaptures</h1>
-
-
-
-
-<h1 id="agentivity-api-parusagepercompanylastmonth">PARUsagePerCompanyLastMonth</h1>
-
-## GetPARUsagePerCompanyuser_Get
-
-<a id="opIdGetPARUsagePerCompanyuser_Get"></a>
-
-> Code samples
-
-```shell
-# You can also use wget
-curl -X GET http://api.agentivity.com/PARUsagePerCompanyLastMonth/user \
-  -H 'Accept: application/json' \
-  -H 'Accept: application/json'
-
-```
-
-```javascript
-var headers = {
-  'Accept':'application/json',
-  'Accept':'application/json'
-
-};
-
-$.ajax({
-  url: 'http://api.agentivity.com/PARUsagePerCompanyLastMonth/user',
-  method: 'get',
-
-  headers: headers,
-  success: function(data) {
-    console.log(JSON.stringify(data));
-  }
-})
-
-```
-
-```python
-import requests
-headers = {
-  'Accept': 'application/json',
-  'Accept': 'application/json'
-}
-
-r = requests.get('http://api.agentivity.com/PARUsagePerCompanyLastMonth/user', params={
-
-}, headers = headers)
-
-print r.json()
-
-```
-
-```java
-URL obj = new URL("http://api.agentivity.com/PARUsagePerCompanyLastMonth/user");
-HttpURLConnection con = (HttpURLConnection) obj.openConnection();
-con.setRequestMethod("GET");
-int responseCode = con.getResponseCode();
-BufferedReader in = new BufferedReader(
-    new InputStreamReader(con.getInputStream()));
-String inputLine;
-StringBuffer response = new StringBuffer();
-while ((inputLine = in.readLine()) != null) {
-    response.append(inputLine);
-}
-in.close();
-System.out.println(response.toString());
-
-```
-
-`GET /PARUsagePerCompanyLastMonth/user`
-
-<h3 id="getparusagepercompanyuser_get-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|Offset|query|string|false|Starting Record|
-|Limit|query|string|false|Number of records to return (PageSize)|
-|TotalRecords|query|string(int32)|false|Total Number of Records in a Full Reponse (if no paging)|
-|ResponseRecords|query|string(int32)|false|Total NUmber of Records in this Reponse (on this page)|
-|Accept|header|string|true|Accept Header|
-
-#### Enumerated Values
-
-|Parameter|Value|
-|---|---|
-|Accept|application/json|
-
-
-
-> Default Response
-
-```json
-{
-  "ResponseMetadata": {
-    "Success": true,
-    "HasCache": true,
-    "HasPaging": true,
-    "CacheMetadata": {
-      "IsFromCache": true,
-      "CachedAt": "2019-03-18T11:42:49Z",
-      "CacheExpiresAt": "2019-03-18T11:42:49Z"
-    },
-    "PagingMetadata": {
-      "Limit": "string",
-      "Offset": "string",
-      "ResponseRecords": "string",
-      "TotalRecords": "string"
-    }
-  },
-  "ResponseReport": [
-    {
-      "OwningAgencyPseudo": "string",
-      "TotalBookings": "string",
-      "NumberOfPAR": "string",
-      "PercentOfPAR": "string",
-      "NumberOfBAR": "string"
-    }
-  ],
-  "ResponseError": {
-    "ErrorCode": "string",
-    "Message": "string",
-    "StatusCode": "string",
-    "VerboseMessage": "string"
-  }
-}
-```
-
-<h3 id="getparusagepercompanyuser_get-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|default|Default|Default response|[PARUsagePerCompanyResponse](#schemaparusagepercompanyresponse)|
-
-
-
-<h1 id="agentivity-api-parusageperuser">PARUsagePerUser</h1>
-
-## GetPARUsagePerUseruser_Get
-
-<a id="opIdGetPARUsagePerUseruser_Get"></a>
-
-> Code samples
-
-```shell
-# You can also use wget
-curl -X GET http://api.agentivity.com/PARUsagePerUser/user \
-  -H 'Accept: application/json' \
-  -H 'Accept: application/json'
-
-```
-
-```javascript
-var headers = {
-  'Accept':'application/json',
-  'Accept':'application/json'
-
-};
-
-$.ajax({
-  url: 'http://api.agentivity.com/PARUsagePerUser/user',
-  method: 'get',
-
-  headers: headers,
-  success: function(data) {
-    console.log(JSON.stringify(data));
-  }
-})
-
-```
-
-```python
-import requests
-headers = {
-  'Accept': 'application/json',
-  'Accept': 'application/json'
-}
-
-r = requests.get('http://api.agentivity.com/PARUsagePerUser/user', params={
-
-}, headers = headers)
-
-print r.json()
-
-```
-
-```java
-URL obj = new URL("http://api.agentivity.com/PARUsagePerUser/user");
-HttpURLConnection con = (HttpURLConnection) obj.openConnection();
-con.setRequestMethod("GET");
-int responseCode = con.getResponseCode();
-BufferedReader in = new BufferedReader(
-    new InputStreamReader(con.getInputStream()));
-String inputLine;
-StringBuffer response = new StringBuffer();
-while ((inputLine = in.readLine()) != null) {
-    response.append(inputLine);
-}
-in.close();
-System.out.println(response.toString());
-
-```
-
-`GET /PARUsagePerUser/user`
-
-<h3 id="getparusageperuseruser_get-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|Offset|query|string|false|Starting Record|
-|Limit|query|string|false|Number of records to return (PageSize)|
-|TotalRecords|query|string(int32)|false|Total Number of Records in a Full Reponse (if no paging)|
-|ResponseRecords|query|string(int32)|false|Total NUmber of Records in this Reponse (on this page)|
-|Accept|header|string|true|Accept Header|
-
-#### Enumerated Values
-
-|Parameter|Value|
-|---|---|
-|Accept|application/json|
-
-
-
-> Default Response
-
-```json
-{
-  "ResponseMetadata": {
-    "Success": true,
-    "HasCache": true,
-    "HasPaging": true,
-    "CacheMetadata": {
-      "IsFromCache": true,
-      "CachedAt": "2019-03-18T11:42:49Z",
-      "CacheExpiresAt": "2019-03-18T11:42:49Z"
-    },
-    "PagingMetadata": {
-      "Limit": "string",
-      "Offset": "string",
-      "ResponseRecords": "string",
-      "TotalRecords": "string"
-    }
-  },
-  "ResponseReport": [
-    {
-      "Consultant": "string",
-      "TotalBookings": "string",
-      "NumberOfPAR": "string",
-      "PercentOfPAR": "string",
-      "NumberOfBAR": "string"
-    }
-  ],
-  "ResponseError": {
-    "ErrorCode": "string",
-    "Message": "string",
-    "StatusCode": "string",
-    "VerboseMessage": "string"
-  }
-}
-```
-
-<h3 id="getparusageperuseruser_get-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|default|Default|Default response|[PARUsagePerUserResponse](#schemaparusageperuserresponse)|
-
-
-
-<h1 id="agentivity-api-passengerairsegments">passengerairsegments</h1>
-
-## PassengerAirSegmentsByCompanyAccountcompanyaccount_Get
-
-<a id="opIdPassengerAirSegmentsByCompanyAccountcompanyaccount_Get"></a>
-
-> Code samples
-
-```shell
-# You can also use wget
-curl -X GET http://api.agentivity.com/passengerairsegments/companyaccount \
-  -H 'Accept: application/json' \
-  -H 'Accept: application/json'
-
-```
-
-```javascript
-var headers = {
-  'Accept':'application/json',
-  'Accept':'application/json'
-
-};
-
-$.ajax({
-  url: 'http://api.agentivity.com/passengerairsegments/companyaccount',
-  method: 'get',
-
-  headers: headers,
-  success: function(data) {
-    console.log(JSON.stringify(data));
-  }
-})
-
-```
-
-```python
-import requests
-headers = {
-  'Accept': 'application/json',
-  'Accept': 'application/json'
-}
-
-r = requests.get('http://api.agentivity.com/passengerairsegments/companyaccount', params={
-
-}, headers = headers)
-
-print r.json()
-
-```
-
-```java
-URL obj = new URL("http://api.agentivity.com/passengerairsegments/companyaccount");
-HttpURLConnection con = (HttpURLConnection) obj.openConnection();
-con.setRequestMethod("GET");
-int responseCode = con.getResponseCode();
-BufferedReader in = new BufferedReader(
-    new InputStreamReader(con.getInputStream()));
-String inputLine;
-StringBuffer response = new StringBuffer();
-while ((inputLine = in.readLine()) != null) {
-    response.append(inputLine);
-}
-in.close();
-System.out.println(response.toString());
-
-```
-
-`GET /passengerairsegments/companyaccount`
-
-<h3 id="passengerairsegmentsbycompanyaccountcompanyaccount_get-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|Account|query|string|false|none|
-|CompanyID|query|integer(int32)|false|none|
-|DepartureDateEnd|query|string|false|none|
-|DepartureDateStart|query|string|false|none|
-|DepartureTimeEnd|query|string|false|none|
-|DepartureTimeStart|query|string|false|none|
-|Accept|header|string|true|Accept Header|
-
-#### Enumerated Values
-
-|Parameter|Value|
-|---|---|
-|Accept|application/json|
-
-
-
-> Default Response
-
-```json
-{}
-```
-
-<h3 id="passengerairsegmentsbycompanyaccountcompanyaccount_get-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|default|Default|Default response|[Object](#schemaobject)|
-
-
-
-<h1 id="agentivity-api-passengerairsegmentswithmaxtravellerflag">passengerairsegmentswithmaxtravellerflag</h1>
-
-## PassengerAirSegmentsWithMaxTravellerFlagByUseruser_Get
-
-<a id="opIdPassengerAirSegmentsWithMaxTravellerFlagByUseruser_Get"></a>
-
-> Code samples
-
-```shell
-# You can also use wget
-curl -X GET http://api.agentivity.com/passengerairsegmentswithmaxtravellerflag/user \
-  -H 'Accept: application/json' \
-  -H 'Accept: application/json'
-
-```
-
-```javascript
-var headers = {
-  'Accept':'application/json',
-  'Accept':'application/json'
-
-};
-
-$.ajax({
-  url: 'http://api.agentivity.com/passengerairsegmentswithmaxtravellerflag/user',
-  method: 'get',
-
-  headers: headers,
-  success: function(data) {
-    console.log(JSON.stringify(data));
-  }
-})
-
-```
-
-```python
-import requests
-headers = {
-  'Accept': 'application/json',
-  'Accept': 'application/json'
-}
-
-r = requests.get('http://api.agentivity.com/passengerairsegmentswithmaxtravellerflag/user', params={
-
-}, headers = headers)
-
-print r.json()
-
-```
-
-```java
-URL obj = new URL("http://api.agentivity.com/passengerairsegmentswithmaxtravellerflag/user");
-HttpURLConnection con = (HttpURLConnection) obj.openConnection();
-con.setRequestMethod("GET");
-int responseCode = con.getResponseCode();
-BufferedReader in = new BufferedReader(
-    new InputStreamReader(con.getInputStream()));
-String inputLine;
-StringBuffer response = new StringBuffer();
-while ((inputLine = in.readLine()) != null) {
-    response.append(inputLine);
-}
-in.close();
-System.out.println(response.toString());
-
-```
-
-`GET /passengerairsegmentswithmaxtravellerflag/user`
-
-<h3 id="passengerairsegmentswithmaxtravellerflagbyuseruser_get-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|Offset|query|string|false|Starting Record|
-|Limit|query|string|false|Number of records to return (PageSize)|
-|TotalRecords|query|string(int32)|false|Total Number of Records in a Full Reponse (if no paging)|
-|ResponseRecords|query|string(int32)|false|Total NUmber of Records in this Reponse (on this page)|
-|Accept|header|string|true|Accept Header|
-
-#### Enumerated Values
-
-|Parameter|Value|
-|---|---|
-|Accept|application/json|
-
-
-
-> Default Response
-
-```json
-{
-  "ResponseMetadata": {
-    "Success": true,
-    "HasCache": true,
-    "HasPaging": true,
-    "CacheMetadata": {
-      "IsFromCache": true,
-      "CachedAt": "2019-03-18T11:42:49Z",
-      "CacheExpiresAt": "2019-03-18T11:42:49Z"
-    },
-    "PagingMetadata": {
-      "Limit": "string",
-      "Offset": "string",
-      "ResponseRecords": "string",
-      "TotalRecords": "string"
-    }
-  },
-  "ResponseReport": [
-    {
-      "Account": "string",
-      "ArrivalCity": "string",
-      "ArrivalDate": "string",
-      "ArrivalTime": "string",
-      "CostCentre": "string",
-      "DepartureCity": "string",
-      "DepartureDate": "string",
-      "DepartureTime": "string",
-      "FlightNbr": "string",
-      "MaxTravellerCount": 0,
-      "MaxTravellerCountExceededFlag": true,
-      "OperatingCarrierCode": "string",
-      "Passenger": "string",
-      "PNRTicketed": "string",
-      "RecordLocator": "string",
-      "TravellerCount": 0
-    }
-  ],
-  "ResponseError": {
-    "ErrorCode": "string",
-    "Message": "string",
-    "StatusCode": "string",
-    "VerboseMessage": "string"
-  }
-}
-```
-
-<h3 id="passengerairsegmentswithmaxtravellerflagbyuseruser_get-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|default|Default|Default response|[PassengerAirSegmentsWithMaxTravellerFlagByUserResponse](#schemapassengerairsegmentswithmaxtravellerflagbyuserresponse)|
 
 
 
@@ -19206,1418 +24282,6 @@ System.out.println(response.toString());
 
 
 
-<h1 id="agentivity-api-passengerarrivals">PassengerArrivals</h1>
-
-
-
-
-<h1 id="agentivity-api-passengerbookingcounts">passengerbookingcounts</h1>
-
-## PassengerBookingCountsByAccountAndGenRemarkcompanyaccountgenremark_Get
-
-<a id="opIdPassengerBookingCountsByAccountAndGenRemarkcompanyaccountgenremark_Get"></a>
-
-> Code samples
-
-```shell
-# You can also use wget
-curl -X GET http://api.agentivity.com/passengerbookingcounts/companyaccount/genremark \
-  -H 'Accept: application/json' \
-  -H 'Accept: application/json'
-
-```
-
-```javascript
-var headers = {
-  'Accept':'application/json',
-  'Accept':'application/json'
-
-};
-
-$.ajax({
-  url: 'http://api.agentivity.com/passengerbookingcounts/companyaccount/genremark',
-  method: 'get',
-
-  headers: headers,
-  success: function(data) {
-    console.log(JSON.stringify(data));
-  }
-})
-
-```
-
-```python
-import requests
-headers = {
-  'Accept': 'application/json',
-  'Accept': 'application/json'
-}
-
-r = requests.get('http://api.agentivity.com/passengerbookingcounts/companyaccount/genremark', params={
-
-}, headers = headers)
-
-print r.json()
-
-```
-
-```java
-URL obj = new URL("http://api.agentivity.com/passengerbookingcounts/companyaccount/genremark");
-HttpURLConnection con = (HttpURLConnection) obj.openConnection();
-con.setRequestMethod("GET");
-int responseCode = con.getResponseCode();
-BufferedReader in = new BufferedReader(
-    new InputStreamReader(con.getInputStream()));
-String inputLine;
-StringBuffer response = new StringBuffer();
-while ((inputLine = in.readLine()) != null) {
-    response.append(inputLine);
-}
-in.close();
-System.out.println(response.toString());
-
-```
-
-`GET /passengerbookingcounts/companyaccount/genremark`
-
-<h3 id="passengerbookingcountsbyaccountandgenremarkcompanyaccountgenremark_get-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|Offset|query|string|false|Starting Record|
-|Limit|query|string|false|Number of records to return (PageSize)|
-|TotalRecords|query|string(int32)|false|Total Number of Records in a Full Reponse (if no paging)|
-|ResponseRecords|query|string(int32)|false|Total NUmber of Records in this Reponse (on this page)|
-|Accept|header|string|true|Accept Header|
-
-#### Enumerated Values
-
-|Parameter|Value|
-|---|---|
-|Accept|application/json|
-
-
-
-> Default Response
-
-```json
-{
-  "ResponseMetadata": {
-    "Success": true,
-    "HasCache": true,
-    "HasPaging": true,
-    "CacheMetadata": {
-      "IsFromCache": true,
-      "CachedAt": "2019-03-18T11:42:49Z",
-      "CacheExpiresAt": "2019-03-18T11:42:49Z"
-    },
-    "PagingMetadata": {
-      "Limit": "string",
-      "Offset": "string",
-      "ResponseRecords": "string",
-      "TotalRecords": "string"
-    }
-  },
-  "ResponseReport": {
-    "Item": {
-      "LastName": "string",
-      "FirstName": "string",
-      "Account": "string",
-      "TotalBookings": 0
-    }
-  },
-  "ResponseError": {
-    "ErrorCode": "string",
-    "Message": "string",
-    "StatusCode": "string",
-    "VerboseMessage": "string"
-  }
-}
-```
-
-<h3 id="passengerbookingcountsbyaccountandgenremarkcompanyaccountgenremark_get-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|default|Default|Default response|[PassengerBookingCountsByAccountAndGenRemarkItemResponse](#schemapassengerbookingcountsbyaccountandgenremarkitemresponse)|
-
-
-
-<h1 id="agentivity-api-passengerdepartures">PassengerDepartures</h1>
-
-## PassengerDeparturesuser_Get
-
-<a id="opIdPassengerDeparturesuser_Get"></a>
-
-> Code samples
-
-```shell
-# You can also use wget
-curl -X GET http://api.agentivity.com/PassengerDepartures/user \
-  -H 'Accept: application/json' \
-  -H 'Accept: application/json'
-
-```
-
-```javascript
-var headers = {
-  'Accept':'application/json',
-  'Accept':'application/json'
-
-};
-
-$.ajax({
-  url: 'http://api.agentivity.com/PassengerDepartures/user',
-  method: 'get',
-
-  headers: headers,
-  success: function(data) {
-    console.log(JSON.stringify(data));
-  }
-})
-
-```
-
-```python
-import requests
-headers = {
-  'Accept': 'application/json',
-  'Accept': 'application/json'
-}
-
-r = requests.get('http://api.agentivity.com/PassengerDepartures/user', params={
-
-}, headers = headers)
-
-print r.json()
-
-```
-
-```java
-URL obj = new URL("http://api.agentivity.com/PassengerDepartures/user");
-HttpURLConnection con = (HttpURLConnection) obj.openConnection();
-con.setRequestMethod("GET");
-int responseCode = con.getResponseCode();
-BufferedReader in = new BufferedReader(
-    new InputStreamReader(con.getInputStream()));
-String inputLine;
-StringBuffer response = new StringBuffer();
-while ((inputLine = in.readLine()) != null) {
-    response.append(inputLine);
-}
-in.close();
-System.out.println(response.toString());
-
-```
-
-`GET /PassengerDepartures/user`
-
-<h3 id="passengerdeparturesuser_get-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|Offset|query|string|false|Starting Record|
-|Limit|query|string|false|Number of records to return (PageSize)|
-|TotalRecords|query|string(int32)|false|Total Number of Records in a Full Reponse (if no paging)|
-|ResponseRecords|query|string(int32)|false|Total NUmber of Records in this Reponse (on this page)|
-|Accept|header|string|true|Accept Header|
-
-#### Enumerated Values
-
-|Parameter|Value|
-|---|---|
-|Accept|application/json|
-
-
-
-> Default Response
-
-```json
-{
-  "ResponseMetadata": {
-    "Success": true,
-    "HasCache": true,
-    "HasPaging": true,
-    "CacheMetadata": {
-      "IsFromCache": true,
-      "CachedAt": "2019-03-18T11:42:49Z",
-      "CacheExpiresAt": "2019-03-18T11:42:49Z"
-    },
-    "PagingMetadata": {
-      "Limit": "string",
-      "Offset": "string",
-      "ResponseRecords": "string",
-      "TotalRecords": "string"
-    }
-  },
-  "ResponseReport": {
-    "Item": {
-      "AgentivityRef": 0,
-      "RecordLocator": "string",
-      "OwningConsultant": "string",
-      "Passenger": "string",
-      "Account": "string",
-      "TravelDate": "2019-03-18T11:42:49Z",
-      "TicketedStatusCode": "string",
-      "TicketedStatus": "string",
-      "SupplierReference": "string",
-      "SMS": "string",
-      "Vouchers": "string",
-      "Transfers": "string",
-      "IsVip": true,
-      "Itinerary": {
-        "SegmentTypesFilter": [
-          "string"
-        ],
-        "FilteredSegments": null,
-        "Capacity": 0,
-        "Count": 0,
-        "Item": {
-          "ArrivalTimeFormatted": "string",
-          "BoardPoint": "string",
-          "ChangeOfDayFormatted": "string",
-          "DepartureTimeFormatted": "string",
-          "EndDate": "string",
-          "OffPoint": "string",
-          "OperatorCode": "string",
-          "OperatorService": "string",
-          "SegmentNbr": 0,
-          "SegmentStatus": "string",
-          "SegmentType": "string",
-          "ServiceCode": "string",
-          "StartDate": "string",
-          "TicketNumber": "string"
-        }
-      },
-      "ItineraryFormatted": "string"
-    }
-  },
-  "ResponseError": {
-    "ErrorCode": "string",
-    "Message": "string",
-    "StatusCode": "string",
-    "VerboseMessage": "string"
-  }
-}
-```
-
-<h3 id="passengerdeparturesuser_get-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|default|Default|Default response|[PassengerDeparturesItemResponse](#schemapassengerdeparturesitemresponse)|
-
-
-
-<h1 id="agentivity-api-passengerlocationbyairlinecity">passengerLocationByAirlineCity</h1>
-
-## PassengerLocationsByAirline_Get
-
-<a id="opIdPassengerLocationsByAirline_Get"></a>
-
-> Code samples
-
-```shell
-# You can also use wget
-curl -X GET http://api.agentivity.com/passengerLocationByAirlineCity \
-  -H 'Accept: application/json' \
-  -H 'Accept: application/json'
-
-```
-
-```javascript
-var headers = {
-  'Accept':'application/json',
-  'Accept':'application/json'
-
-};
-
-$.ajax({
-  url: 'http://api.agentivity.com/passengerLocationByAirlineCity',
-  method: 'get',
-
-  headers: headers,
-  success: function(data) {
-    console.log(JSON.stringify(data));
-  }
-})
-
-```
-
-```python
-import requests
-headers = {
-  'Accept': 'application/json',
-  'Accept': 'application/json'
-}
-
-r = requests.get('http://api.agentivity.com/passengerLocationByAirlineCity', params={
-
-}, headers = headers)
-
-print r.json()
-
-```
-
-```java
-URL obj = new URL("http://api.agentivity.com/passengerLocationByAirlineCity");
-HttpURLConnection con = (HttpURLConnection) obj.openConnection();
-con.setRequestMethod("GET");
-int responseCode = con.getResponseCode();
-BufferedReader in = new BufferedReader(
-    new InputStreamReader(con.getInputStream()));
-String inputLine;
-StringBuffer response = new StringBuffer();
-while ((inputLine = in.readLine()) != null) {
-    response.append(inputLine);
-}
-in.close();
-System.out.println(response.toString());
-
-```
-
-`GET /passengerLocationByAirlineCity`
-
-<h3 id="passengerlocationsbyairline_get-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|Offset|query|string|false|Starting Record|
-|Limit|query|string|false|Number of records to return (PageSize)|
-|TotalRecords|query|string(int32)|false|Total Number of Records in a Full Reponse (if no paging)|
-|ResponseRecords|query|string(int32)|false|Total NUmber of Records in this Reponse (on this page)|
-|Accept|header|string|true|Accept Header|
-
-#### Enumerated Values
-
-|Parameter|Value|
-|---|---|
-|Accept|application/json|
-
-
-
-> Default Response
-
-```json
-{
-  "ResponseMetadata": {
-    "Success": true,
-    "HasCache": true,
-    "HasPaging": true,
-    "CacheMetadata": {
-      "IsFromCache": true,
-      "CachedAt": "2019-03-18T11:42:49Z",
-      "CacheExpiresAt": "2019-03-18T11:42:49Z"
-    },
-    "PagingMetadata": {
-      "Limit": "string",
-      "Offset": "string",
-      "ResponseRecords": "string",
-      "TotalRecords": "string"
-    }
-  },
-  "ResponseReport": {
-    "Item": {
-      "AgentivityRef": 0,
-      "RecordLocator": "string",
-      "OwningConsultantID": "string",
-      "TravelDate": "2019-03-18T11:42:49Z",
-      "PnrTicketed": "string",
-      "PaxList": "string",
-      "Account": "string",
-      "DestinationCities": "string",
-      "Connections": "string",
-      "CarrierCodes": "string"
-    }
-  },
-  "ResponseError": {
-    "ErrorCode": "string",
-    "Message": "string",
-    "StatusCode": "string",
-    "VerboseMessage": "string"
-  }
-}
-```
-
-<h3 id="passengerlocationsbyairline_get-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|default|Default|Default response|[PassengerLocationsByAirlineItemResponse](#schemapassengerlocationsbyairlineitemresponse)|
-
-
-
-<h1 id="agentivity-api-passengerlocationbyflightnumber">passengerLocationByFlightNumber</h1>
-
-## PassengerLocationsByFlightNumber_Get
-
-<a id="opIdPassengerLocationsByFlightNumber_Get"></a>
-
-> Code samples
-
-```shell
-# You can also use wget
-curl -X GET http://api.agentivity.com/passengerLocationByFlightNumber \
-  -H 'Accept: application/json' \
-  -H 'Accept: application/json'
-
-```
-
-```javascript
-var headers = {
-  'Accept':'application/json',
-  'Accept':'application/json'
-
-};
-
-$.ajax({
-  url: 'http://api.agentivity.com/passengerLocationByFlightNumber',
-  method: 'get',
-
-  headers: headers,
-  success: function(data) {
-    console.log(JSON.stringify(data));
-  }
-})
-
-```
-
-```python
-import requests
-headers = {
-  'Accept': 'application/json',
-  'Accept': 'application/json'
-}
-
-r = requests.get('http://api.agentivity.com/passengerLocationByFlightNumber', params={
-
-}, headers = headers)
-
-print r.json()
-
-```
-
-```java
-URL obj = new URL("http://api.agentivity.com/passengerLocationByFlightNumber");
-HttpURLConnection con = (HttpURLConnection) obj.openConnection();
-con.setRequestMethod("GET");
-int responseCode = con.getResponseCode();
-BufferedReader in = new BufferedReader(
-    new InputStreamReader(con.getInputStream()));
-String inputLine;
-StringBuffer response = new StringBuffer();
-while ((inputLine = in.readLine()) != null) {
-    response.append(inputLine);
-}
-in.close();
-System.out.println(response.toString());
-
-```
-
-`GET /passengerLocationByFlightNumber`
-
-<h3 id="passengerlocationsbyflightnumber_get-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|Offset|query|string|false|Starting Record|
-|Limit|query|string|false|Number of records to return (PageSize)|
-|TotalRecords|query|string(int32)|false|Total Number of Records in a Full Reponse (if no paging)|
-|ResponseRecords|query|string(int32)|false|Total NUmber of Records in this Reponse (on this page)|
-|Accept|header|string|true|Accept Header|
-
-#### Enumerated Values
-
-|Parameter|Value|
-|---|---|
-|Accept|application/json|
-
-
-
-> Default Response
-
-```json
-{
-  "ResponseMetadata": {
-    "Success": true,
-    "HasCache": true,
-    "HasPaging": true,
-    "CacheMetadata": {
-      "IsFromCache": true,
-      "CachedAt": "2019-03-18T11:42:49Z",
-      "CacheExpiresAt": "2019-03-18T11:42:49Z"
-    },
-    "PagingMetadata": {
-      "Limit": "string",
-      "Offset": "string",
-      "ResponseRecords": "string",
-      "TotalRecords": "string"
-    }
-  },
-  "ResponseReport": {
-    "Item": {
-      "AgentivityRef": 0,
-      "RecordLocator": "string",
-      "PaxList": "string",
-      "OwningConsultantID": "string",
-      "Account": "string",
-      "DepartureDate": "2019-03-18T11:42:49Z"
-    }
-  },
-  "ResponseError": {
-    "ErrorCode": "string",
-    "Message": "string",
-    "StatusCode": "string",
-    "VerboseMessage": "string"
-  }
-}
-```
-
-<h3 id="passengerlocationsbyflightnumber_get-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|default|Default|Default response|[PassengerLocationsByFlightNumberItemResponse](#schemapassengerlocationsbyflightnumberitemresponse)|
-
-
-
-<h1 id="agentivity-api-passengerlocationhotelsbyusercity">PassengerLocationHotelsByUserCity</h1>
-
-## PassengerLocationHotelsByUserCity_Get
-
-<a id="opIdPassengerLocationHotelsByUserCity_Get"></a>
-
-> Code samples
-
-```shell
-# You can also use wget
-curl -X GET http://api.agentivity.com/PassengerLocationHotelsByUserCity \
-  -H 'Accept: application/json' \
-  -H 'Accept: application/json'
-
-```
-
-```javascript
-var headers = {
-  'Accept':'application/json',
-  'Accept':'application/json'
-
-};
-
-$.ajax({
-  url: 'http://api.agentivity.com/PassengerLocationHotelsByUserCity',
-  method: 'get',
-
-  headers: headers,
-  success: function(data) {
-    console.log(JSON.stringify(data));
-  }
-})
-
-```
-
-```python
-import requests
-headers = {
-  'Accept': 'application/json',
-  'Accept': 'application/json'
-}
-
-r = requests.get('http://api.agentivity.com/PassengerLocationHotelsByUserCity', params={
-
-}, headers = headers)
-
-print r.json()
-
-```
-
-```java
-URL obj = new URL("http://api.agentivity.com/PassengerLocationHotelsByUserCity");
-HttpURLConnection con = (HttpURLConnection) obj.openConnection();
-con.setRequestMethod("GET");
-int responseCode = con.getResponseCode();
-BufferedReader in = new BufferedReader(
-    new InputStreamReader(con.getInputStream()));
-String inputLine;
-StringBuffer response = new StringBuffer();
-while ((inputLine = in.readLine()) != null) {
-    response.append(inputLine);
-}
-in.close();
-System.out.println(response.toString());
-
-```
-
-`GET /PassengerLocationHotelsByUserCity`
-
-<h3 id="passengerlocationhotelsbyusercity_get-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|Offset|query|string|false|Starting Record|
-|Limit|query|string|false|Number of records to return (PageSize)|
-|TotalRecords|query|string(int32)|false|Total Number of Records in a Full Reponse (if no paging)|
-|ResponseRecords|query|string(int32)|false|Total NUmber of Records in this Reponse (on this page)|
-|Accept|header|string|true|Accept Header|
-
-#### Enumerated Values
-
-|Parameter|Value|
-|---|---|
-|Accept|application/json|
-
-
-
-> Default Response
-
-```json
-{}
-```
-
-<h3 id="passengerlocationhotelsbyusercity_get-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|default|Default|Default response|[Object](#schemaobject)|
-
-
-
-<h1 id="agentivity-api-passengerlocationsbyairport">passengerlocationsbyairport</h1>
-
-## PassengerLocationsByUserAirportuserairport_Get
-
-<a id="opIdPassengerLocationsByUserAirportuserairport_Get"></a>
-
-> Code samples
-
-```shell
-# You can also use wget
-curl -X GET http://api.agentivity.com/passengerlocationsbyairport/user/airport \
-  -H 'Accept: application/json' \
-  -H 'Accept: application/json'
-
-```
-
-```javascript
-var headers = {
-  'Accept':'application/json',
-  'Accept':'application/json'
-
-};
-
-$.ajax({
-  url: 'http://api.agentivity.com/passengerlocationsbyairport/user/airport',
-  method: 'get',
-
-  headers: headers,
-  success: function(data) {
-    console.log(JSON.stringify(data));
-  }
-})
-
-```
-
-```python
-import requests
-headers = {
-  'Accept': 'application/json',
-  'Accept': 'application/json'
-}
-
-r = requests.get('http://api.agentivity.com/passengerlocationsbyairport/user/airport', params={
-
-}, headers = headers)
-
-print r.json()
-
-```
-
-```java
-URL obj = new URL("http://api.agentivity.com/passengerlocationsbyairport/user/airport");
-HttpURLConnection con = (HttpURLConnection) obj.openConnection();
-con.setRequestMethod("GET");
-int responseCode = con.getResponseCode();
-BufferedReader in = new BufferedReader(
-    new InputStreamReader(con.getInputStream()));
-String inputLine;
-StringBuffer response = new StringBuffer();
-while ((inputLine = in.readLine()) != null) {
-    response.append(inputLine);
-}
-in.close();
-System.out.println(response.toString());
-
-```
-
-`GET /passengerlocationsbyairport/user/airport`
-
-<h3 id="passengerlocationsbyuserairportuserairport_get-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|Offset|query|string|false|Starting Record|
-|Limit|query|string|false|Number of records to return (PageSize)|
-|TotalRecords|query|string(int32)|false|Total Number of Records in a Full Reponse (if no paging)|
-|ResponseRecords|query|string(int32)|false|Total NUmber of Records in this Reponse (on this page)|
-|Accept|header|string|true|Accept Header|
-
-#### Enumerated Values
-
-|Parameter|Value|
-|---|---|
-|Accept|application/json|
-
-
-
-> Default Response
-
-```json
-{
-  "ResponseMetadata": {
-    "Success": true,
-    "HasCache": true,
-    "HasPaging": true,
-    "CacheMetadata": {
-      "IsFromCache": true,
-      "CachedAt": "2019-03-18T11:42:49Z",
-      "CacheExpiresAt": "2019-03-18T11:42:49Z"
-    },
-    "PagingMetadata": {
-      "Limit": "string",
-      "Offset": "string",
-      "ResponseRecords": "string",
-      "TotalRecords": "string"
-    }
-  },
-  "ResponseReport": {
-    "Item": {
-      "PNR": "string",
-      "TravelDate": "string",
-      "DepartureDate": "string",
-      "BoardPoint": "string",
-      "OffPoint": "string",
-      "PnrTicketed": "string",
-      "Account": "string",
-      "Consultant": "string",
-      "PaxList": "string",
-      "PhoneNbr": "string",
-      "EmailAddress": "string",
-      "DestinationCities": "string",
-      "Connections": "string",
-      "CarrierCodes": "string",
-      "AgentivityRef": "string",
-      "HotelsNames": "string"
-    }
-  },
-  "ResponseError": {
-    "ErrorCode": "string",
-    "Message": "string",
-    "StatusCode": "string",
-    "VerboseMessage": "string"
-  }
-}
-```
-
-<h3 id="passengerlocationsbyuserairportuserairport_get-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|default|Default|Default response|[PassengerLocationsByUserAirportItemResponse](#schemapassengerlocationsbyuserairportitemresponse)|
-
-
-
-## PassengerLocationsByUserAirVendoruserairvendor_Get
-
-<a id="opIdPassengerLocationsByUserAirVendoruserairvendor_Get"></a>
-
-> Code samples
-
-```shell
-# You can also use wget
-curl -X GET http://api.agentivity.com/passengerlocationsbyairport/user/airvendor \
-  -H 'Accept: application/json' \
-  -H 'Accept: application/json'
-
-```
-
-```javascript
-var headers = {
-  'Accept':'application/json',
-  'Accept':'application/json'
-
-};
-
-$.ajax({
-  url: 'http://api.agentivity.com/passengerlocationsbyairport/user/airvendor',
-  method: 'get',
-
-  headers: headers,
-  success: function(data) {
-    console.log(JSON.stringify(data));
-  }
-})
-
-```
-
-```python
-import requests
-headers = {
-  'Accept': 'application/json',
-  'Accept': 'application/json'
-}
-
-r = requests.get('http://api.agentivity.com/passengerlocationsbyairport/user/airvendor', params={
-
-}, headers = headers)
-
-print r.json()
-
-```
-
-```java
-URL obj = new URL("http://api.agentivity.com/passengerlocationsbyairport/user/airvendor");
-HttpURLConnection con = (HttpURLConnection) obj.openConnection();
-con.setRequestMethod("GET");
-int responseCode = con.getResponseCode();
-BufferedReader in = new BufferedReader(
-    new InputStreamReader(con.getInputStream()));
-String inputLine;
-StringBuffer response = new StringBuffer();
-while ((inputLine = in.readLine()) != null) {
-    response.append(inputLine);
-}
-in.close();
-System.out.println(response.toString());
-
-```
-
-`GET /passengerlocationsbyairport/user/airvendor`
-
-<h3 id="passengerlocationsbyuserairvendoruserairvendor_get-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|Offset|query|string|false|Starting Record|
-|Limit|query|string|false|Number of records to return (PageSize)|
-|TotalRecords|query|string(int32)|false|Total Number of Records in a Full Reponse (if no paging)|
-|ResponseRecords|query|string(int32)|false|Total NUmber of Records in this Reponse (on this page)|
-|Accept|header|string|true|Accept Header|
-
-#### Enumerated Values
-
-|Parameter|Value|
-|---|---|
-|Accept|application/json|
-
-
-
-> Default Response
-
-```json
-{}
-```
-
-<h3 id="passengerlocationsbyuserairvendoruserairvendor_get-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|default|Default|Default response|[Object](#schemaobject)|
-
-
-
-<h1 id="agentivity-api-passengerlocationsbycity">passengerlocationsbycity</h1>
-
-## PassengerLocationsByUserCityusercity_Get
-
-<a id="opIdPassengerLocationsByUserCityusercity_Get"></a>
-
-> Code samples
-
-```shell
-# You can also use wget
-curl -X GET http://api.agentivity.com/passengerlocationsbycity/user/city \
-  -H 'Accept: application/json' \
-  -H 'Accept: application/json'
-
-```
-
-```javascript
-var headers = {
-  'Accept':'application/json',
-  'Accept':'application/json'
-
-};
-
-$.ajax({
-  url: 'http://api.agentivity.com/passengerlocationsbycity/user/city',
-  method: 'get',
-
-  headers: headers,
-  success: function(data) {
-    console.log(JSON.stringify(data));
-  }
-})
-
-```
-
-```python
-import requests
-headers = {
-  'Accept': 'application/json',
-  'Accept': 'application/json'
-}
-
-r = requests.get('http://api.agentivity.com/passengerlocationsbycity/user/city', params={
-
-}, headers = headers)
-
-print r.json()
-
-```
-
-```java
-URL obj = new URL("http://api.agentivity.com/passengerlocationsbycity/user/city");
-HttpURLConnection con = (HttpURLConnection) obj.openConnection();
-con.setRequestMethod("GET");
-int responseCode = con.getResponseCode();
-BufferedReader in = new BufferedReader(
-    new InputStreamReader(con.getInputStream()));
-String inputLine;
-StringBuffer response = new StringBuffer();
-while ((inputLine = in.readLine()) != null) {
-    response.append(inputLine);
-}
-in.close();
-System.out.println(response.toString());
-
-```
-
-`GET //passengerlocationsbycity/user/city`
-
-<h3 id="passengerlocationsbyusercityusercity_get-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|Offset|query|string|false|Starting Record|
-|Limit|query|string|false|Number of records to return (PageSize)|
-|TotalRecords|query|string(int32)|false|Total Number of Records in a Full Reponse (if no paging)|
-|ResponseRecords|query|string(int32)|false|Total NUmber of Records in this Reponse (on this page)|
-|Accept|header|string|true|Accept Header|
-
-#### Enumerated Values
-
-|Parameter|Value|
-|---|---|
-|Accept|application/json|
-
-
-
-> Default Response
-
-```json
-{
-  "ResponseMetadata": {
-    "Success": true,
-    "HasCache": true,
-    "HasPaging": true,
-    "CacheMetadata": {
-      "IsFromCache": true,
-      "CachedAt": "2019-03-18T11:42:49Z",
-      "CacheExpiresAt": "2019-03-18T11:42:49Z"
-    },
-    "PagingMetadata": {
-      "Limit": "string",
-      "Offset": "string",
-      "ResponseRecords": "string",
-      "TotalRecords": "string"
-    }
-  },
-  "ResponseReport": {
-    "Item": {
-      "PNR": "string",
-      "TravelDate": "string",
-      "DepartureDate": "string",
-      "BoardPoint": "string",
-      "OffPoint": "string",
-      "PnrTicketed": "string",
-      "Account": "string",
-      "Consultant": "string",
-      "PaxList": "string",
-      "PhoneNbr": "string",
-      "EmailAddress": "string",
-      "DestinationCities": "string",
-      "Connections": "string",
-      "CarrierCodes": "string",
-      "AgentivityRef": "string",
-      "HotelsNames": "string"
-    }
-  },
-  "ResponseError": {
-    "ErrorCode": "string",
-    "Message": "string",
-    "StatusCode": "string",
-    "VerboseMessage": "string"
-  }
-}
-```
-
-<h3 id="passengerlocationsbyusercityusercity_get-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|default|Default|Default response|[PassengerLocationsByUserCityItemResponse](#schemapassengerlocationsbyusercityitemresponse)|
-
-
-
-## PassengerLocationsByUserCountryusercountry_Get
-
-<a id="opIdPassengerLocationsByUserCountryusercountry_Get"></a>
-
-> Code samples
-
-```shell
-# You can also use wget
-curl -X GET http://api.agentivity.com/passengerlocationsbycity/user/country \
-  -H 'Accept: application/json' \
-  -H 'Accept: application/json'
-
-```
-
-```javascript
-var headers = {
-  'Accept':'application/json',
-  'Accept':'application/json'
-
-};
-
-$.ajax({
-  url: 'http://api.agentivity.com/passengerlocationsbycity/user/country',
-  method: 'get',
-
-  headers: headers,
-  success: function(data) {
-    console.log(JSON.stringify(data));
-  }
-})
-
-```
-
-```python
-import requests
-headers = {
-  'Accept': 'application/json',
-  'Accept': 'application/json'
-}
-
-r = requests.get('http://api.agentivity.com/passengerlocationsbycity/user/country', params={
-
-}, headers = headers)
-
-print r.json()
-
-```
-
-```java
-URL obj = new URL("http://api.agentivity.com/passengerlocationsbycity/user/country");
-HttpURLConnection con = (HttpURLConnection) obj.openConnection();
-con.setRequestMethod("GET");
-int responseCode = con.getResponseCode();
-BufferedReader in = new BufferedReader(
-    new InputStreamReader(con.getInputStream()));
-String inputLine;
-StringBuffer response = new StringBuffer();
-while ((inputLine = in.readLine()) != null) {
-    response.append(inputLine);
-}
-in.close();
-System.out.println(response.toString());
-
-```
-
-`GET /passengerlocationsbycity/user/country`
-
-<h3 id="passengerlocationsbyusercountryusercountry_get-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|Offset|query|string|false|Starting Record|
-|Limit|query|string|false|Number of records to return (PageSize)|
-|TotalRecords|query|string(int32)|false|Total Number of Records in a Full Reponse (if no paging)|
-|ResponseRecords|query|string(int32)|false|Total NUmber of Records in this Reponse (on this page)|
-|Accept|header|string|true|Accept Header|
-
-#### Enumerated Values
-
-|Parameter|Value|
-|---|---|
-|Accept|application/json|
-
-
-
-> Default Response
-
-```json
-{}
-```
-
-<h3 id="passengerlocationsbyusercountryusercountry_get-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|default|Default|Default response|[Object](#schemaobject)|
-
-
-
-<h1 id="agentivity-api-passengersegmentswithdocnumber">passengersegmentswithdocnumber</h1>
-
-## PassengerAirSegmentsWithDocNumberByUseruser_Get
-
-<a id="opIdPassengerAirSegmentsWithDocNumberByUseruser_Get"></a>
-
-> Code samples
-
-```shell
-# You can also use wget
-curl -X GET http://api.agentivity.com/passengersegmentswithdocnumber/user \
-  -H 'Accept: application/json' \
-  -H 'Accept: application/json'
-
-```
-
-```javascript
-var headers = {
-  'Accept':'application/json',
-  'Accept':'application/json'
-
-};
-
-$.ajax({
-  url: 'http://api.agentivity.com/passengersegmentswithdocnumber/user',
-  method: 'get',
-
-  headers: headers,
-  success: function(data) {
-    console.log(JSON.stringify(data));
-  }
-})
-
-```
-
-```python
-import requests
-headers = {
-  'Accept': 'application/json',
-  'Accept': 'application/json'
-}
-
-r = requests.get('http://api.agentivity.com/passengersegmentswithdocnumber/user', params={
-
-}, headers = headers)
-
-print r.json()
-
-```
-
-```java
-URL obj = new URL("http://api.agentivity.com/passengersegmentswithdocnumber/user");
-HttpURLConnection con = (HttpURLConnection) obj.openConnection();
-con.setRequestMethod("GET");
-int responseCode = con.getResponseCode();
-BufferedReader in = new BufferedReader(
-    new InputStreamReader(con.getInputStream()));
-String inputLine;
-StringBuffer response = new StringBuffer();
-while ((inputLine = in.readLine()) != null) {
-    response.append(inputLine);
-}
-in.close();
-System.out.println(response.toString());
-
-```
-
-`GET /passengersegmentswithdocnumber/user`
-
-<h3 id="passengerairsegmentswithdocnumberbyuseruser_get-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|UserID|query|integer(int32)|false|none|
-|Accept|header|string|true|Accept Header|
-
-#### Enumerated Values
-
-|Parameter|Value|
-|---|---|
-|Accept|application/json|
-
-
-
-> Default Response
-
-```json
-{}
-```
-
-<h3 id="passengerairsegmentswithdocnumberbyuseruser_get-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|default|Default|Default response|[Object](#schemaobject)|
-
-
-
-<h1 id="agentivity-api-passivesegments">passivesegments</h1>
-
-## PassiveSegmentsByUseruser_Get
-
-<a id="opIdPassiveSegmentsByUseruser_Get"></a>
-
-> Code samples
-
-```shell
-# You can also use wget
-curl -X GET http://api.agentivity.com/passivesegments/user \
-  -H 'Accept: application/json' \
-  -H 'Accept: application/json'
-
-```
-
-```javascript
-var headers = {
-  'Accept':'application/json',
-  'Accept':'application/json'
-
-};
-
-$.ajax({
-  url: 'http://api.agentivity.com/passivesegments/user',
-  method: 'get',
-
-  headers: headers,
-  success: function(data) {
-    console.log(JSON.stringify(data));
-  }
-})
-
-```
-
-```python
-import requests
-headers = {
-  'Accept': 'application/json',
-  'Accept': 'application/json'
-}
-
-r = requests.get('http://api.agentivity.com/passivesegments/user', params={
-
-}, headers = headers)
-
-print r.json()
-
-```
-
-```java
-URL obj = new URL("http://api.agentivity.com/passivesegments/user");
-HttpURLConnection con = (HttpURLConnection) obj.openConnection();
-con.setRequestMethod("GET");
-int responseCode = con.getResponseCode();
-BufferedReader in = new BufferedReader(
-    new InputStreamReader(con.getInputStream()));
-String inputLine;
-StringBuffer response = new StringBuffer();
-while ((inputLine = in.readLine()) != null) {
-    response.append(inputLine);
-}
-in.close();
-System.out.println(response.toString());
-
-```
-
-`GET /passivesegments/user`
-
-<h3 id="passivesegmentsbyuseruser_get-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|Offset|query|string|false|Starting Record|
-|Limit|query|string|false|Number of records to return (PageSize)|
-|TotalRecords|query|string(int32)|false|Total Number of Records in a Full Reponse (if no paging)|
-|ResponseRecords|query|string(int32)|false|Total NUmber of Records in this Reponse (on this page)|
-|Accept|header|string|true|Accept Header|
-
-#### Enumerated Values
-
-|Parameter|Value|
-|---|---|
-|Accept|application/json|
-
-
-
-> Default Response
-
-```json
-{
-  "ResponseMetadata": {
-    "Success": true,
-    "HasCache": true,
-    "HasPaging": true,
-    "CacheMetadata": {
-      "IsFromCache": true,
-      "CachedAt": "2019-03-18T11:42:49Z",
-      "CacheExpiresAt": "2019-03-18T11:42:49Z"
-    },
-    "PagingMetadata": {
-      "Limit": "string",
-      "Offset": "string",
-      "ResponseRecords": "string",
-      "TotalRecords": "string"
-    }
-  },
-  "ResponseReport": {
-    "Item": {
-      "Address": "string",
-      "AgentivityRef": 0,
-      "BookingReasonCode": "string",
-      "BookingSource": "string",
-      "CityCode": "string",
-      "CommissionInformation": "string",
-      "ConfirmationNumber": "string",
-      "NbrNights": "string",
-      "OwningConsultantID": "string",
-      "PropertyName": "string",
-      "PropertyNumber": "string",
-      "RateAccessCode": "string",
-      "RateCode": "string",
-      "RateQuoted": "string",
-      "SegmentType": "string",
-      "ServiceInformation": "string",
-      "StartDate": "string",
-      "Text": "string",
-      "TotalAirSegs": "string",
-      "VendorCode": "string",
-      "RecordLocator": "string",
-      "OwningAgencyLocationID": "string",
-      "OwningConsultant": "string",
-      "Account": "string",
-      "Passenger": "string",
-      "DepartureDate": "string",
-      "SegmentStatus": "string"
-    }
-  },
-  "ResponseError": {
-    "ErrorCode": "string",
-    "Message": "string",
-    "StatusCode": "string",
-    "VerboseMessage": "string"
-  }
-}
-```
-
-<h3 id="passivesegmentsbyuseruser_get-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|default|Default|Default response|[PassiveSegmentsResponse](#schemapassivesegmentsresponse)|
 
 
 
@@ -20913,793 +24577,6 @@ System.out.println(response.toString());
 |default|Default|Default response|[Object](#schemaobject)|
 
 
-
-<h1 id="agentivity-api-pcctransactionagent">pcctransactionagent</h1>
-
-## PCCTransactionAgentAirlineDemandsForTicketingBookingsRequestairlinedemandsforticketingbookingsPCCTransactionAgentDayCount_Get
-
-<a id="opIdPCCTransactionAgentAirlineDemandsForTicketingBookingsRequestairlinedemandsforticketingbookingsPCCTransactionAgentDayCount_Get"></a>
-
-> Code samples
-
-```shell
-# You can also use wget
-curl -X GET http://api.agentivity.com/pcctransactionagent/airlinedemandsforticketingbookings/{PCC}/{TransactionAgent}/{DayCount} \
-  -H 'Accept: application/json' \
-  -H 'Accept: application/json'
-
-```
-
-```javascript
-var headers = {
-  'Accept':'application/json',
-  'Accept':'application/json'
-
-};
-
-$.ajax({
-  url: 'http://api.agentivity.com/pcctransactionagent/airlinedemandsforticketingbookings/{PCC}/{TransactionAgent}/{DayCount}',
-  method: 'get',
-
-  headers: headers,
-  success: function(data) {
-    console.log(JSON.stringify(data));
-  }
-})
-
-```
-
-```python
-import requests
-headers = {
-  'Accept': 'application/json',
-  'Accept': 'application/json'
-}
-
-r = requests.get('http://api.agentivity.com/pcctransactionagent/airlinedemandsforticketingbookings/{PCC}/{TransactionAgent}/{DayCount}', params={
-
-}, headers = headers)
-
-print r.json()
-
-```
-
-```java
-URL obj = new URL("http://api.agentivity.com/pcctransactionagent/airlinedemandsforticketingbookings/{PCC}/{TransactionAgent}/{DayCount}");
-HttpURLConnection con = (HttpURLConnection) obj.openConnection();
-con.setRequestMethod("GET");
-int responseCode = con.getResponseCode();
-BufferedReader in = new BufferedReader(
-    new InputStreamReader(con.getInputStream()));
-String inputLine;
-StringBuffer response = new StringBuffer();
-while ((inputLine = in.readLine()) != null) {
-    response.append(inputLine);
-}
-in.close();
-System.out.println(response.toString());
-
-```
-
-`GET /pcctransactionagent/airlinedemandsforticketingbookings/{PCC}/{TransactionAgent}/{DayCount}`
-
-<h3 id="pcctransactionagentairlinedemandsforticketingbookingsrequestairlinedemandsforticketingbookingspcctransactionagentdaycount_get-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|PCC|path|string|true|none|
-|TransactionAgent|path|string|true|none|
-|DayCount|path|integer(int32)|true|none|
-|Accept|header|string|true|Accept Header|
-
-#### Enumerated Values
-
-|Parameter|Value|
-|---|---|
-|Accept|application/json|
-
-
-
-> Default Response
-
-```json
-{}
-```
-
-<h3 id="pcctransactionagentairlinedemandsforticketingbookingsrequestairlinedemandsforticketingbookingspcctransactionagentdaycount_get-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|default|Default|Default response|[Object](#schemaobject)|
-
-
-
-## PCCTransactionAgentDepartureBookingsRequestdeparturebookingsPCCTransactionAgentDayCount_Get
-
-<a id="opIdPCCTransactionAgentDepartureBookingsRequestdeparturebookingsPCCTransactionAgentDayCount_Get"></a>
-
-> Code samples
-
-```shell
-# You can also use wget
-curl -X GET http://api.agentivity.com/pcctransactionagent/departurebookings/{PCC}/{TransactionAgent}/{DayCount} \
-  -H 'Accept: application/json' \
-  -H 'Accept: application/json'
-
-```
-
-```javascript
-var headers = {
-  'Accept':'application/json',
-  'Accept':'application/json'
-
-};
-
-$.ajax({
-  url: 'http://api.agentivity.com/pcctransactionagent/departurebookings/{PCC}/{TransactionAgent}/{DayCount}',
-  method: 'get',
-
-  headers: headers,
-  success: function(data) {
-    console.log(JSON.stringify(data));
-  }
-})
-
-```
-
-```python
-import requests
-headers = {
-  'Accept': 'application/json',
-  'Accept': 'application/json'
-}
-
-r = requests.get('http://api.agentivity.com/pcctransactionagent/departurebookings/{PCC}/{TransactionAgent}/{DayCount}', params={
-
-}, headers = headers)
-
-print r.json()
-
-```
-
-```java
-URL obj = new URL("http://api.agentivity.com/pcctransactionagent/departurebookings/{PCC}/{TransactionAgent}/{DayCount}");
-HttpURLConnection con = (HttpURLConnection) obj.openConnection();
-con.setRequestMethod("GET");
-int responseCode = con.getResponseCode();
-BufferedReader in = new BufferedReader(
-    new InputStreamReader(con.getInputStream()));
-String inputLine;
-StringBuffer response = new StringBuffer();
-while ((inputLine = in.readLine()) != null) {
-    response.append(inputLine);
-}
-in.close();
-System.out.println(response.toString());
-
-```
-
-`GET /pcctransactionagent/departurebookings/{PCC}/{TransactionAgent}/{DayCount}`
-
-<h3 id="pcctransactionagentdeparturebookingsrequestdeparturebookingspcctransactionagentdaycount_get-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|PCC|path|string|true|none|
-|TransactionAgent|path|string|true|none|
-|DayCount|path|integer(int32)|true|none|
-|Accept|header|string|true|Accept Header|
-
-#### Enumerated Values
-
-|Parameter|Value|
-|---|---|
-|Accept|application/json|
-
-
-
-> Default Response
-
-```json
-{}
-```
-
-<h3 id="pcctransactionagentdeparturebookingsrequestdeparturebookingspcctransactionagentdaycount_get-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|default|Default|Default response|[Object](#schemaobject)|
-
-
-
-## PCCTransactionAgentProblematicBookingSegmentsRequestproblematicbookingsegmentsPCCTransactionAgentDayCount_Get
-
-<a id="opIdPCCTransactionAgentProblematicBookingSegmentsRequestproblematicbookingsegmentsPCCTransactionAgentDayCount_Get"></a>
-
-> Code samples
-
-```shell
-# You can also use wget
-curl -X GET http://api.agentivity.com/pcctransactionagent/problematicbookingsegments/{PCC}/{TransactionAgent}/{DayCount} \
-  -H 'Accept: application/json' \
-  -H 'Accept: application/json'
-
-```
-
-```javascript
-var headers = {
-  'Accept':'application/json',
-  'Accept':'application/json'
-
-};
-
-$.ajax({
-  url: 'http://api.agentivity.com/pcctransactionagent/problematicbookingsegments/{PCC}/{TransactionAgent}/{DayCount}',
-  method: 'get',
-
-  headers: headers,
-  success: function(data) {
-    console.log(JSON.stringify(data));
-  }
-})
-
-```
-
-```python
-import requests
-headers = {
-  'Accept': 'application/json',
-  'Accept': 'application/json'
-}
-
-r = requests.get('http://api.agentivity.com/pcctransactionagent/problematicbookingsegments/{PCC}/{TransactionAgent}/{DayCount}', params={
-
-}, headers = headers)
-
-print r.json()
-
-```
-
-```java
-URL obj = new URL("http://api.agentivity.com/pcctransactionagent/problematicbookingsegments/{PCC}/{TransactionAgent}/{DayCount}");
-HttpURLConnection con = (HttpURLConnection) obj.openConnection();
-con.setRequestMethod("GET");
-int responseCode = con.getResponseCode();
-BufferedReader in = new BufferedReader(
-    new InputStreamReader(con.getInputStream()));
-String inputLine;
-StringBuffer response = new StringBuffer();
-while ((inputLine = in.readLine()) != null) {
-    response.append(inputLine);
-}
-in.close();
-System.out.println(response.toString());
-
-```
-
-`GET /pcctransactionagent/problematicbookingsegments/{PCC}/{TransactionAgent}/{DayCount}`
-
-<h3 id="pcctransactionagentproblematicbookingsegmentsrequestproblematicbookingsegmentspcctransactionagentdaycount_get-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|PCC|path|string|true|none|
-|TransactionAgent|path|string|true|none|
-|DayCount|path|integer(int32)|true|none|
-|Accept|header|string|true|Accept Header|
-
-#### Enumerated Values
-
-|Parameter|Value|
-|---|---|
-|Accept|application/json|
-
-
-
-> Default Response
-
-```json
-{}
-```
-
-<h3 id="pcctransactionagentproblematicbookingsegmentsrequestproblematicbookingsegmentspcctransactionagentdaycount_get-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|default|Default|Default response|[Object](#schemaobject)|
-
-
-
-## PCCTransactionAgentTAUDueBookingsRequesttauduebookingsPCCTransactionAgentDayCount_Get
-
-<a id="opIdPCCTransactionAgentTAUDueBookingsRequesttauduebookingsPCCTransactionAgentDayCount_Get"></a>
-
-> Code samples
-
-```shell
-# You can also use wget
-curl -X GET http://api.agentivity.com/pcctransactionagent/tauduebookings/{PCC}/{TransactionAgent}/{DayCount} \
-  -H 'Accept: application/json' \
-  -H 'Accept: application/json'
-
-```
-
-```javascript
-var headers = {
-  'Accept':'application/json',
-  'Accept':'application/json'
-
-};
-
-$.ajax({
-  url: 'http://api.agentivity.com/pcctransactionagent/tauduebookings/{PCC}/{TransactionAgent}/{DayCount}',
-  method: 'get',
-
-  headers: headers,
-  success: function(data) {
-    console.log(JSON.stringify(data));
-  }
-})
-
-```
-
-```python
-import requests
-headers = {
-  'Accept': 'application/json',
-  'Accept': 'application/json'
-}
-
-r = requests.get('http://api.agentivity.com/pcctransactionagent/tauduebookings/{PCC}/{TransactionAgent}/{DayCount}', params={
-
-}, headers = headers)
-
-print r.json()
-
-```
-
-```java
-URL obj = new URL("http://api.agentivity.com/pcctransactionagent/tauduebookings/{PCC}/{TransactionAgent}/{DayCount}");
-HttpURLConnection con = (HttpURLConnection) obj.openConnection();
-con.setRequestMethod("GET");
-int responseCode = con.getResponseCode();
-BufferedReader in = new BufferedReader(
-    new InputStreamReader(con.getInputStream()));
-String inputLine;
-StringBuffer response = new StringBuffer();
-while ((inputLine = in.readLine()) != null) {
-    response.append(inputLine);
-}
-in.close();
-System.out.println(response.toString());
-
-```
-
-`GET /pcctransactionagent/tauduebookings/{PCC}/{TransactionAgent}/{DayCount}`
-
-<h3 id="pcctransactionagenttauduebookingsrequesttauduebookingspcctransactionagentdaycount_get-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|PCC|path|string|true|none|
-|TransactionAgent|path|string|true|none|
-|DayCount|path|integer(int32)|true|none|
-|Accept|header|string|true|Accept Header|
-
-#### Enumerated Values
-
-|Parameter|Value|
-|---|---|
-|Accept|application/json|
-
-
-
-> Default Response
-
-```json
-{}
-```
-
-<h3 id="pcctransactionagenttauduebookingsrequesttauduebookingspcctransactionagentdaycount_get-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|default|Default|Default response|[Object](#schemaobject)|
-
-
-
-## PCCTransactionAgentAirlineDemandsForTicketingBookingsRequestairlinedemandsforticketingbookings_Get
-
-<a id="opIdPCCTransactionAgentAirlineDemandsForTicketingBookingsRequestairlinedemandsforticketingbookings_Get"></a>
-
-> Code samples
-
-```shell
-# You can also use wget
-curl -X GET http://api.agentivity.com/pcctransactionagent/airlinedemandsforticketingbookings \
-  -H 'Accept: application/json' \
-  -H 'Accept: application/json'
-
-```
-
-```javascript
-var headers = {
-  'Accept':'application/json',
-  'Accept':'application/json'
-
-};
-
-$.ajax({
-  url: 'http://api.agentivity.com/pcctransactionagent/airlinedemandsforticketingbookings',
-  method: 'get',
-
-  headers: headers,
-  success: function(data) {
-    console.log(JSON.stringify(data));
-  }
-})
-
-```
-
-```python
-import requests
-headers = {
-  'Accept': 'application/json',
-  'Accept': 'application/json'
-}
-
-r = requests.get('http://api.agentivity.com/pcctransactionagent/airlinedemandsforticketingbookings', params={
-
-}, headers = headers)
-
-print r.json()
-
-```
-
-```java
-URL obj = new URL("http://api.agentivity.com/pcctransactionagent/airlinedemandsforticketingbookings");
-HttpURLConnection con = (HttpURLConnection) obj.openConnection();
-con.setRequestMethod("GET");
-int responseCode = con.getResponseCode();
-BufferedReader in = new BufferedReader(
-    new InputStreamReader(con.getInputStream()));
-String inputLine;
-StringBuffer response = new StringBuffer();
-while ((inputLine = in.readLine()) != null) {
-    response.append(inputLine);
-}
-in.close();
-System.out.println(response.toString());
-
-```
-
-`GET /pcctransactionagent/airlinedemandsforticketingbookings`
-
-<h3 id="pcctransactionagentairlinedemandsforticketingbookingsrequestairlinedemandsforticketingbookings_get-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|PCC|query|string|false|none|
-|TransactionAgent|query|string|false|none|
-|DayCount|query|integer(int32)|false|none|
-|Accept|header|string|true|Accept Header|
-
-#### Enumerated Values
-
-|Parameter|Value|
-|---|---|
-|Accept|application/json|
-
-
-
-> Default Response
-
-```json
-{}
-```
-
-<h3 id="pcctransactionagentairlinedemandsforticketingbookingsrequestairlinedemandsforticketingbookings_get-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|default|Default|Default response|[Object](#schemaobject)|
-
-
-
-## PCCTransactionAgentDepartureBookingsRequestdeparturebookings_Get
-
-<a id="opIdPCCTransactionAgentDepartureBookingsRequestdeparturebookings_Get"></a>
-
-> Code samples
-
-```shell
-# You can also use wget
-curl -X GET http://api.agentivity.com/pcctransactionagent/departurebookings \
-  -H 'Accept: application/json' \
-  -H 'Accept: application/json'
-
-```
-
-```javascript
-var headers = {
-  'Accept':'application/json',
-  'Accept':'application/json'
-
-};
-
-$.ajax({
-  url: 'http://api.agentivity.com/pcctransactionagent/departurebookings',
-  method: 'get',
-
-  headers: headers,
-  success: function(data) {
-    console.log(JSON.stringify(data));
-  }
-})
-
-```
-
-```python
-import requests
-headers = {
-  'Accept': 'application/json',
-  'Accept': 'application/json'
-}
-
-r = requests.get('http://api.agentivity.com/pcctransactionagent/departurebookings', params={
-
-}, headers = headers)
-
-print r.json()
-
-```
-
-```java
-URL obj = new URL("http://api.agentivity.com/pcctransactionagent/departurebookings");
-HttpURLConnection con = (HttpURLConnection) obj.openConnection();
-con.setRequestMethod("GET");
-int responseCode = con.getResponseCode();
-BufferedReader in = new BufferedReader(
-    new InputStreamReader(con.getInputStream()));
-String inputLine;
-StringBuffer response = new StringBuffer();
-while ((inputLine = in.readLine()) != null) {
-    response.append(inputLine);
-}
-in.close();
-System.out.println(response.toString());
-
-```
-
-`GET /pcctransactionagent/departurebookings`
-
-<h3 id="pcctransactionagentdeparturebookingsrequestdeparturebookings_get-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|PCC|query|string|false|none|
-|TransactionAgent|query|string|false|none|
-|DayCount|query|integer(int32)|false|none|
-|Accept|header|string|true|Accept Header|
-
-#### Enumerated Values
-
-|Parameter|Value|
-|---|---|
-|Accept|application/json|
-
-
-
-> Default Response
-
-```json
-{}
-```
-
-<h3 id="pcctransactionagentdeparturebookingsrequestdeparturebookings_get-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|default|Default|Default response|[Object](#schemaobject)|
-
-
-
-## PCCTransactionAgentProblematicBookingSegmentsRequestproblematicbookingsegments_Get
-
-<a id="opIdPCCTransactionAgentProblematicBookingSegmentsRequestproblematicbookingsegments_Get"></a>
-
-> Code samples
-
-```shell
-# You can also use wget
-curl -X GET http://api.agentivity.com/pcctransactionagent/problematicbookingsegments \
-  -H 'Accept: application/json' \
-  -H 'Accept: application/json'
-
-```
-
-```javascript
-var headers = {
-  'Accept':'application/json',
-  'Accept':'application/json'
-
-};
-
-$.ajax({
-  url: 'http://api.agentivity.com/pcctransactionagent/problematicbookingsegments',
-  method: 'get',
-
-  headers: headers,
-  success: function(data) {
-    console.log(JSON.stringify(data));
-  }
-})
-
-```
-
-```python
-import requests
-headers = {
-  'Accept': 'application/json',
-  'Accept': 'application/json'
-}
-
-r = requests.get('http://api.agentivity.com/pcctransactionagent/problematicbookingsegments', params={
-
-}, headers = headers)
-
-print r.json()
-
-```
-
-```java
-URL obj = new URL("http://api.agentivity.com/pcctransactionagent/problematicbookingsegments");
-HttpURLConnection con = (HttpURLConnection) obj.openConnection();
-con.setRequestMethod("GET");
-int responseCode = con.getResponseCode();
-BufferedReader in = new BufferedReader(
-    new InputStreamReader(con.getInputStream()));
-String inputLine;
-StringBuffer response = new StringBuffer();
-while ((inputLine = in.readLine()) != null) {
-    response.append(inputLine);
-}
-in.close();
-System.out.println(response.toString());
-
-```
-
-`GET /pcctransactionagent/problematicbookingsegments`
-
-<h3 id="pcctransactionagentproblematicbookingsegmentsrequestproblematicbookingsegments_get-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|PCC|query|string|false|none|
-|TransactionAgent|query|string|false|none|
-|DayCount|query|integer(int32)|false|none|
-|Accept|header|string|true|Accept Header|
-
-#### Enumerated Values
-
-|Parameter|Value|
-|---|---|
-|Accept|application/json|
-
-
-
-> Default Response
-
-```json
-{}
-```
-
-<h3 id="pcctransactionagentproblematicbookingsegmentsrequestproblematicbookingsegments_get-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|default|Default|Default response|[Object](#schemaobject)|
-
-
-
-## PCCTransactionAgentTAUDueBookingsRequesttauduebookings_Get
-
-<a id="opIdPCCTransactionAgentTAUDueBookingsRequesttauduebookings_Get"></a>
-
-> Code samples
-
-```shell
-# You can also use wget
-curl -X GET http://api.agentivity.com/pcctransactionagent/tauduebookings \
-  -H 'Accept: application/json' \
-  -H 'Accept: application/json'
-
-```
-
-```javascript
-var headers = {
-  'Accept':'application/json',
-  'Accept':'application/json'
-
-};
-
-$.ajax({
-  url: 'http://api.agentivity.com/pcctransactionagent/tauduebookings',
-  method: 'get',
-
-  headers: headers,
-  success: function(data) {
-    console.log(JSON.stringify(data));
-  }
-})
-
-```
-
-```python
-import requests
-headers = {
-  'Accept': 'application/json',
-  'Accept': 'application/json'
-}
-
-r = requests.get('http://api.agentivity.com/pcctransactionagent/tauduebookings', params={
-
-}, headers = headers)
-
-print r.json()
-
-```
-
-```java
-URL obj = new URL("http://api.agentivity.com/pcctransactionagent/tauduebookings");
-HttpURLConnection con = (HttpURLConnection) obj.openConnection();
-con.setRequestMethod("GET");
-int responseCode = con.getResponseCode();
-BufferedReader in = new BufferedReader(
-    new InputStreamReader(con.getInputStream()));
-String inputLine;
-StringBuffer response = new StringBuffer();
-while ((inputLine = in.readLine()) != null) {
-    response.append(inputLine);
-}
-in.close();
-System.out.println(response.toString());
-
-```
-
-`GET /pcctransactionagent/tauduebookings`
-
-<h3 id="pcctransactionagenttauduebookingsrequesttauduebookings_get-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|PCC|query|string|false|none|
-|TransactionAgent|query|string|false|none|
-|DayCount|query|integer(int32)|false|none|
-|Accept|header|string|true|Accept Header|
-
-#### Enumerated Values
-
-|Parameter|Value|
-|---|---|
-|Accept|application/json|
-
-
-
-> Default Response
-
-```json
-{}
-```
-
-<h3 id="pcctransactionagenttauduebookingsrequesttauduebookings_get-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|default|Default|Default response|[Object](#schemaobject)|
-
-
-
 <h1 id="agentivity-api-pcctraveller">pcctraveller</h1>
 
 ## PCCTravellerTicketSegmentsPerStatusRequestticketsegmentsperstatusPCCBARFlightCouponStatus_Get
@@ -21767,7 +24644,7 @@ System.out.println(response.toString());
 
 ```
 
-`GET /pcctraveller/ticketsegmentsperstatus/{PCC}/{BAR}/{FlightCouponStatus}`
+
 
 <h3 id="pcctravellerticketsegmentsperstatusrequestticketsegmentsperstatuspccbarflightcouponstatus_get-parameters">Parameters</h3>
 
@@ -21866,7 +24743,7 @@ System.out.println(response.toString());
 
 ```
 
-`GET /pcctraveller/ticketsegmentsperstatus`
+
 
 <h3 id="pcctravellerticketsegmentsperstatusrequestticketsegmentsperstatus_get-parameters">Parameters</h3>
 
@@ -21900,300 +24777,6 @@ System.out.println(response.toString());
 
 
 
-## PCCTravellerHistorySummaryRequesthistorysummary_Get
-
-<a id="opIdPCCTravellerHistorySummaryRequesthistorysummary_Get"></a>
-
-> Code samples
-
-```shell
-# You can also use wget
-curl -X GET http://api.agentivity.com/pcctraveller/historysummary \
-  -H 'Accept: application/json' \
-  -H 'Accept: application/json'
-
-```
-
-```javascript
-var headers = {
-  'Accept':'application/json',
-  'Accept':'application/json'
-
-};
-
-$.ajax({
-  url: 'http://api.agentivity.com/pcctraveller/historysummary',
-  method: 'get',
-
-  headers: headers,
-  success: function(data) {
-    console.log(JSON.stringify(data));
-  }
-})
-
-```
-
-```python
-import requests
-headers = {
-  'Accept': 'application/json',
-  'Accept': 'application/json'
-}
-
-r = requests.get('http://api.agentivity.com/pcctraveller/historysummary', params={
-
-}, headers = headers)
-
-print r.json()
-
-```
-
-```java
-URL obj = new URL("http://api.agentivity.com/pcctraveller/historysummary");
-HttpURLConnection con = (HttpURLConnection) obj.openConnection();
-con.setRequestMethod("GET");
-int responseCode = con.getResponseCode();
-BufferedReader in = new BufferedReader(
-    new InputStreamReader(con.getInputStream()));
-String inputLine;
-StringBuffer response = new StringBuffer();
-while ((inputLine = in.readLine()) != null) {
-    response.append(inputLine);
-}
-in.close();
-System.out.println(response.toString());
-
-```
-
-`GET /pcctraveller/historysummary`
-
-<h3 id="pcctravellerhistorysummaryrequesthistorysummary_get-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|PCC|query|string|false|none|
-|BAR|query|string|false|none|
-|MAR|query|string|false|none|
-|PAR|query|string|false|none|
-|Accept|header|string|true|Accept Header|
-
-#### Enumerated Values
-
-|Parameter|Value|
-|---|---|
-|Accept|application/json|
-
-
-
-> Default Response
-
-```json
-{}
-```
-
-<h3 id="pcctravellerhistorysummaryrequesthistorysummary_get-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|default|Default|Default response|[Object](#schemaobject)|
-
-
-
-## PCCTravellerBookingHistoryRequestbookinghistory_Get
-
-<a id="opIdPCCTravellerBookingHistoryRequestbookinghistory_Get"></a>
-
-> Code samples
-
-```shell
-# You can also use wget
-curl -X GET http://api.agentivity.com/pcctraveller/bookinghistory \
-  -H 'Accept: application/json' \
-  -H 'Accept: application/json'
-
-```
-
-```javascript
-var headers = {
-  'Accept':'application/json',
-  'Accept':'application/json'
-
-};
-
-$.ajax({
-  url: 'http://api.agentivity.com/pcctraveller/bookinghistory',
-  method: 'get',
-
-  headers: headers,
-  success: function(data) {
-    console.log(JSON.stringify(data));
-  }
-})
-
-```
-
-```python
-import requests
-headers = {
-  'Accept': 'application/json',
-  'Accept': 'application/json'
-}
-
-r = requests.get('http://api.agentivity.com/pcctraveller/bookinghistory', params={
-
-}, headers = headers)
-
-print r.json()
-
-```
-
-```java
-URL obj = new URL("http://api.agentivity.com/pcctraveller/bookinghistory");
-HttpURLConnection con = (HttpURLConnection) obj.openConnection();
-con.setRequestMethod("GET");
-int responseCode = con.getResponseCode();
-BufferedReader in = new BufferedReader(
-    new InputStreamReader(con.getInputStream()));
-String inputLine;
-StringBuffer response = new StringBuffer();
-while ((inputLine = in.readLine()) != null) {
-    response.append(inputLine);
-}
-in.close();
-System.out.println(response.toString());
-
-```
-
-`GET /pcctraveller/bookinghistory`
-
-<h3 id="pcctravellerbookinghistoryrequestbookinghistory_get-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|Offset|query|string|false|Starting Record|
-|Limit|query|string|false|Number of records to return (PageSize)|
-|TotalRecords|query|string(int32)|false|Total Number of Records in a Full Reponse (if no paging)|
-|ResponseRecords|query|string(int32)|false|Total NUmber of Records in this Reponse (on this page)|
-|Accept|header|string|true|Accept Header|
-
-#### Enumerated Values
-
-|Parameter|Value|
-|---|---|
-|Accept|application/json|
-
-
-
-> Default Response
-
-```json
-{}
-```
-
-<h3 id="pcctravellerbookinghistoryrequestbookinghistory_get-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|default|Default|Default response|[Object](#schemaobject)|
-
-
-
-## PCCTravellerHistorySummaryRequesthistorysummaryPCCMARBARPAR_Get
-
-<a id="opIdPCCTravellerHistorySummaryRequesthistorysummaryPCCMARBARPAR_Get"></a>
-
-> Code samples
-
-```shell
-# You can also use wget
-curl -X GET http://api.agentivity.com/pcctraveller/historysummary/{PCC}/{MAR}/{BAR}/{PAR} \
-  -H 'Accept: application/json' \
-  -H 'Accept: application/json'
-
-```
-
-```javascript
-var headers = {
-  'Accept':'application/json',
-  'Accept':'application/json'
-
-};
-
-$.ajax({
-  url: 'http://api.agentivity.com/pcctraveller/historysummary/{PCC}/{MAR}/{BAR}/{PAR}',
-  method: 'get',
-
-  headers: headers,
-  success: function(data) {
-    console.log(JSON.stringify(data));
-  }
-})
-
-```
-
-```python
-import requests
-headers = {
-  'Accept': 'application/json',
-  'Accept': 'application/json'
-}
-
-r = requests.get('http://api.agentivity.com/pcctraveller/historysummary/{PCC}/{MAR}/{BAR}/{PAR}', params={
-
-}, headers = headers)
-
-print r.json()
-
-```
-
-```java
-URL obj = new URL("http://api.agentivity.com/pcctraveller/historysummary/{PCC}/{MAR}/{BAR}/{PAR}");
-HttpURLConnection con = (HttpURLConnection) obj.openConnection();
-con.setRequestMethod("GET");
-int responseCode = con.getResponseCode();
-BufferedReader in = new BufferedReader(
-    new InputStreamReader(con.getInputStream()));
-String inputLine;
-StringBuffer response = new StringBuffer();
-while ((inputLine = in.readLine()) != null) {
-    response.append(inputLine);
-}
-in.close();
-System.out.println(response.toString());
-
-```
-
-`GET /pcctraveller/historysummary/{PCC}/{MAR}/{BAR}/{PAR}`
-
-<h3 id="pcctravellerhistorysummaryrequesthistorysummarypccmarbarpar_get-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|PCC|path|string|true|none|
-|BAR|path|string|true|none|
-|MAR|path|string|true|none|
-|PAR|path|string|true|none|
-|Accept|header|string|true|Accept Header|
-
-#### Enumerated Values
-
-|Parameter|Value|
-|---|---|
-|Accept|application/json|
-
-
-
-> Default Response
-
-```json
-{}
-```
-
-<h3 id="pcctravellerhistorysummaryrequesthistorysummarypccmarbarpar_get-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|default|Default|Default response|[Object](#schemaobject)|
 
 
 
@@ -22296,199 +24879,7 @@ System.out.println(response.toString());
 
 
 
-<h1 id="agentivity-api-pnr">pnr</h1>
 
-## PNRSegmentsRequestsegmentsRecordLocatorPNRCreationDate_Get
-
-<a id="opIdPNRSegmentsRequestsegmentsRecordLocatorPNRCreationDate_Get"></a>
-
-> Code samples
-
-```shell
-# You can also use wget
-curl -X GET http://api.agentivity.com/pnr/segments/{RecordLocator}/{PNRCreationDate} \
-  -H 'Accept: application/json' \
-  -H 'Accept: application/json'
-
-```
-
-```javascript
-var headers = {
-  'Accept':'application/json',
-  'Accept':'application/json'
-
-};
-
-$.ajax({
-  url: 'http://api.agentivity.com/pnr/segments/{RecordLocator}/{PNRCreationDate}',
-  method: 'get',
-
-  headers: headers,
-  success: function(data) {
-    console.log(JSON.stringify(data));
-  }
-})
-
-```
-
-```python
-import requests
-headers = {
-  'Accept': 'application/json',
-  'Accept': 'application/json'
-}
-
-r = requests.get('http://api.agentivity.com/pnr/segments/{RecordLocator}/{PNRCreationDate}', params={
-
-}, headers = headers)
-
-print r.json()
-
-```
-
-```java
-URL obj = new URL("http://api.agentivity.com/pnr/segments/{RecordLocator}/{PNRCreationDate}");
-HttpURLConnection con = (HttpURLConnection) obj.openConnection();
-con.setRequestMethod("GET");
-int responseCode = con.getResponseCode();
-BufferedReader in = new BufferedReader(
-    new InputStreamReader(con.getInputStream()));
-String inputLine;
-StringBuffer response = new StringBuffer();
-while ((inputLine = in.readLine()) != null) {
-    response.append(inputLine);
-}
-in.close();
-System.out.println(response.toString());
-
-```
-
-`GET /pnr/segments/{RecordLocator}/{PNRCreationDate}`
-
-<h3 id="pnrsegmentsrequestsegmentsrecordlocatorpnrcreationdate_get-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|RecordLocator|path|string|true|none|
-|PNRCreationDate|path|string|true|none|
-|Accept|header|string|true|Accept Header|
-
-#### Enumerated Values
-
-|Parameter|Value|
-|---|---|
-|Accept|application/json|
-
-
-
-> Default Response
-
-```json
-{}
-```
-
-<h3 id="pnrsegmentsrequestsegmentsrecordlocatorpnrcreationdate_get-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|default|Default|Default response|[Object](#schemaobject)|
-
-
-
-## PNRSegmentsRequestsegments_Get
-
-<a id="opIdPNRSegmentsRequestsegments_Get"></a>
-
-> Code samples
-
-```shell
-# You can also use wget
-curl -X GET http://api.agentivity.com/pnr/segments \
-  -H 'Accept: application/json' \
-  -H 'Accept: application/json'
-
-```
-
-```javascript
-var headers = {
-  'Accept':'application/json',
-  'Accept':'application/json'
-
-};
-
-$.ajax({
-  url: 'http://api.agentivity.com/pnr/segments',
-  method: 'get',
-
-  headers: headers,
-  success: function(data) {
-    console.log(JSON.stringify(data));
-  }
-})
-
-```
-
-```python
-import requests
-headers = {
-  'Accept': 'application/json',
-  'Accept': 'application/json'
-}
-
-r = requests.get('http://api.agentivity.com/pnr/segments', params={
-
-}, headers = headers)
-
-print r.json()
-
-```
-
-```java
-URL obj = new URL("http://api.agentivity.com/pnr/segments");
-HttpURLConnection con = (HttpURLConnection) obj.openConnection();
-con.setRequestMethod("GET");
-int responseCode = con.getResponseCode();
-BufferedReader in = new BufferedReader(
-    new InputStreamReader(con.getInputStream()));
-String inputLine;
-StringBuffer response = new StringBuffer();
-while ((inputLine = in.readLine()) != null) {
-    response.append(inputLine);
-}
-in.close();
-System.out.println(response.toString());
-
-```
-
-`GET /pnr/segments`
-
-<h3 id="pnrsegmentsrequestsegments_get-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|RecordLocator|query|string|false|none|
-|PNRCreationDate|query|string|false|none|
-|Accept|header|string|true|Accept Header|
-
-#### Enumerated Values
-
-|Parameter|Value|
-|---|---|
-|Accept|application/json|
-
-
-
-> Default Response
-
-```json
-{}
-```
-
-<h3 id="pnrsegmentsrequestsegments_get-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|default|Default|Default response|[Object](#schemaobject)|
 
 
 
@@ -22593,205 +24984,7 @@ System.out.println(response.toString());
 
 
 
-<h1 id="agentivity-api-pnrsegmentcounts">pnrsegmentcounts</h1>
 
-## PNRSegmentCountsByCompanyAgentLocationcompanyalcc_Get
-
-<a id="opIdPNRSegmentCountsByCompanyAgentLocationcompanyalcc_Get"></a>
-
-> Code samples
-
-```shell
-# You can also use wget
-curl -X GET http://api.agentivity.com/pnrsegmentcounts/company/alcc \
-  -H 'Accept: application/json' \
-  -H 'Accept: application/json'
-
-```
-
-```javascript
-var headers = {
-  'Accept':'application/json',
-  'Accept':'application/json'
-
-};
-
-$.ajax({
-  url: 'http://api.agentivity.com/pnrsegmentcounts/company/alcc',
-  method: 'get',
-
-  headers: headers,
-  success: function(data) {
-    console.log(JSON.stringify(data));
-  }
-})
-
-```
-
-```python
-import requests
-headers = {
-  'Accept': 'application/json',
-  'Accept': 'application/json'
-}
-
-r = requests.get('http://api.agentivity.com/pnrsegmentcounts/company/alcc', params={
-
-}, headers = headers)
-
-print r.json()
-
-```
-
-```java
-URL obj = new URL("http://api.agentivity.com/pnrsegmentcounts/company/alcc");
-HttpURLConnection con = (HttpURLConnection) obj.openConnection();
-con.setRequestMethod("GET");
-int responseCode = con.getResponseCode();
-BufferedReader in = new BufferedReader(
-    new InputStreamReader(con.getInputStream()));
-String inputLine;
-StringBuffer response = new StringBuffer();
-while ((inputLine = in.readLine()) != null) {
-    response.append(inputLine);
-}
-in.close();
-System.out.println(response.toString());
-
-```
-
-`GET /pnrsegmentcounts/company/alcc`
-
-<h3 id="pnrsegmentcountsbycompanyagentlocationcompanyalcc_get-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|Offset|query|string|false|Starting Record|
-|Limit|query|string|false|Number of records to return (PageSize)|
-|TotalRecords|query|string(int32)|false|Total Number of Records in a Full Reponse (if no paging)|
-|ResponseRecords|query|string(int32)|false|Total NUmber of Records in this Reponse (on this page)|
-|Accept|header|string|true|Accept Header|
-
-#### Enumerated Values
-
-|Parameter|Value|
-|---|---|
-|Accept|application/json|
-
-
-
-> Default Response
-
-```json
-{}
-```
-
-<h3 id="pnrsegmentcountsbycompanyagentlocationcompanyalcc_get-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|default|Default|Default response|[Object](#schemaobject)|
-
-
-
-<h1 id="agentivity-api-pnrsegmentcounts2">pnrsegmentcounts2</h1>
-
-## PNRSegmentCountsByCompanyAgentLocation2companyalcc_Get
-
-<a id="opIdPNRSegmentCountsByCompanyAgentLocation2companyalcc_Get"></a>
-
-> Code samples
-
-```shell
-# You can also use wget
-curl -X GET http://api.agentivity.com/pnrsegmentcounts2/company/alcc \
-  -H 'Accept: application/json' \
-  -H 'Accept: application/json'
-
-```
-
-```javascript
-var headers = {
-  'Accept':'application/json',
-  'Accept':'application/json'
-
-};
-
-$.ajax({
-  url: 'http://api.agentivity.com/pnrsegmentcounts2/company/alcc',
-  method: 'get',
-
-  headers: headers,
-  success: function(data) {
-    console.log(JSON.stringify(data));
-  }
-})
-
-```
-
-```python
-import requests
-headers = {
-  'Accept': 'application/json',
-  'Accept': 'application/json'
-}
-
-r = requests.get('http://api.agentivity.com/pnrsegmentcounts2/company/alcc', params={
-
-}, headers = headers)
-
-print r.json()
-
-```
-
-```java
-URL obj = new URL("http://api.agentivity.com/pnrsegmentcounts2/company/alcc");
-HttpURLConnection con = (HttpURLConnection) obj.openConnection();
-con.setRequestMethod("GET");
-int responseCode = con.getResponseCode();
-BufferedReader in = new BufferedReader(
-    new InputStreamReader(con.getInputStream()));
-String inputLine;
-StringBuffer response = new StringBuffer();
-while ((inputLine = in.readLine()) != null) {
-    response.append(inputLine);
-}
-in.close();
-System.out.println(response.toString());
-
-```
-
-`GET /pnrsegmentcounts2/company/alcc`
-
-<h3 id="pnrsegmentcountsbycompanyagentlocation2companyalcc_get-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|Offset|query|string|false|Starting Record|
-|Limit|query|string|false|Number of records to return (PageSize)|
-|TotalRecords|query|string(int32)|false|Total Number of Records in a Full Reponse (if no paging)|
-|ResponseRecords|query|string(int32)|false|Total NUmber of Records in this Reponse (on this page)|
-|Accept|header|string|true|Accept Header|
-
-#### Enumerated Values
-
-|Parameter|Value|
-|---|---|
-|Accept|application/json|
-
-
-
-> Default Response
-
-```json
-{}
-```
-
-<h3 id="pnrsegmentcountsbycompanyagentlocation2companyalcc_get-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|default|Default|Default response|[Object](#schemaobject)|
 
 
 
@@ -22942,399 +25135,12 @@ System.out.println(response.toString());
 
 
 
-<h1 id="agentivity-api-problematicsegments">problematicsegments</h1>
 
-## ProblematicSegmentsByUseruser_Get
 
-<a id="opIdProblematicSegmentsByUseruser_Get"></a>
 
-> Code samples
 
-```shell
-# You can also use wget
-curl -X GET http://api.agentivity.com/problematicsegments/user \
-  -H 'Accept: application/json' \
-  -H 'Accept: application/json'
 
-```
 
-```javascript
-var headers = {
-  'Accept':'application/json',
-  'Accept':'application/json'
-
-};
-
-$.ajax({
-  url: 'http://api.agentivity.com/problematicsegments/user',
-  method: 'get',
-
-  headers: headers,
-  success: function(data) {
-    console.log(JSON.stringify(data));
-  }
-})
-
-```
-
-```python
-import requests
-headers = {
-  'Accept': 'application/json',
-  'Accept': 'application/json'
-}
-
-r = requests.get('http://api.agentivity.com/problematicsegments/user', params={
-
-}, headers = headers)
-
-print r.json()
-
-```
-
-```java
-URL obj = new URL("http://api.agentivity.com/problematicsegments/user");
-HttpURLConnection con = (HttpURLConnection) obj.openConnection();
-con.setRequestMethod("GET");
-int responseCode = con.getResponseCode();
-BufferedReader in = new BufferedReader(
-    new InputStreamReader(con.getInputStream()));
-String inputLine;
-StringBuffer response = new StringBuffer();
-while ((inputLine = in.readLine()) != null) {
-    response.append(inputLine);
-}
-in.close();
-System.out.println(response.toString());
-
-```
-
-`GET /problematicsegments/user`
-
-<h3 id="problematicsegmentsbyuseruser_get-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|Offset|query|string|false|Starting Record|
-|Limit|query|string|false|Number of records to return (PageSize)|
-|TotalRecords|query|string(int32)|false|Total Number of Records in a Full Reponse (if no paging)|
-|ResponseRecords|query|string(int32)|false|Total NUmber of Records in this Reponse (on this page)|
-|Accept|header|string|true|Accept Header|
-
-#### Enumerated Values
-
-|Parameter|Value|
-|---|---|
-|Accept|application/json|
-
-
-
-> Default Response
-
-```json
-{
-  "ResponseMetadata": {
-    "Success": true,
-    "HasCache": true,
-    "HasPaging": true,
-    "CacheMetadata": {
-      "IsFromCache": true,
-      "CachedAt": "2019-03-18T11:42:49Z",
-      "CacheExpiresAt": "2019-03-18T11:42:49Z"
-    },
-    "PagingMetadata": {
-      "Limit": "string",
-      "Offset": "string",
-      "ResponseRecords": "string",
-      "TotalRecords": "string"
-    }
-  },
-  "ResponseReport": {
-    "Item": {
-      "RecordLocator": "string",
-      "OwningConsultantID": "string",
-      "PrimaryPax": "string",
-      "TransactionAgent": "string",
-      "Account": "string",
-      "SegmentStatus": "string",
-      "Segment": "string",
-      "AgentivityRef": "string"
-    }
-  },
-  "ResponseError": {
-    "ErrorCode": "string",
-    "Message": "string",
-    "StatusCode": "string",
-    "VerboseMessage": "string"
-  }
-}
-```
-
-<h3 id="problematicsegmentsbyuseruser_get-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|default|Default|Default response|[ProblematicSegmentsByUserItemResponse](#schemaproblematicsegmentsbyuseritemresponse)|
-
-
-
-<h1 id="agentivity-api-products">Products</h1>
-
-## GetProducts_Get
-
-<a id="opIdGetProducts_Get"></a>
-
-> Code samples
-
-```shell
-# You can also use wget
-curl -X GET http://api.agentivity.com/Products \
-  -H 'Accept: application/json' \
-  -H 'Accept: application/json'
-
-```
-
-```javascript
-var headers = {
-  'Accept':'application/json',
-  'Accept':'application/json'
-
-};
-
-$.ajax({
-  url: 'http://api.agentivity.com/Products',
-  method: 'get',
-
-  headers: headers,
-  success: function(data) {
-    console.log(JSON.stringify(data));
-  }
-})
-
-```
-
-```python
-import requests
-headers = {
-  'Accept': 'application/json',
-  'Accept': 'application/json'
-}
-
-r = requests.get('http://api.agentivity.com/Products', params={
-
-}, headers = headers)
-
-print r.json()
-
-```
-
-```java
-URL obj = new URL("http://api.agentivity.com/Products");
-HttpURLConnection con = (HttpURLConnection) obj.openConnection();
-con.setRequestMethod("GET");
-int responseCode = con.getResponseCode();
-BufferedReader in = new BufferedReader(
-    new InputStreamReader(con.getInputStream()));
-String inputLine;
-StringBuffer response = new StringBuffer();
-while ((inputLine = in.readLine()) != null) {
-    response.append(inputLine);
-}
-in.close();
-System.out.println(response.toString());
-
-```
-
-`GET /Products`
-
-<h3 id="getproducts_get-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|Offset|query|string|false|Starting Record|
-|Limit|query|string|false|Number of records to return (PageSize)|
-|TotalRecords|query|string(int32)|false|Total Number of Records in a Full Reponse (if no paging)|
-|ResponseRecords|query|string(int32)|false|Total NUmber of Records in this Reponse (on this page)|
-|Accept|header|string|true|Accept Header|
-
-#### Enumerated Values
-
-|Parameter|Value|
-|---|---|
-|Accept|application/json|
-
-
-
-> Default Response
-
-```json
-{
-  "ResponseMetadata": {
-    "Success": true,
-    "HasCache": true,
-    "HasPaging": true,
-    "CacheMetadata": {
-      "IsFromCache": true,
-      "CachedAt": "2019-03-18T11:42:49Z",
-      "CacheExpiresAt": "2019-03-18T11:42:49Z"
-    },
-    "PagingMetadata": {
-      "Limit": "string",
-      "Offset": "string",
-      "ResponseRecords": "string",
-      "TotalRecords": "string"
-    }
-  },
-  "ResponseReport": [
-    {
-      "ProductName": "string",
-      "ProductId": "string"
-    }
-  ],
-  "ResponseError": {
-    "ErrorCode": "string",
-    "Message": "string",
-    "StatusCode": "string",
-    "VerboseMessage": "string"
-  }
-}
-```
-
-<h3 id="getproducts_get-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|default|Default|Default response|[ProductResponse](#schemaproductresponse)|
-
-
-
-<h1 id="agentivity-api-productsalespermonth">ProductSalesPerMonth</h1>
-
-## GetProductSalesPerMonth_Get
-
-<a id="opIdGetProductSalesPerMonth_Get"></a>
-
-> Code samples
-
-```shell
-# You can also use wget
-curl -X GET http://api.agentivity.com/ProductSalesPerMonth \
-  -H 'Accept: application/json' \
-  -H 'Accept: application/json'
-
-```
-
-```javascript
-var headers = {
-  'Accept':'application/json',
-  'Accept':'application/json'
-
-};
-
-$.ajax({
-  url: 'http://api.agentivity.com/ProductSalesPerMonth',
-  method: 'get',
-
-  headers: headers,
-  success: function(data) {
-    console.log(JSON.stringify(data));
-  }
-})
-
-```
-
-```python
-import requests
-headers = {
-  'Accept': 'application/json',
-  'Accept': 'application/json'
-}
-
-r = requests.get('http://api.agentivity.com/ProductSalesPerMonth', params={
-
-}, headers = headers)
-
-print r.json()
-
-```
-
-```java
-URL obj = new URL("http://api.agentivity.com/ProductSalesPerMonth");
-HttpURLConnection con = (HttpURLConnection) obj.openConnection();
-con.setRequestMethod("GET");
-int responseCode = con.getResponseCode();
-BufferedReader in = new BufferedReader(
-    new InputStreamReader(con.getInputStream()));
-String inputLine;
-StringBuffer response = new StringBuffer();
-while ((inputLine = in.readLine()) != null) {
-    response.append(inputLine);
-}
-in.close();
-System.out.println(response.toString());
-
-```
-
-`GET /ProductSalesPerMonth`
-
-<h3 id="getproductsalespermonth_get-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|Offset|query|string|false|Starting Record|
-|Limit|query|string|false|Number of records to return (PageSize)|
-|TotalRecords|query|string(int32)|false|Total Number of Records in a Full Reponse (if no paging)|
-|ResponseRecords|query|string(int32)|false|Total NUmber of Records in this Reponse (on this page)|
-|Accept|header|string|true|Accept Header|
-
-#### Enumerated Values
-
-|Parameter|Value|
-|---|---|
-|Accept|application/json|
-
-
-
-> Default Response
-
-```json
-{
-  "ResponseMetadata": {
-    "Success": true,
-    "HasCache": true,
-    "HasPaging": true,
-    "CacheMetadata": {
-      "IsFromCache": true,
-      "CachedAt": "2019-03-18T11:42:49Z",
-      "CacheExpiresAt": "2019-03-18T11:42:49Z"
-    },
-    "PagingMetadata": {
-      "Limit": "string",
-      "Offset": "string",
-      "ResponseRecords": "string",
-      "TotalRecords": "string"
-    }
-  },
-  "ResponseReport": [
-    {
-      "ProductName": "string",
-      "Revenue": 0
-    }
-  ],
-  "ResponseError": {
-    "ErrorCode": "string",
-    "Message": "string",
-    "StatusCode": "string",
-    "VerboseMessage": "string"
-  }
-}
-```
-
-<h3 id="getproductsalespermonth_get-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|default|Default|Default response|[ProductSalesPerMonthResponse](#schemaproductsalespermonthresponse)|
 
 
 
@@ -23835,32 +25641,6 @@ System.out.println(response.toString());
 |default|Default|Default response|[QcCommentsForConsultantResponse](#schemaqccommentsforconsultantresponse)|
 
 
-<h1 id="agentivity-api-qlogem">QLogEm</h1>
-
-
-
-<h1 id="agentivity-api-qlogforward">QLogForward</h1>
-
-
-
-<h1 id="agentivity-api-qlogignored">QLogIgnored</h1>
-
-
-
-
-
-<h1 id="agentivity-api-qsorterlogerrors">QSorterLogErrors</h1>
-
-
-
-
-
-<h1 id="agentivity-api-rebookings">rebookings</h1>
-
-
-
-
-
 <h1 id="agentivity-api-remarkqualifier">RemarkQualifier</h1>
 
 ## GetRemarkQualifieruser_Get
@@ -23994,403 +25774,6 @@ System.out.println(response.toString());
 
 
 
-
-<h1 id="agentivity-api-rmqserviceslog">RMQServicesLog</h1>
-
-
-
-
-
-<h1 id="agentivity-api-routinginstancesbycity">routinginstancesbycity</h1>
-
-## RoutingInstancesByCityuser_Get
-
-<a id="opIdRoutingInstancesByCityuser_Get"></a>
-
-> Code samples
-
-```shell
-# You can also use wget
-curl -X GET http://api.agentivity.com/routinginstancesbycity/user \
-  -H 'Accept: application/json' \
-  -H 'Accept: application/json'
-
-```
-
-```javascript
-var headers = {
-  'Accept':'application/json',
-  'Accept':'application/json'
-
-};
-
-$.ajax({
-  url: 'http://api.agentivity.com/routinginstancesbycity/user',
-  method: 'get',
-
-  headers: headers,
-  success: function(data) {
-    console.log(JSON.stringify(data));
-  }
-})
-
-```
-
-```python
-import requests
-headers = {
-  'Accept': 'application/json',
-  'Accept': 'application/json'
-}
-
-r = requests.get('http://api.agentivity.com/routinginstancesbycity/user', params={
-
-}, headers = headers)
-
-print r.json()
-
-```
-
-```java
-URL obj = new URL("http://api.agentivity.com/routinginstancesbycity/user");
-HttpURLConnection con = (HttpURLConnection) obj.openConnection();
-con.setRequestMethod("GET");
-int responseCode = con.getResponseCode();
-BufferedReader in = new BufferedReader(
-    new InputStreamReader(con.getInputStream()));
-String inputLine;
-StringBuffer response = new StringBuffer();
-while ((inputLine = in.readLine()) != null) {
-    response.append(inputLine);
-}
-in.close();
-System.out.println(response.toString());
-
-```
-
-`GET /routinginstancesbycity/user`
-
-<h3 id="routinginstancesbycityuser_get-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|Offset|query|string|false|Starting Record|
-|Limit|query|string|false|Number of records to return (PageSize)|
-|TotalRecords|query|string(int32)|false|Total Number of Records in a Full Reponse (if no paging)|
-|ResponseRecords|query|string(int32)|false|Total NUmber of Records in this Reponse (on this page)|
-|Accept|header|string|true|Accept Header|
-
-#### Enumerated Values
-
-|Parameter|Value|
-|---|---|
-|Accept|application/json|
-
-
-
-> Default Response
-
-```json
-{
-  "ResponseMetadata": {
-    "Success": true,
-    "HasCache": true,
-    "HasPaging": true,
-    "CacheMetadata": {
-      "IsFromCache": true,
-      "CachedAt": "2019-03-18T11:42:49Z",
-      "CacheExpiresAt": "2019-03-18T11:42:49Z"
-    },
-    "PagingMetadata": {
-      "Limit": "string",
-      "Offset": "string",
-      "ResponseRecords": "string",
-      "TotalRecords": "string"
-    }
-  },
-  "ResponseReport": {
-    "Item": {
-      "Routing": "string",
-      "TotalInstances": "string"
-    }
-  },
-  "ResponseError": {
-    "ErrorCode": "string",
-    "Message": "string",
-    "StatusCode": "string",
-    "VerboseMessage": "string"
-  }
-}
-```
-
-<h3 id="routinginstancesbycityuser_get-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|default|Default|Default response|[RoutingInstancesByCityItemResponse](#schemaroutinginstancesbycityitemresponse)|
-
-
-
-
-<h1 id="agentivity-api-routinginstancespercity">routinginstancespercity</h1>
-
-## RoutingInstancesPerCityuser_Get
-
-<a id="opIdRoutingInstancesPerCityuser_Get"></a>
-
-> Code samples
-
-```shell
-# You can also use wget
-curl -X GET http://api.agentivity.com/routinginstancespercity/user \
-  -H 'Accept: application/json' \
-  -H 'Accept: application/json'
-
-```
-
-```javascript
-var headers = {
-  'Accept':'application/json',
-  'Accept':'application/json'
-
-};
-
-$.ajax({
-  url: 'http://api.agentivity.com/routinginstancespercity/user',
-  method: 'get',
-
-  headers: headers,
-  success: function(data) {
-    console.log(JSON.stringify(data));
-  }
-})
-
-```
-
-```python
-import requests
-headers = {
-  'Accept': 'application/json',
-  'Accept': 'application/json'
-}
-
-r = requests.get('http://api.agentivity.com/routinginstancespercity/user', params={
-
-}, headers = headers)
-
-print r.json()
-
-```
-
-```java
-URL obj = new URL("http://api.agentivity.com/routinginstancespercity/user");
-HttpURLConnection con = (HttpURLConnection) obj.openConnection();
-con.setRequestMethod("GET");
-int responseCode = con.getResponseCode();
-BufferedReader in = new BufferedReader(
-    new InputStreamReader(con.getInputStream()));
-String inputLine;
-StringBuffer response = new StringBuffer();
-while ((inputLine = in.readLine()) != null) {
-    response.append(inputLine);
-}
-in.close();
-System.out.println(response.toString());
-
-```
-
-`GET /routinginstancespercity/user`
-
-<h3 id="routinginstancespercityuser_get-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|Offset|query|string|false|Starting Record|
-|Limit|query|string|false|Number of records to return (PageSize)|
-|TotalRecords|query|string(int32)|false|Total Number of Records in a Full Reponse (if no paging)|
-|ResponseRecords|query|string(int32)|false|Total NUmber of Records in this Reponse (on this page)|
-|Accept|header|string|true|Accept Header|
-
-#### Enumerated Values
-
-|Parameter|Value|
-|---|---|
-|Accept|application/json|
-
-
-
-> Default Response
-
-```json
-{
-  "ResponseMetadata": {
-    "Success": true,
-    "HasCache": true,
-    "HasPaging": true,
-    "CacheMetadata": {
-      "IsFromCache": true,
-      "CachedAt": "2019-03-18T11:42:49Z",
-      "CacheExpiresAt": "2019-03-18T11:42:49Z"
-    },
-    "PagingMetadata": {
-      "Limit": "string",
-      "Offset": "string",
-      "ResponseRecords": "string",
-      "TotalRecords": "string"
-    }
-  },
-  "ResponseReport": {
-    "Item": {
-      "CityCode": "string",
-      "CityName": "string",
-      "TotalInstances": 0
-    }
-  },
-  "ResponseError": {
-    "ErrorCode": "string",
-    "Message": "string",
-    "StatusCode": "string",
-    "VerboseMessage": "string"
-  }
-}
-```
-
-<h3 id="routinginstancespercityuser_get-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|default|Default|Default response|[RoutingInstancesPerCityItemResponse](#schemaroutinginstancespercityitemresponse)|
-
-
-
-
-<h1 id="agentivity-api-salespercountrycurrentmonth">SalesPerCountryCurrentMonth</h1>
-
-## GetSalesPerCountryCurrentMonth_Get
-
-<a id="opIdGetSalesPerCountryCurrentMonth_Get"></a>
-
-> Code samples
-
-```shell
-# You can also use wget
-curl -X GET http://api.agentivity.com/SalesPerCountryCurrentMonth \
-  -H 'Accept: application/json' \
-  -H 'Accept: application/json'
-
-```
-
-```javascript
-var headers = {
-  'Accept':'application/json',
-  'Accept':'application/json'
-
-};
-
-$.ajax({
-  url: 'http://api.agentivity.com/SalesPerCountryCurrentMonth',
-  method: 'get',
-
-  headers: headers,
-  success: function(data) {
-    console.log(JSON.stringify(data));
-  }
-})
-
-```
-
-```python
-import requests
-headers = {
-  'Accept': 'application/json',
-  'Accept': 'application/json'
-}
-
-r = requests.get('http://api.agentivity.com/SalesPerCountryCurrentMonth', params={
-
-}, headers = headers)
-
-print r.json()
-
-```
-
-```java
-URL obj = new URL("http://api.agentivity.com/SalesPerCountryCurrentMonth");
-HttpURLConnection con = (HttpURLConnection) obj.openConnection();
-con.setRequestMethod("GET");
-int responseCode = con.getResponseCode();
-BufferedReader in = new BufferedReader(
-    new InputStreamReader(con.getInputStream()));
-String inputLine;
-StringBuffer response = new StringBuffer();
-while ((inputLine = in.readLine()) != null) {
-    response.append(inputLine);
-}
-in.close();
-System.out.println(response.toString());
-
-```
-
-`GET /SalesPerCountryCurrentMonth`
-
-<h3 id="getsalespercountrycurrentmonth_get-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|Offset|query|string|false|Starting Record|
-|Limit|query|string|false|Number of records to return (PageSize)|
-|TotalRecords|query|string(int32)|false|Total Number of Records in a Full Reponse (if no paging)|
-|ResponseRecords|query|string(int32)|false|Total NUmber of Records in this Reponse (on this page)|
-|Accept|header|string|true|Accept Header|
-
-#### Enumerated Values
-
-|Parameter|Value|
-|---|---|
-|Accept|application/json|
-
-
-
-> Default Response
-
-```json
-{
-  "ResponseMetadata": {
-    "Success": true,
-    "HasCache": true,
-    "HasPaging": true,
-    "CacheMetadata": {
-      "IsFromCache": true,
-      "CachedAt": "2019-03-18T11:42:49Z",
-      "CacheExpiresAt": "2019-03-18T11:42:49Z"
-    },
-    "PagingMetadata": {
-      "Limit": "string",
-      "Offset": "string",
-      "ResponseRecords": "string",
-      "TotalRecords": "string"
-    }
-  },
-  "ResponseReport": [
-    {
-      "Country": "string",
-      "Revenue": 0
-    }
-  ],
-  "ResponseError": {
-    "ErrorCode": "string",
-    "Message": "string",
-    "StatusCode": "string",
-    "VerboseMessage": "string"
-  }
-}
-```
-
-<h3 id="getsalespercountrycurrentmonth_get-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|default|Default|Default response|[SalesPerCountryCurrentMonthResponse](#schemasalespercountrycurrentmonthresponse)|
 
 
 
@@ -24579,702 +25962,14 @@ System.out.println(response.toString());
 
 
 
-<h1 id="agentivity-api-segments">segments</h1>
 
-## SegmentsByPNRpnr_Get
 
-<a id="opIdSegmentsByPNRpnr_Get"></a>
 
-> Code samples
 
-```shell
-# You can also use wget
-curl -X GET http://api.agentivity.com/segments/pnr?RecordLocator=string \
-  -H 'Accept: application/json' \
-  -H 'Accept: application/json'
 
-```
 
-```javascript
-var headers = {
-  'Accept':'application/json',
-  'Accept':'application/json'
 
-};
 
-$.ajax({
-  url: 'http://api.agentivity.com/segments/pnr',
-  method: 'get',
-  data: '?RecordLocator=string',
-  headers: headers,
-  success: function(data) {
-    console.log(JSON.stringify(data));
-  }
-})
-
-```
-
-```python
-import requests
-headers = {
-  'Accept': 'application/json',
-  'Accept': 'application/json'
-}
-
-r = requests.get('http://api.agentivity.com/segments/pnr', params={
-  'RecordLocator': 'string'
-}, headers = headers)
-
-print r.json()
-
-```
-
-```java
-URL obj = new URL("http://api.agentivity.com/segments/pnr?RecordLocator=string");
-HttpURLConnection con = (HttpURLConnection) obj.openConnection();
-con.setRequestMethod("GET");
-int responseCode = con.getResponseCode();
-BufferedReader in = new BufferedReader(
-    new InputStreamReader(con.getInputStream()));
-String inputLine;
-StringBuffer response = new StringBuffer();
-while ((inputLine = in.readLine()) != null) {
-    response.append(inputLine);
-}
-in.close();
-System.out.println(response.toString());
-
-```
-
-`GET /segments/pnr`
-
-<h3 id="segmentsbypnrpnr_get-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|RecordLocator|query|string|true|RecordLocator|
-|PNRCreationDate|query|string|false|Start Date in format YYYYMMDD|
-|SegmentType|query|string|false|Type of segment|
-|PassiveSegmentType|query|string|false|Type of passive segment|
-|Accept|header|string|true|Accept Header|
-
-#### Enumerated Values
-
-|Parameter|Value|
-|---|---|
-|Accept|application/json|
-
-
-
-> Default Response
-
-```json
-{
-  "ResponseMetadata": {
-    "Success": true,
-    "HasCache": true,
-    "HasPaging": true,
-    "CacheMetadata": {
-      "IsFromCache": true,
-      "CachedAt": "2019-03-18T11:42:49Z",
-      "CacheExpiresAt": "2019-03-18T11:42:49Z"
-    },
-    "PagingMetadata": {
-      "Limit": "string",
-      "Offset": "string",
-      "ResponseRecords": "string",
-      "TotalRecords": "string"
-    }
-  },
-  "ResponseReport": {
-    "PNRSummary": {
-      "RecordLocator": "string",
-      "AirlineReferences": {
-        "Capacity": 0,
-        "Count": 0,
-        "Item": {
-          "Vendor": "string",
-          "VendorLocator": "string"
-        }
-      },
-      "Tickets": {
-        "Capacity": 0,
-        "Count": 0,
-        "Item": {
-          "TktNumber": "string",
-          "Passenger": {
-            "LastName": "string",
-            "FirstName": "string"
-          },
-          "Coupons": {
-            "Capacity": 0,
-            "Count": 0,
-            "Item": {
-              "CouponSequenceNbr": "string",
-              "CouponBoardPoint": "string",
-              "CouponOffPoint": "string",
-              "Carrier": "string",
-              "FlightNbr": "string",
-              "FlightDate": "string",
-              "FlightTime": "string"
-            }
-          }
-        }
-      }
-    },
-    "Segments": {
-      "AirSegments": [
-        {
-          "AirSegmentNbr": 0,
-          "ArrivalTime": "string",
-          "BoardPoint": "string",
-          "BookingCode": "string",
-          "CarrierCode": "string",
-          "ChangeOfDay": "string",
-          "ConnectionIndicator": "string",
-          "DepartureDate": "string",
-          "DepartureTime": "string",
-          "FlightNbr": "string",
-          "JourneyTime": "string",
-          "NbrSeats": 0,
-          "OffPoint": "string",
-          "OperatingCarrierCode": "string",
-          "OperatingCarrierName": "string",
-          "SeatingData": {
-            "Capacity": 0,
-            "Count": 0,
-            "Item": {
-              "SeatLocation": "string",
-              "SeatStatusCode": "string"
-            }
-          },
-          "SegmentStatus": "string"
-        }
-      ],
-      "CarSegments": [
-        {
-          "AirportCode": "string",
-          "CarAddress": "string",
-          "CarLocationCategory": "string",
-          "CarRateCode": "string",
-          "CarRateType": "string",
-          "CarSegmentNbr": 0,
-          "CarType": "string",
-          "CarVendorCode": "string",
-          "CarYieldManagementNbr": "string",
-          "ConfirmationNbr": "string",
-          "CurrencyCode": "string",
-          "DistanceAllowance": "string",
-          "DistanceRateAmount": "string",
-          "DropOffDate": "string",
-          "DropOffTime": "string",
-          "MilesKilometerIndicator": "string",
-          "NbrOfCars": 0,
-          "PickUpDate": "string",
-          "PickUpTime": "string",
-          "RateAmount": "string",
-          "RateGuaranteeIndicator": "string",
-          "SegmentStatus": "string"
-        }
-      ],
-      "HotelSegments": [
-        {
-          "HotelSegmentNbr": "string",
-          "StatusCode": "string",
-          "ArrivalDate": "string",
-          "DepartureDate": "string",
-          "PropertyName": "string",
-          "ChainCode": "string",
-          "ChainName": "string",
-          "CityCode": "string",
-          "CityName": "string",
-          "CountryCode": "string",
-          "CountryName": "string",
-          "Passenger": "string",
-          "Account": "string",
-          "ConfirmationNbr": "string",
-          "Currency": "string",
-          "Rate": "string",
-          "RoomBookingCode": "string",
-          "NbrNights": 0,
-          "MultiLevelRateCode": "string",
-          "NbrRooms": 0,
-          "BookedInName": "string",
-          "ServiceInformation": "string",
-          "PropertyCityCode": "string",
-          "SegmentStatus": "string",
-          "HotelVendorCode": "string"
-        }
-      ],
-      "PassiveSegments": [
-        {
-          "Address": "string",
-          "BookingReasonCode": "string",
-          "BookingSource": "string",
-          "CityCode": "string",
-          "CommissionInformation": "string",
-          "ConfirmationNumber": "string",
-          "DepartureDate": "string",
-          "NbrNights": "string",
-          "Passenger": "string",
-          "PropertyName": "string",
-          "PropertyNumber": "string",
-          "RateAccessCode": "string",
-          "RateCode": "string",
-          "RateQuoted": "string",
-          "SegmentStatus": "string",
-          "SegmentType": "string",
-          "ServiceInformation": "string",
-          "StartDate": "string",
-          "Text": "string",
-          "VendorCode": "string"
-        }
-      ]
-    }
-  },
-  "ResponseError": {
-    "ErrorCode": "string",
-    "Message": "string",
-    "StatusCode": "string",
-    "VerboseMessage": "string"
-  }
-}
-```
-
-<h3 id="segmentsbypnrpnr_get-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|default|Default|Default response|[SegmentsByPNRResponse](#schemasegmentsbypnrresponse)|
-
-
-
-<h1 id="agentivity-api-segmentsqc">SegmentsQC</h1>
-
-## SegmentsQCuser_Get
-
-<a id="opIdSegmentsQCuser_Get"></a>
-
-> Code samples
-
-```shell
-# You can also use wget
-curl -X GET http://api.agentivity.com/SegmentsQC/user \
-  -H 'Accept: application/json' \
-  -H 'Accept: application/json'
-
-```
-
-```javascript
-var headers = {
-  'Accept':'application/json',
-  'Accept':'application/json'
-
-};
-
-$.ajax({
-  url: 'http://api.agentivity.com/SegmentsQC/user',
-  method: 'get',
-
-  headers: headers,
-  success: function(data) {
-    console.log(JSON.stringify(data));
-  }
-})
-
-```
-
-```python
-import requests
-headers = {
-  'Accept': 'application/json',
-  'Accept': 'application/json'
-}
-
-r = requests.get('http://api.agentivity.com/SegmentsQC/user', params={
-
-}, headers = headers)
-
-print r.json()
-
-```
-
-```java
-URL obj = new URL("http://api.agentivity.com/SegmentsQC/user");
-HttpURLConnection con = (HttpURLConnection) obj.openConnection();
-con.setRequestMethod("GET");
-int responseCode = con.getResponseCode();
-BufferedReader in = new BufferedReader(
-    new InputStreamReader(con.getInputStream()));
-String inputLine;
-StringBuffer response = new StringBuffer();
-while ((inputLine = in.readLine()) != null) {
-    response.append(inputLine);
-}
-in.close();
-System.out.println(response.toString());
-
-```
-
-`GET /SegmentsQC/user`
-
-<h3 id="segmentsqcuser_get-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|Offset|query|string|false|Starting Record|
-|Limit|query|string|false|Number of records to return (PageSize)|
-|TotalRecords|query|string(int32)|false|Total Number of Records in a Full Reponse (if no paging)|
-|ResponseRecords|query|string(int32)|false|Total NUmber of Records in this Reponse (on this page)|
-|Accept|header|string|true|Accept Header|
-
-#### Enumerated Values
-
-|Parameter|Value|
-|---|---|
-|Accept|application/json|
-
-
-
-> Default Response
-
-```json
-{
-  "ResponseMetadata": {
-    "Success": true,
-    "HasCache": true,
-    "HasPaging": true,
-    "CacheMetadata": {
-      "IsFromCache": true,
-      "CachedAt": "2019-03-18T11:42:49Z",
-      "CacheExpiresAt": "2019-03-18T11:42:49Z"
-    },
-    "PagingMetadata": {
-      "Limit": "string",
-      "Offset": "string",
-      "ResponseRecords": "string",
-      "TotalRecords": "string"
-    }
-  },
-  "ResponseReport": {
-    "Item": {
-      "AgentivityRef": 0,
-      "RecordLocator": "string",
-      "OwningConsultant": "string",
-      "Passenger": "string",
-      "Account": "string",
-      "BoardPoint": "string",
-      "OffPoint": "string",
-      "DepartureTime": "string",
-      "BookingClass": "string",
-      "SegmentStatus": "string",
-      "CarrierCode": "string",
-      "FlightNbr": "string",
-      "FlightNumberFromatted": "string",
-      "SeatCheck": "string",
-      "SeatFormatted": "string",
-      "MealCheck": "string",
-      "MealFormatted": "string",
-      "ChauffeurDesc": "string",
-      "TransferDesc": "string",
-      "CarsFormatted": "string",
-      "HoteCheck": "string",
-      "Hotels": "string",
-      "ShuttleDesc": "string",
-      "TourDesc": "string",
-      "FrequentFlyerNumbers": "string",
-      "PnrTicketed": "string",
-      "TicketNumber": "string",
-      "Comments": "string",
-      "OpsComments": "string",
-      "IsVip": true
-    }
-  },
-  "ResponseError": {
-    "ErrorCode": "string",
-    "Message": "string",
-    "StatusCode": "string",
-    "VerboseMessage": "string"
-  }
-}
-```
-
-<h3 id="segmentsqcuser_get-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|default|Default|Default response|[SegmentsQCItemResponse](#schemasegmentsqcitemresponse)|
-
-
-
-
-<h1 id="agentivity-api-supplierpreferences">supplierpreferences</h1>
-
-## SupplierPreferencesByOwningAgencyLocationIDowningagencylocation_Get
-
-<a id="opIdSupplierPreferencesByOwningAgencyLocationIDowningagencylocation_Get"></a>
-
-> Code samples
-
-```shell
-# You can also use wget
-curl -X GET http://api.agentivity.com/supplierpreferences/owningagencylocation \
-  -H 'Accept: application/json' \
-  -H 'Accept: application/json'
-
-```
-
-```javascript
-var headers = {
-  'Accept':'application/json',
-  'Accept':'application/json'
-
-};
-
-$.ajax({
-  url: 'http://api.agentivity.com/supplierpreferences/owningagencylocation',
-  method: 'get',
-
-  headers: headers,
-  success: function(data) {
-    console.log(JSON.stringify(data));
-  }
-})
-
-```
-
-```python
-import requests
-headers = {
-  'Accept': 'application/json',
-  'Accept': 'application/json'
-}
-
-r = requests.get('http://api.agentivity.com/supplierpreferences/owningagencylocation', params={
-
-}, headers = headers)
-
-print r.json()
-
-```
-
-```java
-URL obj = new URL("http://api.agentivity.com/supplierpreferences/owningagencylocation");
-HttpURLConnection con = (HttpURLConnection) obj.openConnection();
-con.setRequestMethod("GET");
-int responseCode = con.getResponseCode();
-BufferedReader in = new BufferedReader(
-    new InputStreamReader(con.getInputStream()));
-String inputLine;
-StringBuffer response = new StringBuffer();
-while ((inputLine = in.readLine()) != null) {
-    response.append(inputLine);
-}
-in.close();
-System.out.println(response.toString());
-
-```
-
-`GET /supplierpreferences/owningagencylocation`
-
-<h3 id="supplierpreferencesbyowningagencylocationidowningagencylocation_get-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|Offset|query|string|false|Starting Record|
-|Limit|query|string|false|Number of records to return (PageSize)|
-|TotalRecords|query|string(int32)|false|Total Number of Records in a Full Reponse (if no paging)|
-|ResponseRecords|query|string(int32)|false|Total NUmber of Records in this Reponse (on this page)|
-|Accept|header|string|true|Accept Header|
-
-#### Enumerated Values
-
-|Parameter|Value|
-|---|---|
-|Accept|application/json|
-
-
-
-> Default Response
-
-```json
-{
-  "ResponseMetadata": {
-    "Success": true,
-    "HasCache": true,
-    "HasPaging": true,
-    "CacheMetadata": {
-      "IsFromCache": true,
-      "CachedAt": "2019-03-18T11:42:49Z",
-      "CacheExpiresAt": "2019-03-18T11:42:49Z"
-    },
-    "PagingMetadata": {
-      "Limit": "string",
-      "Offset": "string",
-      "ResponseRecords": "string",
-      "TotalRecords": "string"
-    }
-  },
-  "ResponseReport": {
-    "PNRSummary": {
-      "RecordLocator": "string",
-      "AirlineReferences": {
-        "Capacity": 0,
-        "Count": 0,
-        "Item": {
-          "Vendor": "string",
-          "VendorLocator": "string"
-        }
-      },
-      "Tickets": {
-        "Capacity": 0,
-        "Count": 0,
-        "Item": {
-          "TktNumber": "string",
-          "Passenger": {
-            "LastName": "string",
-            "FirstName": "string"
-          },
-          "Coupons": {
-            "Capacity": 0,
-            "Count": 0,
-            "Item": {
-              "CouponSequenceNbr": "string",
-              "CouponBoardPoint": "string",
-              "CouponOffPoint": "string",
-              "Carrier": "string",
-              "FlightNbr": "string",
-              "FlightDate": "string",
-              "FlightTime": "string"
-            }
-          }
-        }
-      }
-    },
-    "Segments": {
-      "AirSegments": [
-        {
-          "AirSegmentNbr": 0,
-          "ArrivalTime": "string",
-          "BoardPoint": "string",
-          "BookingCode": "string",
-          "CarrierCode": "string",
-          "ChangeOfDay": "string",
-          "ConnectionIndicator": "string",
-          "DepartureDate": "string",
-          "DepartureTime": "string",
-          "FlightNbr": "string",
-          "JourneyTime": "string",
-          "NbrSeats": 0,
-          "OffPoint": "string",
-          "OperatingCarrierCode": "string",
-          "OperatingCarrierName": "string",
-          "SeatingData": {
-            "Capacity": 0,
-            "Count": 0,
-            "Item": {
-              "SeatLocation": "string",
-              "SeatStatusCode": "string"
-            }
-          },
-          "SegmentStatus": "string"
-        }
-      ],
-      "CarSegments": [
-        {
-          "AirportCode": "string",
-          "CarAddress": "string",
-          "CarLocationCategory": "string",
-          "CarRateCode": "string",
-          "CarRateType": "string",
-          "CarSegmentNbr": 0,
-          "CarType": "string",
-          "CarVendorCode": "string",
-          "CarYieldManagementNbr": "string",
-          "ConfirmationNbr": "string",
-          "CurrencyCode": "string",
-          "DistanceAllowance": "string",
-          "DistanceRateAmount": "string",
-          "DropOffDate": "string",
-          "DropOffTime": "string",
-          "MilesKilometerIndicator": "string",
-          "NbrOfCars": 0,
-          "PickUpDate": "string",
-          "PickUpTime": "string",
-          "RateAmount": "string",
-          "RateGuaranteeIndicator": "string",
-          "SegmentStatus": "string"
-        }
-      ],
-      "HotelSegments": [
-        {
-          "HotelSegmentNbr": "string",
-          "StatusCode": "string",
-          "ArrivalDate": "string",
-          "DepartureDate": "string",
-          "PropertyName": "string",
-          "ChainCode": "string",
-          "ChainName": "string",
-          "CityCode": "string",
-          "CityName": "string",
-          "CountryCode": "string",
-          "CountryName": "string",
-          "Passenger": "string",
-          "Account": "string",
-          "ConfirmationNbr": "string",
-          "Currency": "string",
-          "Rate": "string",
-          "RoomBookingCode": "string",
-          "NbrNights": 0,
-          "MultiLevelRateCode": "string",
-          "NbrRooms": 0,
-          "BookedInName": "string",
-          "ServiceInformation": "string",
-          "PropertyCityCode": "string",
-          "SegmentStatus": "string",
-          "HotelVendorCode": "string"
-        }
-      ],
-      "PassiveSegments": [
-        {
-          "Address": "string",
-          "BookingReasonCode": "string",
-          "BookingSource": "string",
-          "CityCode": "string",
-          "CommissionInformation": "string",
-          "ConfirmationNumber": "string",
-          "DepartureDate": "string",
-          "NbrNights": "string",
-          "Passenger": "string",
-          "PropertyName": "string",
-          "PropertyNumber": "string",
-          "RateAccessCode": "string",
-          "RateCode": "string",
-          "RateQuoted": "string",
-          "SegmentStatus": "string",
-          "SegmentType": "string",
-          "ServiceInformation": "string",
-          "StartDate": "string",
-          "Text": "string",
-          "VendorCode": "string"
-        }
-      ]
-    }
-  },
-  "ResponseError": {
-    "ErrorCode": "string",
-    "Message": "string",
-    "StatusCode": "string",
-    "VerboseMessage": "string"
-  }
-}
-```
-
-<h3 id="supplierpreferencesbyowningagencylocationidowningagencylocation_get-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|default|Default|Default response|[SupplierPreferencesByOwningAgencyLocationIDResponse](#schemasupplierpreferencesbyowningagencylocationidresponse)|
 
 
 
@@ -25413,1826 +26108,21 @@ System.out.println(response.toString());
 
 
 
-<h1 id="agentivity-api-ticketcouponcodes">TicketCouponCodes</h1>
 
-## GetTicketCouponCodesuser_Get
 
-<a id="opIdGetTicketCouponCodesuser_Get"></a>
 
-> Code samples
 
-```shell
-# You can also use wget
-curl -X GET http://api.agentivity.com/TicketCouponCodes/user \
-  -H 'Accept: application/json' \
-  -H 'Accept: application/json'
 
-```
 
-```javascript
-var headers = {
-  'Accept':'application/json',
-  'Accept':'application/json'
 
-};
 
-$.ajax({
-  url: 'http://api.agentivity.com/TicketCouponCodes/user',
-  method: 'get',
 
-  headers: headers,
-  success: function(data) {
-    console.log(JSON.stringify(data));
-  }
-})
 
-```
 
-```python
-import requests
-headers = {
-  'Accept': 'application/json',
-  'Accept': 'application/json'
-}
 
-r = requests.get('http://api.agentivity.com/TicketCouponCodes/user', params={
 
-}, headers = headers)
 
-print r.json()
 
-```
-
-```java
-URL obj = new URL("http://api.agentivity.com/TicketCouponCodes/user");
-HttpURLConnection con = (HttpURLConnection) obj.openConnection();
-con.setRequestMethod("GET");
-int responseCode = con.getResponseCode();
-BufferedReader in = new BufferedReader(
-    new InputStreamReader(con.getInputStream()));
-String inputLine;
-StringBuffer response = new StringBuffer();
-while ((inputLine = in.readLine()) != null) {
-    response.append(inputLine);
-}
-in.close();
-System.out.println(response.toString());
-
-```
-
-`GET /TicketCouponCodes/user`
-
-<h3 id="getticketcouponcodesuser_get-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|Offset|query|string|false|Starting Record|
-|Limit|query|string|false|Number of records to return (PageSize)|
-|TotalRecords|query|string(int32)|false|Total Number of Records in a Full Reponse (if no paging)|
-|ResponseRecords|query|string(int32)|false|Total NUmber of Records in this Reponse (on this page)|
-|Accept|header|string|true|Accept Header|
-
-#### Enumerated Values
-
-|Parameter|Value|
-|---|---|
-|Accept|application/json|
-
-
-
-> Default Response
-
-```json
-{
-  "ResponseMetadata": {
-    "Success": true,
-    "HasCache": true,
-    "HasPaging": true,
-    "CacheMetadata": {
-      "IsFromCache": true,
-      "CachedAt": "2019-03-18T11:42:49Z",
-      "CacheExpiresAt": "2019-03-18T11:42:49Z"
-    },
-    "PagingMetadata": {
-      "Limit": "string",
-      "Offset": "string",
-      "ResponseRecords": "string",
-      "TotalRecords": "string"
-    }
-  },
-  "ResponseReport": [
-    {
-      "CouponCode": "string",
-      "Name": "string",
-      "IsGroup": true
-    }
-  ],
-  "ResponseError": {
-    "ErrorCode": "string",
-    "Message": "string",
-    "StatusCode": "string",
-    "VerboseMessage": "string"
-  }
-}
-```
-
-<h3 id="getticketcouponcodesuser_get-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|default|Default|Default response|[TicketCouponCodesResponse](#schematicketcouponcodesresponse)|
-
-
-
-
-<h1 id="agentivity-api-ticketcouponsbystatuscode">TicketCouponsByStatusCode</h1>
-
-## GetTicketCouponsByStatusCodeuser_Get
-
-<a id="opIdGetTicketCouponsByStatusCodeuser_Get"></a>
-
-> Code samples
-
-```shell
-# You can also use wget
-curl -X GET http://api.agentivity.com/TicketCouponsByStatusCode/user \
-  -H 'Accept: application/json' \
-  -H 'Accept: application/json'
-
-```
-
-```javascript
-var headers = {
-  'Accept':'application/json',
-  'Accept':'application/json'
-
-};
-
-$.ajax({
-  url: 'http://api.agentivity.com/TicketCouponsByStatusCode/user',
-  method: 'get',
-
-  headers: headers,
-  success: function(data) {
-    console.log(JSON.stringify(data));
-  }
-})
-
-```
-
-```python
-import requests
-headers = {
-  'Accept': 'application/json',
-  'Accept': 'application/json'
-}
-
-r = requests.get('http://api.agentivity.com/TicketCouponsByStatusCode/user', params={
-
-}, headers = headers)
-
-print r.json()
-
-```
-
-```java
-URL obj = new URL("http://api.agentivity.com/TicketCouponsByStatusCode/user");
-HttpURLConnection con = (HttpURLConnection) obj.openConnection();
-con.setRequestMethod("GET");
-int responseCode = con.getResponseCode();
-BufferedReader in = new BufferedReader(
-    new InputStreamReader(con.getInputStream()));
-String inputLine;
-StringBuffer response = new StringBuffer();
-while ((inputLine = in.readLine()) != null) {
-    response.append(inputLine);
-}
-in.close();
-System.out.println(response.toString());
-
-```
-
-`GET /TicketCouponsByStatusCode/user`
-
-<h3 id="getticketcouponsbystatuscodeuser_get-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|Offset|query|string|false|Starting Record|
-|Limit|query|string|false|Number of records to return (PageSize)|
-|TotalRecords|query|string(int32)|false|Total Number of Records in a Full Reponse (if no paging)|
-|ResponseRecords|query|string(int32)|false|Total NUmber of Records in this Reponse (on this page)|
-|Accept|header|string|true|Accept Header|
-
-#### Enumerated Values
-
-|Parameter|Value|
-|---|---|
-|Accept|application/json|
-
-
-
-> Default Response
-
-```json
-{
-  "ResponseMetadata": {
-    "Success": true,
-    "HasCache": true,
-    "HasPaging": true,
-    "CacheMetadata": {
-      "IsFromCache": true,
-      "CachedAt": "2019-03-18T11:42:49Z",
-      "CacheExpiresAt": "2019-03-18T11:42:49Z"
-    },
-    "PagingMetadata": {
-      "Limit": "string",
-      "Offset": "string",
-      "ResponseRecords": "string",
-      "TotalRecords": "string"
-    }
-  },
-  "ResponseReport": [
-    {
-      "RN": "string",
-      "AirTktSegId": "string",
-      "VndIssueDt": "2019-03-18T11:42:49Z",
-      "RecordLocator": "string",
-      "Passenger": "string",
-      "TktNumber": "string",
-      "TravAgntID": "string",
-      "OwningConsultantID": "string",
-      "FOPFare": "string",
-      "BaseFare": "string",
-      "FOP": "string",
-      "TotalTax": "string",
-      "Tax1Code": "string",
-      "Tax1Amt": "string",
-      "Tax2Code": "string",
-      "Tax2Amt": "string",
-      "Tax3Code": "string",
-      "Tax3Amt": "string",
-      "Tax4Amt": "string",
-      "Tax4Code": "string",
-      "Tax5Code": "string",
-      "Tax5Amt": "string",
-      "Account": "string",
-      "ExchangedForTicket": "string",
-      "CouponSequenceNbr": "string",
-      "Carrier": "string",
-      "BoardPoint": "string",
-      "OffPoint": "string",
-      "FlightDate": "2019-03-18T11:42:49Z",
-      "FlightServiceClass": "string",
-      "FareBasis": "string",
-      "FlightCouponStatus": "string",
-      "DateLastChecked": "2019-03-18T11:42:49Z",
-      "PCC": "string",
-      "AirlineCode": "string"
-    }
-  ],
-  "ResponseError": {
-    "ErrorCode": "string",
-    "Message": "string",
-    "StatusCode": "string",
-    "VerboseMessage": "string"
-  }
-}
-```
-
-<h3 id="getticketcouponsbystatuscodeuser_get-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|default|Default|Default response|[TicketCouponsByStatusCodeResponse](#schematicketcouponsbystatuscoderesponse)|
-
-
-
-
-<h1 id="agentivity-api-ticketdetails">TicketDetails</h1>
-
-## TicketDetailsuser_Get
-
-<a id="opIdTicketDetailsuser_Get"></a>
-
-> Code samples
-
-```shell
-# You can also use wget
-curl -X GET http://api.agentivity.com/TicketDetails/user \
-  -H 'Accept: application/json' \
-  -H 'Accept: application/json'
-
-```
-
-```javascript
-var headers = {
-  'Accept':'application/json',
-  'Accept':'application/json'
-
-};
-
-$.ajax({
-  url: 'http://api.agentivity.com/TicketDetails/user',
-  method: 'get',
-
-  headers: headers,
-  success: function(data) {
-    console.log(JSON.stringify(data));
-  }
-})
-
-```
-
-```python
-import requests
-headers = {
-  'Accept': 'application/json',
-  'Accept': 'application/json'
-}
-
-r = requests.get('http://api.agentivity.com/TicketDetails/user', params={
-
-}, headers = headers)
-
-print r.json()
-
-```
-
-```java
-URL obj = new URL("http://api.agentivity.com/TicketDetails/user");
-HttpURLConnection con = (HttpURLConnection) obj.openConnection();
-con.setRequestMethod("GET");
-int responseCode = con.getResponseCode();
-BufferedReader in = new BufferedReader(
-    new InputStreamReader(con.getInputStream()));
-String inputLine;
-StringBuffer response = new StringBuffer();
-while ((inputLine = in.readLine()) != null) {
-    response.append(inputLine);
-}
-in.close();
-System.out.println(response.toString());
-
-```
-
-`GET /TicketDetails/user`
-
-<h3 id="ticketdetailsuser_get-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|Offset|query|string|false|Starting Record|
-|Limit|query|string|false|Number of records to return (PageSize)|
-|TotalRecords|query|string(int32)|false|Total Number of Records in a Full Reponse (if no paging)|
-|ResponseRecords|query|string(int32)|false|Total NUmber of Records in this Reponse (on this page)|
-|Accept|header|string|true|Accept Header|
-
-#### Enumerated Values
-
-|Parameter|Value|
-|---|---|
-|Accept|application/json|
-
-
-
-> Default Response
-
-```json
-{
-  "ResponseMetadata": {
-    "Success": true,
-    "HasCache": true,
-    "HasPaging": true,
-    "CacheMetadata": {
-      "IsFromCache": true,
-      "CachedAt": "2019-03-18T11:42:49Z",
-      "CacheExpiresAt": "2019-03-18T11:42:49Z"
-    },
-    "PagingMetadata": {
-      "Limit": "string",
-      "Offset": "string",
-      "ResponseRecords": "string",
-      "TotalRecords": "string"
-    }
-  },
-  "ResponseReport": {
-    "Item": {
-      "TktNumber": "string",
-      "RecordLocator": "string",
-      "PNRCreationDate": "2019-03-18T11:42:49Z",
-      "TktIssueDate": "2019-03-18T11:42:49Z",
-      "PlatingCarrier": "string",
-      "Status": "string",
-      "BAR": "string",
-      "PAR": "string",
-      "LastName": "string",
-      "FirstName": "string",
-      "TicketExpiryDate": "2019-03-18T11:42:49Z",
-      "FOP": "string",
-      "FopFare": "string",
-      "FOPCurrency": "string",
-      "PrintedCurrency": "string",
-      "PrintedFare": "string",
-      "CreditCardFOPAcct": "string",
-      "OwningAgencyLocationID": "string",
-      "IATA": "string",
-      "Coupons": [
-        {
-          "TktNumber": "string",
-          "Carrier": "string",
-          "CouponSequenceNbr": 0,
-          "FlightNbr": "string",
-          "BoardPoint": "string",
-          "OffPoint": "string",
-          "FlightServiceClass": "string",
-          "FlightDate": "2019-03-18T11:42:49Z",
-          "FlightCouponStatus": "string",
-          "DateLastChecked": "2019-03-18T11:42:49Z",
-          "AirTktSegId": 0,
-          "EligibleForRefund": true
-        }
-      ],
-      "EligibleForRefund": true
-    }
-  },
-  "ResponseError": {
-    "ErrorCode": "string",
-    "Message": "string",
-    "StatusCode": "string",
-    "VerboseMessage": "string"
-  }
-}
-```
-
-<h3 id="ticketdetailsuser_get-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|default|Default|Default response|[TicketDetailsItemResponse](#schematicketdetailsitemresponse)|
-
-
-
-
-<h1 id="agentivity-api-ticketingstats">ticketingstats</h1>
-
-## TicketingStatsRequest_Get
-
-<a id="opIdTicketingStatsRequest_Get"></a>
-
-> Code samples
-
-```shell
-# You can also use wget
-curl -X GET http://api.agentivity.com/ticketingstats \
-  -H 'Accept: application/json' \
-  -H 'Accept: application/json'
-
-```
-
-```javascript
-var headers = {
-  'Accept':'application/json',
-  'Accept':'application/json'
-
-};
-
-$.ajax({
-  url: 'http://api.agentivity.com/ticketingstats',
-  method: 'get',
-
-  headers: headers,
-  success: function(data) {
-    console.log(JSON.stringify(data));
-  }
-})
-
-```
-
-```python
-import requests
-headers = {
-  'Accept': 'application/json',
-  'Accept': 'application/json'
-}
-
-r = requests.get('http://api.agentivity.com/ticketingstats', params={
-
-}, headers = headers)
-
-print r.json()
-
-```
-
-```java
-URL obj = new URL("http://api.agentivity.com/ticketingstats");
-HttpURLConnection con = (HttpURLConnection) obj.openConnection();
-con.setRequestMethod("GET");
-int responseCode = con.getResponseCode();
-BufferedReader in = new BufferedReader(
-    new InputStreamReader(con.getInputStream()));
-String inputLine;
-StringBuffer response = new StringBuffer();
-while ((inputLine = in.readLine()) != null) {
-    response.append(inputLine);
-}
-in.close();
-System.out.println(response.toString());
-
-```
-
-`GET /ticketingstats`
-
-<h3 id="ticketingstatsrequest_get-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|Offset|query|string|false|Starting Record|
-|Limit|query|string|false|Number of records to return (PageSize)|
-|TotalRecords|query|string(int32)|false|Total Number of Records in a Full Reponse (if no paging)|
-|ResponseRecords|query|string(int32)|false|Total NUmber of Records in this Reponse (on this page)|
-|Accept|header|string|true|Accept Header|
-
-#### Enumerated Values
-
-|Parameter|Value|
-|---|---|
-|Accept|application/json|
-
-
-
-> Default Response
-
-```json
-{
-  "ResponseMetadata": {
-    "Success": true,
-    "HasCache": true,
-    "HasPaging": true,
-    "CacheMetadata": {
-      "IsFromCache": true,
-      "CachedAt": "2019-03-18T11:42:49Z",
-      "CacheExpiresAt": "2019-03-18T11:42:49Z"
-    },
-    "PagingMetadata": {
-      "Limit": "string",
-      "Offset": "string",
-      "ResponseRecords": "string",
-      "TotalRecords": "string"
-    }
-  },
-  "ResponseReport": {
-    "Item": {
-      "TraditionalCount": 0,
-      "OnlineCount": 0,
-      "TotalCount": 0,
-      "ChangesCount": 0
-    }
-  },
-  "ResponseError": {
-    "ErrorCode": "string",
-    "Message": "string",
-    "StatusCode": "string",
-    "VerboseMessage": "string"
-  }
-}
-```
-
-<h3 id="ticketingstatsrequest_get-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|default|Default|Default response|[TicketingStatsRequestItemResponse](#schematicketingstatsrequestitemresponse)|
-
-
-
-
-<h1 id="agentivity-api-ticketrevalidations">ticketrevalidations</h1>
-
-## TicketRevalidations_Get
-
-<a id="opIdTicketRevalidations_Get"></a>
-
-> Code samples
-
-```shell
-# You can also use wget
-curl -X GET http://api.agentivity.com/ticketrevalidations \
-  -H 'Accept: application/json' \
-  -H 'Accept: application/json'
-
-```
-
-```javascript
-var headers = {
-  'Accept':'application/json',
-  'Accept':'application/json'
-
-};
-
-$.ajax({
-  url: 'http://api.agentivity.com/ticketrevalidations',
-  method: 'get',
-
-  headers: headers,
-  success: function(data) {
-    console.log(JSON.stringify(data));
-  }
-})
-
-```
-
-```python
-import requests
-headers = {
-  'Accept': 'application/json',
-  'Accept': 'application/json'
-}
-
-r = requests.get('http://api.agentivity.com/ticketrevalidations', params={
-
-}, headers = headers)
-
-print r.json()
-
-```
-
-```java
-URL obj = new URL("http://api.agentivity.com/ticketrevalidations");
-HttpURLConnection con = (HttpURLConnection) obj.openConnection();
-con.setRequestMethod("GET");
-int responseCode = con.getResponseCode();
-BufferedReader in = new BufferedReader(
-    new InputStreamReader(con.getInputStream()));
-String inputLine;
-StringBuffer response = new StringBuffer();
-while ((inputLine = in.readLine()) != null) {
-    response.append(inputLine);
-}
-in.close();
-System.out.println(response.toString());
-
-```
-
-`GET /ticketrevalidations`
-
-<h3 id="ticketrevalidations_get-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|Offset|query|string|false|Starting Record|
-|Limit|query|string|false|Number of records to return (PageSize)|
-|TotalRecords|query|string(int32)|false|Total Number of Records in a Full Reponse (if no paging)|
-|ResponseRecords|query|string(int32)|false|Total NUmber of Records in this Reponse (on this page)|
-|Accept|header|string|true|Accept Header|
-
-#### Enumerated Values
-
-|Parameter|Value|
-|---|---|
-|Accept|application/json|
-
-
-
-> Default Response
-
-```json
-{
-  "ResponseMetadata": {
-    "Success": true,
-    "HasCache": true,
-    "HasPaging": true,
-    "CacheMetadata": {
-      "IsFromCache": true,
-      "CachedAt": "2019-03-18T11:42:49Z",
-      "CacheExpiresAt": "2019-03-18T11:42:49Z"
-    },
-    "PagingMetadata": {
-      "Limit": "string",
-      "Offset": "string",
-      "ResponseRecords": "string",
-      "TotalRecords": "string"
-    }
-  },
-  "ResponseReport": {
-    "Item": {
-      "RecordLocator": "string",
-      "TicketNumber": "string",
-      "IssuedDate": "2019-03-18T11:42:49Z",
-      "Account": "string",
-      "OwningConsultantID": "string",
-      "CouponSequenceNbr": "string",
-      "DepartureDate": "2019-03-18T11:42:49Z",
-      "BoardPoint": "string",
-      "OffPoint": "string",
-      "CarrierCode": "string",
-      "LastChangedDate": "2019-03-18T11:42:49Z"
-    }
-  },
-  "ResponseError": {
-    "ErrorCode": "string",
-    "Message": "string",
-    "StatusCode": "string",
-    "VerboseMessage": "string"
-  }
-}
-```
-
-<h3 id="ticketrevalidations_get-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|default|Default|Default response|[TicketRevalidationsItemResponse](#schematicketrevalidationsitemresponse)|
-
-
-
-<h1 id="agentivity-api-ticketrevenue">ticketrevenue</h1>
-
-## TicketRevenueByCompanycompany_Get
-
-<a id="opIdTicketRevenueByCompanycompany_Get"></a>
-
-> Code samples
-
-```shell
-# You can also use wget
-curl -X GET http://api.agentivity.com/ticketrevenue/company \
-  -H 'Accept: application/json' \
-  -H 'Accept: application/json'
-
-```
-
-```javascript
-var headers = {
-  'Accept':'application/json',
-  'Accept':'application/json'
-
-};
-
-$.ajax({
-  url: 'http://api.agentivity.com/ticketrevenue/company',
-  method: 'get',
-
-  headers: headers,
-  success: function(data) {
-    console.log(JSON.stringify(data));
-  }
-})
-
-```
-
-```python
-import requests
-headers = {
-  'Accept': 'application/json',
-  'Accept': 'application/json'
-}
-
-r = requests.get('http://api.agentivity.com/ticketrevenue/company', params={
-
-}, headers = headers)
-
-print r.json()
-
-```
-
-```java
-URL obj = new URL("http://api.agentivity.com/ticketrevenue/company");
-HttpURLConnection con = (HttpURLConnection) obj.openConnection();
-con.setRequestMethod("GET");
-int responseCode = con.getResponseCode();
-BufferedReader in = new BufferedReader(
-    new InputStreamReader(con.getInputStream()));
-String inputLine;
-StringBuffer response = new StringBuffer();
-while ((inputLine = in.readLine()) != null) {
-    response.append(inputLine);
-}
-in.close();
-System.out.println(response.toString());
-
-```
-
-`GET /ticketrevenue/company`
-
-<h3 id="ticketrevenuebycompanycompany_get-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|CompanyID|query|integer(int32)|false|none|
-|TravelAgentID|query|string|false|none|
-|PlatingCarrier|query|string|false|none|
-|DepartureDateStart|query|string|false|none|
-|DepartureDateEnd|query|string|false|none|
-|FlightCouponStatus|query|string|false|none|
-|AirlineCode|query|string|false|none|
-|Accept|header|string|true|Accept Header|
-
-#### Enumerated Values
-
-|Parameter|Value|
-|---|---|
-|Accept|application/json|
-
-
-
-> Default Response
-
-```json
-{}
-```
-
-<h3 id="ticketrevenuebycompanycompany_get-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|default|Default|Default response|[Object](#schemaobject)|
-
-
-
-<h1 id="agentivity-api-ticketsbyaccount">ticketsbyaccount</h1>
-
-## TicketsByAccount_Get
-
-<a id="opIdTicketsByAccount_Get"></a>
-
-> Code samples
-
-```shell
-# You can also use wget
-curl -X GET http://api.agentivity.com/ticketsbyaccount \
-  -H 'Accept: application/json' \
-  -H 'Accept: application/json'
-
-```
-
-```javascript
-var headers = {
-  'Accept':'application/json',
-  'Accept':'application/json'
-
-};
-
-$.ajax({
-  url: 'http://api.agentivity.com/ticketsbyaccount',
-  method: 'get',
-
-  headers: headers,
-  success: function(data) {
-    console.log(JSON.stringify(data));
-  }
-})
-
-```
-
-```python
-import requests
-headers = {
-  'Accept': 'application/json',
-  'Accept': 'application/json'
-}
-
-r = requests.get('http://api.agentivity.com/ticketsbyaccount', params={
-
-}, headers = headers)
-
-print r.json()
-
-```
-
-```java
-URL obj = new URL("http://api.agentivity.com/ticketsbyaccount");
-HttpURLConnection con = (HttpURLConnection) obj.openConnection();
-con.setRequestMethod("GET");
-int responseCode = con.getResponseCode();
-BufferedReader in = new BufferedReader(
-    new InputStreamReader(con.getInputStream()));
-String inputLine;
-StringBuffer response = new StringBuffer();
-while ((inputLine = in.readLine()) != null) {
-    response.append(inputLine);
-}
-in.close();
-System.out.println(response.toString());
-
-```
-
-`GET /ticketsbyaccount`
-
-<h3 id="ticketsbyaccount_get-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|Offset|query|string|false|Starting Record|
-|Limit|query|string|false|Number of records to return (PageSize)|
-|TotalRecords|query|string(int32)|false|Total Number of Records in a Full Reponse (if no paging)|
-|ResponseRecords|query|string(int32)|false|Total NUmber of Records in this Reponse (on this page)|
-|Accept|header|string|true|Accept Header|
-
-#### Enumerated Values
-
-|Parameter|Value|
-|---|---|
-|Accept|application/json|
-
-
-
-> Default Response
-
-```json
-{
-  "ResponseMetadata": {
-    "Success": true,
-    "HasCache": true,
-    "HasPaging": true,
-    "CacheMetadata": {
-      "IsFromCache": true,
-      "CachedAt": "2019-03-18T11:42:49Z",
-      "CacheExpiresAt": "2019-03-18T11:42:49Z"
-    },
-    "PagingMetadata": {
-      "Limit": "string",
-      "Offset": "string",
-      "ResponseRecords": "string",
-      "TotalRecords": "string"
-    }
-  },
-  "ResponseReport": {
-    "Item": {
-      "AgentivityRef": 0,
-      "RecordLocator": "string",
-      "PNRCreationDate": "2019-03-18T11:42:49Z",
-      "Account": "string",
-      "IssueDate": "2019-03-18T11:42:49Z",
-      "TicketNumber": "string",
-      "PrimaryPassenger": "string",
-      "PlatingCarrier": "string",
-      "IATA": "string"
-    }
-  },
-  "ResponseError": {
-    "ErrorCode": "string",
-    "Message": "string",
-    "StatusCode": "string",
-    "VerboseMessage": "string"
-  }
-}
-```
-
-<h3 id="ticketsbyaccount_get-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|default|Default|Default response|[TicketsByAccountItemResponse](#schematicketsbyaccountitemresponse)|
-
-
-
-<h1 id="agentivity-api-ticketsegments">ticketsegments</h1>
-
-## TicketSegmentsByBARbar_Get
-
-<a id="opIdTicketSegmentsByBARbar_Get"></a>
-
-> Code samples
-
-```shell
-# You can also use wget
-curl -X GET http://api.agentivity.com/ticketsegments/bar \
-  -H 'Accept: application/json' \
-  -H 'Accept: application/json'
-
-```
-
-```javascript
-var headers = {
-  'Accept':'application/json',
-  'Accept':'application/json'
-
-};
-
-$.ajax({
-  url: 'http://api.agentivity.com/ticketsegments/bar',
-  method: 'get',
-
-  headers: headers,
-  success: function(data) {
-    console.log(JSON.stringify(data));
-  }
-})
-
-```
-
-```python
-import requests
-headers = {
-  'Accept': 'application/json',
-  'Accept': 'application/json'
-}
-
-r = requests.get('http://api.agentivity.com/ticketsegments/bar', params={
-
-}, headers = headers)
-
-print r.json()
-
-```
-
-```java
-URL obj = new URL("http://api.agentivity.com/ticketsegments/bar");
-HttpURLConnection con = (HttpURLConnection) obj.openConnection();
-con.setRequestMethod("GET");
-int responseCode = con.getResponseCode();
-BufferedReader in = new BufferedReader(
-    new InputStreamReader(con.getInputStream()));
-String inputLine;
-StringBuffer response = new StringBuffer();
-while ((inputLine = in.readLine()) != null) {
-    response.append(inputLine);
-}
-in.close();
-System.out.println(response.toString());
-
-```
-
-`GET /ticketsegments/bar`
-
-<h3 id="ticketsegmentsbybarbar_get-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|Offset|query|string|false|Starting Record|
-|Limit|query|string|false|Number of records to return (PageSize)|
-|TotalRecords|query|string(int32)|false|Total Number of Records in a Full Reponse (if no paging)|
-|ResponseRecords|query|string(int32)|false|Total NUmber of Records in this Reponse (on this page)|
-|Accept|header|string|true|Accept Header|
-
-#### Enumerated Values
-
-|Parameter|Value|
-|---|---|
-|Accept|application/json|
-
-
-
-> Default Response
-
-```json
-{
-  "ResponseMetadata": {
-    "Success": true,
-    "HasCache": true,
-    "HasPaging": true,
-    "CacheMetadata": {
-      "IsFromCache": true,
-      "CachedAt": "2019-03-18T11:42:49Z",
-      "CacheExpiresAt": "2019-03-18T11:42:49Z"
-    },
-    "PagingMetadata": {
-      "Limit": "string",
-      "Offset": "string",
-      "ResponseRecords": "string",
-      "TotalRecords": "string"
-    }
-  },
-  "ResponseReport": [
-    {
-      "TktNumber": "string",
-      "RecordLocator": "string",
-      "VndIssueDt": "string",
-      "BAR": "string",
-      "PAR": "string",
-      "FOPCurrency": "string",
-      "FOPFare": "string",
-      "Segments": [
-        {
-          "Carrier": "string",
-          "CouponBoardPoint": "string",
-          "CouponOffPoint": "string",
-          "CouponSequenceNbr": 0,
-          "DateLastChecked": "string",
-          "FareBasis": "string",
-          "FlightCouponStatus": "string",
-          "FlightServiceClass": "string",
-          "FlightStatus": "string"
-        }
-      ]
-    }
-  ],
-  "ResponseError": {
-    "ErrorCode": "string",
-    "Message": "string",
-    "StatusCode": "string",
-    "VerboseMessage": "string"
-  }
-}
-```
-
-<h3 id="ticketsegmentsbybarbar_get-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|default|Default|Default response|[TicketSegmentsByBARResponse](#schematicketsegmentsbybarresponse)|
-
-
-
-<h1 id="agentivity-api-ticketsegmentswithtax">ticketsegmentswithtax</h1>
-
-## TicketSegmentsWithTaxByIssueDateuser_Get
-
-<a id="opIdTicketSegmentsWithTaxByIssueDateuser_Get"></a>
-
-> Code samples
-
-```shell
-# You can also use wget
-curl -X GET http://api.agentivity.com/ticketsegmentswithtax/user \
-  -H 'Accept: application/json' \
-  -H 'Accept: application/json'
-
-```
-
-```javascript
-var headers = {
-  'Accept':'application/json',
-  'Accept':'application/json'
-
-};
-
-$.ajax({
-  url: 'http://api.agentivity.com/ticketsegmentswithtax/user',
-  method: 'get',
-
-  headers: headers,
-  success: function(data) {
-    console.log(JSON.stringify(data));
-  }
-})
-
-```
-
-```python
-import requests
-headers = {
-  'Accept': 'application/json',
-  'Accept': 'application/json'
-}
-
-r = requests.get('http://api.agentivity.com/ticketsegmentswithtax/user', params={
-
-}, headers = headers)
-
-print r.json()
-
-```
-
-```java
-URL obj = new URL("http://api.agentivity.com/ticketsegmentswithtax/user");
-HttpURLConnection con = (HttpURLConnection) obj.openConnection();
-con.setRequestMethod("GET");
-int responseCode = con.getResponseCode();
-BufferedReader in = new BufferedReader(
-    new InputStreamReader(con.getInputStream()));
-String inputLine;
-StringBuffer response = new StringBuffer();
-while ((inputLine = in.readLine()) != null) {
-    response.append(inputLine);
-}
-in.close();
-System.out.println(response.toString());
-
-```
-
-`GET /ticketsegmentswithtax/user`
-
-<h3 id="ticketsegmentswithtaxbyissuedateuser_get-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|Offset|query|string|false|Starting Record|
-|Limit|query|string|false|Number of records to return (PageSize)|
-|TotalRecords|query|string(int32)|false|Total Number of Records in a Full Reponse (if no paging)|
-|ResponseRecords|query|string(int32)|false|Total NUmber of Records in this Reponse (on this page)|
-|Accept|header|string|true|Accept Header|
-
-#### Enumerated Values
-
-|Parameter|Value|
-|---|---|
-|Accept|application/json|
-
-
-
-> Default Response
-
-```json
-{
-  "ResponseMetadata": {
-    "Success": true,
-    "HasCache": true,
-    "HasPaging": true,
-    "CacheMetadata": {
-      "IsFromCache": true,
-      "CachedAt": "2019-03-18T11:42:49Z",
-      "CacheExpiresAt": "2019-03-18T11:42:49Z"
-    },
-    "PagingMetadata": {
-      "Limit": "string",
-      "Offset": "string",
-      "ResponseRecords": "string",
-      "TotalRecords": "string"
-    }
-  },
-  "ResponseReport": [
-    {
-      "Recordlocator": "string",
-      "PNRCreationDate": "string",
-      "TicketNumber": "string",
-      "Account": "string",
-      "PrimaryPassenger": "string",
-      "VndIssueDate": "string",
-      "TravelAgentID": "string",
-      "FOPFare": "string",
-      "FOP": "string",
-      "TotalTax": "string",
-      "Tax1Code": "string",
-      "Tax1Amt": "string",
-      "Tax2Code": "string",
-      "Tax2Amt": "string",
-      "Tax3Code": "string",
-      "Tax3Amt": "string",
-      "Tax4Code": "string",
-      "Tax4Amt": "string",
-      "Tax5Code": "string",
-      "Tax5Amt": "string",
-      "ExchangedForTicket": "string",
-      "CouponSequenceNbr": "string",
-      "Carrier": "string",
-      "BoardPoint": "string",
-      "OffPoint": "string",
-      "FlightDate": "string",
-      "FlightServiceClass": "string",
-      "FareBasis": "string",
-      "FlightCouponStatus": "string",
-      "DateLastChecked": "string",
-      "OwningAgencyLocationID": "string"
-    }
-  ],
-  "ResponseError": {
-    "ErrorCode": "string",
-    "Message": "string",
-    "StatusCode": "string",
-    "VerboseMessage": "string"
-  }
-}
-```
-
-<h3 id="ticketsegmentswithtaxbyissuedateuser_get-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|default|Default|Default response|[TicketSegmentsWithTaxByIssueDateResponse](#schematicketsegmentswithtaxbyissuedateresponse)|
-
-
-
-<h1 id="agentivity-api-ticketsissued">TicketsIssued</h1>
-
-## GetTicketsIssueduser_Get
-
-<a id="opIdGetTicketsIssueduser_Get"></a>
-
-> Code samples
-
-```shell
-# You can also use wget
-curl -X GET http://api.agentivity.com/TicketsIssued/user \
-  -H 'Accept: application/json' \
-  -H 'Accept: application/json'
-
-```
-
-```javascript
-var headers = {
-  'Accept':'application/json',
-  'Accept':'application/json'
-
-};
-
-$.ajax({
-  url: 'http://api.agentivity.com/TicketsIssued/user',
-  method: 'get',
-
-  headers: headers,
-  success: function(data) {
-    console.log(JSON.stringify(data));
-  }
-})
-
-```
-
-```python
-import requests
-headers = {
-  'Accept': 'application/json',
-  'Accept': 'application/json'
-}
-
-r = requests.get('http://api.agentivity.com/TicketsIssued/user', params={
-
-}, headers = headers)
-
-print r.json()
-
-```
-
-```java
-URL obj = new URL("http://api.agentivity.com/TicketsIssued/user");
-HttpURLConnection con = (HttpURLConnection) obj.openConnection();
-con.setRequestMethod("GET");
-int responseCode = con.getResponseCode();
-BufferedReader in = new BufferedReader(
-    new InputStreamReader(con.getInputStream()));
-String inputLine;
-StringBuffer response = new StringBuffer();
-while ((inputLine = in.readLine()) != null) {
-    response.append(inputLine);
-}
-in.close();
-System.out.println(response.toString());
-
-```
-
-`GET /TicketsIssued/user`
-
-<h3 id="getticketsissueduser_get-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|Offset|query|string|false|Starting Record|
-|Limit|query|string|false|Number of records to return (PageSize)|
-|TotalRecords|query|string(int32)|false|Total Number of Records in a Full Reponse (if no paging)|
-|ResponseRecords|query|string(int32)|false|Total NUmber of Records in this Reponse (on this page)|
-|Accept|header|string|true|Accept Header|
-
-#### Enumerated Values
-
-|Parameter|Value|
-|---|---|
-|Accept|application/json|
-
-
-
-> Default Response
-
-```json
-{
-  "ResponseMetadata": {
-    "Success": true,
-    "HasCache": true,
-    "HasPaging": true,
-    "CacheMetadata": {
-      "IsFromCache": true,
-      "CachedAt": "2019-03-18T11:42:49Z",
-      "CacheExpiresAt": "2019-03-18T11:42:49Z"
-    },
-    "PagingMetadata": {
-      "Limit": "string",
-      "Offset": "string",
-      "ResponseRecords": "string",
-      "TotalRecords": "string"
-    }
-  },
-  "ResponseReport": [
-    {
-      "RecordLocator": "string",
-      "TktNumber": "string",
-      "FOP": "string",
-      "Passenger": "string",
-      "Consultant": "string",
-      "RemarkText": "string",
-      "AirlineCode": "string",
-      "TravAgntID": "string",
-      "PCC": "string",
-      "PrintedCurrency": "string",
-      "FOPFare": "string",
-      "Date": "2019-03-18T11:42:49Z",
-      "DueDate": "2019-03-18T11:42:49Z"
-    }
-  ],
-  "ResponseError": {
-    "ErrorCode": "string",
-    "Message": "string",
-    "StatusCode": "string",
-    "VerboseMessage": "string"
-  }
-}
-```
-
-<h3 id="getticketsissueduser_get-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|default|Default|Default response|[TicketsIssuedResponse](#schematicketsissuedresponse)|
-
-
-
-<h1 id="agentivity-api-ticketsissuedbynumber">TicketsIssuedByNumber</h1>
-
-## GetTicketsIssuedByNumberuser_Get
-
-<a id="opIdGetTicketsIssuedByNumberuser_Get"></a>
-
-> Code samples
-
-```shell
-# You can also use wget
-curl -X GET http://api.agentivity.com/TicketsIssuedByNumber/user \
-  -H 'Accept: application/json' \
-  -H 'Accept: application/json'
-
-```
-
-```javascript
-var headers = {
-  'Accept':'application/json',
-  'Accept':'application/json'
-
-};
-
-$.ajax({
-  url: 'http://api.agentivity.com/TicketsIssuedByNumber/user',
-  method: 'get',
-
-  headers: headers,
-  success: function(data) {
-    console.log(JSON.stringify(data));
-  }
-})
-
-```
-
-```python
-import requests
-headers = {
-  'Accept': 'application/json',
-  'Accept': 'application/json'
-}
-
-r = requests.get('http://api.agentivity.com/TicketsIssuedByNumber/user', params={
-
-}, headers = headers)
-
-print r.json()
-
-```
-
-```java
-URL obj = new URL("http://api.agentivity.com/TicketsIssuedByNumber/user");
-HttpURLConnection con = (HttpURLConnection) obj.openConnection();
-con.setRequestMethod("GET");
-int responseCode = con.getResponseCode();
-BufferedReader in = new BufferedReader(
-    new InputStreamReader(con.getInputStream()));
-String inputLine;
-StringBuffer response = new StringBuffer();
-while ((inputLine = in.readLine()) != null) {
-    response.append(inputLine);
-}
-in.close();
-System.out.println(response.toString());
-
-```
-
-`GET /TicketsIssuedByNumber/user`
-
-<h3 id="getticketsissuedbynumberuser_get-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|Offset|query|string|false|Starting Record|
-|Limit|query|string|false|Number of records to return (PageSize)|
-|TotalRecords|query|string(int32)|false|Total Number of Records in a Full Reponse (if no paging)|
-|ResponseRecords|query|string(int32)|false|Total NUmber of Records in this Reponse (on this page)|
-|Accept|header|string|true|Accept Header|
-
-#### Enumerated Values
-
-|Parameter|Value|
-|---|---|
-|Accept|application/json|
-
-
-
-> Default Response
-
-```json
-{
-  "ResponseMetadata": {
-    "Success": true,
-    "HasCache": true,
-    "HasPaging": true,
-    "CacheMetadata": {
-      "IsFromCache": true,
-      "CachedAt": "2019-03-18T11:42:49Z",
-      "CacheExpiresAt": "2019-03-18T11:42:49Z"
-    },
-    "PagingMetadata": {
-      "Limit": "string",
-      "Offset": "string",
-      "ResponseRecords": "string",
-      "TotalRecords": "string"
-    }
-  },
-  "ResponseReport": [
-    {
-      "RecordLocator": "string",
-      "TktNumber": "string",
-      "PlatingCarrier": "string",
-      "Passenger": "string",
-      "IATA": "string",
-      "OwningAgencyLocationID": "string",
-      "IssueDate": "2019-03-18T11:42:49Z",
-      "ExpirationDate": "2019-03-18T11:42:49Z",
-      "FOPFare": "string",
-      "PrintedCurrency": "string"
-    }
-  ],
-  "ResponseError": {
-    "ErrorCode": "string",
-    "Message": "string",
-    "StatusCode": "string",
-    "VerboseMessage": "string"
-  }
-}
-```
-
-<h3 id="getticketsissuedbynumberuser_get-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|default|Default|Default response|[CollectionResponse_TicketsIssuedByNumber_](#schemacollectionresponse_ticketsissuedbynumber_)|
-
-
-
-<h1 id="agentivity-api-tickettrackingfailures">tickettrackingfailures</h1>
-
-## TicketTrackingFailuresByUseruser_Get
-
-<a id="opIdTicketTrackingFailuresByUseruser_Get"></a>
-
-> Code samples
-
-```shell
-# You can also use wget
-curl -X GET http://api.agentivity.com/tickettrackingfailures/user \
-  -H 'Accept: application/json' \
-  -H 'Accept: application/json'
-
-```
-
-```javascript
-var headers = {
-  'Accept':'application/json',
-  'Accept':'application/json'
-
-};
-
-$.ajax({
-  url: 'http://api.agentivity.com/tickettrackingfailures/user',
-  method: 'get',
-
-  headers: headers,
-  success: function(data) {
-    console.log(JSON.stringify(data));
-  }
-})
-
-```
-
-```python
-import requests
-headers = {
-  'Accept': 'application/json',
-  'Accept': 'application/json'
-}
-
-r = requests.get('http://api.agentivity.com/tickettrackingfailures/user', params={
-
-}, headers = headers)
-
-print r.json()
-
-```
-
-```java
-URL obj = new URL("http://api.agentivity.com/tickettrackingfailures/user");
-HttpURLConnection con = (HttpURLConnection) obj.openConnection();
-con.setRequestMethod("GET");
-int responseCode = con.getResponseCode();
-BufferedReader in = new BufferedReader(
-    new InputStreamReader(con.getInputStream()));
-String inputLine;
-StringBuffer response = new StringBuffer();
-while ((inputLine = in.readLine()) != null) {
-    response.append(inputLine);
-}
-in.close();
-System.out.println(response.toString());
-
-```
-
-`GET /tickettrackingfailures/user`
-
-<h3 id="tickettrackingfailuresbyuseruser_get-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|Offset|query|string|false|Starting Record|
-|Limit|query|string|false|Number of records to return (PageSize)|
-|TotalRecords|query|string(int32)|false|Total Number of Records in a Full Reponse (if no paging)|
-|ResponseRecords|query|string(int32)|false|Total NUmber of Records in this Reponse (on this page)|
-|Accept|header|string|true|Accept Header|
-
-#### Enumerated Values
-
-|Parameter|Value|
-|---|---|
-|Accept|application/json|
-
-
-
-> Default Response
-
-```json
-{
-  "ResponseMetadata": {
-    "Success": true,
-    "HasCache": true,
-    "HasPaging": true,
-    "CacheMetadata": {
-      "IsFromCache": true,
-      "CachedAt": "2019-03-18T11:42:49Z",
-      "CacheExpiresAt": "2019-03-18T11:42:49Z"
-    },
-    "PagingMetadata": {
-      "Limit": "string",
-      "Offset": "string",
-      "ResponseRecords": "string",
-      "TotalRecords": "string"
-    }
-  },
-  "ResponseReport": {
-    "Item": {
-      "AgentivityRef": "string",
-      "RecordLocator": "string",
-      "PrimaryPax": "string",
-      "LastActionAgencyLocationID": "string",
-      "OwningAgencyLocationID": "string",
-      "Message": "string"
-    }
-  },
-  "ResponseError": {
-    "ErrorCode": "string",
-    "Message": "string",
-    "StatusCode": "string",
-    "VerboseMessage": "string"
-  }
-}
-```
-
-<h3 id="tickettrackingfailuresbyuseruser_get-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|default|Default|Default response|[TicketTrackingFailuresByUserItemResponse](#schematickettrackingfailuresbyuseritemresponse)|
-
-
-
-<h1 id="agentivity-api-totalsalescurrentmonth">TotalSalesCurrentMonth</h1>
-
-## GetTotalSalesCurrentMonth_Get
-
-<a id="opIdGetTotalSalesCurrentMonth_Get"></a>
-
-> Code samples
-
-```shell
-# You can also use wget
-curl -X GET http://api.agentivity.com/TotalSalesCurrentMonth \
-  -H 'Accept: application/json' \
-  -H 'Accept: application/json'
-
-```
-
-```javascript
-var headers = {
-  'Accept':'application/json',
-  'Accept':'application/json'
-
-};
-
-$.ajax({
-  url: 'http://api.agentivity.com/TotalSalesCurrentMonth',
-  method: 'get',
-
-  headers: headers,
-  success: function(data) {
-    console.log(JSON.stringify(data));
-  }
-})
-
-```
-
-```python
-import requests
-headers = {
-  'Accept': 'application/json',
-  'Accept': 'application/json'
-}
-
-r = requests.get('http://api.agentivity.com/TotalSalesCurrentMonth', params={
-
-}, headers = headers)
-
-print r.json()
-
-```
-
-```java
-URL obj = new URL("http://api.agentivity.com/TotalSalesCurrentMonth");
-HttpURLConnection con = (HttpURLConnection) obj.openConnection();
-con.setRequestMethod("GET");
-int responseCode = con.getResponseCode();
-BufferedReader in = new BufferedReader(
-    new InputStreamReader(con.getInputStream()));
-String inputLine;
-StringBuffer response = new StringBuffer();
-while ((inputLine = in.readLine()) != null) {
-    response.append(inputLine);
-}
-in.close();
-System.out.println(response.toString());
-
-```
-
-`GET /TotalSalesCurrentMonth`
-
-<h3 id="gettotalsalescurrentmonth_get-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|Offset|query|string|false|Starting Record|
-|Limit|query|string|false|Number of records to return (PageSize)|
-|TotalRecords|query|string(int32)|false|Total Number of Records in a Full Reponse (if no paging)|
-|ResponseRecords|query|string(int32)|false|Total NUmber of Records in this Reponse (on this page)|
-|Accept|header|string|true|Accept Header|
-
-#### Enumerated Values
-
-|Parameter|Value|
-|---|---|
-|Accept|application/json|
-
-
-
-> Default Response
-
-```json
-{
-  "ResponseMetadata": {
-    "Success": true,
-    "HasCache": true,
-    "HasPaging": true,
-    "CacheMetadata": {
-      "IsFromCache": true,
-      "CachedAt": "2019-03-18T11:42:49Z",
-      "CacheExpiresAt": "2019-03-18T11:42:49Z"
-    },
-    "PagingMetadata": {
-      "Limit": "string",
-      "Offset": "string",
-      "ResponseRecords": "string",
-      "TotalRecords": "string"
-    }
-  },
-  "ResponseReport": {
-    "Item": {
-      "Total": 0
-    }
-  },
-  "ResponseError": {
-    "ErrorCode": "string",
-    "Message": "string",
-    "StatusCode": "string",
-    "VerboseMessage": "string"
-  }
-}
-```
-
-<h3 id="gettotalsalescurrentmonth_get-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|default|Default|Default response|[TotalSalesCurrentMonthItemResponse](#schematotalsalescurrentmonthitemresponse)|
 
 
 
@@ -28143,149 +27033,7 @@ System.out.println(response.toString());
 
 
 
-<h1 id="agentivity-api-user">user</h1>
 
-## TicketCouponsIssuedByUserticketcouponsissued_Get
-
-<a id="opIdTicketCouponsIssuedByUserticketcouponsissued_Get"></a>
-
-> Code samples
-
-```shell
-# You can also use wget
-curl -X GET http://api.agentivity.com/user/ticketcouponsissued \
-  -H 'Accept: application/json' \
-  -H 'Accept: application/json'
-
-```
-
-```javascript
-var headers = {
-  'Accept':'application/json',
-  'Accept':'application/json'
-
-};
-
-$.ajax({
-  url: 'http://api.agentivity.com/user/ticketcouponsissued',
-  method: 'get',
-
-  headers: headers,
-  success: function(data) {
-    console.log(JSON.stringify(data));
-  }
-})
-
-```
-
-```python
-import requests
-headers = {
-  'Accept': 'application/json',
-  'Accept': 'application/json'
-}
-
-r = requests.get('http://api.agentivity.com/user/ticketcouponsissued', params={
-
-}, headers = headers)
-
-print r.json()
-
-```
-
-```java
-URL obj = new URL("http://api.agentivity.com/user/ticketcouponsissued");
-HttpURLConnection con = (HttpURLConnection) obj.openConnection();
-con.setRequestMethod("GET");
-int responseCode = con.getResponseCode();
-BufferedReader in = new BufferedReader(
-    new InputStreamReader(con.getInputStream()));
-String inputLine;
-StringBuffer response = new StringBuffer();
-while ((inputLine = in.readLine()) != null) {
-    response.append(inputLine);
-}
-in.close();
-System.out.println(response.toString());
-
-```
-
-`GET /user/ticketcouponsissued`
-
-<h3 id="ticketcouponsissuedbyuserticketcouponsissued_get-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|Offset|query|string|false|Starting Record|
-|Limit|query|string|false|Number of records to return (PageSize)|
-|TotalRecords|query|string(int32)|false|Total Number of Records in a Full Reponse (if no paging)|
-|ResponseRecords|query|string(int32)|false|Total NUmber of Records in this Reponse (on this page)|
-|Accept|header|string|true|Accept Header|
-
-#### Enumerated Values
-
-|Parameter|Value|
-|---|---|
-|Accept|application/json|
-
-
-
-> Default Response
-
-```json
-{
-  "ResponseMetadata": {
-    "Success": true,
-    "HasCache": true,
-    "HasPaging": true,
-    "CacheMetadata": {
-      "IsFromCache": true,
-      "CachedAt": "2019-03-18T11:42:49Z",
-      "CacheExpiresAt": "2019-03-18T11:42:49Z"
-    },
-    "PagingMetadata": {
-      "Limit": "string",
-      "Offset": "string",
-      "ResponseRecords": "string",
-      "TotalRecords": "string"
-    }
-  },
-  "ResponseReport": {
-    "Item": {
-      "RecordLocator": "string",
-      "PNRCreationDate": "2019-03-18T11:42:49Z",
-      "TktNumber": "string",
-      "Passenger": "string",
-      "VendorIssueDate": "2019-03-18T11:42:49Z",
-      "FOP": "string",
-      "FOPCurrncy": "string",
-      "FOPFare": "string",
-      "CouponSequenceNbr": "string",
-      "FlightDate": "2019-03-18T11:42:49Z",
-      "Routing": "string",
-      "FlightServiceClass": "string",
-      "FareBasis": "string",
-      "Carrier": "string",
-      "Account": "string",
-      "OwningAgencyLocationID": "string",
-      "FlightCouponStatus": "string",
-      "DateLastChecked": "2019-03-18T11:42:49Z"
-    }
-  },
-  "ResponseError": {
-    "ErrorCode": "string",
-    "Message": "string",
-    "StatusCode": "string",
-    "VerboseMessage": "string"
-  }
-}
-```
-
-<h3 id="ticketcouponsissuedbyuserticketcouponsissued_get-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|default|Default|Default response|[TicketCouponsIssuedByUserItemResponse](#schematicketcouponsissuedbyuseritemresponse)|
 
 
 
@@ -30745,141 +29493,7 @@ System.out.println(response.toString());
 
 
 
-<h1 id="agentivity-api-userspccsmapping">UsersPCCsMapping</h1>
 
-## UsersPCCsMapping_Get
-
-<a id="opIdUsersPCCsMapping_Get"></a>
-
-> Code samples
-
-```shell
-# You can also use wget
-curl -X GET http://api.agentivity.com/UsersPCCsMapping \
-  -H 'Accept: application/json' \
-  -H 'Accept: application/json'
-
-```
-
-```javascript
-var headers = {
-  'Accept':'application/json',
-  'Accept':'application/json'
-
-};
-
-$.ajax({
-  url: 'http://api.agentivity.com/UsersPCCsMapping',
-  method: 'get',
-
-  headers: headers,
-  success: function(data) {
-    console.log(JSON.stringify(data));
-  }
-})
-
-```
-
-```python
-import requests
-headers = {
-  'Accept': 'application/json',
-  'Accept': 'application/json'
-}
-
-r = requests.get('http://api.agentivity.com/UsersPCCsMapping', params={
-
-}, headers = headers)
-
-print r.json()
-
-```
-
-```java
-URL obj = new URL("http://api.agentivity.com/UsersPCCsMapping");
-HttpURLConnection con = (HttpURLConnection) obj.openConnection();
-con.setRequestMethod("GET");
-int responseCode = con.getResponseCode();
-BufferedReader in = new BufferedReader(
-    new InputStreamReader(con.getInputStream()));
-String inputLine;
-StringBuffer response = new StringBuffer();
-while ((inputLine = in.readLine()) != null) {
-    response.append(inputLine);
-}
-in.close();
-System.out.println(response.toString());
-
-```
-
-`GET /UsersPCCsMapping`
-
-<h3 id="userspccsmapping_get-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|Offset|query|string|false|Starting Record|
-|Limit|query|string|false|Number of records to return (PageSize)|
-|TotalRecords|query|string(int32)|false|Total Number of Records in a Full Reponse (if no paging)|
-|ResponseRecords|query|string(int32)|false|Total NUmber of Records in this Reponse (on this page)|
-|Accept|header|string|true|Accept Header|
-
-#### Enumerated Values
-
-|Parameter|Value|
-|---|---|
-|Accept|application/json|
-
-
-
-> Default Response
-
-```json
-{
-  "ResponseMetadata": {
-    "Success": true,
-    "HasCache": true,
-    "HasPaging": true,
-    "CacheMetadata": {
-      "IsFromCache": true,
-      "CachedAt": "2019-03-18T11:42:49Z",
-      "CacheExpiresAt": "2019-03-18T11:42:49Z"
-    },
-    "PagingMetadata": {
-      "Limit": "string",
-      "Offset": "string",
-      "ResponseRecords": "string",
-      "TotalRecords": "string"
-    }
-  },
-  "ResponseReport": {
-    "Item": {
-      "UserID": 0,
-      "UserName": "string",
-      "LastName": "string",
-      "FirstName": "string",
-      "LocationCountryCode": "string",
-      "LocationCountryName": "string",
-      "LastLogin": "2019-03-18T11:42:49Z",
-      "PCCList": "string",
-      "IsUserActive": true,
-      "IsDeleted": true
-    }
-  },
-  "ResponseError": {
-    "ErrorCode": "string",
-    "Message": "string",
-    "StatusCode": "string",
-    "VerboseMessage": "string"
-  }
-}
-```
-
-<h3 id="userspccsmapping_get-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|default|Default|Default response|[UsersPCCsMappingItemResponse](#schemauserspccsmappingitemresponse)|
 
 
 
